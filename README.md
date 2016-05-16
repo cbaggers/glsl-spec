@@ -1,2 +1,3 @@
-# glsl-spec
-The GLSL spec as a datastructure
+# GLSL Spec
+
+This pacakge contains the specification of all functions and variables from GLSL as data.
