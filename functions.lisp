@@ -1,2633 +1,973 @@
 (in-package #:glsl-spec)
 
 (defparameter *functions*
-  '((:NAME "EmitStreamVertex" :RETURN "void" :ARGS (("stream" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "EmitVertex" :RETURN "void" :ARGS NIL :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "EndPrimitive" :RETURN "void" :ARGS NIL :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "EndStreamPrimitive" :RETURN "void" :ARGS (("stream" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "acos" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "acos" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "acos" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "acos" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "acosh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "acosh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "acosh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "acosh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "all" :RETURN "bool" :ARGS (("x" "bvec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "all" :RETURN "bool" :ARGS (("x" "bvec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "all" :RETURN "bool" :ARGS (("x" "bvec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "any" :RETURN "bool" :ARGS (("x" "bvec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "any" :RETURN "bool" :ARGS (("x" "bvec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "any" :RETURN "bool" :ARGS (("x" "bvec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "asin" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "asin" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "asin" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "asin" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "asinh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "asinh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "asinh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "asinh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "atan" :RETURN "vec4" :ARGS (("y" "vec4") ("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "atan" :RETURN "vec3" :ARGS (("y" "vec3") ("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "atan" :RETURN "vec2" :ARGS (("y" "vec2") ("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "atan" :RETURN "float" :ARGS (("y" "float") ("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "atanh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "atanh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "atanh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "atanh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "atomicCounter" :RETURN "uint" :ARGS (("c" "atomic_uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "atomicCounterDecrement" :RETURN "uint" :ARGS (("c" "atomic_uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "atomicCounterIncrement" :RETURN "uint" :ARGS (("c" "atomic_uint"))
-     :VERSIONS (420 430 440 450))
+  '((:NAME "EmitStreamVertex" :RETURN "void" :ARGS (("stream" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "EmitVertex" :RETURN "void" :ARGS NIL :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "EndPrimitive" :RETURN "void" :ARGS NIL :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "EndStreamPrimitive" :RETURN "void" :ARGS (("stream" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "acos" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "acos" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "acos" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "acos" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "acosh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "acosh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "acosh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "acosh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "all" :RETURN "bool" :ARGS (("x" "bvec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "all" :RETURN "bool" :ARGS (("x" "bvec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "all" :RETURN "bool" :ARGS (("x" "bvec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "any" :RETURN "bool" :ARGS (("x" "bvec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "any" :RETURN "bool" :ARGS (("x" "bvec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "any" :RETURN "bool" :ARGS (("x" "bvec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "asin" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "asin" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "asin" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "asin" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "asinh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "asinh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "asinh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "asinh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "atan" :RETURN "vec4" :ARGS (("y" "vec4") ("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "atan" :RETURN "vec3" :ARGS (("y" "vec3") ("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "atan" :RETURN "vec2" :ARGS (("y" "vec2") ("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "atan" :RETURN "float" :ARGS (("y" "float") ("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "atanh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "atanh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "atanh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "atanh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "atomicCounter" :RETURN "uint" :ARGS (("c" "atomic_uint")) :VERSIONS (420 430 440 450))
+    (:NAME "atomicCounterDecrement" :RETURN "uint" :ARGS (("c" "atomic_uint")) :VERSIONS (420 430 440 450))
+    (:NAME "atomicCounterIncrement" :RETURN "uint" :ARGS (("c" "atomic_uint")) :VERSIONS (420 430 440 450))
     (:NAME "barrier" :RETURN "void" :ARGS NIL :VERSIONS (400 410 420 430 440 450))
-    (:NAME "bitCount" :RETURN "ivec4" :ARGS (("value" "ivec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitCount" :RETURN "ivec3" :ARGS (("value" "ivec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitCount" :RETURN "ivec2" :ARGS (("value" "ivec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitCount" :RETURN "int" :ARGS (("value" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitCount" :RETURN "int" :ARGS (("value" "uint")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitCount" :RETURN "ivec2" :ARGS (("value" "uvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitCount" :RETURN "ivec3" :ARGS (("value" "uvec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitCount" :RETURN "ivec4" :ARGS (("value" "uvec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldExtract" :RETURN "ivec4" :ARGS
-     (("value" "ivec4") ("offset" "int") ("bits" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldExtract" :RETURN "ivec3" :ARGS
-     (("value" "ivec3") ("offset" "int") ("bits" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldExtract" :RETURN "ivec2" :ARGS
-     (("value" "ivec2") ("offset" "int") ("bits" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldExtract" :RETURN "int" :ARGS
-     (("value" "int") ("offset" "int") ("bits" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldExtract" :RETURN "uvec4" :ARGS
-     (("value" "uvec4") ("offset" "int") ("bits" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldExtract" :RETURN "uvec3" :ARGS
-     (("value" "uvec3") ("offset" "int") ("bits" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldExtract" :RETURN "uvec2" :ARGS
-     (("value" "uvec2") ("offset" "int") ("bits" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldExtract" :RETURN "uint" :ARGS
-     (("value" "uint") ("offset" "int") ("bits" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldInsert" :RETURN "ivec4" :ARGS
-     (("base" "ivec4") ("insert" "ivec4") ("offset" "int") ("bits" "int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "bitfieldInsert" :RETURN "ivec3" :ARGS
-     (("base" "ivec3") ("insert" "ivec3") ("offset" "int") ("bits" "int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "bitfieldInsert" :RETURN "ivec2" :ARGS
-     (("base" "ivec2") ("insert" "ivec2") ("offset" "int") ("bits" "int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "bitfieldInsert" :RETURN "int" :ARGS
-     (("base" "int") ("insert" "int") ("offset" "int") ("bits" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldInsert" :RETURN "uvec4" :ARGS
-     (("base" "uvec4") ("insert" "uvec4") ("offset" "int") ("bits" "int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "bitfieldInsert" :RETURN "uvec3" :ARGS
-     (("base" "uvec3") ("insert" "uvec3") ("offset" "int") ("bits" "int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "bitfieldInsert" :RETURN "uvec2" :ARGS
-     (("base" "uvec2") ("insert" "uvec2") ("offset" "int") ("bits" "int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "bitfieldInsert" :RETURN "uint" :ARGS
-     (("base" "uint") ("insert" "uint") ("offset" "int") ("bits" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldReverse" :RETURN "ivec4" :ARGS (("value" "ivec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldReverse" :RETURN "ivec3" :ARGS (("value" "ivec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldReverse" :RETURN "ivec2" :ARGS (("value" "ivec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldReverse" :RETURN "int" :ARGS (("value" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldReverse" :RETURN "uvec4" :ARGS (("value" "uvec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldReverse" :RETURN "uvec3" :ARGS (("value" "uvec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldReverse" :RETURN "uvec2" :ARGS (("value" "uvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "bitfieldReverse" :RETURN "uint" :ARGS (("value" "uint")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "cos" :RETURN "vec4" :ARGS (("angle" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "cos" :RETURN "vec3" :ARGS (("angle" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "cos" :RETURN "vec2" :ARGS (("angle" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "cos" :RETURN "float" :ARGS (("angle" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "cosh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "cosh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "cosh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "cosh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "degrees" :RETURN "vec4" :ARGS (("radians" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "degrees" :RETURN "vec3" :ARGS (("radians" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "degrees" :RETURN "vec2" :ARGS (("radians" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "degrees" :RETURN "float" :ARGS (("radians" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "equal" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "equal" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "equal" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "equal" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "equal" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "equal" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "equal" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "equal" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "equal" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "exp" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "exp" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "exp" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "exp" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "exp2" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "exp2" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "exp2" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "exp2" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "findLSB" :RETURN "ivec4" :ARGS (("value" "ivec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findLSB" :RETURN "ivec3" :ARGS (("value" "ivec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findLSB" :RETURN "ivec2" :ARGS (("value" "ivec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findLSB" :RETURN "int" :ARGS (("value" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findLSB" :RETURN "int" :ARGS (("value" "uint")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findLSB" :RETURN "ivec2" :ARGS (("value" "uvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findLSB" :RETURN "ivec3" :ARGS (("value" "uvec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findLSB" :RETURN "ivec4" :ARGS (("value" "uvec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findMSB" :RETURN "ivec4" :ARGS (("value" "ivec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findMSB" :RETURN "ivec3" :ARGS (("value" "ivec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findMSB" :RETURN "ivec2" :ARGS (("value" "ivec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findMSB" :RETURN "int" :ARGS (("value" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findMSB" :RETURN "int" :ARGS (("value" "uint")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findMSB" :RETURN "ivec2" :ARGS (("value" "uvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findMSB" :RETURN "ivec3" :ARGS (("value" "uvec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "findMSB" :RETURN "ivec4" :ARGS (("value" "uvec4")) :VERSIONS
-     (400 410 420 430 440 450))
+    (:NAME "bitCount" :RETURN "ivec4" :ARGS (("value" "ivec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitCount" :RETURN "ivec3" :ARGS (("value" "ivec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitCount" :RETURN "ivec2" :ARGS (("value" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitCount" :RETURN "int" :ARGS (("value" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitCount" :RETURN "int" :ARGS (("value" "uint")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitCount" :RETURN "ivec2" :ARGS (("value" "uvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitCount" :RETURN "ivec3" :ARGS (("value" "uvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitCount" :RETURN "ivec4" :ARGS (("value" "uvec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldExtract" :RETURN "ivec4" :ARGS (("value" "ivec4") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldExtract" :RETURN "ivec3" :ARGS (("value" "ivec3") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldExtract" :RETURN "ivec2" :ARGS (("value" "ivec2") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldExtract" :RETURN "int" :ARGS (("value" "int") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldExtract" :RETURN "uvec4" :ARGS (("value" "uvec4") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldExtract" :RETURN "uvec3" :ARGS (("value" "uvec3") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldExtract" :RETURN "uvec2" :ARGS (("value" "uvec2") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldExtract" :RETURN "uint" :ARGS (("value" "uint") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldInsert" :RETURN "ivec4" :ARGS (("base" "ivec4") ("insert" "ivec4") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldInsert" :RETURN "ivec3" :ARGS (("base" "ivec3") ("insert" "ivec3") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldInsert" :RETURN "ivec2" :ARGS (("base" "ivec2") ("insert" "ivec2") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldInsert" :RETURN "int" :ARGS (("base" "int") ("insert" "int") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldInsert" :RETURN "uvec4" :ARGS (("base" "uvec4") ("insert" "uvec4") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldInsert" :RETURN "uvec3" :ARGS (("base" "uvec3") ("insert" "uvec3") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldInsert" :RETURN "uvec2" :ARGS (("base" "uvec2") ("insert" "uvec2") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldInsert" :RETURN "uint" :ARGS (("base" "uint") ("insert" "uint") ("offset" "int") ("bits" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldReverse" :RETURN "ivec4" :ARGS (("value" "ivec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldReverse" :RETURN "ivec3" :ARGS (("value" "ivec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldReverse" :RETURN "ivec2" :ARGS (("value" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldReverse" :RETURN "int" :ARGS (("value" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldReverse" :RETURN "uvec4" :ARGS (("value" "uvec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldReverse" :RETURN "uvec3" :ARGS (("value" "uvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldReverse" :RETURN "uvec2" :ARGS (("value" "uvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "bitfieldReverse" :RETURN "uint" :ARGS (("value" "uint")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "cos" :RETURN "vec4" :ARGS (("angle" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "cos" :RETURN "vec3" :ARGS (("angle" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "cos" :RETURN "vec2" :ARGS (("angle" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "cos" :RETURN "float" :ARGS (("angle" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "cosh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "cosh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "cosh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "cosh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "degrees" :RETURN "vec4" :ARGS (("radians" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "degrees" :RETURN "vec3" :ARGS (("radians" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "degrees" :RETURN "vec2" :ARGS (("radians" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "degrees" :RETURN "float" :ARGS (("radians" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "equal" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "equal" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "equal" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "equal" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "equal" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "equal" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "equal" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "equal" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "equal" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "exp" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "exp" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "exp" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "exp" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "exp2" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "exp2" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "exp2" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "exp2" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "findLSB" :RETURN "ivec4" :ARGS (("value" "ivec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findLSB" :RETURN "ivec3" :ARGS (("value" "ivec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findLSB" :RETURN "ivec2" :ARGS (("value" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findLSB" :RETURN "int" :ARGS (("value" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findLSB" :RETURN "int" :ARGS (("value" "uint")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findLSB" :RETURN "ivec2" :ARGS (("value" "uvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findLSB" :RETURN "ivec3" :ARGS (("value" "uvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findLSB" :RETURN "ivec4" :ARGS (("value" "uvec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findMSB" :RETURN "ivec4" :ARGS (("value" "ivec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findMSB" :RETURN "ivec3" :ARGS (("value" "ivec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findMSB" :RETURN "ivec2" :ARGS (("value" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findMSB" :RETURN "int" :ARGS (("value" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findMSB" :RETURN "int" :ARGS (("value" "uint")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findMSB" :RETURN "ivec2" :ARGS (("value" "uvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findMSB" :RETURN "ivec3" :ARGS (("value" "uvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "findMSB" :RETURN "ivec4" :ARGS (("value" "uvec4")) :VERSIONS (400 410 420 430 440 450))
     (:NAME "groupMemoryBarrier" :RETURN "void" :ARGS NIL :VERSIONS (430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "uimage1D") ("P" "int") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "iimage1D") ("P" "int") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "image1D") ("P" "int") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "bufferImage") ("P" "int") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("compare" "uint")
-      ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("compare" "uint")
-      ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("compare" "uint")
-      ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("compare" "uint")
-      ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("compare" "uint")
-      ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int")
-      ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int")
-      ("compare" "uint") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("compare" "uint")
-      ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "uimage1D") ("P" "int") ("compare" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "iimage1D") ("P" "int") ("compare" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "image1D") ("P" "int") ("compare" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "bufferImage") ("P" "int") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("compare" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("compare" "int")
-      ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("compare" "int")
-      ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("compare" "int")
-      ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("compare" "int")
-      ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("compare" "int")
-      ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("compare" "int")
-      ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMax" :RETURN "int" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicMin" :RETURN "int" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicOr" :RETURN "int" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicXor" :RETURN "int" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "image1D") ("P" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "image2D") ("P" "ivec2"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "image3D") ("P" "ivec3"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "vec4" :ARGS
-     (("image" "image2DRect") ("P" "ivec2")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "imageCube") ("P" "ivec3"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "bufferImage") ("P" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "vec4" :ARGS
-     (("image" "image1DArray") ("P" "ivec2")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "vec4" :ARGS
-     (("image" "image2DArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "vec4" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "vec4" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "vec4" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimage1D") ("P" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimage2D") ("P" "ivec2"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimage3D") ("P" "ivec3"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "ivec4" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "ivec4" :ARGS
-     (("image" "iimageCube") ("P" "ivec3")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "ivec4" :ARGS
-     (("image" "ibufferImage") ("P" "int")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "ivec4" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "ivec4" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "ivec4" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "ivec4" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "ivec4" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimage1D") ("P" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimage2D") ("P" "ivec2"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimage3D") ("P" "ivec3"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "uvec4" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "uvec4" :ARGS
-     (("image" "uimageCube") ("P" "ivec3")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "uvec4" :ARGS
-     (("image" "ubufferImage") ("P" "int")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "uvec4" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "uvec4" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "uvec4" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "uvec4" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageLoad" :RETURN "uvec4" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "uimage2DMS")) :VERSIONS
-     (450))
-    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "iimage2DMS")) :VERSIONS
-     (450))
-    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "image2DMS")) :VERSIONS
-     (450))
-    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "uimage2DMSArray"))
-     :VERSIONS (450))
-    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "iimage2DMSArray"))
-     :VERSIONS (450))
-    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "image2DMSArray"))
-     :VERSIONS (450))
-    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "uimage1D")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "iimage1D")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "image1D")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "uimage2D")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "iimage2D")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "image2D")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "uimage3D")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "iimage3D")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "image3D")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "uimageCube")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "iimageCube")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "imageCube")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "uimageCubeArray"))
-     :VERSIONS (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "iimageCubeArray"))
-     :VERSIONS (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "imageCubeArray"))
-     :VERSIONS (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "uimageRect")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "iimageRect")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "imageRect")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "uimage1DArray")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "iimage1DArray")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "image1DArray")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "uimage2DArray")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "iimage2DArray")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "image2DArray")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "uimageBuffer")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "iimageBuffer")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "imageBuffer")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "uimage2DMS")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "iimage2DMS")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "image2DMS")) :VERSIONS
-     (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "uimage2DMSArray"))
-     :VERSIONS (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "iimage2DMSArray"))
-     :VERSIONS (430 440 450))
-    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "image2DMSArray"))
-     :VERSIONS (430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "vec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "vec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "vec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "vec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "vec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "vec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "ivec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "ivec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "ivec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "ivec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "ivec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "ivec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uvec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uvec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uvec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uvec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uvec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageStore" :RETURN "void" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uvec4"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "intBitsToFloat" :RETURN "float" :ARGS (("x" "int")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "intBitsToFloat" :RETURN "vec2" :ARGS (("x" "ivec2")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "intBitsToFloat" :RETURN "vec3" :ARGS (("x" "ivec3")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "intBitsToFloat" :RETURN "vec4" :ARGS (("x" "ivec4")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "uintBitsToFloat" :RETURN "float" :ARGS (("x" "uint")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "uintBitsToFloat" :RETURN "vec2" :ARGS (("x" "uvec2")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "uintBitsToFloat" :RETURN "vec3" :ARGS (("x" "uvec3")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "uintBitsToFloat" :RETURN "vec4" :ARGS (("x" "uvec4")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "interpolateAtCentroid" :RETURN "float" :ARGS (("interpolant" "float"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "interpolateAtCentroid" :RETURN "vec2" :ARGS (("interpolant" "vec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "interpolateAtCentroid" :RETURN "vec3" :ARGS (("interpolant" "vec3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "interpolateAtCentroid" :RETURN "vec4" :ARGS (("interpolant" "vec4"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "interpolateAtOffset" :RETURN "float" :ARGS
-     (("interpolant" "float") ("offset" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "interpolateAtOffset" :RETURN "vec2" :ARGS
-     (("interpolant" "vec2") ("offset" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "interpolateAtOffset" :RETURN "vec3" :ARGS
-     (("interpolant" "vec3") ("offset" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "interpolateAtOffset" :RETURN "vec4" :ARGS
-     (("interpolant" "vec4") ("offset" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "interpolateAtSample" :RETURN "float" :ARGS
-     (("interpolant" "float") ("sample" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "interpolateAtSample" :RETURN "vec2" :ARGS
-     (("interpolant" "vec2") ("sample" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "interpolateAtSample" :RETURN "vec3" :ARGS
-     (("interpolant" "vec3") ("sample" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "interpolateAtSample" :RETURN "vec4" :ARGS
-     (("interpolant" "vec4") ("sample" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "log" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "log" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "log" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "log" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "log2" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "log2" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "log2" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "log2" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "memoryBarrier" :RETURN "uint" :ARGS NIL :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "memoryBarrierAtomicCounter" :RETURN "void" :ARGS NIL :VERSIONS
-     (430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "uint" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAdd" :RETURN "int" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "uint" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicAnd" :RETURN "int" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "uimage1D") ("P" "int") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "iimage1D") ("P" "int") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "image1D") ("P" "int") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "uimage2D") ("P" "ivec2") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "iimage2D") ("P" "ivec2") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "image2D") ("P" "ivec2") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "uimage3D") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "iimage3D") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "image3D") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "image2DRect") ("P" "ivec2") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "uimageCube") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "iimageCube") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "imageCube") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "bufferImage") ("P" "int") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "image1DArray") ("P" "ivec2") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "image2DArray") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "uint" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("compare" "uint") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "uimage1D") ("P" "int") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "iimage1D") ("P" "int") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "image1D") ("P" "int") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "uimage2D") ("P" "ivec2") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "iimage2D") ("P" "ivec2") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "image2D") ("P" "ivec2") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "uimage3D") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "iimage3D") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "image3D") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "image2DRect") ("P" "ivec2") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "uimageCube") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "iimageCube") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "imageCube") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "bufferImage") ("P" "int") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "image1DArray") ("P" "ivec2") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "image2DArray") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicCompSwap" :RETURN "int" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("compare" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "uint" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMax" :RETURN "int" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "uint" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicMin" :RETURN "int" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "uint" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicOr" :RETURN "int" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "uint" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicXor" :RETURN "int" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "image1D") ("P" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "image2D") ("P" "ivec2")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "image3D") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "image2DRect") ("P" "ivec2")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "imageCube") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "bufferImage") ("P" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "image1DArray") ("P" "ivec2")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "image2DArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "imageCubeArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "vec4" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimage1D") ("P" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimage2D") ("P" "ivec2")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimage3D") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimage2DRect") ("P" "ivec2")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimageCube") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "ibufferImage") ("P" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimage1DArray") ("P" "ivec2")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimage2DArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimageCubeArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "ivec4" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimage1D") ("P" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimage2D") ("P" "ivec2")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimage3D") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimage2DRect") ("P" "ivec2")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimageCube") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "ubufferImage") ("P" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimage1DArray") ("P" "ivec2")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimage2DArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimageCubeArray") ("P" "ivec3")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageLoad" :RETURN "uvec4" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "uimage2DMS")) :VERSIONS (450))
+    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "iimage2DMS")) :VERSIONS (450))
+    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "image2DMS")) :VERSIONS (450))
+    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "uimage2DMSArray")) :VERSIONS (450))
+    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "iimage2DMSArray")) :VERSIONS (450))
+    (:NAME "imageSamples" :RETURN "int" :ARGS (("image" "image2DMSArray")) :VERSIONS (450))
+    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "uimage1D")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "iimage1D")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "image1D")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "uimage2D")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "iimage2D")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "image2D")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "uimage3D")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "iimage3D")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "image3D")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "uimageCube")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "iimageCube")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "imageCube")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "uimageCubeArray")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "iimageCubeArray")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "imageCubeArray")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "uimageRect")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "iimageRect")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "imageRect")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "uimage1DArray")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "iimage1DArray")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "image1DArray")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "uimage2DArray")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "iimage2DArray")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "image2DArray")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "uimageBuffer")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "iimageBuffer")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "int" :ARGS (("image" "imageBuffer")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "uimage2DMS")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "iimage2DMS")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec2" :ARGS (("image" "image2DMS")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "uimage2DMSArray")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "iimage2DMSArray")) :VERSIONS (430 440 450))
+    (:NAME "imageSize" :RETURN "ivec3" :ARGS (("image" "image2DMSArray")) :VERSIONS (430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage1D") ("P" "int") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage1D") ("P" "int") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image1D") ("P" "int") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "bufferImage") ("P" "int") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "vec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage1D") ("P" "int") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage1D") ("P" "int") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image1D") ("P" "int") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "bufferImage") ("P" "int") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "ivec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage1D") ("P" "int") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage1D") ("P" "int") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image1D") ("P" "int") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "bufferImage") ("P" "int") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "imageStore" :RETURN "void" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uvec4")) :VERSIONS (420 430 440 450))
+    (:NAME "intBitsToFloat" :RETURN "float" :ARGS (("x" "int")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "intBitsToFloat" :RETURN "vec2" :ARGS (("x" "ivec2")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "intBitsToFloat" :RETURN "vec3" :ARGS (("x" "ivec3")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "intBitsToFloat" :RETURN "vec4" :ARGS (("x" "ivec4")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "uintBitsToFloat" :RETURN "float" :ARGS (("x" "uint")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "uintBitsToFloat" :RETURN "vec2" :ARGS (("x" "uvec2")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "uintBitsToFloat" :RETURN "vec3" :ARGS (("x" "uvec3")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "uintBitsToFloat" :RETURN "vec4" :ARGS (("x" "uvec4")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "interpolateAtCentroid" :RETURN "float" :ARGS (("interpolant" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "interpolateAtCentroid" :RETURN "vec2" :ARGS (("interpolant" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "interpolateAtCentroid" :RETURN "vec3" :ARGS (("interpolant" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "interpolateAtCentroid" :RETURN "vec4" :ARGS (("interpolant" "vec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "interpolateAtOffset" :RETURN "float" :ARGS (("interpolant" "float") ("offset" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "interpolateAtOffset" :RETURN "vec2" :ARGS (("interpolant" "vec2") ("offset" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "interpolateAtOffset" :RETURN "vec3" :ARGS (("interpolant" "vec3") ("offset" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "interpolateAtOffset" :RETURN "vec4" :ARGS (("interpolant" "vec4") ("offset" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "interpolateAtSample" :RETURN "float" :ARGS (("interpolant" "float") ("sample" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "interpolateAtSample" :RETURN "vec2" :ARGS (("interpolant" "vec2") ("sample" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "interpolateAtSample" :RETURN "vec3" :ARGS (("interpolant" "vec3") ("sample" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "interpolateAtSample" :RETURN "vec4" :ARGS (("interpolant" "vec4") ("sample" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "log" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "log" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "log" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "log" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "log2" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "log2" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "log2" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "log2" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "memoryBarrier" :RETURN "uint" :ARGS NIL :VERSIONS (400 410 420 430 440 450))
+    (:NAME "memoryBarrierAtomicCounter" :RETURN "void" :ARGS NIL :VERSIONS (430 440 450))
     (:NAME "memoryBarrierBuffer" :RETURN "void" :ARGS NIL :VERSIONS (430 440 450))
     (:NAME "memoryBarrierImage" :RETURN "void" :ARGS NIL :VERSIONS (430 440 450))
     (:NAME "memoryBarrierShared" :RETURN "void" :ARGS NIL :VERSIONS (430 440 450))
-    (:NAME "not" :RETURN "bvec4" :ARGS (("x" "bvec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "not" :RETURN "bvec3" :ARGS (("x" "bvec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "not" :RETURN "bvec2" :ARGS (("x" "bvec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "packDouble2x32" :RETURN "double" :ARGS (("v" "uvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "packHalf2x16" :RETURN "uint" :ARGS (("v" "vec2")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "pow" :RETURN "vec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "pow" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "pow" :RETURN "vec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "pow" :RETURN "float" :ARGS (("x" "float") ("y" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "radians" :RETURN "vec4" :ARGS (("degrees" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "radians" :RETURN "vec3" :ARGS (("degrees" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "radians" :RETURN "vec2" :ARGS (("degrees" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "radians" :RETURN "float" :ARGS (("degrees" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sin" :RETURN "vec4" :ARGS (("angle" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sin" :RETURN "vec3" :ARGS (("angle" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sin" :RETURN "vec2" :ARGS (("angle" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sin" :RETURN "float" :ARGS (("angle" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sinh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sinh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sinh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sinh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "tan" :RETURN "vec4" :ARGS (("angle" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "tan" :RETURN "vec3" :ARGS (("angle" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "tan" :RETURN "vec2" :ARGS (("angle" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "tan" :RETURN "float" :ARGS (("angle" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "tanh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "tanh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "tanh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "tanh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec2") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec2") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec2") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DArray") ("P" "vec3") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArray") ("P" "vec3") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DArray") ("P" "vec3") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "uvec4" :ARGS
-     (("sampler" "usamplerCube") ("P" "vec3") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "vec4" :ARGS
-     (("sampler" "samplerCube") ("P" "vec3") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "ivec4" :ARGS
-     (("sampler" "isamplerCube") ("P" "vec3") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "uvec4" :ARGS
-     (("sampler" "usamplerCubeArray") ("P" "vec4") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "vec4" :ARGS
-     (("sampler" "samplerCubeArray") ("P" "vec4") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "ivec4" :ARGS
-     (("sampler" "isamplerCubeArray") ("P" "vec4") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec3") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec3") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec3") ("comp]" "[int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec2") ("refZ" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArrayShadow") ("P" "vec3") ("refZ" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "vec4" :ARGS
-     (("sampler" "samplerCubeShadow") ("P" "vec3") ("refZ" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "vec4" :ARGS
-     (("sampler" "samplerCubeArrayShadow") ("P" "vec4") ("refZ" "float"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGather" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRectShadow") ("P" "vec3") ("refZ" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec2") ("offset" "ivec2") ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec2") ("offset" "ivec2") ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec2") ("offset" "ivec2") ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DArray") ("P" "vec3") ("offset" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArray") ("P" "vec3") ("offset" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DArray") ("P" "vec3") ("offset" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec3") ("offset" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec3") ("offset" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec3") ("offset" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec2") ("refZ" "float")
-      ("offset" "ivec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArrayShadow") ("P" "vec3") ("refZ" "float")
-      ("offset" "ivec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRectShadow") ("P" "vec3") ("refZ" "float")
-      ("offset" "ivec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec2") ("offsets[4]" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec2") ("offsets[4]" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec2") ("offsets[4]" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DArray") ("P" "vec3") ("offsets[4]" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArray") ("P" "vec3") ("offsets[4]" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DArray") ("P" "vec3") ("offsets[4]" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec3") ("offsets[4]" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec3") ("offsets[4]" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec3") ("offsets[4]" "ivec2")
-      ("comp]" "[int"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec2") ("refZ" "float")
-      ("offsets[4]" "ivec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArrayShadow") ("P" "vec3") ("refZ" "float")
-      ("offsets[4]" "ivec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRectShadow") ("P" "vec3") ("refZ" "float")
-      ("offsets[4]" "ivec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec2") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec2") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec2") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLod" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec2") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec2") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec2") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec4") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec4") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec4") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec3") ("lod" "float") ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec3") ("lod" "float") ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec3") ("lod" "float") ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec4") ("lod" "float") ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec4") ("lod" "float") ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec4") ("lod" "float") ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec4") ("lod" "float") ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec4") ("lod" "float") ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec4") ("lod" "float") ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec4") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjLodOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec4") ("lod" "float")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "usampler1D"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler1D"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "isampler1D"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "usampler2D"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler2D"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "isampler2D"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "usampler3D"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler3D"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "isampler3D"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "usamplerCube"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "samplerCube"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "isamplerCube"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "usampler1DArray")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler1DArray"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "isampler1DArray")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "usampler2DArray")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler2DArray"))
-     :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "isampler2DArray")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "usamplerCubeArray")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "samplerCubeArray")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "isamplerCubeArray")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "sampler1DShadow")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "sampler2DShadow")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "samplerCubeShadow")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "sampler1DArrayShadow")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "sampler2DArrayShadow")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLevels" :RETURN "int" :ARGS
-     (("sampler" "samplerCubeArrayShadow")) :VERSIONS (430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "usampler1D") ("P" "float")) :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "sampler1D") ("P" "float")) :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "isampler1D") ("P" "float")) :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "usampler2D") ("P" "vec2")) :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "sampler2D") ("P" "vec2")) :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "isampler2D") ("P" "vec2")) :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "usampler3D") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "sampler3D") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "isampler3D") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "usamplerCube") ("P" "vec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "samplerCube") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "isamplerCube") ("P" "vec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "usampler1DArray") ("P" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "sampler1DArray") ("P" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "isampler1DArray") ("P" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "usampler2DArray") ("P" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "sampler2DArray") ("P" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "isampler2DArray") ("P" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "usamplerCubeArray") ("P" "vec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "samplerCubeArray") ("P" "vec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "isamplerCubeArray") ("P" "vec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "samplerCubeShadow") ("P" "vec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "sampler1DArrayShadow") ("P" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "sampler2DArrayShadow") ("P" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS
-     (("sampler" "samplerCubeArrayShadow") ("P" "vec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureSamples" :RETURN "int" :ARGS (("sampler" "usampler2DMS"))
-     :VERSIONS (450))
-    (:NAME "textureSamples" :RETURN "int" :ARGS (("sampler" "sampler2DMS"))
-     :VERSIONS (450))
-    (:NAME "textureSamples" :RETURN "int" :ARGS (("sampler" "isampler2DMS"))
-     :VERSIONS (450))
-    (:NAME "textureSamples" :RETURN "int" :ARGS (("sampler" "sampler2DMSArray"))
-     :VERSIONS (450))
-    (:NAME "unpackDouble2x32" :RETURN "uvec2" :ARGS (("d" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "unpackHalf2x16" :RETURN "vec2" :ARGS (("v" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "abs" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "abs" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "abs" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "abs" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "abs" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "abs" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "abs" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "abs" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "abs" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (410 420 430 440 450))
-    (:NAME "abs" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (410 420 430 440 450))
-    (:NAME "abs" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (410 420 430 440 450))
-    (:NAME "abs" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (410 420 430 440 450))
-    (:NAME "ceil" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "ceil" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "ceil" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "ceil" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "ceil" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "ceil" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "ceil" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "ceil" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec4" :ARGS
-     (("x" "vec4") ("minVal" "vec4") ("maxVal" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec3" :ARGS
-     (("x" "vec3") ("minVal" "vec3") ("maxVal" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec2" :ARGS
-     (("x" "vec2") ("minVal" "vec2") ("maxVal" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "float" :ARGS
-     (("x" "float") ("minVal" "float") ("maxVal" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec4" :ARGS
-     (("x" "vec4") ("minVal" "vec4") ("maxVal" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec3" :ARGS
-     (("x" "vec3") ("minVal" "vec3") ("maxVal" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec2" :ARGS
-     (("x" "vec2") ("minVal" "vec2") ("maxVal" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "float" :ARGS
-     (("x" "float") ("minVal" "float") ("maxVal" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec4" :ARGS
-     (("x" "vec4") ("minVal" "vec4") ("maxVal" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec3" :ARGS
-     (("x" "vec3") ("minVal" "vec3") ("maxVal" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec2" :ARGS
-     (("x" "vec2") ("minVal" "vec2") ("maxVal" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "float" :ARGS
-     (("x" "float") ("minVal" "float") ("maxVal" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec4" :ARGS
-     (("x" "vec4") ("minVal" "vec4") ("maxVal" "vec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec3" :ARGS
-     (("x" "vec3") ("minVal" "vec3") ("maxVal" "vec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "vec2" :ARGS
-     (("x" "vec2") ("minVal" "vec2") ("maxVal" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "clamp" :RETURN "float" :ARGS
-     (("x" "float") ("minVal" "float") ("maxVal" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "determinant" :RETURN "float" :ARGS (("m" "mat2")) :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "determinant" :RETURN "float" :ARGS (("m" "mat3")) :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "determinant" :RETURN "float" :ARGS (("m" "mat4")) :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "determinant" :RETURN "double" :ARGS (("m" "dmat2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "determinant" :RETURN "double" :ARGS (("m" "dmat3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "determinant" :RETURN "double" :ARGS (("m" "dmat4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "cross" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "cross" :RETURN "dvec3" :ARGS (("x" "dvec3") ("y" "dvec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "dFdx" :RETURN "vec4" :ARGS (("p" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 GLSL-SPEC::|400A| 410 420 430 440 450))
-    (:NAME "dFdx" :RETURN "vec3" :ARGS (("p" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 GLSL-SPEC::|400A| 410 420 430 440 450))
-    (:NAME "dFdx" :RETURN "vec2" :ARGS (("p" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 GLSL-SPEC::|400A| 410 420 430 440 450))
-    (:NAME "dFdx" :RETURN "float" :ARGS (("p" "float")) :VERSIONS
-     (110 120 130 140 150 330 GLSL-SPEC::|400A| 410 420 430 440 450))
-    (:NAME "dFdy" :RETURN "vec4" :ARGS (("p" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "dFdy" :RETURN "vec3" :ARGS (("p" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "dFdy" :RETURN "vec2" :ARGS (("p" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "dFdy" :RETURN "float" :ARGS (("p" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "not" :RETURN "bvec4" :ARGS (("x" "bvec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "not" :RETURN "bvec3" :ARGS (("x" "bvec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "not" :RETURN "bvec2" :ARGS (("x" "bvec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "packDouble2x32" :RETURN "double" :ARGS (("v" "uvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "packHalf2x16" :RETURN "uint" :ARGS (("v" "vec2")) :VERSIONS (420 430 440 450))
+    (:NAME "pow" :RETURN "vec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "pow" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "pow" :RETURN "vec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "pow" :RETURN "float" :ARGS (("x" "float") ("y" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "radians" :RETURN "vec4" :ARGS (("degrees" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "radians" :RETURN "vec3" :ARGS (("degrees" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "radians" :RETURN "vec2" :ARGS (("degrees" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "radians" :RETURN "float" :ARGS (("degrees" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sin" :RETURN "vec4" :ARGS (("angle" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sin" :RETURN "vec3" :ARGS (("angle" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sin" :RETURN "vec2" :ARGS (("angle" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sin" :RETURN "float" :ARGS (("angle" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sinh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sinh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sinh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sinh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "tan" :RETURN "vec4" :ARGS (("angle" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "tan" :RETURN "vec3" :ARGS (("angle" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "tan" :RETURN "vec2" :ARGS (("angle" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "tan" :RETURN "float" :ARGS (("angle" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "tanh" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "tanh" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "tanh" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "tanh" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "uvec4" :ARGS (("sampler" "usampler2DArray") ("P" "vec3") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "vec4" :ARGS (("sampler" "sampler2DArray") ("P" "vec3") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "ivec4" :ARGS (("sampler" "isampler2DArray") ("P" "vec3") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "uvec4" :ARGS (("sampler" "usamplerCube") ("P" "vec3") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "vec4" :ARGS (("sampler" "samplerCube") ("P" "vec3") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "ivec4" :ARGS (("sampler" "isamplerCube") ("P" "vec3") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "uvec4" :ARGS (("sampler" "usamplerCubeArray") ("P" "vec4") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "vec4" :ARGS (("sampler" "samplerCubeArray") ("P" "vec4") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "ivec4" :ARGS (("sampler" "isamplerCubeArray") ("P" "vec4") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec3") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec3") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec3") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "vec4" :ARGS (("sampler" "sampler2DShadow") ("P" "vec2") ("refZ" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "vec4" :ARGS (("sampler" "sampler2DArrayShadow") ("P" "vec3") ("refZ" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "vec4" :ARGS (("sampler" "samplerCubeShadow") ("P" "vec3") ("refZ" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "vec4" :ARGS (("sampler" "samplerCubeArrayShadow") ("P" "vec4") ("refZ" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGather" :RETURN "vec4" :ARGS (("sampler" "sampler2DRectShadow") ("P" "vec3") ("refZ" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec2") ("offset" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec2") ("offset" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec2") ("offset" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DArray") ("P" "vec3") ("offset" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DArray") ("P" "vec3") ("offset" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DArray") ("P" "vec3") ("offset" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec3") ("offset" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec3") ("offset" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec3") ("offset" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DShadow") ("P" "vec2") ("refZ" "float") ("offset" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DArrayShadow") ("P" "vec3") ("refZ" "float") ("offset" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DRectShadow") ("P" "vec3") ("refZ" "float") ("offset" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec2") ("offsets[4]" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec2") ("offsets[4]" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec2") ("offsets[4]" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "uvec4" :ARGS (("sampler" "usampler2DArray") ("P" "vec3") ("offsets[4]" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS (("sampler" "sampler2DArray") ("P" "vec3") ("offsets[4]" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "ivec4" :ARGS (("sampler" "isampler2DArray") ("P" "vec3") ("offsets[4]" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec3") ("offsets[4]" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec3") ("offsets[4]" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec3") ("offsets[4]" "ivec2") ("comp]" "[int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS (("sampler" "sampler2DShadow") ("P" "vec2") ("refZ" "float") ("offsets[4]" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS (("sampler" "sampler2DArrayShadow") ("P" "vec3") ("refZ" "float") ("offsets[4]" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGatherOffsets" :RETURN "vec4" :ARGS (("sampler" "sampler2DRectShadow") ("P" "vec3") ("refZ" "float") ("offsets[4]" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec2") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec2") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec2") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLod" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec2") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec2") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec2") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec4") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec4") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec4") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec3") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec3") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec3") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec4") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec4") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec4") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec4") ("lod" "float") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec4") ("lod" "float") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec4") ("lod" "float") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec4") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjLodOffset" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec4") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "usampler1D")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler1D")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "isampler1D")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "usampler2D")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler2D")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "isampler2D")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "usampler3D")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler3D")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "isampler3D")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "usamplerCube")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "samplerCube")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "isamplerCube")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "usampler1DArray")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler1DArray")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "isampler1DArray")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "usampler2DArray")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler2DArray")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "isampler2DArray")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "usamplerCubeArray")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "samplerCubeArray")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "isamplerCubeArray")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler1DShadow")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler2DShadow")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "samplerCubeShadow")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler1DArrayShadow")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "sampler2DArrayShadow")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLevels" :RETURN "int" :ARGS (("sampler" "samplerCubeArrayShadow")) :VERSIONS (430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "usampler1D") ("P" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "sampler1D") ("P" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "isampler1D") ("P" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "usampler2D") ("P" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "sampler2D") ("P" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "isampler2D") ("P" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "usampler3D") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "sampler3D") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "isampler3D") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "usamplerCube") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "samplerCube") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "isamplerCube") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "usampler1DArray") ("P" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "sampler1DArray") ("P" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "isampler1DArray") ("P" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "usampler2DArray") ("P" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "sampler2DArray") ("P" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "isampler2DArray") ("P" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "usamplerCubeArray") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "samplerCubeArray") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "isamplerCubeArray") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "sampler1DShadow") ("P" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "sampler2DShadow") ("P" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "samplerCubeShadow") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "sampler1DArrayShadow") ("P" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "sampler2DArrayShadow") ("P" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureQueryLod" :RETURN "vec2" :ARGS (("sampler" "samplerCubeArrayShadow") ("P" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureSamples" :RETURN "int" :ARGS (("sampler" "usampler2DMS")) :VERSIONS (450))
+    (:NAME "textureSamples" :RETURN "int" :ARGS (("sampler" "sampler2DMS")) :VERSIONS (450))
+    (:NAME "textureSamples" :RETURN "int" :ARGS (("sampler" "isampler2DMS")) :VERSIONS (450))
+    (:NAME "textureSamples" :RETURN "int" :ARGS (("sampler" "sampler2DMSArray")) :VERSIONS (450))
+    (:NAME "unpackDouble2x32" :RETURN "uvec2" :ARGS (("d" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "unpackHalf2x16" :RETURN "vec2" :ARGS (("v" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "abs" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "abs" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "abs" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "abs" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "abs" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "abs" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "abs" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "abs" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "abs" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (410 420 430 440 450))
+    (:NAME "abs" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (410 420 430 440 450))
+    (:NAME "abs" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (410 420 430 440 450))
+    (:NAME "abs" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (410 420 430 440 450))
+    (:NAME "ceil" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "ceil" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "ceil" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "ceil" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "ceil" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "ceil" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "ceil" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "ceil" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec4" :ARGS (("x" "vec4") ("minVal" "vec4") ("maxVal" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec3" :ARGS (("x" "vec3") ("minVal" "vec3") ("maxVal" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec2" :ARGS (("x" "vec2") ("minVal" "vec2") ("maxVal" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "float" :ARGS (("x" "float") ("minVal" "float") ("maxVal" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec4" :ARGS (("x" "vec4") ("minVal" "vec4") ("maxVal" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec3" :ARGS (("x" "vec3") ("minVal" "vec3") ("maxVal" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec2" :ARGS (("x" "vec2") ("minVal" "vec2") ("maxVal" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "float" :ARGS (("x" "float") ("minVal" "float") ("maxVal" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec4" :ARGS (("x" "vec4") ("minVal" "vec4") ("maxVal" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec3" :ARGS (("x" "vec3") ("minVal" "vec3") ("maxVal" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec2" :ARGS (("x" "vec2") ("minVal" "vec2") ("maxVal" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "float" :ARGS (("x" "float") ("minVal" "float") ("maxVal" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec4" :ARGS (("x" "vec4") ("minVal" "vec4") ("maxVal" "vec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec3" :ARGS (("x" "vec3") ("minVal" "vec3") ("maxVal" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "vec2" :ARGS (("x" "vec2") ("minVal" "vec2") ("maxVal" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "clamp" :RETURN "float" :ARGS (("x" "float") ("minVal" "float") ("maxVal" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "determinant" :RETURN "float" :ARGS (("m" "mat2")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "determinant" :RETURN "float" :ARGS (("m" "mat3")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "determinant" :RETURN "float" :ARGS (("m" "mat4")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "determinant" :RETURN "double" :ARGS (("m" "dmat2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "determinant" :RETURN "double" :ARGS (("m" "dmat3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "determinant" :RETURN "double" :ARGS (("m" "dmat4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "cross" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "cross" :RETURN "dvec3" :ARGS (("x" "dvec3") ("y" "dvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "dFdx" :RETURN "vec4" :ARGS (("p" "vec4")) :VERSIONS (110 120 130 140 150 330 GLSL-SPEC::|400A| 410 420 430 440 450))
+    (:NAME "dFdx" :RETURN "vec3" :ARGS (("p" "vec3")) :VERSIONS (110 120 130 140 150 330 GLSL-SPEC::|400A| 410 420 430 440 450))
+    (:NAME "dFdx" :RETURN "vec2" :ARGS (("p" "vec2")) :VERSIONS (110 120 130 140 150 330 GLSL-SPEC::|400A| 410 420 430 440 450))
+    (:NAME "dFdx" :RETURN "float" :ARGS (("p" "float")) :VERSIONS (110 120 130 140 150 330 GLSL-SPEC::|400A| 410 420 430 440 450))
+    (:NAME "dFdy" :RETURN "vec4" :ARGS (("p" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "dFdy" :RETURN "vec3" :ARGS (("p" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "dFdy" :RETURN "vec2" :ARGS (("p" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "dFdy" :RETURN "float" :ARGS (("p" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
     (:NAME "dFdxCoarse" :RETURN "vec4" :ARGS (("p" "vec4")) :VERSIONS (450))
     (:NAME "dFdxCoarse" :RETURN "vec3" :ARGS (("p" "vec3")) :VERSIONS (450))
     (:NAME "dFdxCoarse" :RETURN "vec2" :ARGS (("p" "vec2")) :VERSIONS (450))
@@ -2644,109 +984,54 @@
     (:NAME "dFdyFine" :RETURN "vec3" :ARGS (("p" "vec3")) :VERSIONS (450))
     (:NAME "dFdyFine" :RETURN "vec2" :ARGS (("p" "vec2")) :VERSIONS (450))
     (:NAME "dFdyFine" :RETURN "float" :ARGS (("p" "float")) :VERSIONS (450))
-    (:NAME "distance" :RETURN "float" :ARGS (("p0" "vec4") ("p1" "vec4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "distance" :RETURN "float" :ARGS (("p0" "vec3") ("p1" "vec3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "distance" :RETURN "float" :ARGS (("p0" "vec2") ("p1" "vec2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "distance" :RETURN "float" :ARGS (("p0" "float") ("p1" "float"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "distance" :RETURN "double" :ARGS (("p0" "dvec2") ("p1" "dvec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "distance" :RETURN "double" :ARGS (("p0" "double") ("p1" "double"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "dot" :RETURN "float" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "dot" :RETURN "float" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "dot" :RETURN "float" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "dot" :RETURN "float" :ARGS (("x" "float") ("y" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "dot" :RETURN "double" :ARGS (("x" "dvec2") ("y" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "dot" :RETURN "double" :ARGS (("x" "double") ("y" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "faceforward" :RETURN "vec4" :ARGS
-     (("N" "vec4") ("I" "vec4") ("Nref" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "faceforward" :RETURN "vec3" :ARGS
-     (("N" "vec3") ("I" "vec3") ("Nref" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "faceforward" :RETURN "vec2" :ARGS
-     (("N" "vec2") ("I" "vec2") ("Nref" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "faceforward" :RETURN "float" :ARGS
-     (("N" "float") ("I" "float") ("Nref" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "faceforward" :RETURN "dvec2" :ARGS
-     (("N" "dvec2") ("I" "dvec2") ("Nref" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "faceforward" :RETURN "double" :ARGS
-     (("N" "double") ("I" "double") ("Nref" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "floatBitsToUint" :RETURN "uint" :ARGS (("x" "float")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "floatBitsToUint" :RETURN "uvec2" :ARGS (("x" "vec2")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "floatBitsToUint" :RETURN "uvec3" :ARGS (("x" "vec3")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "floatBitsToUint" :RETURN "uvec4" :ARGS (("x" "vec4")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "floatBitsToInt" :RETURN "int" :ARGS (("x" "float")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "floatBitsToInt" :RETURN "ivec2" :ARGS (("x" "vec2")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "floatBitsToInt" :RETURN "ivec3" :ARGS (("x" "vec3")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "floatBitsToInt" :RETURN "ivec4" :ARGS (("x" "vec4")) :VERSIONS
-     (330 400 410 420 430 440 450))
-    (:NAME "floor" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "floor" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "floor" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "floor" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "floor" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "floor" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "floor" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "floor" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "fma" :RETURN "vec4" :ARGS (("a" "vec4") ("b" "vec4") ("c" "vec4"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "fma" :RETURN "vec3" :ARGS (("a" "vec3") ("b" "vec3") ("c" "vec3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "fma" :RETURN "vec2" :ARGS (("a" "vec2") ("b" "vec2") ("c" "vec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "fma" :RETURN "float" :ARGS (("a" "float") ("b" "float") ("c" "float"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "fma" :RETURN "dvec2" :ARGS (("a" "dvec2") ("b" "dvec2") ("c" "dvec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "fma" :RETURN "double" :ARGS
-     (("a" "double") ("b" "double") ("c" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "fract" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "fract" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "fract" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "fract" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "fract" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "fract" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "fract" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "fract" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (400 410 420 430 440 450))
+    (:NAME "distance" :RETURN "float" :ARGS (("p0" "vec4") ("p1" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "distance" :RETURN "float" :ARGS (("p0" "vec3") ("p1" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "distance" :RETURN "float" :ARGS (("p0" "vec2") ("p1" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "distance" :RETURN "float" :ARGS (("p0" "float") ("p1" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "distance" :RETURN "double" :ARGS (("p0" "dvec2") ("p1" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "distance" :RETURN "double" :ARGS (("p0" "double") ("p1" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "dot" :RETURN "float" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "dot" :RETURN "float" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "dot" :RETURN "float" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "dot" :RETURN "float" :ARGS (("x" "float") ("y" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "dot" :RETURN "double" :ARGS (("x" "dvec2") ("y" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "dot" :RETURN "double" :ARGS (("x" "double") ("y" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "faceforward" :RETURN "vec4" :ARGS (("N" "vec4") ("I" "vec4") ("Nref" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "faceforward" :RETURN "vec3" :ARGS (("N" "vec3") ("I" "vec3") ("Nref" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "faceforward" :RETURN "vec2" :ARGS (("N" "vec2") ("I" "vec2") ("Nref" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "faceforward" :RETURN "float" :ARGS (("N" "float") ("I" "float") ("Nref" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "faceforward" :RETURN "dvec2" :ARGS (("N" "dvec2") ("I" "dvec2") ("Nref" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "faceforward" :RETURN "double" :ARGS (("N" "double") ("I" "double") ("Nref" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "floatBitsToUint" :RETURN "uint" :ARGS (("x" "float")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "floatBitsToUint" :RETURN "uvec2" :ARGS (("x" "vec2")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "floatBitsToUint" :RETURN "uvec3" :ARGS (("x" "vec3")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "floatBitsToUint" :RETURN "uvec4" :ARGS (("x" "vec4")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "floatBitsToInt" :RETURN "int" :ARGS (("x" "float")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "floatBitsToInt" :RETURN "ivec2" :ARGS (("x" "vec2")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "floatBitsToInt" :RETURN "ivec3" :ARGS (("x" "vec3")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "floatBitsToInt" :RETURN "ivec4" :ARGS (("x" "vec4")) :VERSIONS (330 400 410 420 430 440 450))
+    (:NAME "floor" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "floor" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "floor" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "floor" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "floor" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "floor" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "floor" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "floor" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "fma" :RETURN "vec4" :ARGS (("a" "vec4") ("b" "vec4") ("c" "vec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "fma" :RETURN "vec3" :ARGS (("a" "vec3") ("b" "vec3") ("c" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "fma" :RETURN "vec2" :ARGS (("a" "vec2") ("b" "vec2") ("c" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "fma" :RETURN "float" :ARGS (("a" "float") ("b" "float") ("c" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "fma" :RETURN "dvec2" :ARGS (("a" "dvec2") ("b" "dvec2") ("c" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "fma" :RETURN "double" :ARGS (("a" "double") ("b" "double") ("c" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "fract" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "fract" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "fract" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "fract" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "fract" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "fract" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "fract" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "fract" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (400 410 420 430 440 450))
     (:NAME "fwidthCoarse" :RETURN "vec4" :ARGS (("p" "vec4")) :VERSIONS (450))
     (:NAME "fwidthCoarse" :RETURN "vec3" :ARGS (("p" "vec3")) :VERSIONS (450))
     (:NAME "fwidthCoarse" :RETURN "vec2" :ARGS (("p" "vec2")) :VERSIONS (450))
@@ -2755,1920 +1040,779 @@
     (:NAME "fwidthFine" :RETURN "vec3" :ARGS (("p" "vec3")) :VERSIONS (450))
     (:NAME "fwidthFine" :RETURN "vec2" :ARGS (("p" "vec2")) :VERSIONS (450))
     (:NAME "fwidthFine" :RETURN "float" :ARGS (("p" "float")) :VERSIONS (450))
-    (:NAME "fwidth" :RETURN "vec4" :ARGS (("p" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "fwidth" :RETURN "vec3" :ARGS (("p" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "fwidth" :RETURN "vec2" :ARGS (("p" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "fwidth" :RETURN "float" :ARGS (("p" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThan" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThan" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThan" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThan" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThan" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThan" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThan" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThan" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThan" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThanEqual" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThanEqual" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThanEqual" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThanEqual" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThanEqual" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThanEqual" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThanEqual" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThanEqual" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "greaterThanEqual" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int"))
-     :VERSIONS (420 430 440 450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage1D") ("P" "int") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage1D") ("P" "int") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image1D") ("P" "int") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage2D") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage2D") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image2D") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage3D") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage3D") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image3D") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage2DRect") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage2DRect") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image2DRect") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimageCube") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimageCube") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "imageCube") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "bufferImage") ("P" "int") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage1DArray") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage1DArray") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image1DArray") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage2DArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage2DArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image2DArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimageCubeArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimageCubeArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "imageCubeArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "float"))
-     :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "float"))
-     :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "float"))
-     :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "float"))
-     :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "float"))
-     :VERSIONS (450))
-    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS
-     (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "float"))
-     :VERSIONS (450))
-    (:NAME "inverse" :RETURN "mat2" :ARGS (("m" "mat2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "inverse" :RETURN "mat3" :ARGS (("m" "mat3")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "inverse" :RETURN "mat4" :ARGS (("m" "mat4")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "inverse" :RETURN "dmat2" :ARGS (("m" "dmat2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "inverse" :RETURN "dmat3" :ARGS (("m" "dmat3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "inverse" :RETURN "dmat4" :ARGS (("m" "dmat4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "inversesqrt" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "inversesqrt" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "inversesqrt" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "inversesqrt" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "inversesqrt" :RETURN "double" :ARGS (("x" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "inversesqrt" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "inversesqrt" :RETURN "dvec3" :ARGS (("x" "dvec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "inversesqrt" :RETURN "dvec4" :ARGS (("x" "dvec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "isnan" :RETURN "bool" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isnan" :RETURN "bvec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isnan" :RETURN "bvec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isnan" :RETURN "bvec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isnan" :RETURN "bool" :ARGS (("x" "double")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isnan" :RETURN "bvec2" :ARGS (("x" "dvec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isnan" :RETURN "bvec3" :ARGS (("x" "dvec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isnan" :RETURN "bvec4" :ARGS (("x" "dvec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isinf" :RETURN "bool" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isinf" :RETURN "bvec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isinf" :RETURN "bvec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isinf" :RETURN "bvec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isinf" :RETURN "bool" :ARGS (("x" "double")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isinf" :RETURN "bvec2" :ARGS (("x" "dvec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isinf" :RETURN "bvec3" :ARGS (("x" "dvec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "isinf" :RETURN "bvec4" :ARGS (("x" "dvec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "ldexp" :RETURN "float" :ARGS (("x" "float") ("exp" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "ldexp" :RETURN "vec2" :ARGS (("x" "vec2") ("exp" "ivec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "ldexp" :RETURN "vec3" :ARGS (("x" "vec3") ("exp" "ivec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "ldexp" :RETURN "vec4" :ARGS (("x" "vec4") ("exp" "ivec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "ldexp" :RETURN "double" :ARGS (("x" "double") ("exp" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "ldexp" :RETURN "dvec2" :ARGS (("x" "dvec2") ("exp" "ivec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "ldexp" :RETURN "dvec3" :ARGS (("x" "dvec3") ("exp" "ivec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "ldexp" :RETURN "dvec4" :ARGS (("x" "dvec4") ("exp" "ivec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "length" :RETURN "float" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "length" :RETURN "float" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "length" :RETURN "float" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "length" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "length" :RETURN "double" :ARGS (("x" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "length" :RETURN "double" :ARGS (("x" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "lessThan" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThan" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThan" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThan" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThan" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThan" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThan" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThan" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThan" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThanEqual" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThanEqual" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThanEqual" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThanEqual" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThanEqual" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThanEqual" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThanEqual" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThanEqual" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "lessThanEqual" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4x4" :ARGS (("x" "mat4x4") ("y" "mat4x4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4x3" :ARGS (("x" "mat4x3") ("y" "mat4x3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4x2" :ARGS (("x" "mat4x2") ("y" "mat4x2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3x4" :ARGS (("x" "mat3x4") ("y" "mat3x4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3x3" :ARGS (("x" "mat3x3") ("y" "mat3x3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3x2" :ARGS (("x" "mat3x2") ("y" "mat3x2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2x4" :ARGS (("x" "mat2x4") ("y" "mat2x4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2x3" :ARGS (("x" "mat2x3") ("y" "mat2x3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2x2" :ARGS (("x" "mat2x2") ("y" "mat2x2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4" :ARGS (("x" "mat4") ("y" "mat4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3" :ARGS (("x" "mat3") ("y" "mat3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2" :ARGS (("x" "mat2") ("y" "mat2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4x4" :ARGS (("x" "mat4x4") ("y" "mat4x4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4x3" :ARGS (("x" "mat4x3") ("y" "mat4x3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4x2" :ARGS (("x" "mat4x2") ("y" "mat4x2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3x4" :ARGS (("x" "mat3x4") ("y" "mat3x4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3x3" :ARGS (("x" "mat3x3") ("y" "mat3x3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3x2" :ARGS (("x" "mat3x2") ("y" "mat3x2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2x4" :ARGS (("x" "mat2x4") ("y" "mat2x4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2x3" :ARGS (("x" "mat2x3") ("y" "mat2x3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2x2" :ARGS (("x" "mat2x2") ("y" "mat2x2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4" :ARGS (("x" "mat4") ("y" "mat4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3" :ARGS (("x" "mat3") ("y" "mat3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2" :ARGS (("x" "mat2") ("y" "mat2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4x4" :ARGS (("x" "mat4x4") ("y" "mat4x4"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4x3" :ARGS (("x" "mat4x3") ("y" "mat4x3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4x2" :ARGS (("x" "mat4x2") ("y" "mat4x2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3x4" :ARGS (("x" "mat3x4") ("y" "mat3x4"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3x3" :ARGS (("x" "mat3x3") ("y" "mat3x3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3x2" :ARGS (("x" "mat3x2") ("y" "mat3x2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2x4" :ARGS (("x" "mat2x4") ("y" "mat2x4"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2x3" :ARGS (("x" "mat2x3") ("y" "mat2x3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2x2" :ARGS (("x" "mat2x2") ("y" "mat2x2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat4" :ARGS (("x" "mat4") ("y" "mat4"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat3" :ARGS (("x" "mat3") ("y" "mat3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "matrixCompMult" :RETURN "mat2" :ARGS (("x" "mat2") ("y" "mat2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "max" :RETURN "float" :ARGS (("x" "float") ("y" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "vec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "vec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "int" :ARGS (("x" "int") ("y" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "ivec2" :ARGS (("x" "ivec2") ("y" "ivec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "ivec3" :ARGS (("x" "ivec3") ("y" "ivec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "ivec4" :ARGS (("x" "ivec4") ("y" "ivec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "uint" :ARGS (("x" "uint") ("y" "uint")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "uvec2" :ARGS (("x" "uvec2") ("y" "uvec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "uvec3" :ARGS (("x" "uvec3") ("y" "uvec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "uvec4" :ARGS (("x" "uvec4") ("y" "uvec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "max" :RETURN "double" :ARGS (("x" "double") ("y" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "max" :RETURN "dvec2" :ARGS (("x" "dvec2") ("y" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "max" :RETURN "dvec3" :ARGS (("x" "dvec3") ("y" "dvec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "max" :RETURN "dvec4" :ARGS (("x" "dvec4") ("y" "dvec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "min" :RETURN "float" :ARGS (("x" "float") ("y" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "vec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "vec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "int" :ARGS (("x" "int") ("y" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "ivec2" :ARGS (("x" "ivec2") ("y" "ivec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "ivec3" :ARGS (("x" "ivec3") ("y" "ivec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "ivec4" :ARGS (("x" "ivec4") ("y" "ivec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "uint" :ARGS (("x" "uint") ("y" "uint")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "uvec2" :ARGS (("x" "uvec2") ("y" "uvec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "uvec3" :ARGS (("x" "uvec3") ("y" "uvec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "uvec4" :ARGS (("x" "uvec4") ("y" "uvec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "min" :RETURN "double" :ARGS (("x" "double") ("y" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "min" :RETURN "dvec2" :ARGS (("x" "dvec2") ("y" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "min" :RETURN "dvec3" :ARGS (("x" "dvec3") ("y" "dvec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "min" :RETURN "dvec4" :ARGS (("x" "dvec4") ("y" "dvec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "mix" :RETURN "vec4" :ARGS (("x" "vec4") ("y" "vec4") ("a" "vec4"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "mix" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "vec3") ("a" "vec3"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "mix" :RETURN "vec2" :ARGS (("x" "vec2") ("y" "vec2") ("a" "vec2"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "mix" :RETURN "float" :ARGS (("x" "float") ("y" "float") ("a" "float"))
-     :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "mix" :RETURN "dvec2" :ARGS (("x" "dvec2") ("y" "dvec2") ("a" "dvec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "mix" :RETURN "double" :ARGS
-     (("x" "double") ("y" "double") ("a" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "mix" :RETURN "ivec4" :ARGS (("x" "ivec4") ("y" "ivec4") ("a" "ivec4"))
-     :VERSIONS (450))
-    (:NAME "mix" :RETURN "ivec3" :ARGS (("x" "ivec3") ("y" "ivec3") ("a" "ivec3"))
-     :VERSIONS (450))
-    (:NAME "mix" :RETURN "ivec2" :ARGS (("x" "ivec2") ("y" "ivec2") ("a" "ivec2"))
-     :VERSIONS (450))
-    (:NAME "mix" :RETURN "int" :ARGS (("x" "int") ("y" "int") ("a" "int"))
-     :VERSIONS (450))
-    (:NAME "mix" :RETURN "uvec4" :ARGS (("x" "uvec4") ("y" "uvec4") ("a" "uvec4"))
-     :VERSIONS (450))
-    (:NAME "mix" :RETURN "uvec3" :ARGS (("x" "uvec3") ("y" "uvec3") ("a" "uvec3"))
-     :VERSIONS (450))
-    (:NAME "mix" :RETURN "uvec2" :ARGS (("x" "uvec2") ("y" "uvec2") ("a" "uvec2"))
-     :VERSIONS (450))
-    (:NAME "mix" :RETURN "uint" :ARGS (("x" "uint") ("y" "uint") ("a" "uint"))
-     :VERSIONS (450))
-    (:NAME "mix" :RETURN "bvec4" :ARGS (("x" "bvec4") ("y" "bvec4") ("a" "bvec4"))
-     :VERSIONS (450))
-    (:NAME "mix" :RETURN "bvec3" :ARGS (("x" "bvec3") ("y" "bvec3") ("a" "bvec3"))
-     :VERSIONS (450))
-    (:NAME "mix" :RETURN "bvec2" :ARGS (("x" "bvec2") ("y" "bvec2") ("a" "bvec2"))
-     :VERSIONS (450))
-    (:NAME "mix" :RETURN "bool" :ARGS (("x" "bool") ("y" "bool") ("a" "bool"))
-     :VERSIONS (450))
-    (:NAME "mod" :RETURN "vec4" :ARGS (("x" "vec4") ("y" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "mod" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "mod" :RETURN "vec2" :ARGS (("x" "vec2") ("y" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "mod" :RETURN "float" :ARGS (("x" "float") ("y" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "mod" :RETURN "double" :ARGS (("x" "double") ("y" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "mod" :RETURN "dvec2" :ARGS (("x" "dvec2") ("y" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "mod" :RETURN "dvec3" :ARGS (("x" "dvec3") ("y" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "mod" :RETURN "dvec4" :ARGS (("x" "dvec4") ("y" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "noise1" :RETURN "float" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise1" :RETURN "float" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise1" :RETURN "float" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise1" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise2" :RETURN "vec2" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise2" :RETURN "vec2" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise2" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise2" :RETURN "vec2" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise3" :RETURN "vec3" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise3" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise3" :RETURN "vec3" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise3" :RETURN "vec3" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise4" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise4" :RETURN "vec4" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise4" :RETURN "vec4" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "noise4" :RETURN "vec4" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "normalize" :RETURN "vec4" :ARGS (("v" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "normalize" :RETURN "vec3" :ARGS (("v" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "normalize" :RETURN "vec2" :ARGS (("v" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "normalize" :RETURN "float" :ARGS (("v" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "normalize" :RETURN "dvec2" :ARGS (("v" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "normalize" :RETURN "double" :ARGS (("v" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "notEqual" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "notEqual" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "notEqual" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "notEqual" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "notEqual" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "notEqual" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "notEqual" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "notEqual" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "notEqual" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "mat2" :ARGS (("c" "vec2") ("r" "vec2"))
-     :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "mat3" :ARGS (("c" "vec3") ("r" "vec3"))
-     :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "mat4" :ARGS (("c" "vec4") ("r" "vec4"))
-     :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "mat2x3" :ARGS (("c" "vec3") ("r" "vec2"))
-     :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "mat3x2" :ARGS (("c" "vec2") ("r" "vec3"))
-     :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "mat2x4" :ARGS (("c" "vec4") ("r" "vec2"))
-     :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "mat4x2" :ARGS (("c" "vec2") ("r" "vec4"))
-     :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "mat3x4" :ARGS (("c" "vec4") ("r" "vec3"))
-     :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "mat4x3" :ARGS (("c" "vec3") ("r" "vec4"))
-     :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "dmat2" :ARGS (("c" "dvec2") ("r" "dvec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "dmat3" :ARGS (("c" "dvec3") ("r" "dvec3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "dmat4" :ARGS (("c" "dvec4") ("r" "dvec4"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "dmat2x3" :ARGS (("c" "dvec3") ("r" "dvec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "dmat3x2" :ARGS (("c" "dvec2") ("r" "dvec3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "dmat2x4" :ARGS (("c" "dvec4") ("r" "dvec2"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "dmat4x2" :ARGS (("c" "dvec2") ("r" "dvec4"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "dmat3x4" :ARGS (("c" "dvec4") ("r" "dvec3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "outerProduct" :RETURN "dmat4x3" :ARGS (("c" "dvec3") ("r" "dvec4"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "packUnorm2x16" :RETURN "uint" :ARGS (("v" "vec2")) :VERSIONS
-     (410 420 430 440 450))
-    (:NAME "packSnorm2x16" :RETURN "uint" :ARGS (("v" "vec2")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "packUnorm4x8" :RETURN "uint" :ARGS (("v" "vec4")) :VERSIONS
-     (410 420 430 440 450))
-    (:NAME "packSnorm4x8" :RETURN "uint" :ARGS (("v" "vec4")) :VERSIONS
-     (410 420 430 440 450))
-    (:NAME "reflect" :RETURN "vec4" :ARGS (("I" "vec4") ("N" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "reflect" :RETURN "vec3" :ARGS (("I" "vec3") ("N" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "reflect" :RETURN "vec2" :ARGS (("I" "vec2") ("N" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "reflect" :RETURN "float" :ARGS (("I" "float") ("N" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "reflect" :RETURN "dvec2" :ARGS (("I" "dvec2") ("N" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "reflect" :RETURN "double" :ARGS (("I" "double") ("N" "double"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "refract" :RETURN "vec4" :ARGS
-     (("I" "vec4") ("N" "vec4") ("eta" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "refract" :RETURN "vec3" :ARGS
-     (("I" "vec3") ("N" "vec3") ("eta" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "refract" :RETURN "vec2" :ARGS
-     (("I" "vec2") ("N" "vec2") ("eta" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "refract" :RETURN "float" :ARGS
-     (("I" "float") ("N" "float") ("eta" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "refract" :RETURN "dvec2" :ARGS
-     (("I" "dvec2") ("N" "dvec2") ("eta" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "refract" :RETURN "double" :ARGS
-     (("I" "double") ("N" "double") ("eta" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "round" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "round" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "round" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "round" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "round" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "round" :RETURN "double" :ARGS (("x" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "roundEven" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "roundEven" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "roundEven" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "roundEven" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "roundEven" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "roundEven" :RETURN "double" :ARGS (("x" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "sign" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sign" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sign" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sign" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sign" :RETURN "ivec4" :ARGS (("x" "ivec4")) :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "sign" :RETURN "ivec3" :ARGS (("x" "ivec3")) :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "sign" :RETURN "ivec2" :ARGS (("x" "ivec2")) :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "sign" :RETURN "int" :ARGS (("x" "int")) :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "sign" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "sign" :RETURN "double" :ARGS (("x" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "smoothstep" :RETURN "vec4" :ARGS
-     (("edge0" "vec4") ("edge1" "vec4") ("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "smoothstep" :RETURN "vec3" :ARGS
-     (("edge0" "vec3") ("edge1" "vec3") ("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "smoothstep" :RETURN "vec2" :ARGS
-     (("edge0" "vec2") ("edge1" "vec2") ("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "smoothstep" :RETURN "float" :ARGS
-     (("edge0" "float") ("edge1" "float") ("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "smoothstep" :RETURN "dvec2" :ARGS
-     (("edge0" "dvec2") ("edge1" "dvec2") ("x" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "smoothstep" :RETURN "double" :ARGS
-     (("edge0" "double") ("edge1" "double") ("x" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "sqrt" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sqrt" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sqrt" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sqrt" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "sqrt" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "sqrt" :RETURN "double" :ARGS (("x" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "step" :RETURN "vec4" :ARGS (("edge" "vec4") ("x" "vec4")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "step" :RETURN "vec3" :ARGS (("edge" "vec3") ("x" "vec3")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "step" :RETURN "vec2" :ARGS (("edge" "vec2") ("x" "vec2")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "step" :RETURN "float" :ARGS (("edge" "float") ("x" "float")) :VERSIONS
-     (110 120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "step" :RETURN "dvec2" :ARGS (("edge" "dvec2") ("x" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "step" :RETURN "double" :ARGS (("edge" "double") ("x" "double"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "int") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "int") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "int") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "ivec2") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "ivec2") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "ivec2") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "ivec3") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "ivec3") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "ivec3") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1DArray") ("P" "ivec2") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1DArray") ("P" "ivec2") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1DArray") ("P" "ivec2") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DArray") ("P" "ivec3") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArray") ("P" "ivec3") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DArray") ("P" "ivec3") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "uvec4" :ARGS
-     (("sampler" "usamplerBuffer") ("P" "int")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "vec4" :ARGS
-     (("sampler" "samplerBuffer") ("P" "int")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "ivec4" :ARGS
-     (("sampler" "isamplerBuffer") ("P" "int")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "texelFetch" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DMSArray") ("P" "ivec3") ("sample" "int")) :VERSIONS
-     (150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "int") ("lod" "int") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "int") ("lod" "int") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "int") ("lod" "int") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "ivec2") ("lod" "int") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "ivec2") ("lod" "int") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "ivec2") ("lod" "int") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "ivec3") ("lod" "int") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "ivec3") ("lod" "int") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "ivec3") ("lod" "int") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "ivec2") ("offset" "int")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "ivec2") ("offset" "int")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "ivec2") ("offset" "int")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1DArray") ("P" "ivec2") ("lod" "int") ("offset" "int"))
-     :VERSIONS (150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1DArray") ("P" "ivec2") ("lod" "int") ("offset" "int"))
-     :VERSIONS (150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1DArray") ("P" "ivec2") ("lod" "int") ("offset" "int"))
-     :VERSIONS (150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DArray") ("P" "ivec3") ("lod" "int") ("offset" "int"))
-     :VERSIONS (150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArray") ("P" "ivec3") ("lod" "int") ("offset" "int"))
-     :VERSIONS (150 330 400 410 420 430 440 450))
-    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DArray") ("P" "ivec3") ("lod" "int") ("offset" "int"))
-     :VERSIONS (150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "float") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "float") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "float") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec2") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec2") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec2") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "uvec4" :ARGS
-     (("sampler" "usamplerCube") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "vec4" :ARGS
-     (("sampler" "samplerCube") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "ivec4" :ARGS
-     (("sampler" "isamplerCube") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "float" :ARGS
-     (("sampler" "samplerCubeShadow") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1DArray") ("P" "vec2") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1DArray") ("P" "vec2") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1DArray") ("P" "vec2") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DArray") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArray") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DArray") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "float" :ARGS
-     (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "float" :ARGS
-     (("sampler" "sampler2DArrayShadow") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "float" :ARGS
-     (("sampler" "sampler2DRectShadow") ("P" "vec3")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "uvec4" :ARGS
-     (("sampler" "usamplerCubeArray") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "vec4" :ARGS
-     (("sampler" "samplerCubeArray") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "ivec4" :ARGS
-     (("sampler" "isamplerCubeArray") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "texture" :RETURN "float" :ARGS
-     (("sampler" "samplerCubeArrayShadow") ("P" "vec4") ("compare" "float"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usamplerCube") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "vec4" :ARGS
-     (("sampler" "samplerCube") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isamplerCube") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec3") ("dPdx" "float")
-      ("dPdy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1DArray") ("P" "vec2") ("dPdx" "float")
-      ("dPdy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1DArray") ("P" "vec2") ("dPdx" "float") ("dPdy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1DArray") ("P" "vec2") ("dPdx" "float")
-      ("dPdy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "float" :ARGS
-     (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("dPdx" "float")
-      ("dPdy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "float" :ARGS
-     (("sampler" "sampler2DRectShadow") ("P" "vec2") ("dPdx" "vec2")
-      ("dPdy" "vec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usamplerCubeArray") ("P" "vec4") ("dPdx" "vec3")
-      ("dPdy" "vec3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "vec4" :ARGS
-     (("sampler" "samplerCubeArray") ("P" "vec4") ("dPdx" "vec3") ("dPdy" "vec3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isamplerCubeArray") ("P" "vec4") ("dPdx" "vec3")
-      ("dPdy" "vec3"))
-     :VERSIONS (400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3")
-      ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3")
-      ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3")
-      ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec3") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1DArray") ("P" "vec2") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1DArray") ("P" "vec2") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1DArray") ("P" "vec2") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("dPdx" "float")
-      ("dPdy" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DArrayShadow") ("P" "vec3") ("dPdx" "vec2")
-      ("dPdy" "vec2") ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureGradOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DRectShadow") ("P" "vec3") ("dPdx" "vec2")
-      ("dPdy" "vec2") ("offset" "ivec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "float") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "float") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "float") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec2") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec2") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec2") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usamplerCube") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "vec4" :ARGS
-     (("sampler" "samplerCube") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isamplerCube") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1DArray") ("P" "vec2") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1DArray") ("P" "vec2") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1DArray") ("P" "vec2") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DArray") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArray") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DArray") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "float" :ARGS
-     (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("lod" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "uvec4" :ARGS
-     (("sampler" "usamplerCubeArray") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "vec4" :ARGS
-     (("sampler" "samplerCubeArray") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureLod" :RETURN "ivec4" :ARGS
-     (("sampler" "isamplerCubeArray") ("P" "vec4") ("lod" "float")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "float") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "float") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "float") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec2") ("lod" "float") ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec2") ("lod" "float") ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec2") ("lod" "float") ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec3") ("lod" "float") ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec3") ("lod" "float") ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec3") ("lod" "float") ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec3") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec4") ("lod" "float")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1DArray") ("P" "vec2") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1DArray") ("P" "vec2") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1DArray") ("P" "vec2") ("lod" "float") ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DArray") ("P" "vec3") ("lod" "float")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArray") ("P" "vec3") ("lod" "float")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DArray") ("P" "vec3") ("lod" "float")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureLodOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("lod" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "float") ("offset" "int") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "float") ("offset" "int") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "float") ("offset" "int") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec2") ("offset" "ivec2") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec2") ("offset" "ivec2") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec2") ("offset" "ivec2") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec3") ("offset" "ivec3") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec3") ("offset" "ivec3") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec3") ("offset" "ivec3") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec3") ("offset" "int")
-      ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec4") ("offset" "ivec2")
-      ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1DArray") ("P" "vec2") ("offset" "int")
-      ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1DArray") ("P" "vec2") ("offset" "int")
-      ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1DArray") ("P" "vec2") ("offset" "int")
-      ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DArray") ("P" "vec3") ("offset" "ivec2")
-      ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DArray") ("P" "vec3") ("offset" "ivec2")
-      ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DArray") ("P" "vec3") ("offset" "ivec2")
-      ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("offset" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DArrayShadow") ("P" "vec4") ("offset" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec2") ("offset" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec2") ("offset" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec2") ("offset" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DRectShadow") ("P" "vec3") ("offset" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec2") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec2") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec2") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec3") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec4") ("bias" "[float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec3")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec3")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec3")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec4")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec4")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec4")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProj" :RETURN "float" :ARGS
-     (("sampler" "sampler2DRectShadow") ("P" "vec4")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec2") ("pDx" "float") ("pDy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec2") ("pDx" "float") ("pDy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec2") ("pDx" "float") ("pDy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec4") ("pDx" "float") ("pDy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec4") ("pDx" "float") ("pDy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec4") ("pDx" "float") ("pDy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec4") ("pDx" "vec3") ("pDy" "vec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec4") ("pDx" "vec3") ("pDy" "vec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec4") ("pDx" "vec3") ("pDy" "vec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec4") ("pDx" "float") ("pDy" "float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGrad" :RETURN "float" :ARGS
-     (("sampler" "sampler2DRectShadow") ("P" "vec4") ("pDx" "vec2")
-      ("pDy" "vec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec2") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec2") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec2") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec4") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec4") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec4") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec4") ("dPdx" "vec3") ("dPdy" "vec3")
-      ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec4") ("dPdx" "vec3") ("dPdy" "vec3")
-      ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec4") ("dPdx" "vec3") ("dPdy" "vec3")
-      ("offset" "ivec3"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec4") ("dPdx" "float") ("dPdy" "float")
-      ("offset" "int"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2")
-      ("offset" "ivec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjGradOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DRectShadow") ("P" "vec4") ("dPdx" "vec2")
-      ("dPdy" "vec2") ("offset" "ivec2"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec2") ("offset" "int") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec2") ("offset" "int") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec2") ("offset" "int") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler1D") ("P" "vec4") ("offset" "int") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler1D") ("P" "vec4") ("offset" "int") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler1D") ("P" "vec4") ("offset" "int") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec3") ("offset" "ivec2") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec3") ("offset" "ivec2") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec3") ("offset" "ivec2") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2D") ("P" "vec4") ("offset" "ivec2") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2D") ("P" "vec4") ("offset" "ivec2") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2D") ("P" "vec4") ("offset" "ivec2") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler3D") ("P" "vec4") ("offset" "ivec3") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler3D") ("P" "vec4") ("offset" "ivec3") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler3D") ("P" "vec4") ("offset" "ivec3") ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler1DShadow") ("P" "vec4") ("offset" "int")
-      ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DShadow") ("P" "vec4") ("offset" "ivec2")
-      ("bias" "[float"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec3") ("offset" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec3") ("offset" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec3") ("offset" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS
-     (("sampler" "usampler2DRect") ("P" "vec4") ("offset" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS
-     (("sampler" "sampler2DRect") ("P" "vec4") ("offset" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS
-     (("sampler" "isampler2DRect") ("P" "vec4") ("offset" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureProjOffset" :RETURN "float" :ARGS
-     (("sampler" "sampler2DRectShadow") ("P" "vec4") ("offset" "ivec2")) :VERSIONS
-     (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "int" :ARGS
-     (("sampler" "usampler1D") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "int" :ARGS
-     (("sampler" "sampler1D") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "int" :ARGS
-     (("sampler" "isampler1D") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "usampler2D") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "sampler2D") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "isampler2D") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec3" :ARGS
-     (("sampler" "usampler3D") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec3" :ARGS
-     (("sampler" "sampler3D") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec3" :ARGS
-     (("sampler" "isampler3D") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "int" :ARGS
-     (("sampler" "sampler1DShadow") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "sampler2DShadow") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec3" :ARGS
-     (("sampler" "samplerCubeArray") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec3" :ARGS
-     (("sampler" "samplerCubeArrayShadow") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "usampler1DArray") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "sampler1DArray") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "isampler1DArray") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec3" :ARGS
-     (("sampler" "usampler2DArray") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec3" :ARGS
-     (("sampler" "sampler2DArray") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec3" :ARGS
-     (("sampler" "isampler2DArray") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "sampler1DArrayShadow") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec3" :ARGS
-     (("sampler" "sampler2DArrayShadow") ("lod" "int")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "usampler2DMS"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "sampler2DMS"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "isampler2DMS"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec3" :ARGS (("sampler" "sampler2DMSArray"))
-     :VERSIONS (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "usamplerRect"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "isamplerRect"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "samplerRect"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "sampler2DRectShadow"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "int" :ARGS (("sampler" "usamplerBuffer"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "int" :ARGS (("sampler" "samplerBuffer"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "int" :ARGS (("sampler" "isamplerBuffer"))
-     :VERSIONS (140 150 330 400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "usamplerCube") ("lod" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "samplerCube") ("lod" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "isamplerCube") ("lod" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "textureSize" :RETURN "ivec2" :ARGS
-     (("sampler" "samplerCubeShadow") ("lod" "int")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "mat2" :ARGS (("m" "mat2")) :VERSIONS
-     (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "mat3" :ARGS (("m" "mat3")) :VERSIONS
-     (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "mat4" :ARGS (("m" "mat4")) :VERSIONS
-     (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "mat2x3" :ARGS (("m" "mat3x2")) :VERSIONS
-     (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "mat2x4" :ARGS (("m" "mat4x2")) :VERSIONS
-     (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "mat3x2" :ARGS (("m" "mat2x3")) :VERSIONS
-     (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "mat3x4" :ARGS (("m" "mat4x3")) :VERSIONS
-     (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "mat4x2" :ARGS (("m" "mat2x4")) :VERSIONS
-     (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "mat4x3" :ARGS (("m" "mat3x4")) :VERSIONS
-     (120 130 140 150 330 400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "dmat2" :ARGS (("m" "dmat2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "dmat3" :ARGS (("m" "dmat3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "dmat4" :ARGS (("m" "dmat4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "dmat2x3" :ARGS (("m" "dmat3x2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "dmat2x4" :ARGS (("m" "dmat4x2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "dmat3x2" :ARGS (("m" "dmat2x3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "dmat3x4" :ARGS (("m" "dmat4x3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "dmat4x2" :ARGS (("m" "dmat2x4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "transpose" :RETURN "dmat4x3" :ARGS (("m" "dmat3x4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "trunc" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "trunc" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "trunc" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "trunc" :RETURN "float" :ARGS (("x" "float")) :VERSIONS
-     (130 140 150 330 400 410 420 430 440 450))
-    (:NAME "trunc" :RETURN "double" :ARGS (("x" "double")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "trunc" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "trunc" :RETURN "dvec3" :ARGS (("x" "dvec3")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "trunc" :RETURN "dvec4" :ARGS (("x" "dvec4")) :VERSIONS
-     (400 410 420 430 440 450))
-    (:NAME "unpackUnorm2x16" :RETURN "vec2" :ARGS (("p" "uint")) :VERSIONS
-     (410 420 430 440 450))
-    (:NAME "unpackSnorm2x16" :RETURN "vec2" :ARGS (("p" "uint")) :VERSIONS
-     (420 430 440 450))
-    (:NAME "unpackUnorm4x8" :RETURN "vec4" :ARGS (("p" "uint")) :VERSIONS
-     (410 420 430 440 450))
-    (:NAME "unpackSnorm4x8" :RETURN "vec4" :ARGS (("p" "uint")) :VERSIONS
-     (410 420 430 440 450))))
+    (:NAME "fwidth" :RETURN "vec4" :ARGS (("p" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "fwidth" :RETURN "vec3" :ARGS (("p" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "fwidth" :RETURN "vec2" :ARGS (("p" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "fwidth" :RETURN "float" :ARGS (("p" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThan" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThan" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThan" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThan" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThan" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThan" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThan" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThan" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThan" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThanEqual" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThanEqual" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThanEqual" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThanEqual" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThanEqual" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThanEqual" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThanEqual" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThanEqual" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "greaterThanEqual" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "uimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "iimage1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "image1D") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "bufferImage") ("P" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "uint" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image1D") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "bufferImage") ("P" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "int")) :VERSIONS (420 430 440 450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage1D") ("P" "int") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage1D") ("P" "int") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image1D") ("P" "int") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage2D") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage2D") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image2D") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage3D") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage3D") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image3D") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage2DRect") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage2DRect") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image2DRect") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimageCube") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimageCube") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "imageCube") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "bufferImage") ("P" "int") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage1DArray") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage1DArray") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image1DArray") ("P" "ivec2") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage2DArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage2DArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image2DArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimageCubeArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimageCubeArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "imageCubeArray") ("P" "ivec3") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage2DMS") ("P" "ivec2") ("sample" "int") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image2DMS") ("P" "ivec2") ("sample" "int") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "uimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "iimage2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "float")) :VERSIONS (450))
+    (:NAME "imageAtomicExchange" :RETURN "int" :ARGS (("image" "image2DMSArray") ("P" "ivec3") ("sample" "int") ("data" "float")) :VERSIONS (450))
+    (:NAME "inverse" :RETURN "mat2" :ARGS (("m" "mat2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "inverse" :RETURN "mat3" :ARGS (("m" "mat3")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "inverse" :RETURN "mat4" :ARGS (("m" "mat4")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "inverse" :RETURN "dmat2" :ARGS (("m" "dmat2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "inverse" :RETURN "dmat3" :ARGS (("m" "dmat3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "inverse" :RETURN "dmat4" :ARGS (("m" "dmat4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "inversesqrt" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "inversesqrt" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "inversesqrt" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "inversesqrt" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "inversesqrt" :RETURN "double" :ARGS (("x" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "inversesqrt" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "inversesqrt" :RETURN "dvec3" :ARGS (("x" "dvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "inversesqrt" :RETURN "dvec4" :ARGS (("x" "dvec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "isnan" :RETURN "bool" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isnan" :RETURN "bvec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isnan" :RETURN "bvec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isnan" :RETURN "bvec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isnan" :RETURN "bool" :ARGS (("x" "double")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isnan" :RETURN "bvec2" :ARGS (("x" "dvec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isnan" :RETURN "bvec3" :ARGS (("x" "dvec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isnan" :RETURN "bvec4" :ARGS (("x" "dvec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isinf" :RETURN "bool" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isinf" :RETURN "bvec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isinf" :RETURN "bvec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isinf" :RETURN "bvec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isinf" :RETURN "bool" :ARGS (("x" "double")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isinf" :RETURN "bvec2" :ARGS (("x" "dvec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isinf" :RETURN "bvec3" :ARGS (("x" "dvec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "isinf" :RETURN "bvec4" :ARGS (("x" "dvec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "ldexp" :RETURN "float" :ARGS (("x" "float") ("exp" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "ldexp" :RETURN "vec2" :ARGS (("x" "vec2") ("exp" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "ldexp" :RETURN "vec3" :ARGS (("x" "vec3") ("exp" "ivec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "ldexp" :RETURN "vec4" :ARGS (("x" "vec4") ("exp" "ivec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "ldexp" :RETURN "double" :ARGS (("x" "double") ("exp" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "ldexp" :RETURN "dvec2" :ARGS (("x" "dvec2") ("exp" "ivec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "ldexp" :RETURN "dvec3" :ARGS (("x" "dvec3") ("exp" "ivec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "ldexp" :RETURN "dvec4" :ARGS (("x" "dvec4") ("exp" "ivec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "length" :RETURN "float" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "length" :RETURN "float" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "length" :RETURN "float" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "length" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "length" :RETURN "double" :ARGS (("x" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "length" :RETURN "double" :ARGS (("x" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "lessThan" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThan" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThan" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThan" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThan" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThan" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThan" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThan" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThan" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThanEqual" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThanEqual" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThanEqual" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThanEqual" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThanEqual" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThanEqual" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThanEqual" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThanEqual" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "lessThanEqual" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4x4" :ARGS (("x" "mat4x4") ("y" "mat4x4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4x3" :ARGS (("x" "mat4x3") ("y" "mat4x3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4x2" :ARGS (("x" "mat4x2") ("y" "mat4x2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3x4" :ARGS (("x" "mat3x4") ("y" "mat3x4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3x3" :ARGS (("x" "mat3x3") ("y" "mat3x3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3x2" :ARGS (("x" "mat3x2") ("y" "mat3x2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2x4" :ARGS (("x" "mat2x4") ("y" "mat2x4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2x3" :ARGS (("x" "mat2x3") ("y" "mat2x3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2x2" :ARGS (("x" "mat2x2") ("y" "mat2x2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4" :ARGS (("x" "mat4") ("y" "mat4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3" :ARGS (("x" "mat3") ("y" "mat3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2" :ARGS (("x" "mat2") ("y" "mat2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4x4" :ARGS (("x" "mat4x4") ("y" "mat4x4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4x3" :ARGS (("x" "mat4x3") ("y" "mat4x3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4x2" :ARGS (("x" "mat4x2") ("y" "mat4x2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3x4" :ARGS (("x" "mat3x4") ("y" "mat3x4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3x3" :ARGS (("x" "mat3x3") ("y" "mat3x3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3x2" :ARGS (("x" "mat3x2") ("y" "mat3x2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2x4" :ARGS (("x" "mat2x4") ("y" "mat2x4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2x3" :ARGS (("x" "mat2x3") ("y" "mat2x3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2x2" :ARGS (("x" "mat2x2") ("y" "mat2x2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4" :ARGS (("x" "mat4") ("y" "mat4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3" :ARGS (("x" "mat3") ("y" "mat3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2" :ARGS (("x" "mat2") ("y" "mat2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4x4" :ARGS (("x" "mat4x4") ("y" "mat4x4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4x3" :ARGS (("x" "mat4x3") ("y" "mat4x3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4x2" :ARGS (("x" "mat4x2") ("y" "mat4x2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3x4" :ARGS (("x" "mat3x4") ("y" "mat3x4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3x3" :ARGS (("x" "mat3x3") ("y" "mat3x3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3x2" :ARGS (("x" "mat3x2") ("y" "mat3x2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2x4" :ARGS (("x" "mat2x4") ("y" "mat2x4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2x3" :ARGS (("x" "mat2x3") ("y" "mat2x3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2x2" :ARGS (("x" "mat2x2") ("y" "mat2x2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat4" :ARGS (("x" "mat4") ("y" "mat4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat3" :ARGS (("x" "mat3") ("y" "mat3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "matrixCompMult" :RETURN "mat2" :ARGS (("x" "mat2") ("y" "mat2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "max" :RETURN "float" :ARGS (("x" "float") ("y" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "vec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "vec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "int" :ARGS (("x" "int") ("y" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "ivec2" :ARGS (("x" "ivec2") ("y" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "ivec3" :ARGS (("x" "ivec3") ("y" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "ivec4" :ARGS (("x" "ivec4") ("y" "ivec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "uint" :ARGS (("x" "uint") ("y" "uint")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "uvec2" :ARGS (("x" "uvec2") ("y" "uvec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "uvec3" :ARGS (("x" "uvec3") ("y" "uvec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "uvec4" :ARGS (("x" "uvec4") ("y" "uvec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "max" :RETURN "double" :ARGS (("x" "double") ("y" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "max" :RETURN "dvec2" :ARGS (("x" "dvec2") ("y" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "max" :RETURN "dvec3" :ARGS (("x" "dvec3") ("y" "dvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "max" :RETURN "dvec4" :ARGS (("x" "dvec4") ("y" "dvec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "min" :RETURN "float" :ARGS (("x" "float") ("y" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "vec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "vec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "int" :ARGS (("x" "int") ("y" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "ivec2" :ARGS (("x" "ivec2") ("y" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "ivec3" :ARGS (("x" "ivec3") ("y" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "ivec4" :ARGS (("x" "ivec4") ("y" "ivec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "uint" :ARGS (("x" "uint") ("y" "uint")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "uvec2" :ARGS (("x" "uvec2") ("y" "uvec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "uvec3" :ARGS (("x" "uvec3") ("y" "uvec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "uvec4" :ARGS (("x" "uvec4") ("y" "uvec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "min" :RETURN "double" :ARGS (("x" "double") ("y" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "min" :RETURN "dvec2" :ARGS (("x" "dvec2") ("y" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "min" :RETURN "dvec3" :ARGS (("x" "dvec3") ("y" "dvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "min" :RETURN "dvec4" :ARGS (("x" "dvec4") ("y" "dvec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "mix" :RETURN "vec4" :ARGS (("x" "vec4") ("y" "vec4") ("a" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "mix" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "vec3") ("a" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "mix" :RETURN "vec2" :ARGS (("x" "vec2") ("y" "vec2") ("a" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "mix" :RETURN "float" :ARGS (("x" "float") ("y" "float") ("a" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "mix" :RETURN "dvec2" :ARGS (("x" "dvec2") ("y" "dvec2") ("a" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "mix" :RETURN "double" :ARGS (("x" "double") ("y" "double") ("a" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "mix" :RETURN "ivec4" :ARGS (("x" "ivec4") ("y" "ivec4") ("a" "ivec4")) :VERSIONS (450))
+    (:NAME "mix" :RETURN "ivec3" :ARGS (("x" "ivec3") ("y" "ivec3") ("a" "ivec3")) :VERSIONS (450))
+    (:NAME "mix" :RETURN "ivec2" :ARGS (("x" "ivec2") ("y" "ivec2") ("a" "ivec2")) :VERSIONS (450))
+    (:NAME "mix" :RETURN "int" :ARGS (("x" "int") ("y" "int") ("a" "int")) :VERSIONS (450))
+    (:NAME "mix" :RETURN "uvec4" :ARGS (("x" "uvec4") ("y" "uvec4") ("a" "uvec4")) :VERSIONS (450))
+    (:NAME "mix" :RETURN "uvec3" :ARGS (("x" "uvec3") ("y" "uvec3") ("a" "uvec3")) :VERSIONS (450))
+    (:NAME "mix" :RETURN "uvec2" :ARGS (("x" "uvec2") ("y" "uvec2") ("a" "uvec2")) :VERSIONS (450))
+    (:NAME "mix" :RETURN "uint" :ARGS (("x" "uint") ("y" "uint") ("a" "uint")) :VERSIONS (450))
+    (:NAME "mix" :RETURN "bvec4" :ARGS (("x" "bvec4") ("y" "bvec4") ("a" "bvec4")) :VERSIONS (450))
+    (:NAME "mix" :RETURN "bvec3" :ARGS (("x" "bvec3") ("y" "bvec3") ("a" "bvec3")) :VERSIONS (450))
+    (:NAME "mix" :RETURN "bvec2" :ARGS (("x" "bvec2") ("y" "bvec2") ("a" "bvec2")) :VERSIONS (450))
+    (:NAME "mix" :RETURN "bool" :ARGS (("x" "bool") ("y" "bool") ("a" "bool")) :VERSIONS (450))
+    (:NAME "mod" :RETURN "vec4" :ARGS (("x" "vec4") ("y" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "mod" :RETURN "vec3" :ARGS (("x" "vec3") ("y" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "mod" :RETURN "vec2" :ARGS (("x" "vec2") ("y" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "mod" :RETURN "float" :ARGS (("x" "float") ("y" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "mod" :RETURN "double" :ARGS (("x" "double") ("y" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "mod" :RETURN "dvec2" :ARGS (("x" "dvec2") ("y" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "mod" :RETURN "dvec3" :ARGS (("x" "dvec3") ("y" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "mod" :RETURN "dvec4" :ARGS (("x" "dvec4") ("y" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "noise1" :RETURN "float" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise1" :RETURN "float" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise1" :RETURN "float" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise1" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise2" :RETURN "vec2" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise2" :RETURN "vec2" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise2" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise2" :RETURN "vec2" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise3" :RETURN "vec3" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise3" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise3" :RETURN "vec3" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise3" :RETURN "vec3" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise4" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise4" :RETURN "vec4" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise4" :RETURN "vec4" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "noise4" :RETURN "vec4" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "normalize" :RETURN "vec4" :ARGS (("v" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "normalize" :RETURN "vec3" :ARGS (("v" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "normalize" :RETURN "vec2" :ARGS (("v" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "normalize" :RETURN "float" :ARGS (("v" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "normalize" :RETURN "dvec2" :ARGS (("v" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "normalize" :RETURN "double" :ARGS (("v" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "notEqual" :RETURN "bvec2" :ARGS (("x" "vec2") ("y" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "notEqual" :RETURN "bvec3" :ARGS (("x" "vec3") ("y" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "notEqual" :RETURN "bvec4" :ARGS (("x" "vec4") ("y" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "notEqual" :RETURN "bvec2" :ARGS (("x" "ivec2") ("y" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "notEqual" :RETURN "bvec3" :ARGS (("x" "ivec3") ("y" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "notEqual" :RETURN "bvec4" :ARGS (("x" "ivec4") ("y" "ivec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "notEqual" :RETURN "bvec2" :ARGS (("x" "uvec2") ("y" "uvec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "notEqual" :RETURN "bvec3" :ARGS (("x" "uvec3") ("y" "uvec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "notEqual" :RETURN "bvec4" :ARGS (("x" "uvec4") ("y" "uvec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "mat2" :ARGS (("c" "vec2") ("r" "vec2")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "mat3" :ARGS (("c" "vec3") ("r" "vec3")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "mat4" :ARGS (("c" "vec4") ("r" "vec4")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "mat2x3" :ARGS (("c" "vec3") ("r" "vec2")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "mat3x2" :ARGS (("c" "vec2") ("r" "vec3")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "mat2x4" :ARGS (("c" "vec4") ("r" "vec2")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "mat4x2" :ARGS (("c" "vec2") ("r" "vec4")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "mat3x4" :ARGS (("c" "vec4") ("r" "vec3")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "mat4x3" :ARGS (("c" "vec3") ("r" "vec4")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "dmat2" :ARGS (("c" "dvec2") ("r" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "dmat3" :ARGS (("c" "dvec3") ("r" "dvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "dmat4" :ARGS (("c" "dvec4") ("r" "dvec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "dmat2x3" :ARGS (("c" "dvec3") ("r" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "dmat3x2" :ARGS (("c" "dvec2") ("r" "dvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "dmat2x4" :ARGS (("c" "dvec4") ("r" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "dmat4x2" :ARGS (("c" "dvec2") ("r" "dvec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "dmat3x4" :ARGS (("c" "dvec4") ("r" "dvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "outerProduct" :RETURN "dmat4x3" :ARGS (("c" "dvec3") ("r" "dvec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "packUnorm2x16" :RETURN "uint" :ARGS (("v" "vec2")) :VERSIONS (410 420 430 440 450))
+    (:NAME "packSnorm2x16" :RETURN "uint" :ARGS (("v" "vec2")) :VERSIONS (420 430 440 450))
+    (:NAME "packUnorm4x8" :RETURN "uint" :ARGS (("v" "vec4")) :VERSIONS (410 420 430 440 450))
+    (:NAME "packSnorm4x8" :RETURN "uint" :ARGS (("v" "vec4")) :VERSIONS (410 420 430 440 450))
+    (:NAME "reflect" :RETURN "vec4" :ARGS (("I" "vec4") ("N" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "reflect" :RETURN "vec3" :ARGS (("I" "vec3") ("N" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "reflect" :RETURN "vec2" :ARGS (("I" "vec2") ("N" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "reflect" :RETURN "float" :ARGS (("I" "float") ("N" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "reflect" :RETURN "dvec2" :ARGS (("I" "dvec2") ("N" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "reflect" :RETURN "double" :ARGS (("I" "double") ("N" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "refract" :RETURN "vec4" :ARGS (("I" "vec4") ("N" "vec4") ("eta" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "refract" :RETURN "vec3" :ARGS (("I" "vec3") ("N" "vec3") ("eta" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "refract" :RETURN "vec2" :ARGS (("I" "vec2") ("N" "vec2") ("eta" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "refract" :RETURN "float" :ARGS (("I" "float") ("N" "float") ("eta" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "refract" :RETURN "dvec2" :ARGS (("I" "dvec2") ("N" "dvec2") ("eta" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "refract" :RETURN "double" :ARGS (("I" "double") ("N" "double") ("eta" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "round" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "round" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "round" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "round" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "round" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "round" :RETURN "double" :ARGS (("x" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "roundEven" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "roundEven" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "roundEven" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "roundEven" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "roundEven" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "roundEven" :RETURN "double" :ARGS (("x" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "sign" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sign" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sign" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sign" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sign" :RETURN "ivec4" :ARGS (("x" "ivec4")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "sign" :RETURN "ivec3" :ARGS (("x" "ivec3")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "sign" :RETURN "ivec2" :ARGS (("x" "ivec2")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "sign" :RETURN "int" :ARGS (("x" "int")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "sign" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "sign" :RETURN "double" :ARGS (("x" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "smoothstep" :RETURN "vec4" :ARGS (("edge0" "vec4") ("edge1" "vec4") ("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "smoothstep" :RETURN "vec3" :ARGS (("edge0" "vec3") ("edge1" "vec3") ("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "smoothstep" :RETURN "vec2" :ARGS (("edge0" "vec2") ("edge1" "vec2") ("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "smoothstep" :RETURN "float" :ARGS (("edge0" "float") ("edge1" "float") ("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "smoothstep" :RETURN "dvec2" :ARGS (("edge0" "dvec2") ("edge1" "dvec2") ("x" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "smoothstep" :RETURN "double" :ARGS (("edge0" "double") ("edge1" "double") ("x" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "sqrt" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sqrt" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sqrt" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sqrt" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "sqrt" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "sqrt" :RETURN "double" :ARGS (("x" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "step" :RETURN "vec4" :ARGS (("edge" "vec4") ("x" "vec4")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "step" :RETURN "vec3" :ARGS (("edge" "vec3") ("x" "vec3")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "step" :RETURN "vec2" :ARGS (("edge" "vec2") ("x" "vec2")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "step" :RETURN "float" :ARGS (("edge" "float") ("x" "float")) :VERSIONS (110 120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "step" :RETURN "dvec2" :ARGS (("edge" "dvec2") ("x" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "step" :RETURN "double" :ARGS (("edge" "double") ("x" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "int") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "int") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "int") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "ivec2") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "ivec2") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "ivec2") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "ivec3") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "ivec3") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "ivec3") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "uvec4" :ARGS (("sampler" "usampler1DArray") ("P" "ivec2") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "vec4" :ARGS (("sampler" "sampler1DArray") ("P" "ivec2") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "ivec4" :ARGS (("sampler" "isampler1DArray") ("P" "ivec2") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "uvec4" :ARGS (("sampler" "usampler2DArray") ("P" "ivec3") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "vec4" :ARGS (("sampler" "sampler2DArray") ("P" "ivec3") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "ivec4" :ARGS (("sampler" "isampler2DArray") ("P" "ivec3") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "uvec4" :ARGS (("sampler" "usamplerBuffer") ("P" "int")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "vec4" :ARGS (("sampler" "samplerBuffer") ("P" "int")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "ivec4" :ARGS (("sampler" "isamplerBuffer") ("P" "int")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "uvec4" :ARGS (("sampler" "usampler2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "vec4" :ARGS (("sampler" "sampler2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "ivec4" :ARGS (("sampler" "isampler2DMS") ("P" "ivec2") ("sample" "int")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "texelFetch" :RETURN "vec4" :ARGS (("sampler" "sampler2DMSArray") ("P" "ivec3") ("sample" "int")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "int") ("lod" "int") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "int") ("lod" "int") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "int") ("lod" "int") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "ivec2") ("lod" "int") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "ivec2") ("lod" "int") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "ivec2") ("lod" "int") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "ivec3") ("lod" "int") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "ivec3") ("lod" "int") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "ivec3") ("lod" "int") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "ivec2") ("offset" "int")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "ivec2") ("offset" "int")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "ivec2") ("offset" "int")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1DArray") ("P" "ivec2") ("lod" "int") ("offset" "int")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1DArray") ("P" "ivec2") ("lod" "int") ("offset" "int")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1DArray") ("P" "ivec2") ("lod" "int") ("offset" "int")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DArray") ("P" "ivec3") ("lod" "int") ("offset" "int")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DArray") ("P" "ivec3") ("lod" "int") ("offset" "int")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "texelFetchOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DArray") ("P" "ivec3") ("lod" "int") ("offset" "int")) :VERSIONS (150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "float") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "float") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "float") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "uvec4" :ARGS (("sampler" "usamplerCube") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "vec4" :ARGS (("sampler" "samplerCube") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "ivec4" :ARGS (("sampler" "isamplerCube") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "float" :ARGS (("sampler" "samplerCubeShadow") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "uvec4" :ARGS (("sampler" "usampler1DArray") ("P" "vec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "vec4" :ARGS (("sampler" "sampler1DArray") ("P" "vec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "ivec4" :ARGS (("sampler" "isampler1DArray") ("P" "vec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "uvec4" :ARGS (("sampler" "usampler2DArray") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "vec4" :ARGS (("sampler" "sampler2DArray") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "ivec4" :ARGS (("sampler" "isampler2DArray") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "float" :ARGS (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "float" :ARGS (("sampler" "sampler2DArrayShadow") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "float" :ARGS (("sampler" "sampler2DRectShadow") ("P" "vec3")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "uvec4" :ARGS (("sampler" "usamplerCubeArray") ("P" "vec4") ("bias" "[float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "vec4" :ARGS (("sampler" "samplerCubeArray") ("P" "vec4") ("bias" "[float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "ivec4" :ARGS (("sampler" "isamplerCubeArray") ("P" "vec4") ("bias" "[float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "texture" :RETURN "float" :ARGS (("sampler" "samplerCubeArrayShadow") ("P" "vec4") ("compare" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "uvec4" :ARGS (("sampler" "usamplerCube") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "vec4" :ARGS (("sampler" "samplerCube") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "ivec4" :ARGS (("sampler" "isamplerCube") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec3") ("dPdx" "float") ("dPdy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler1DArray") ("P" "vec2") ("dPdx" "float") ("dPdy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "vec4" :ARGS (("sampler" "sampler1DArray") ("P" "vec2") ("dPdx" "float") ("dPdy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler1DArray") ("P" "vec2") ("dPdx" "float") ("dPdy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "vec4" :ARGS (("sampler" "sampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "float" :ARGS (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("dPdx" "float") ("dPdy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "float" :ARGS (("sampler" "sampler2DRectShadow") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "uvec4" :ARGS (("sampler" "usamplerCubeArray") ("P" "vec4") ("dPdx" "vec3") ("dPdy" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "vec4" :ARGS (("sampler" "samplerCubeArray") ("P" "vec4") ("dPdx" "vec3") ("dPdy" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGrad" :RETURN "ivec4" :ARGS (("sampler" "isamplerCubeArray") ("P" "vec4") ("dPdx" "vec3") ("dPdy" "vec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "float") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec3") ("dPdx" "vec3") ("dPdy" "vec3") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec3") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1DArray") ("P" "vec2") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1DArray") ("P" "vec2") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1DArray") ("P" "vec2") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DArray") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "float" :ARGS (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "float" :ARGS (("sampler" "sampler2DArrayShadow") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec2") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureGradOffset" :RETURN "float" :ARGS (("sampler" "sampler2DRectShadow") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "float") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "float") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "float") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec2") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec2") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec2") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "uvec4" :ARGS (("sampler" "usamplerCube") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "vec4" :ARGS (("sampler" "samplerCube") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "ivec4" :ARGS (("sampler" "isamplerCube") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec4") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "uvec4" :ARGS (("sampler" "usampler1DArray") ("P" "vec2") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "vec4" :ARGS (("sampler" "sampler1DArray") ("P" "vec2") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "ivec4" :ARGS (("sampler" "isampler1DArray") ("P" "vec2") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "uvec4" :ARGS (("sampler" "usampler2DArray") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "vec4" :ARGS (("sampler" "sampler2DArray") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "ivec4" :ARGS (("sampler" "isampler2DArray") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "float" :ARGS (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("lod" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "uvec4" :ARGS (("sampler" "usamplerCubeArray") ("P" "vec4") ("lod" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "vec4" :ARGS (("sampler" "samplerCubeArray") ("P" "vec4") ("lod" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureLod" :RETURN "ivec4" :ARGS (("sampler" "isamplerCubeArray") ("P" "vec4") ("lod" "float")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "float") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "float") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "float") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec2") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec2") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec2") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec3") ("lod" "float") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec3") ("lod" "float") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec3") ("lod" "float") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec3") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec4") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1DArray") ("P" "vec2") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1DArray") ("P" "vec2") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1DArray") ("P" "vec2") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DArray") ("P" "vec3") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DArray") ("P" "vec3") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DArray") ("P" "vec3") ("lod" "float") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureLodOffset" :RETURN "float" :ARGS (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("lod" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "float") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "float") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "float") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec2") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec2") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec2") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec3") ("offset" "ivec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec3") ("offset" "ivec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec3") ("offset" "ivec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec3") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec4") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1DArray") ("P" "vec2") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1DArray") ("P" "vec2") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1DArray") ("P" "vec2") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DArray") ("P" "vec3") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DArray") ("P" "vec3") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DArray") ("P" "vec3") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "float" :ARGS (("sampler" "sampler1DArrayShadow") ("P" "vec3") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "float" :ARGS (("sampler" "sampler2DArrayShadow") ("P" "vec4") ("offset" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureOffset" :RETURN "float" :ARGS (("sampler" "sampler2DRectShadow") ("P" "vec3") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec4") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec3")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec3")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec3")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec4")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec4")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec4")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProj" :RETURN "float" :ARGS (("sampler" "sampler2DRectShadow") ("P" "vec4")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec2") ("pDx" "float") ("pDy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec2") ("pDx" "float") ("pDy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec2") ("pDx" "float") ("pDy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec4") ("pDx" "float") ("pDy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec4") ("pDx" "float") ("pDy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec4") ("pDx" "float") ("pDy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec4") ("pDx" "vec3") ("pDy" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec4") ("pDx" "vec3") ("pDy" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec4") ("pDx" "vec3") ("pDy" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec4") ("pDx" "float") ("pDy" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec3") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGrad" :RETURN "float" :ARGS (("sampler" "sampler2DRectShadow") ("P" "vec4") ("pDx" "vec2") ("pDy" "vec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec2") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec2") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec2") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec4") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec4") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec4") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec4") ("dPdx" "vec3") ("dPdy" "vec3") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec4") ("dPdx" "vec3") ("dPdy" "vec3") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec4") ("dPdx" "vec3") ("dPdy" "vec3") ("offset" "ivec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec4") ("dPdx" "float") ("dPdy" "float") ("offset" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec3") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjGradOffset" :RETURN "float" :ARGS (("sampler" "sampler2DRectShadow") ("P" "vec4") ("dPdx" "vec2") ("dPdy" "vec2") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec2") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec2") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec2") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler1D") ("P" "vec4") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS (("sampler" "sampler1D") ("P" "vec4") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler1D") ("P" "vec4") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec3") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec3") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec3") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2D") ("P" "vec4") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2D") ("P" "vec4") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2D") ("P" "vec4") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler3D") ("P" "vec4") ("offset" "ivec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS (("sampler" "sampler3D") ("P" "vec4") ("offset" "ivec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler3D") ("P" "vec4") ("offset" "ivec3") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "float" :ARGS (("sampler" "sampler1DShadow") ("P" "vec4") ("offset" "int") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "float" :ARGS (("sampler" "sampler2DShadow") ("P" "vec4") ("offset" "ivec2") ("bias" "[float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec3") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec3") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec3") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "uvec4" :ARGS (("sampler" "usampler2DRect") ("P" "vec4") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "vec4" :ARGS (("sampler" "sampler2DRect") ("P" "vec4") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "ivec4" :ARGS (("sampler" "isampler2DRect") ("P" "vec4") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureProjOffset" :RETURN "float" :ARGS (("sampler" "sampler2DRectShadow") ("P" "vec4") ("offset" "ivec2")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "int" :ARGS (("sampler" "usampler1D") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "int" :ARGS (("sampler" "sampler1D") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "int" :ARGS (("sampler" "isampler1D") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "usampler2D") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "sampler2D") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "isampler2D") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec3" :ARGS (("sampler" "usampler3D") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec3" :ARGS (("sampler" "sampler3D") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec3" :ARGS (("sampler" "isampler3D") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "int" :ARGS (("sampler" "sampler1DShadow") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "sampler2DShadow") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec3" :ARGS (("sampler" "samplerCubeArray") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec3" :ARGS (("sampler" "samplerCubeArrayShadow") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "usampler1DArray") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "sampler1DArray") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "isampler1DArray") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec3" :ARGS (("sampler" "usampler2DArray") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec3" :ARGS (("sampler" "sampler2DArray") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec3" :ARGS (("sampler" "isampler2DArray") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "sampler1DArrayShadow") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec3" :ARGS (("sampler" "sampler2DArrayShadow") ("lod" "int")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "usampler2DMS")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "sampler2DMS")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "isampler2DMS")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec3" :ARGS (("sampler" "sampler2DMSArray")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "usamplerRect")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "isamplerRect")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "samplerRect")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "sampler2DRectShadow")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "int" :ARGS (("sampler" "usamplerBuffer")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "int" :ARGS (("sampler" "samplerBuffer")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "int" :ARGS (("sampler" "isamplerBuffer")) :VERSIONS (140 150 330 400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "usamplerCube") ("lod" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "samplerCube") ("lod" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "isamplerCube") ("lod" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "textureSize" :RETURN "ivec2" :ARGS (("sampler" "samplerCubeShadow") ("lod" "int")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "mat2" :ARGS (("m" "mat2")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "mat3" :ARGS (("m" "mat3")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "mat4" :ARGS (("m" "mat4")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "mat2x3" :ARGS (("m" "mat3x2")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "mat2x4" :ARGS (("m" "mat4x2")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "mat3x2" :ARGS (("m" "mat2x3")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "mat3x4" :ARGS (("m" "mat4x3")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "mat4x2" :ARGS (("m" "mat2x4")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "mat4x3" :ARGS (("m" "mat3x4")) :VERSIONS (120 130 140 150 330 400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "dmat2" :ARGS (("m" "dmat2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "dmat3" :ARGS (("m" "dmat3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "dmat4" :ARGS (("m" "dmat4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "dmat2x3" :ARGS (("m" "dmat3x2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "dmat2x4" :ARGS (("m" "dmat4x2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "dmat3x2" :ARGS (("m" "dmat2x3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "dmat3x4" :ARGS (("m" "dmat4x3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "dmat4x2" :ARGS (("m" "dmat2x4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "transpose" :RETURN "dmat4x3" :ARGS (("m" "dmat3x4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "trunc" :RETURN "vec4" :ARGS (("x" "vec4")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "trunc" :RETURN "vec3" :ARGS (("x" "vec3")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "trunc" :RETURN "vec2" :ARGS (("x" "vec2")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "trunc" :RETURN "float" :ARGS (("x" "float")) :VERSIONS (130 140 150 330 400 410 420 430 440 450))
+    (:NAME "trunc" :RETURN "double" :ARGS (("x" "double")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "trunc" :RETURN "dvec2" :ARGS (("x" "dvec2")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "trunc" :RETURN "dvec3" :ARGS (("x" "dvec3")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "trunc" :RETURN "dvec4" :ARGS (("x" "dvec4")) :VERSIONS (400 410 420 430 440 450))
+    (:NAME "unpackUnorm2x16" :RETURN "vec2" :ARGS (("p" "uint")) :VERSIONS (410 420 430 440 450))
+    (:NAME "unpackSnorm2x16" :RETURN "vec2" :ARGS (("p" "uint")) :VERSIONS (420 430 440 450))
+    (:NAME "unpackUnorm4x8" :RETURN "vec4" :ARGS (("p" "uint")) :VERSIONS (410 420 430 440 450))
+    (:NAME "unpackSnorm4x8" :RETURN "vec4" :ARGS (("p" "uint")) :VERSIONS (410 420 430 440 450))
+    (:name "frexp" :return "float" :args (("x" "float") ("exp" "int" :out)) :versions (400 410 420 430 440 450))
+    (:name "frexp" :return "vec2" :args (("x" "vec2") ("exp" "ivec2" :out)) :versions (400 410 420 430 440 450))
+    (:name "frexp" :return "vec3" :args (("x" "vec3") ("exp" "ivec3" :out)) :versions (400 410 420 430 440 450))
+    (:name "frexp" :return "vec4" :args (("x" "vec4") ("exp" "ivec4" :out)) :versions (400 410 420 430 440 450))
+    (:name "frexp" :return "double" :args (("x" "double") ("exp" "int" :out)) :versions (400 410 420 430 440 450))
+    (:name "frexp" :return "dvec2" :args (("x" "dvec2") ("exp" "ivec2" :out)) :versions (400 410 420 430 440 450))
+    (:name "frexp" :return "dvec3" :args (("x" "dvec3") ("exp" "ivec3" :out)) :versions (400 410 420 430 440 450))
+    (:name "frexp" :return "dvec4" :args (("x" "dvec4") ("exp" "ivec4" :out)) :versions (400 410 420 430 440 450))
+    (:name "modf" :return "float" :args (("x" "float") ("i" "float" :out)) :versions (130 140 150 330 400 410 420 430 440 450))
+    (:name "modf" :return "vec2" :args (("x" "vec2") ("i" "vec2" :out)) :versions (130 140 150 330 400 410 420 430 440 450))
+    (:name "modf" :return "vec3" :args (("x" "vec3") ("i" "vec3" :out)) :versions (130 140 150 330 400 410 420 430 440 450))
+    (:name "modf" :return "vec4" :args (("x" "vec4") ("i" "vec4" :out)) :versions (130 140 150 330 400 410 420 430 440 450))
+    (:name "modf" :return "double" :args (("x" "double") ("i" "double" :out)) :versions (400 410 420 430 440 450))
+    (:name "modf" :return "dvec2" :args (("x" "dvec2") ("i" "dvec2" :out)) :versions (400 410 420 430 440 450))
+    (:name "modf" :return "dvec3" :args (("x" "dvec3") ("i" "dvec3" :out)) :versions (400 410 420 430 440 450))
+    (:name "modf" :return "dvec4" :args (("x" "dvec4") ("i" "dvec4" :out)) :versions (400 410 420 430 440 450))
+    (:name "atomicAdd" :return "int" :args (("mem" "int" :inout) ("data" "int")) :versions (430 440 450))
+    (:name "atomicAdd" :return "uint" :args (("mem" "uint" :inout) ("data" "uint")) :versions (430 440 450))
+    (:name "atomicAnd" :return "int" :args (("mem" "int" :inout) ("data" "int")) :versions (430 440 450))
+    (:name "atomicAnd" :return "uint" :args (("mem" "uint" :inout) ("data" "uint")) :versions (430 440 450))
+    (:name "atomicCompSwap" :return "int" :args (("mem" "int" :inout) ("compare" "uint") ("data" "uint")) :versions (430 440 450))
+    (:name "atomicCompSwap" :return "uint" :args (("mem" "uint" :inout) ("compare" "uint") ("data" "uint")) :versions (430 440 450))
+    (:name "atomicExchange" :return "int" :args (("mem" "int" :inout) ("data" "int")) :versions (430 440 450))
+    (:name "atomicExchange" :return "uint" :args (("mem" "uint" :inout) ("data" "uint")) :versions (430 440 450))
+    (:name "atomicMax" :return "int" :args (("mem" "int" :inout) ("data" "int")) :versions (430 440 450))
+    (:name "atomicMax" :return "uint" :args (("mem" "uint" :inout) ("data" "uint")):versions (430 440 450))
+    (:name "atomicMin" :return "int" :args (("mem" "int" :inout) ("data" "int")) :versions (430 440 450))
+    (:name "atomicMin" :return "uint" :args (("mem" "uint" :inout) ("data" "uint")) :versions (430 440 450))
+    (:name "atomicOr" :return "int" :args (("mem" "int" :inout) ("data" "int")) :versions (430 440 450))
+    (:name "atomicOr" :return "uint" :args (("mem" "uint" :inout) ("data" "uint")):versions (430 440 450))
+    (:name "atomicXor" :return "int" :args (("mem" "int" :inout) ("data" "int")) :versions (430 440 450))
+    (:name "atomicXor" :return "uint" :args (("mem" "uint" :inout) ("data" "uint")) :versions (430 440 450))
+    (:name "uaddCarry" :return "uint" :args (("x" "uint") ("y" "uint") ("carry" "uint" :out)) :versions (400 410 420 430 440 450))
+    (:name "uaddCarry" :return "uvec2" :args (("x" "uvec2") ("y" "uvec2") ("carry" "uvec2" :out)) :versions (400 410 420 430 440 450))
+    (:name "uaddCarry" :return "uvec3" :args (("x" "uvec3") ("y" "uvec3") ("carry" "uvec3" :out)) :versions (400 410 420 430 440 450))
+    (:name "uaddCarry" :return "uvec4" :args (("x" "uvec4") ("y" "uvec4") ("carry" "uvec4" :out)) :versions (400 410 420 430 440 450))
+    (:name "usubBorrow" :return "uint" :args (("x" "uint") ("y" "uint") ("borrow" "uint" :out)) :versions (400 410 420 430 440 450))
+    (:name "usubBorrow" :return "uvec2" :args (("x" "uvec2") ("y" "uvec2") ("borrow" "uvec2" :out)) :versions (400 410 420 430 440 450))
+    (:name "usubBorrow" :return "uvec3" :args (("x" "uvec3") ("y" "uvec3") ("borrow" "uvec3" :out)) :versions (400 410 420 430 440 450))
+    (:name "usubBorrow" :return "uvec4" :args (("x" "uvec4") ("y" "uvec4") ("borrow" "uvec4" :out)) :versions (400 410 420 430 440 450))
+    (:name "umulExtended" :return "void" :args (("x" "uint") ("y" "uint") ("msb" "uint" :out) ("lsb" "uint" :out)) :versions (400 410 420 430 440 450))
+    (:name "umulExtended" :return "void" :args (("x" "uvec2") ("y" "uvec2") ("msb" "uvec2" :out) ("lsb" "uvec2" :out)) :versions (400 410 420 430 440 450))
+    (:name "umulExtended" :return "void" :args (("x" "uvec3") ("y" "uvec3") ("msb" "uvec3" :out) ("lsb" "uvec3" :out)) :versions (400 410 420 430 440 450))
+    (:name "umulExtended" :return "void" :args (("x" "uvec4") ("y" "uvec4") ("msb" "uvec4" :out) ("lsb" "uvec4" :out)) :versions (400 410 420 430 440 450))
+    (:name "imulExtended" :return "void" :args (("x" "int") ("y" "int") ("msb" "int" :out) ("lsb" "int" :out)) :versions (400 410 420 430 440 450))
+    (:name "imulExtended" :return "void" :args (("x" "ivec2") ("y" "ivec2") ("msb" "ivec2" :out) ("lsb" "ivec2" :out)) :versions (400 410 420 430 440 450))
+    (:name "imulExtended" :return "void" :args (("x" "ivec3") ("y" "ivec3") ("msb" "ivec3" :out) ("lsb" "ivec3" :out)) :versions (400 410 420 430 440 450))
+    (:name "imulExtended" :return "void" :args (("x" "ivec4") ("y" "ivec4") ("msb" "ivec4" :out) ("lsb" "ivec4" :out)) :versions (400 410 420 430 440 450))))
