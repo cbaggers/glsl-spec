@@ -58,7 +58,7 @@
 {"name":"gl_Layer","type":"int","placeP":null,"versions":[150,330,400,410,420,430,440,450],"stage":"geometry"},
 {"name":"gl_Layer","type":"int","placeP":null,"versions":[430,440,450],"stage":"fragment"},
 {"name":"gl_Position","type":"vec4","placeP":true,"versions":[110,120,130,140,150,330,400,410,420,430,440,450],"stage":"vertex"},
-{"name":"gl_Position","type":"vec4","placeP":null,"versions":[110,120,130,140,150,330,400,410,420,430,440,450],"stage":"geometry"},
+{"name":"gl_Position","type":"vec4","placeP":true,"versions":[110,120,130,140,150,330,400,410,420,430,440,450],"stage":"geometry"},
 {"name":"gl_GlobalInvocationID","type":"uvec3","placeP":null,"versions":[430,440,450]},
 {"name":"gl_HelperInvocation","type":"bool","placeP":null,"versions":[450]},
 {"name":"gl_InvocationID","type":"int","placeP":null,"versions":[150,330,400,410,420,430,440,450]},

@@ -61,7 +61,7 @@
     (:name "gl_Layer" :type "int" :place-p nil :versions (150 330 400 410 420 430 440 450) :stage :geometry)
     (:name "gl_Layer" :type "int" :place-p nil :versions (430 440 450) :stage :fragment)
     (:name "gl_Position" :type "vec4" :place-p t :versions (110 120 130 140 150 330 400 410 420 430 440 450) :stage :vertex)
-    (:name "gl_Position" :type "vec4" :place-p nil :versions (110 120 130 140 150 330 400 410 420 430 440 450) :stage :geometry)
+    (:name "gl_Position" :type "vec4" :place-p t :versions (110 120 130 140 150 330 400 410 420 430 440 450) :stage :geometry)
     (:name "gl_GlobalInvocationID" :type "uvec3" :place-p nil :versions (430 440 450))
     (:name "gl_HelperInvocation" :type "bool" :place-p nil :versions (450))
     (:name "gl_InvocationID" :type "int" :place-p nil :versions (150 330 400 410 420 430 440 450))
