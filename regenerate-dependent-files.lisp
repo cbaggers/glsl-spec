@@ -67,7 +67,6 @@
                          glsl-spec:*functions*)))
          (pkg `(uiop:define-package #:glsl-symbols
                    (:use #:cl)
-                 (:mix #:alexandria #:uiop)
                   (:export ,@types
                            ,@vars
                            ,@funcs))))

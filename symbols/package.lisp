@@ -1,5 +1,4 @@
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS (:USE #:CL)
-                             (:MIX #:ALEXANDRIA #:UIOP)
                              (:EXPORT :ATOMIC-UINT :BOOL :BUFFER-IMAGE :BVEC2
                               :BVEC3 :BVEC4 :DMAT2 :DMAT2X3 :DMAT2X4 :DMAT3
                               :DMAT3X2 :DMAT3X4 :DMAT4 :DMAT4X2 :DMAT4X3
