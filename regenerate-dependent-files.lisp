@@ -65,15 +65,27 @@
                            (destructuring-bind (&key name &allow-other-keys) x
                              (intern (parse-gl-func-name name) :keyword)))
                          glsl-spec:*functions*)))
-         (pkg `(uiop:define-package #:glsl-symbols
-                   (:use #:cl)
-                  (:export ,@types
-                           ,@vars
-                           ,@funcs))))
+         (pkgs `((uiop:define-package #:glsl-symbols.types
+                     (:use #:cl)
+                   (:export ,@types))
+                 (uiop:define-package #:glsl-symbols.variables
+                     (:use #:cl)
+                   (:export ,@vars))
+                 (uiop:define-package #:glsl-symbols.functions
+                     (:use #:cl)
+                   (:export ,@funcs))
+                 (uiop:define-package #:glsl-symbols
+                     (:use #:cl
+                           #:glsl-symbols.types
+                           #:glsl-symbols.variables
+                           #:glsl-symbols.functions)
+                   (:reexport #:glsl-symbols.types
+                              #:glsl-symbols.variables
+                              #:glsl-symbols.functions)))))
     (with-open-file (x (asdf:system-relative-pathname
                         :glsl-spec "./symbols/package.lisp")
                        :direction :output :if-exists :supersede)
-      (format x "~s" pkg))))
+      (format x ";; glsl-symbols~{~%~%~s~}" pkgs))))
 
 ;;------------------------------
 

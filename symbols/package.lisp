@@ -1,4 +1,6 @@
-(UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS (:USE #:CL)
+;; glsl-symbols
+
+(UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.TYPES (:USE #:CL)
                              (:EXPORT :ATOMIC-UINT :BOOL :BUFFER-IMAGE :BVEC2
                               :BVEC3 :BVEC4 :DMAT2 :DMAT2X3 :DMAT2X4 :DMAT3
                               :DMAT3X2 :DMAT3X4 :DMAT4 :DMAT4X2 :DMAT4X3
@@ -37,7 +39,10 @@
                               :USAMPLER-2D-RECT :USAMPLER-3D :USAMPLER-BUFFER
                               :USAMPLER-CUBE :USAMPLER-CUBE-ARRAY
                               :USAMPLER-RECT :UVEC2 :UVEC3 :UVEC4 :VEC2 :VEC3
-                              :VEC4 :VOID :GL-MAX-CLIP-DISTANCES
+                              :VEC4 :VOID))
+
+(UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.VARIABLES (:USE #:CL)
+                             (:EXPORT :GL-MAX-CLIP-DISTANCES
                               :GL-MAX-CLIP-PLANES :GL-MAX-DRAW-BUFFERS
                               :GL-MAX-TEXTURE-UNITS :GL-MAX-TEXTURE-COORDS
                               :GL-MAX-GEOMETRY-TEXTURE-IMAGE-UNITS
@@ -74,12 +79,14 @@
                               :GL-SAMPLE-ID :GL-SAMPLE-MASK :GL-SAMPLE-MASK-IN
                               :GL-SAMPLE-POSITION :GL-TESS-COORD
                               :GL-TESS-LEVEL-INNER :GL-TESS-LEVEL-OUTER
-                              :GL-WORK-GROUP-ID :GL-WORK-GROUP-SIZE
-                              :EMIT-STREAM-VERTEX :EMIT-VERTEX :END-PRIMITIVE
-                              :END-STREAM-PRIMITIVE :ABS :ACOS :ACOSH :ALL :ANY
-                              :ASIN :ASINH :ATAN :ATANH :ATOMIC-ADD :ATOMIC-AND
-                              :ATOMIC-COMP-SWAP :ATOMIC-COUNTER
-                              :ATOMIC-COUNTER-DECREMENT
+                              :GL-WORK-GROUP-ID :GL-WORK-GROUP-SIZE))
+
+(UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.FUNCTIONS (:USE #:CL)
+                             (:EXPORT :EMIT-STREAM-VERTEX :EMIT-VERTEX
+                              :END-PRIMITIVE :END-STREAM-PRIMITIVE :ABS :ACOS
+                              :ACOSH :ALL :ANY :ASIN :ASINH :ATAN :ATANH
+                              :ATOMIC-ADD :ATOMIC-AND :ATOMIC-COMP-SWAP
+                              :ATOMIC-COUNTER :ATOMIC-COUNTER-DECREMENT
                               :ATOMIC-COUNTER-INCREMENT :ATOMIC-EXCHANGE
                               :ATOMIC-MAX :ATOMIC-MIN :ATOMIC-OR :ATOMIC-XOR
                               :BARRIER :BIT-COUNT :BITFIELD-EXTRACT
@@ -125,3 +132,11 @@
                               :UNPACK-HALF2X16 :UNPACK-SNORM2X16
                               :UNPACK-SNORM4X8 :UNPACK-UNORM2X16
                               :UNPACK-UNORM4X8 :USUB-BORROW))
+
+(UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS
+                             (:USE #:CL #:GLSL-SYMBOLS.TYPES
+                              #:GLSL-SYMBOLS.VARIABLES
+                              #:GLSL-SYMBOLS.FUNCTIONS)
+                             (:REEXPORT #:GLSL-SYMBOLS.TYPES
+                              #:GLSL-SYMBOLS.VARIABLES
+                              #:GLSL-SYMBOLS.FUNCTIONS))
