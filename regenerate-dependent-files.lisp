@@ -8,9 +8,14 @@
 (defun export-data-to-json (data file-name)
   (with-open-file (x (asdf:system-relative-pathname :glsl-spec file-name)
                      :direction :output :if-exists :supersede)
-    (format x "[~{~a~^,~%~}]"
-            (mapcar #'cl-json:encode-json-plist-to-string
-                    data))))
+    (let ((data
+           (mapcar (lambda (x)
+                     (assert (eq :lisp-name (first x)))
+                     (cddr x))
+                   data)))
+      (format x "[~{~a~^,~%~}]"
+              (mapcar #'cl-json:encode-json-plist-to-string
+                      data)))))
 
 (defun regen-json-files ()
   (export-data-to-json glsl-spec:*functions* "functions.json")
@@ -18,34 +23,6 @@
 
 ;;------------------------------
 ;; GLSL-Symbols Package
-
-(defun %parse (name &optional (start-at 0) (prefix ""))
-  (with-input-from-string (seq name :start start-at)
-    (let (last-case
-          case-changed
-          (frist t))
-      (labels ((readc (seq)
-                 (let ((r (read-char seq nil :eos)))
-                   (unless (eq r :eos)
-                     (setf case-changed (and (not last-case)
-                                             (upper-case-p r))
-                           last-case (upper-case-p r)))
-                   r)))
-        (format nil "~a~{~a~}"
-                prefix
-                (loop :for char = (readc seq)
-                   :while (not (eq char :eos)) :collect
-                   (prog1
-                       (if (and case-changed (not frist))
-                           (format nil "-~a" (string-upcase char))
-                           (string-upcase char))
-                     (setf frist nil))))))))
-
-(defun parse-gl-func-name (name)
-  (%parse name))
-
-(defun parse-gl-var-name (name)
-  (%parse name 3 "GL-"))
 
 (defun regen-lisp-package ()
   (let* ((lines (split-sequence:split-sequence
@@ -57,13 +34,18 @@
          (types (mapcar (lambda (x) (intern x :keyword)) lines))
          (vars (remove-duplicates
                 (mapcar (lambda (x)
-                          (destructuring-bind (&key name &allow-other-keys) x
-                            (intern (parse-gl-var-name name) :keyword)))
+                          (destructuring-bind
+                                (&key lisp-name &allow-other-keys) x
+                            (if lisp-name
+                                (intern lisp-name :keyword)
+                                (error "bummer"))))
                         glsl-spec:*variables*)))
          (funcs (remove-duplicates
                  (mapcar (lambda (x)
-                           (destructuring-bind (&key name &allow-other-keys) x
-                             (intern (parse-gl-func-name name) :keyword)))
+                           (destructuring-bind (&key lisp-name &allow-other-keys) x
+                             (if lisp-name
+                                 (intern lisp-name :keyword)
+                                 (error "bummer"))))
                          glsl-spec:*functions*)))
          (pkgs `((uiop:define-package #:glsl-symbols.types
                      (:use #:cl)
