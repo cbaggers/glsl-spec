@@ -1,6 +1,6 @@
 # GLSL Spec
 
-This pacakge contains the specification of all functions and variables from GLSL as data.
+This package contains the specification of all functions and variables from GLSL as data.
 
 The functions and variables can be found as s-expressions in `functions.lisp` & `variables.lisp` respectively.
 

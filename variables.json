@@ -76,4 +76,7 @@
 {"name":"gl_TessLevelInner","type":"[float","placeP":true,"versions":[400,410,420,430,440,450,460]},
 {"name":"gl_TessLevelOuter","type":"[float","placeP":true,"versions":[400,410,420,430,440,450,460]},
 {"name":"gl_WorkGroupID","type":"uvec3","placeP":null,"versions":[430,440,450,460]},
-{"name":"gl_WorkGroupSize","type":"uvec3","placeP":null,"versions":[430,440,450,460]}]
+{"name":"gl_WorkGroupSize","type":"uvec3","placeP":null,"versions":[430,440,450,460]},
+{"name":"gl_DrawID","type":"int","placeP":null,"versions":[460],"stage":"vertex"},
+{"name":"gl_BaseVertex","type":"int","placeP":null,"versions":[460],"stage":"vertex"},
+{"name":"gl_BaseInstance","type":"int","placeP":null,"versions":[460],"stage":"vertex"}]

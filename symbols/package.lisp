@@ -79,7 +79,8 @@
                               :GL-SAMPLE-ID :GL-SAMPLE-MASK :GL-SAMPLE-MASK-IN
                               :GL-SAMPLE-POSITION :GL-TESS-COORD
                               :GL-TESS-LEVEL-INNER :GL-TESS-LEVEL-OUTER
-                              :GL-WORK-GROUP-ID :GL-WORK-GROUP-SIZE))
+                              :GL-WORK-GROUP-ID :GL-WORK-GROUP-SIZE :GL-DRAW-ID
+                              :GL-BASE-VERTEX :GL-BASE-INSTANCE))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.FUNCTIONS (:USE #:CL)
                              (:EXPORT :EMIT-STREAM-VERTEX :EMIT-VERTEX
@@ -87,7 +88,12 @@
                               :ACOSH :ALL :ANY :ASIN :ASINH :ATAN :ATANH
                               :ATOMIC-ADD :ATOMIC-AND :ATOMIC-COMP-SWAP
                               :ATOMIC-COUNTER :ATOMIC-COUNTER-DECREMENT
-                              :ATOMIC-COUNTER-INCREMENT :ATOMIC-EXCHANGE
+                              :ATOMIC-COUNTER-INCREMENT :ATOMIC-COUNTER-ADD
+                              :ATOMIC-COUNTER-SUBTRACT :ATOMIC-COUNTER-MIN
+                              :ATOMIC-COUNTER-MAX :ATOMIC-COUNTER-AND
+                              :ATOMIC-COUNTER-OR :ATOMIC-COUNTER-XOR
+                              :ATOMIC-COUNTER-EXCHANGE
+                              :ATOMIC-COUNTER-COMP-SWAP :ATOMIC-EXCHANGE
                               :ATOMIC-MAX :ATOMIC-MIN :ATOMIC-OR :ATOMIC-XOR
                               :BARRIER :BIT-COUNT :BITFIELD-EXTRACT
                               :BITFIELD-INSERT :BITFIELD-REVERSE :CEIL :CLAMP
@@ -131,7 +137,8 @@
                               :UMUL-EXTENDED :UNPACK-DOUBLE2X32
                               :UNPACK-HALF2X16 :UNPACK-SNORM2X16
                               :UNPACK-SNORM4X8 :UNPACK-UNORM2X16
-                              :UNPACK-UNORM4X8 :USUB-BORROW))
+                              :UNPACK-UNORM4X8 :USUB-BORROW :ANY-INVOCATION
+                              :ALL-INVOCATION :ANY-INVOCATIONS-EQUAL))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS
                              (:USE #:CL #:GLSL-SYMBOLS.TYPES
