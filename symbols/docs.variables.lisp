@@ -15,8 +15,8 @@ gl_ClipDistance is a member of the gl_PerVertex named block:
         float gl_ClipDistance[];
     };
 
-In fragment shaders, it is intrinsically declared as: in float gl_ClipDistance
-[] ;
+In fragment shaders, it is intrinsically declared as: in float gl_ClipDistance
+[] ;
 
 Description
 
@@ -97,7 +97,7 @@ gl_FragCoord — contains the window-relative coordinates of the current fragmen
 
 Declaration
 
-in vec4 gl_FragCoord ;
+in vec4 gl_FragCoord ;
 
 Description
 
@@ -151,7 +151,7 @@ gl_FragDepth — establishes a depth value for the current fragment
 
 Declaration
 
-out float gl_FragDepth ;
+out float gl_FragDepth ;
 
 Description
 
@@ -190,7 +190,7 @@ gl_FrontFacing — indicates whether a primitive is front or back facing
 
 Declaration
 
-in bool gl_FrontFacing ;
+in bool gl_FrontFacing ;
 
 Description
 
@@ -235,7 +235,7 @@ operated on by a compute shader
 
 Declaration
 
-in uvec3 gl_GlobalInvocationID ;
+in uvec3 gl_GlobalInvocationID ;
 
 Description
 
@@ -271,7 +271,7 @@ helper invocation
 
 Declaration
 
-in bool gl_HelperInvocation ;
+in bool gl_HelperInvocation ;
 
 Description
 
@@ -337,7 +337,7 @@ draw command
 
 Declaration
 
-in int gl_InstanceID ;
+in int gl_InstanceID ;
 
 Description
 
@@ -371,7 +371,7 @@ gl_InvocationID — contains the invocation index of the current shader
 
 Declaration
 
-in int gl_InvocationID ;
+in int gl_InvocationID ;
 
 Description
 
@@ -414,11 +414,11 @@ Declaration
 
 // Geometry stage
 
-out int gl_Layer ;
+out int gl_Layer ;
 
 // Fragment stage
 
-in int gl_Layer ;
+in int gl_Layer ;
 
 Description
 
@@ -489,7 +489,7 @@ on by a compute shader
 
 Declaration
 
-in uvec3 gl_LocalInvocationID ;
+in uvec3 gl_LocalInvocationID ;
 
 Description
 
@@ -525,7 +525,7 @@ currently being operated on by a compute shader
 
 Declaration
 
-in uint gl_LocalInvocationIndex ;
+in uint gl_LocalInvocationIndex ;
 
 Description
 
@@ -561,7 +561,7 @@ gl_NumSamples — contains the total number of samples in the framebuffer
 
 Declaration
 
-in bool gl_NumSamples ;
+in bool gl_NumSamples ;
 
 Description
 
@@ -596,7 +596,7 @@ to a compute shader
 
 Declaration
 
-in uvec3 gl_NumWorkGroups ;
+in uvec3 gl_NumWorkGroups ;
 
 Description
 
@@ -630,7 +630,7 @@ gl_PatchVerticesIn — contains the number of vertices in the current patch
 
 Declaration
 
-in int gl_PatchVerticesIn ;
+in int gl_PatchVerticesIn ;
 
 Description
 
@@ -665,7 +665,7 @@ gl_PointCoord — contains the coordinate of a fragment within a point
 
 Declaration
 
-in vec2 gl_PointCoord ;
+in vec2 gl_PointCoord ;
 
 Description
 
@@ -839,11 +839,11 @@ Declaration
 // In tessellation control, tessellation evaluation, and
 // fragment shaders
 
-in int gl_PrimitiveID ;
+in int gl_PrimitiveID ;
 
 // In geometry shaders
 
-out int gl_PrimitiveID ;
+out int gl_PrimitiveID ;
 
 Description
 
@@ -898,7 +898,7 @@ gl_PrimitiveIDIn — contains the index of the current primitive
 
 Declaration
 
-in int gl_PrimitiveIDIn ;
+in int gl_PrimitiveIDIn ;
 
 Description
 
@@ -937,7 +937,7 @@ gl_SampleID — contains the index of the sample currently being processed
 
 Declaration
 
-in int gl_SampleID ;
+in int gl_SampleID ;
 
 Description
 
@@ -978,7 +978,7 @@ gl_SampleMask — specifies the sample coverage mask for the current fragment
 
 Declaration
 
-out int gl_SampleMask[] ;
+out int gl_SampleMask[] ;
 
 Description
 
@@ -1027,7 +1027,7 @@ fragment
 
 Declaration
 
-in int gl_SampleMaskIn[] ;
+in int gl_SampleMaskIn[] ;
 
 Description
 
@@ -1064,7 +1064,7 @@ current fragment
 
 Declaration
 
-in vec2 gl_SamplePosition ;
+in vec2 gl_SamplePosition ;
 
 Description
 
@@ -1102,7 +1102,7 @@ gl_TessCoord — contains the coordinate of the vertex within the current patch
 
 Declaration
 
-in vec3 gl_TessCoord ;
+in vec3 gl_TessCoord ;
 
 Description
 
@@ -1138,11 +1138,11 @@ Declaration
 
 // In tessellation control shaders
 
-out float gl_TessLevelInner[2] ;
+out float gl_TessLevelInner[2] ;
 
 // In tessellation evaluation shaders
 
-in float gl_TessLevelInner[2] ;
+in float gl_TessLevelInner[2] ;
 
 Description
 
@@ -1186,11 +1186,11 @@ Declaration
 
 // In tessellation control shaders
 
-out float gl_TessLevelOuter[4] ;
+out float gl_TessLevelOuter[4] ;
 
 // In tessellation evaluation shaders
 
-in float gl_TessLevelOuter[4] ;
+in float gl_TessLevelOuter[4] ;
 
 Description
 
@@ -1231,7 +1231,7 @@ gl_VertexID — contains the index of the current vertex
 
 Declaration
 
-in int gl_VertexID ;
+in int gl_VertexID ;
 
 Description
 
@@ -1269,11 +1269,11 @@ Declaration
 
 // In geometry shaders
 
-out int gl_ViewportIndex ;
+out int gl_ViewportIndex ;
 
 // In fragment shaders
 
-in int gl_ViewportIndex ;
+in int gl_ViewportIndex ;
 
 Description
 
@@ -1331,7 +1331,7 @@ on by a compute shader
 
 Declaration
 
-in uvec3 gl_WorkGroupID ;
+in uvec3 gl_WorkGroupID ;
 
 Description
 
@@ -1367,7 +1367,7 @@ shader
 
 Declaration
 
-const uvec3 gl_WorkGroupSize ;
+const uvec3 gl_WorkGroupSize ;
 
 Description
 

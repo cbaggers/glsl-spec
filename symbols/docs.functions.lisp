@@ -472,7 +472,7 @@ atan — return the arc-tangent of the parameters
 Declaration
 
 genType atan(  genType y,
-               genType x);
+               genType x);
 
 
 
@@ -571,12 +571,12 @@ atomicAdd — perform an atomic addition to a variable
 Declaration
 
 int atomicAdd( inout int mem,
-               int data);
+               int data);
 
 
 
 uint atomicAdd( inout uint mem,
-                uint data);
+                uint data);
 
 
 
@@ -633,12 +633,12 @@ atomicAnd — perform an atomic logical AND operation to a variable
 Declaration
 
 int atomicAnd( inout int mem,
-               int data);
+               int data);
 
 
 
 uint atomicAnd( inout uint mem,
-                uint data);
+                uint data);
 
 
 
@@ -695,14 +695,14 @@ atomicCompSwap — perform an atomic compare-exchange operation to a variable
 Declaration
 
 int atomicCompSwap( inout int mem,
-                    uint compare,
-                    uint data);
+                    uint compare,
+                    uint data);
 
 
 
 uint atomicCompSwap( inout uint mem,
-                     uint compare,
-                     uint data);
+                     uint compare,
+                     uint data);
 
 
 
@@ -881,12 +881,12 @@ atomicExchange — perform an atomic exchange operation to a variable
 Declaration
 
 int atomicExchange( inout int mem,
-                    int data);
+                    int data);
 
 
 
 uint atomicExchange( inout uint mem,
-                     uint data);
+                     uint data);
 
 
 
@@ -942,12 +942,12 @@ atomicMax — perform an atomic max operation to a variable
 Declaration
 
 int atomicMax( inout int mem,
-               int data);
+               int data);
 
 
 
 uint atomicMax( inout uint mem,
-                uint data);
+                uint data);
 
 
 
@@ -1004,12 +1004,12 @@ atomicMin — perform an atomic min operation to a variable
 Declaration
 
 int atomicMin( inout int mem,
-               int data);
+               int data);
 
 
 
 uint atomicMin( inout uint mem,
-                uint data);
+                uint data);
 
 
 
@@ -1066,12 +1066,12 @@ atomicOr — perform an atomic logical OR operation to a variable
 Declaration
 
 int atomicOr( inout int mem,
-              int data);
+              int data);
 
 
 
 uint atomicOr( inout uint mem,
-               uint data);
+               uint data);
 
 
 
@@ -1128,12 +1128,12 @@ atomicXor — perform an atomic logical exclusive OR operation to a variable
 Declaration
 
 int atomicXor( inout int mem,
-               int data);
+               int data);
 
 
 
 uint atomicXor( inout uint mem,
-                uint data);
+                uint data);
 
 
 
@@ -1279,14 +1279,14 @@ bitfieldExtract — extract a range of bits from an integer
 Declaration
 
 genIType bitfieldExtract( genIType value,
-                          int offset,
-                          int bits);
+                          int offset,
+                          int bits);
 
 
 
 genUType bitfieldExtract( genUType value,
-                          int offset,
-                          int bits);
+                          int offset,
+                          int bits);
 
 
 
@@ -1345,16 +1345,16 @@ bitfieldInsert — insert a range of bits into an integer
 Declaration
 
 genIType bitfieldInsert( genIType base,
-                         genIType insert,
-                         int offset,
-                         int bits);
+                         genIType insert,
+                         int offset,
+                         int bits);
 
 
 
 genUType bitfieldInsert( genUType base,
-                         genUType insert,
-                         int offset,
-                         int bits);
+                         genUType insert,
+                         int offset,
+                         int bits);
 
 
 
@@ -1502,50 +1502,50 @@ clamp — constrain a value to lie between two further values
 Declaration
 
 genType clamp( genType x,
-               genType minVal,
-               genType maxVal);
+               genType minVal,
+               genType maxVal);
 
 
 
 genType clamp( genType x,
-               float minVal,
-               float maxVal);
+               float minVal,
+               float maxVal);
 
 
 
 genDType clamp( genDType x,
-                genDType minVal,
-                genDType maxVal);
+                genDType minVal,
+                genDType maxVal);
 
 
 
 genDType clamp( genDType x,
-                double minVal,
-                double maxVal);
+                double minVal,
+                double maxVal);
 
 
 
 genIType clamp( genIType x,
-                genIType minVal,
-                genIType maxVal);
+                genIType minVal,
+                genIType maxVal);
 
 
 
 genIType clamp(  genIType x,
-                 int minVal,
-                 int maxVal);
+                 int minVal,
+                 int maxVal);
 
 
 
 genUType clamp( genUType x,
-                genUType minVal,
-                genUType maxVal);
+                genUType minVal,
+                genUType maxVal);
 
 
 
 genUType clamp(  genUType x,
-                 uint minVal,
-                 uint maxVal);
+                 uint minVal,
+                 uint maxVal);
 
 
 
@@ -1676,12 +1676,12 @@ cross — calculate the cross product of two vectors
 Declaration
 
 vec3 cross(  vec3 x,
-             vec3 y);
+             vec3 y);
 
 
 
 dvec3 cross(  dvec3 x,
-              dvec3 y);
+              dvec3 y);
 
 
 
@@ -1918,12 +1918,12 @@ distance — calculate the distance between two points
 Declaration
 
 float distance(  genType p0,
-                                          genType p1);
+                                          genType p1);
 
 
 
 double distance(  genDType p0,
-                                             genDType p1);
+                                             genDType p1);
 
 
 
@@ -1969,12 +1969,12 @@ dot — calculate the dot product of two vectors
 Declaration
 
 float dot( genType x,
-                              genType y);
+                              genType y);
 
 
 
 double dot( genDType x,
-                                 genDType y);
+                                 genDType y);
 
 
 
@@ -2020,17 +2020,17 @@ equal — perform a component-wise equal-to comparison of two vectors
 Declaration
 
 bvec equal(  vec x,
-                              vec y);
+                              vec y);
 
 
 
 bvec equal(  ivec x,
-                               ivec y);
+                               ivec y);
 
 
 
 bvec equal(  uvec x,
-                               uvec y);
+                               uvec y);
 
 
 
@@ -2153,14 +2153,14 @@ faceforward — return a vector pointing in the same direction as another
 Declaration
 
 genType faceforward( genType N,
-                                                  genType I,
-                                                                       genType Nref);
+                                                  genType I,
+                                                                       genType Nref);
 
 
 
 genDType faceforward( genDType N,
-                                                     genDType I,
-                                                                           genDType Nref);
+                                                     genDType I,
+                                                                           genDType Nref);
 
 
 
@@ -2393,14 +2393,14 @@ fma — perform a fused multiply-add operation
 Declaration
 
 genType fma(  genType a,
-                                    genType b,
-                                                  genType c);
+                                    genType b,
+                                                  genType c);
 
 
 
 genDType fma(  genDType a,
-                                       genDType b,
-                                                      genDType c);
+                                       genDType b,
+                                                      genDType c);
 
 
 
@@ -2505,12 +2505,12 @@ frexp — split a floating point number
 Declaration
 
 genType frexp( genType x,
-                                      out genIType exp);
+                                      out genIType exp);
 
 
 
 genDType frexp( genDType x,
-                                         out genIType exp);
+                                         out genIType exp);
 
 
 
@@ -2617,17 +2617,17 @@ greaterThan — perform a component-wise greater-than comparison of two vectors
 Declaration
 
 bvec greaterThan(  vec x,
-                   vec y);
+                   vec y);
 
 
 
 bvec greaterThan(  ivec x,
-                   ivec y);
+                   ivec y);
 
 
 
 bvec greaterThan(  uvec x,
-                   uvec y);
+                   uvec y);
 
 
 
@@ -2675,17 +2675,17 @@ two vectors
 Declaration
 
 bvec greaterThanEqual(  vec x,
-                        vec y);
+                        vec y);
 
 
 
 bvec greaterThanEqual( ivec x,
-                       ivec y);
+                       ivec y);
 
 
 
 bvec greaterThanEqual( uvec x,
-                       uvec y);
+                       uvec y);
 
 
 
@@ -2772,138 +2772,138 @@ return the original value
 Declaration
 
 uint imageAtomicAdd( gimage1D image,
-                                                   int P,
-                                                                        uint data);
+                                                   int P,
+                                                                        uint data);
 
 
 
 uint imageAtomicAdd( gimage2D image,
-                                                   ivec2 P,
-                                                                        uint data);
+                                                   ivec2 P,
+                                                                        uint data);
 
 
 
 uint imageAtomicAdd( gimage3D image,
-                                                   ivec3 P,
-                                                                        uint data);
+                                                   ivec3 P,
+                                                                        uint data);
 
 
 
 uint imageAtomicAdd( gimage2DRect image,
-                                                       ivec2 P,
-                                                                            uint data);
+                                                       ivec2 P,
+                                                                            uint data);
 
 
 
 uint imageAtomicAdd( gimageCube image,
-                                                     ivec3 P,
-                                                                          uint data);
+                                                     ivec3 P,
+                                                                          uint data);
 
 
 
 uint imageAtomicAdd( gbufferImage image,
-                                                       int P,
-                                                                            uint data);
+                                                       int P,
+                                                                            uint data);
 
 
 
 uint imageAtomicAdd( gimage1DArray image,
-                                                        ivec2 P,
-                                                                             uint data);
+                                                        ivec2 P,
+                                                                             uint data);
 
 
 
 uint imageAtomicAdd( gimage2DArray image,
-                                                        ivec3 P,
-                                                                             uint data);
+                                                        ivec3 P,
+                                                                             uint data);
 
 
 
 uint imageAtomicAdd( gimageCubeArray image,
-                                                          ivec3 P,
-                                                                               uint data);
+                                                          ivec3 P,
+                                                                               uint data);
 
 
 
 uint imageAtomicAdd( gimage2DMS image,
-                                                     ivec2 P,
-                                                                          int sample,
-                                                                                               uint data);
+                                                     ivec2 P,
+                                                                          int sample,
+                                                                                               uint data);
 
 
 
 uint imageAtomicAdd( gimage2DMSArray image,
-                                                          ivec3 P,
-                                                                               int sample,
-                                                                                                    uint data);
+                                                          ivec3 P,
+                                                                               int sample,
+                                                                                                    uint data);
 
 
 
 int imageAtomicAdd( gimage1D image,
-                                                 int P,
-                                                                     int data);
+                                                 int P,
+                                                                     int data);
 
 
 
 int imageAtomicAdd( gimage2D image,
-                                                 ivec2 P,
-                                                                     int data);
+                                                 ivec2 P,
+                                                                     int data);
 
 
 
 int imageAtomicAdd( gimage3D image,
-                                                 ivec3 P,
-                                                                     int data);
+                                                 ivec3 P,
+                                                                     int data);
 
 
 
 int imageAtomicAdd( gimage2DRect image,
-                                                     ivec2 P,
-                                                                         int data);
+                                                     ivec2 P,
+                                                                         int data);
 
 
 
 int imageAtomicAdd( gimageCube image,
-                                                   ivec3 P,
-                                                                       int data);
+                                                   ivec3 P,
+                                                                       int data);
 
 
 
 int imageAtomicAdd( gbufferImage image,
-                                                     int P,
-                                                                         int data);
+                                                     int P,
+                                                                         int data);
 
 
 
 int imageAtomicAdd( gimage1DArray image,
-                                                      ivec2 P,
-                                                                          int data);
+                                                      ivec2 P,
+                                                                          int data);
 
 
 
 int imageAtomicAdd( gimage2DArray image,
-                                                      ivec3 P,
-                                                                          int data);
+                                                      ivec3 P,
+                                                                          int data);
 
 
 
 int imageAtomicAdd( gimageCubeArray image,
-                                                        ivec3 P,
-                                                                            int data);
+                                                        ivec3 P,
+                                                                            int data);
 
 
 
 int imageAtomicAdd( gimage2DMS image,
-                                                   ivec2 P,
-                                                                       int sample,
-                                                                                           int data);
+                                                   ivec2 P,
+                                                                       int sample,
+                                                                                           int data);
 
 
 
 int imageAtomicAdd( gimage2DMSArray image,
-                                                        ivec3 P,
-                                                                            int sample,
-                                                                                                int data);
+                                                        ivec3 P,
+                                                                            int sample,
+                                                                                                int data);
 
 
 
@@ -2959,138 +2959,138 @@ value in memory, store that value and return the original value
 Declaration
 
 uint imageAtomicAnd( gimage1D image,
-                                                   int P,
-                                                                        uint data);
+                                                   int P,
+                                                                        uint data);
 
 
 
 uint imageAtomicAnd( gimage2D image,
-                                                   ivec2 P,
-                                                                        uint data);
+                                                   ivec2 P,
+                                                                        uint data);
 
 
 
 uint imageAtomicAnd( gimage3D image,
-                                                   ivec3 P,
-                                                                        uint data);
+                                                   ivec3 P,
+                                                                        uint data);
 
 
 
 uint imageAtomicAnd( gimage2DRect image,
-                                                       ivec2 P,
-                                                                            uint data);
+                                                       ivec2 P,
+                                                                            uint data);
 
 
 
 uint imageAtomicAnd( gimageCube image,
-                                                     ivec3 P,
-                                                                          uint data);
+                                                     ivec3 P,
+                                                                          uint data);
 
 
 
 uint imageAtomicAnd( gbufferImage image,
-                                                       int P,
-                                                                            uint data);
+                                                       int P,
+                                                                            uint data);
 
 
 
 uint imageAtomicAnd( gimage1DArray image,
-                                                        ivec2 P,
-                                                                             uint data);
+                                                        ivec2 P,
+                                                                             uint data);
 
 
 
 uint imageAtomicAnd( gimage2DArray image,
-                                                        ivec3 P,
-                                                                             uint data);
+                                                        ivec3 P,
+                                                                             uint data);
 
 
 
 uint imageAtomicAnd( gimageCubeArray image,
-                                                          ivec3 P,
-                                                                               uint data);
+                                                          ivec3 P,
+                                                                               uint data);
 
 
 
 uint imageAtomicAnd( gimage2DMS image,
-                                                     ivec2 P,
-                                                                          int sample,
-                                                                                               uint data);
+                                                     ivec2 P,
+                                                                          int sample,
+                                                                                               uint data);
 
 
 
 uint imageAtomicAnd( gimage2DMSArray image,
-                                                          ivec3 P,
-                                                                               int sample,
-                                                                                                    uint data);
+                                                          ivec3 P,
+                                                                               int sample,
+                                                                                                    uint data);
 
 
 
 int imageAtomicAnd( gimage1D image,
-                                                 int P,
-                                                                     int data);
+                                                 int P,
+                                                                     int data);
 
 
 
 int imageAtomicAnd( gimage2D image,
-                                                 ivec2 P,
-                                                                     int data);
+                                                 ivec2 P,
+                                                                     int data);
 
 
 
 int imageAtomicAnd( gimage3D image,
-                                                 ivec3 P,
-                                                                     int data);
+                                                 ivec3 P,
+                                                                     int data);
 
 
 
 int imageAtomicAnd( gimage2DRect image,
-                                                     ivec2 P,
-                                                                         int data);
+                                                     ivec2 P,
+                                                                         int data);
 
 
 
 int imageAtomicAnd( gimageCube image,
-                                                   ivec3 P,
-                                                                       int data);
+                                                   ivec3 P,
+                                                                       int data);
 
 
 
 int imageAtomicAnd( gbufferImage image,
-                                                     int P,
-                                                                         int data);
+                                                     int P,
+                                                                         int data);
 
 
 
 int imageAtomicAnd( gimage1DArray image,
-                                                      ivec2 P,
-                                                                          int data);
+                                                      ivec2 P,
+                                                                          int data);
 
 
 
 int imageAtomicAnd( gimage2DArray image,
-                                                      ivec3 P,
-                                                                          int data);
+                                                      ivec3 P,
+                                                                          int data);
 
 
 
 int imageAtomicAnd( gimageCubeArray image,
-                                                        ivec3 P,
-                                                                            int data);
+                                                        ivec3 P,
+                                                                            int data);
 
 
 
 int imageAtomicAnd( gimage2DMS image,
-                                                   ivec2 P,
-                                                                       int sample,
-                                                                                           int data);
+                                                   ivec2 P,
+                                                                       int sample,
+                                                                                           int data);
 
 
 
 int imageAtomicAnd( gimage2DMSArray image,
-                                                        ivec3 P,
-                                                                            int sample,
-                                                                                                int data);
+                                                        ivec3 P,
+                                                                            int sample,
+                                                                                                int data);
 
 
 
@@ -3146,160 +3146,160 @@ conditionally stores it to memory
 Declaration
 
 uint imageAtomicCompSwap( gimage1D image,
-                                                             int P,
-                                                                                       uint compare,
-                                                                                                                 uint data);
+                                                             int P,
+                                                                                       uint compare,
+                                                                                                                 uint data);
 
 
 
 uint imageAtomicCompSwap( gimage2D image,
-                                                             ivec2 P,
-                                                                                       uint compare,
-                                                                                                                 uint data);
+                                                             ivec2 P,
+                                                                                       uint compare,
+                                                                                                                 uint data);
 
 
 
 uint imageAtomicCompSwap( gimage3D image,
-                                                             ivec3 P,
-                                                                                       uint compare,
-                                                                                                                 uint data);
+                                                             ivec3 P,
+                                                                                       uint compare,
+                                                                                                                 uint data);
 
 
 
 uint imageAtomicCompSwap( gimage2DRect image,
-                                                                 ivec2 P,
-                                                                                           uint compare,
-                                                                                                                     uint data);
+                                                                 ivec2 P,
+                                                                                           uint compare,
+                                                                                                                     uint data);
 
 
 
 uint imageAtomicCompSwap( gimageCube image,
-                                                               ivec3 P,
-                                                                                         uint compare,
-                                                                                                                   uint data);
+                                                               ivec3 P,
+                                                                                         uint compare,
+                                                                                                                   uint data);
 
 
 
 uint imageAtomicCompSwap( gbufferImage image,
-                                                                 int P,
-                                                                                           uint compare,
-                                                                                                                     uint data);
+                                                                 int P,
+                                                                                           uint compare,
+                                                                                                                     uint data);
 
 
 
 uint imageAtomicCompSwap( gimage1DArray image,
-                                                                  ivec2 P,
-                                                                                            uint compare,
-                                                                                                                      uint data);
+                                                                  ivec2 P,
+                                                                                            uint compare,
+                                                                                                                      uint data);
 
 
 
 uint imageAtomicCompSwap( gimage2DArray image,
-                                                                  ivec3 P,
-                                                                                            uint compare,
-                                                                                                                      uint data);
+                                                                  ivec3 P,
+                                                                                            uint compare,
+                                                                                                                      uint data);
 
 
 
 uint imageAtomicCompSwap( gimageCubeArray image,
-                                                                    ivec3 P,
-                                                                                              uint compare,
-                                                                                                                        uint data);
+                                                                    ivec3 P,
+                                                                                              uint compare,
+                                                                                                                        uint data);
 
 
 
 uint imageAtomicCompSwap( gimage2DMS image,
-                                                               ivec2 P,
-                                                                                         int sample,
-                                                                                                                   uint compare,
-                                                                                                                                             uint data);
+                                                               ivec2 P,
+                                                                                         int sample,
+                                                                                                                   uint compare,
+                                                                                                                                             uint data);
 
 
 
 uint imageAtomicCompSwap( gimage2DMSArray image,
-                                                                    ivec3 P,
-                                                                                              int sample,
-                                                                                                                        uint compare,
-                                                                                                                                                  uint data);
+                                                                    ivec3 P,
+                                                                                              int sample,
+                                                                                                                        uint compare,
+                                                                                                                                                  uint data);
 
 
 
 int imageAtomicCompSwap( gimage1D image,
-                                                           int P,
-                                                                                    int compare,
-                                                                                                             int data);
+                                                           int P,
+                                                                                    int compare,
+                                                                                                             int data);
 
 
 
 int imageAtomicCompSwap( gimage2D image,
-                                                           ivec2 P,
-                                                                                    int compare,
-                                                                                                             int data);
+                                                           ivec2 P,
+                                                                                    int compare,
+                                                                                                             int data);
 
 
 
 int imageAtomicCompSwap( gimage3D image,
-                                                           ivec3 P,
-                                                                                    int compare,
-                                                                                                             int data);
+                                                           ivec3 P,
+                                                                                    int compare,
+                                                                                                             int data);
 
 
 
 int imageAtomicCompSwap( gimage2DRect image,
-                                                               ivec2 P,
-                                                                                        int compare,
-                                                                                                                 int data);
+                                                               ivec2 P,
+                                                                                        int compare,
+                                                                                                                 int data);
 
 
 
 int imageAtomicCompSwap( gimageCube image,
-                                                             ivec3 P,
-                                                                                      int compare,
-                                                                                                               int data);
+                                                             ivec3 P,
+                                                                                      int compare,
+                                                                                                               int data);
 
 
 
 int imageAtomicCompSwap( gbufferImage image,
-                                                               int P,
-                                                                                        int compare,
-                                                                                                                 int data);
+                                                               int P,
+                                                                                        int compare,
+                                                                                                                 int data);
 
 
 
 int imageAtomicCompSwap( gimage1DArray image,
-                                                                ivec2 P,
-                                                                                         int compare,
-                                                                                                                  int data);
+                                                                ivec2 P,
+                                                                                         int compare,
+                                                                                                                  int data);
 
 
 
 int imageAtomicCompSwap( gimage2DArray image,
-                                                                ivec3 P,
-                                                                                         int compare,
-                                                                                                                  int data);
+                                                                ivec3 P,
+                                                                                         int compare,
+                                                                                                                  int data);
 
 
 
 int imageAtomicCompSwap( gimageCubeArray image,
-                                                                  ivec3 P,
-                                                                                           int compare,
-                                                                                                                    int data);
+                                                                  ivec3 P,
+                                                                                           int compare,
+                                                                                                                    int data);
 
 
 
 int imageAtomicCompSwap( gimage2DMS image,
-                                                             ivec2 P,
-                                                                                      int sample,
-                                                                                                               int compare,
-                                                                                                                                        int data);
+                                                             ivec2 P,
+                                                                                      int sample,
+                                                                                                               int compare,
+                                                                                                                                        int data);
 
 
 
 int imageAtomicCompSwap( gimage2DMSArray image,
-                                                                  ivec3 P,
-                                                                                           int sample,
-                                                                                                                    int compare,
-                                                                                                                                             int data);
+                                                                  ivec3 P,
+                                                                                           int sample,
+                                                                                                                    int compare,
+                                                                                                                                             int data);
 
 
 
@@ -3364,206 +3364,206 @@ original value from memory
 Declaration
 
 uint imageAtomicExchange( gimage1D image,
-                                                             int P,
-                                                                                       uint data);
+                                                             int P,
+                                                                                       uint data);
 
 
 
 uint imageAtomicExchange( gimage2D image,
-                                                             ivec2 P,
-                                                                                       uint data);
+                                                             ivec2 P,
+                                                                                       uint data);
 
 
 
 uint imageAtomicExchange( gimage3D image,
-                                                             ivec3 P,
-                                                                                       uint data);
+                                                             ivec3 P,
+                                                                                       uint data);
 
 
 
 uint imageAtomicExchange( gimage2DRect image,
-                                                                 ivec2 P,
-                                                                                           uint data);
+                                                                 ivec2 P,
+                                                                                           uint data);
 
 
 
 uint imageAtomicExchange( gimageCube image,
-                                                               ivec3 P,
-                                                                                         uint data);
+                                                               ivec3 P,
+                                                                                         uint data);
 
 
 
 uint imageAtomicExchange( gbufferImage image,
-                                                                 int P,
-                                                                                           uint data);
+                                                                 int P,
+                                                                                           uint data);
 
 
 
 uint imageAtomicExchange( gimage1DArray image,
-                                                                  ivec2 P,
-                                                                                            uint data);
+                                                                  ivec2 P,
+                                                                                            uint data);
 
 
 
 uint imageAtomicExchange( gimage2DArray image,
-                                                                  ivec3 P,
-                                                                                            uint data);
+                                                                  ivec3 P,
+                                                                                            uint data);
 
 
 
 uint imageAtomicExchange( gimageCubeArray image,
-                                                                    ivec3 P,
-                                                                                              uint data);
+                                                                    ivec3 P,
+                                                                                              uint data);
 
 
 
 uint imageAtomicExchange( gimage2DMS image,
-                                                               ivec2 P,
-                                                                                         int sample,
-                                                                                                                   uint data);
+                                                               ivec2 P,
+                                                                                         int sample,
+                                                                                                                   uint data);
 
 
 
 uint imageAtomicExchange( gimage2DMSArray image,
-                                                                    ivec3 P,
-                                                                                              int sample,
-                                                                                                                        uint data);
+                                                                    ivec3 P,
+                                                                                              int sample,
+                                                                                                                        uint data);
 
 
 
 int imageAtomicExchange( gimage1D image,
-                                                           int P,
-                                                                                    int data);
+                                                           int P,
+                                                                                    int data);
 
 
 
 int imageAtomicExchange( gimage2D image,
-                                                           ivec2 P,
-                                                                                    int data);
+                                                           ivec2 P,
+                                                                                    int data);
 
 
 
 int imageAtomicExchange( gimage3D image,
-                                                           ivec3 P,
-                                                                                    int data);
+                                                           ivec3 P,
+                                                                                    int data);
 
 
 
 int imageAtomicExchange( gimage2DRect image,
-                                                               ivec2 P,
-                                                                                        int data);
+                                                               ivec2 P,
+                                                                                        int data);
 
 
 
 int imageAtomicExchange( gimageCube image,
-                                                             ivec3 P,
-                                                                                      int data);
+                                                             ivec3 P,
+                                                                                      int data);
 
 
 
 int imageAtomicExchange( gbufferImage image,
-                                                               int P,
-                                                                                        int data);
+                                                               int P,
+                                                                                        int data);
 
 
 
 int imageAtomicExchange( gimage1DArray image,
-                                                                ivec2 P,
-                                                                                         int data);
+                                                                ivec2 P,
+                                                                                         int data);
 
 
 
 int imageAtomicExchange( gimage2DArray image,
-                                                                ivec3 P,
-                                                                                         int data);
+                                                                ivec3 P,
+                                                                                         int data);
 
 
 
 int imageAtomicExchange( gimageCubeArray image,
-                                                                  ivec3 P,
-                                                                                           int data);
+                                                                  ivec3 P,
+                                                                                           int data);
 
 
 
 int imageAtomicExchange( gimage2DMS image,
-                                                             ivec2 P,
-                                                                                      int sample,
-                                                                                                               int data);
+                                                             ivec2 P,
+                                                                                      int sample,
+                                                                                                               int data);
 
 
 
 int imageAtomicExchange( gimage2DMSArray image,
-                                                                  ivec3 P,
-                                                                                           int sample,
-                                                                                                                    int data);
+                                                                  ivec3 P,
+                                                                                           int sample,
+                                                                                                                    int data);
 
 
 
 int imageAtomicExchange( gimage1D image,
-                                                           int P,
-                                                                                    float data);
+                                                           int P,
+                                                                                    float data);
 
 
 
 int imageAtomicExchange( gimage2D image,
-                                                           ivec2 P,
-                                                                                    float data);
+                                                           ivec2 P,
+                                                                                    float data);
 
 
 
 int imageAtomicExchange( gimage3D image,
-                                                           ivec3 P,
-                                                                                    float data);
+                                                           ivec3 P,
+                                                                                    float data);
 
 
 
 int imageAtomicExchange( gimage2DRect image,
-                                                               ivec2 P,
-                                                                                        float data);
+                                                               ivec2 P,
+                                                                                        float data);
 
 
 
 int imageAtomicExchange( gimageCube image,
-                                                             ivec3 P,
-                                                                                      float data);
+                                                             ivec3 P,
+                                                                                      float data);
 
 
 
 int imageAtomicExchange( gbufferImage image,
-                                                               int P,
-                                                                                        float data);
+                                                               int P,
+                                                                                        float data);
 
 
 
 int imageAtomicExchange( gimage1DArray image,
-                                                                ivec2 P,
-                                                                                         float data);
+                                                                ivec2 P,
+                                                                                         float data);
 
 
 
 int imageAtomicExchange( gimage2DArray image,
-                                                                ivec3 P,
-                                                                                         float data);
+                                                                ivec3 P,
+                                                                                         float data);
 
 
 
 int imageAtomicExchange( gimageCubeArray image,
-                                                                  ivec3 P,
-                                                                                           float data);
+                                                                  ivec3 P,
+                                                                                           float data);
 
 
 
 int imageAtomicExchange( gimage2DMS image,
-                                                             ivec2 P,
-                                                                                      int sample,
-                                                                                                               float data);
+                                                             ivec2 P,
+                                                                                      int sample,
+                                                                                                               float data);
 
 
 
 int imageAtomicExchange( gimage2DMSArray image,
-                                                                  ivec3 P,
-                                                                                           int sample,
-                                                                                                                    float data);
+                                                                  ivec3 P,
+                                                                                           int sample,
+                                                                                                                    float data);
 
 
 
@@ -3622,138 +3622,138 @@ value in memory, store that value and return the original value
 Declaration
 
 uint imageAtomicMax( gimage1D image,
-                                                   int P,
-                                                                        uint data);
+                                                   int P,
+                                                                        uint data);
 
 
 
 uint imageAtomicMax( gimage2D image,
-                                                   ivec2 P,
-                                                                        uint data);
+                                                   ivec2 P,
+                                                                        uint data);
 
 
 
 uint imageAtomicMax( gimage3D image,
-                                                   ivec3 P,
-                                                                        uint data);
+                                                   ivec3 P,
+                                                                        uint data);
 
 
 
 uint imageAtomicMax( gimage2DRect image,
-                                                       ivec2 P,
-                                                                            uint data);
+                                                       ivec2 P,
+                                                                            uint data);
 
 
 
 uint imageAtomicMax( gimageCube image,
-                                                     ivec3 P,
-                                                                          uint data);
+                                                     ivec3 P,
+                                                                          uint data);
 
 
 
 uint imageAtomicMax( gbufferImage image,
-                                                       int P,
-                                                                            uint data);
+                                                       int P,
+                                                                            uint data);
 
 
 
 uint imageAtomicMax( gimage1DArray image,
-                                                        ivec2 P,
-                                                                             uint data);
+                                                        ivec2 P,
+                                                                             uint data);
 
 
 
 uint imageAtomicMax( gimage2DArray image,
-                                                        ivec3 P,
-                                                                             uint data);
+                                                        ivec3 P,
+                                                                             uint data);
 
 
 
 uint imageAtomicMax( gimageCubeArray image,
-                                                          ivec3 P,
-                                                                               uint data);
+                                                          ivec3 P,
+                                                                               uint data);
 
 
 
 uint imageAtomicMax( gimage2DMS image,
-                                                     ivec2 P,
-                                                                          int sample,
-                                                                                               uint data);
+                                                     ivec2 P,
+                                                                          int sample,
+                                                                                               uint data);
 
 
 
 uint imageAtomicMax( gimage2DMSArray image,
-                                                          ivec3 P,
-                                                                               int sample,
-                                                                                                    uint data);
+                                                          ivec3 P,
+                                                                               int sample,
+                                                                                                    uint data);
 
 
 
 int imageAtomicMax( gimage1D image,
-                                                 int P,
-                                                                     int data);
+                                                 int P,
+                                                                     int data);
 
 
 
 int imageAtomicMax( gimage2D image,
-                                                 ivec2 P,
-                                                                     int data);
+                                                 ivec2 P,
+                                                                     int data);
 
 
 
 int imageAtomicMax( gimage3D image,
-                                                 ivec3 P,
-                                                                     int data);
+                                                 ivec3 P,
+                                                                     int data);
 
 
 
 int imageAtomicMax( gimage2DRect image,
-                                                     ivec2 P,
-                                                                         int data);
+                                                     ivec2 P,
+                                                                         int data);
 
 
 
 int imageAtomicMax( gimageCube image,
-                                                   ivec3 P,
-                                                                       int data);
+                                                   ivec3 P,
+                                                                       int data);
 
 
 
 int imageAtomicMax( gbufferImage image,
-                                                     int P,
-                                                                         int data);
+                                                     int P,
+                                                                         int data);
 
 
 
 int imageAtomicMax( gimage1DArray image,
-                                                      ivec2 P,
-                                                                          int data);
+                                                      ivec2 P,
+                                                                          int data);
 
 
 
 int imageAtomicMax( gimage2DArray image,
-                                                      ivec3 P,
-                                                                          int data);
+                                                      ivec3 P,
+                                                                          int data);
 
 
 
 int imageAtomicMax( gimageCubeArray image,
-                                                        ivec3 P,
-                                                                            int data);
+                                                        ivec3 P,
+                                                                            int data);
 
 
 
 int imageAtomicMax( gimage2DMS image,
-                                                   ivec2 P,
-                                                                       int sample,
-                                                                                           int data);
+                                                   ivec2 P,
+                                                                       int sample,
+                                                                                           int data);
 
 
 
 int imageAtomicMax( gimage2DMSArray image,
-                                                        ivec3 P,
-                                                                            int sample,
-                                                                                                int data);
+                                                        ivec3 P,
+                                                                            int sample,
+                                                                                                int data);
 
 
 
@@ -3811,138 +3811,138 @@ value in memory, store that value and return the original value
 Declaration
 
 uint imageAtomicMin( gimage1D image,
-                                                   int P,
-                                                                        uint data);
+                                                   int P,
+                                                                        uint data);
 
 
 
 uint imageAtomicMin( gimage2D image,
-                                                   ivec2 P,
-                                                                        uint data);
+                                                   ivec2 P,
+                                                                        uint data);
 
 
 
 uint imageAtomicMin( gimage3D image,
-                                                   ivec3 P,
-                                                                        uint data);
+                                                   ivec3 P,
+                                                                        uint data);
 
 
 
 uint imageAtomicMin( gimage2DRect image,
-                                                       ivec2 P,
-                                                                            uint data);
+                                                       ivec2 P,
+                                                                            uint data);
 
 
 
 uint imageAtomicMin( gimageCube image,
-                                                     ivec3 P,
-                                                                          uint data);
+                                                     ivec3 P,
+                                                                          uint data);
 
 
 
 uint imageAtomicMin( gbufferImage image,
-                                                       int P,
-                                                                            uint data);
+                                                       int P,
+                                                                            uint data);
 
 
 
 uint imageAtomicMin( gimage1DArray image,
-                                                        ivec2 P,
-                                                                             uint data);
+                                                        ivec2 P,
+                                                                             uint data);
 
 
 
 uint imageAtomicMin( gimage2DArray image,
-                                                        ivec3 P,
-                                                                             uint data);
+                                                        ivec3 P,
+                                                                             uint data);
 
 
 
 uint imageAtomicMin( gimageCubeArray image,
-                                                          ivec3 P,
-                                                                               uint data);
+                                                          ivec3 P,
+                                                                               uint data);
 
 
 
 uint imageAtomicMin( gimage2DMS image,
-                                                     ivec2 P,
-                                                                          int sample,
-                                                                                               uint data);
+                                                     ivec2 P,
+                                                                          int sample,
+                                                                                               uint data);
 
 
 
 uint imageAtomicMin( gimage2DMSArray image,
-                                                          ivec3 P,
-                                                                               int sample,
-                                                                                                    uint data);
+                                                          ivec3 P,
+                                                                               int sample,
+                                                                                                    uint data);
 
 
 
 int imageAtomicMin( gimage1D image,
-                                                 int P,
-                                                                     int data);
+                                                 int P,
+                                                                     int data);
 
 
 
 int imageAtomicMin( gimage2D image,
-                                                 ivec2 P,
-                                                                     int data);
+                                                 ivec2 P,
+                                                                     int data);
 
 
 
 int imageAtomicMin( gimage3D image,
-                                                 ivec3 P,
-                                                                     int data);
+                                                 ivec3 P,
+                                                                     int data);
 
 
 
 int imageAtomicMin( gimage2DRect image,
-                                                     ivec2 P,
-                                                                         int data);
+                                                     ivec2 P,
+                                                                         int data);
 
 
 
 int imageAtomicMin( gimageCube image,
-                                                   ivec3 P,
-                                                                       int data);
+                                                   ivec3 P,
+                                                                       int data);
 
 
 
 int imageAtomicMin( gbufferImage image,
-                                                     int P,
-                                                                         int data);
+                                                     int P,
+                                                                         int data);
 
 
 
 int imageAtomicMin( gimage1DArray image,
-                                                      ivec2 P,
-                                                                          int data);
+                                                      ivec2 P,
+                                                                          int data);
 
 
 
 int imageAtomicMin( gimage2DArray image,
-                                                      ivec3 P,
-                                                                          int data);
+                                                      ivec3 P,
+                                                                          int data);
 
 
 
 int imageAtomicMin( gimageCubeArray image,
-                                                        ivec3 P,
-                                                                            int data);
+                                                        ivec3 P,
+                                                                            int data);
 
 
 
 int imageAtomicMin( gimage2DMS image,
-                                                   ivec2 P,
-                                                                       int sample,
-                                                                                           int data);
+                                                   ivec2 P,
+                                                                       int sample,
+                                                                                           int data);
 
 
 
 int imageAtomicMin( gimage2DMSArray image,
-                                                        ivec3 P,
-                                                                            int sample,
-                                                                                                int data);
+                                                        ivec3 P,
+                                                                            int sample,
+                                                                                                int data);
 
 
 
@@ -4000,138 +4000,138 @@ value in memory, store that value and return the original value
 Declaration
 
 uint imageAtomicOr( gimage1D image,
-                                                 int P,
-                                                                     uint data);
+                                                 int P,
+                                                                     uint data);
 
 
 
 uint imageAtomicOr( gimage2D image,
-                                                 ivec2 P,
-                                                                     uint data);
+                                                 ivec2 P,
+                                                                     uint data);
 
 
 
 uint imageAtomicOr( gimage3D image,
-                                                 ivec3 P,
-                                                                     uint data);
+                                                 ivec3 P,
+                                                                     uint data);
 
 
 
 uint imageAtomicOr( gimage2DRect image,
-                                                     ivec2 P,
-                                                                         uint data);
+                                                     ivec2 P,
+                                                                         uint data);
 
 
 
 uint imageAtomicOr( gimageCube image,
-                                                   ivec3 P,
-                                                                       uint data);
+                                                   ivec3 P,
+                                                                       uint data);
 
 
 
 uint imageAtomicOr( gbufferImage image,
-                                                     int P,
-                                                                         uint data);
+                                                     int P,
+                                                                         uint data);
 
 
 
 uint imageAtomicOr( gimage1DArray image,
-                                                      ivec2 P,
-                                                                          uint data);
+                                                      ivec2 P,
+                                                                          uint data);
 
 
 
 uint imageAtomicOr( gimage2DArray image,
-                                                      ivec3 P,
-                                                                          uint data);
+                                                      ivec3 P,
+                                                                          uint data);
 
 
 
 uint imageAtomicOr( gimageCubeArray image,
-                                                        ivec3 P,
-                                                                            uint data);
+                                                        ivec3 P,
+                                                                            uint data);
 
 
 
 uint imageAtomicOr( gimage2DMS image,
-                                                   ivec2 P,
-                                                                       int sample,
-                                                                                           uint data);
+                                                   ivec2 P,
+                                                                       int sample,
+                                                                                           uint data);
 
 
 
 uint imageAtomicOr( gimage2DMSArray image,
-                                                        ivec3 P,
-                                                                            int sample,
-                                                                                                uint data);
+                                                        ivec3 P,
+                                                                            int sample,
+                                                                                                uint data);
 
 
 
 int imageAtomicOr( gimage1D image,
-                                               int P,
-                                                                  int data);
+                                               int P,
+                                                                  int data);
 
 
 
 int imageAtomicOr( gimage2D image,
-                                               ivec2 P,
-                                                                  int data);
+                                               ivec2 P,
+                                                                  int data);
 
 
 
 int imageAtomicOr( gimage3D image,
-                                               ivec3 P,
-                                                                  int data);
+                                               ivec3 P,
+                                                                  int data);
 
 
 
 int imageAtomicOr( gimage2DRect image,
-                                                   ivec2 P,
-                                                                      int data);
+                                                   ivec2 P,
+                                                                      int data);
 
 
 
 int imageAtomicOr( gimageCube image,
-                                                 ivec3 P,
-                                                                    int data);
+                                                 ivec3 P,
+                                                                    int data);
 
 
 
 int imageAtomicOr( gbufferImage image,
-                                                   int P,
-                                                                      int data);
+                                                   int P,
+                                                                      int data);
 
 
 
 int imageAtomicOr( gimage1DArray image,
-                                                    ivec2 P,
-                                                                       int data);
+                                                    ivec2 P,
+                                                                       int data);
 
 
 
 int imageAtomicOr( gimage2DArray image,
-                                                    ivec3 P,
-                                                                       int data);
+                                                    ivec3 P,
+                                                                       int data);
 
 
 
 int imageAtomicOr( gimageCubeArray image,
-                                                      ivec3 P,
-                                                                         int data);
+                                                      ivec3 P,
+                                                                         int data);
 
 
 
 int imageAtomicOr( gimage2DMS image,
-                                                 ivec2 P,
-                                                                    int sample,
-                                                                                       int data);
+                                                 ivec2 P,
+                                                                    int sample,
+                                                                                       int data);
 
 
 
 int imageAtomicOr( gimage2DMSArray image,
-                                                      ivec3 P,
-                                                                         int sample,
-                                                                                            int data);
+                                                      ivec3 P,
+                                                                         int sample,
+                                                                                            int data);
 
 
 
@@ -4187,138 +4187,138 @@ existing value in memory, store that value and return the original value
 Declaration
 
 uint imageAtomicXor( gimage1D image,
-                                                   int P,
-                                                                        uint data);
+                                                   int P,
+                                                                        uint data);
 
 
 
 uint imageAtomicXor( gimage2D image,
-                                                   ivec2 P,
-                                                                        uint data);
+                                                   ivec2 P,
+                                                                        uint data);
 
 
 
 uint imageAtomicXor( gimage3D image,
-                                                   ivec3 P,
-                                                                        uint data);
+                                                   ivec3 P,
+                                                                        uint data);
 
 
 
 uint imageAtomicXor( gimage2DRect image,
-                                                       ivec2 P,
-                                                                            uint data);
+                                                       ivec2 P,
+                                                                            uint data);
 
 
 
 uint imageAtomicXor( gimageCube image,
-                                                     ivec3 P,
-                                                                          uint data);
+                                                     ivec3 P,
+                                                                          uint data);
 
 
 
 uint imageAtomicXor( gbufferImage image,
-                                                       int P,
-                                                                            uint data);
+                                                       int P,
+                                                                            uint data);
 
 
 
 uint imageAtomicXor( gimage1DArray image,
-                                                        ivec2 P,
-                                                                             uint data);
+                                                        ivec2 P,
+                                                                             uint data);
 
 
 
 uint imageAtomicXor( gimage2DArray image,
-                                                        ivec3 P,
-                                                                             uint data);
+                                                        ivec3 P,
+                                                                             uint data);
 
 
 
 uint imageAtomicXor( gimageCubeArray image,
-                                                          ivec3 P,
-                                                                               uint data);
+                                                          ivec3 P,
+                                                                               uint data);
 
 
 
 uint imageAtomicXor( gimage2DMS image,
-                                                     ivec2 P,
-                                                                          int sample,
-                                                                                               uint data);
+                                                     ivec2 P,
+                                                                          int sample,
+                                                                                               uint data);
 
 
 
 uint imageAtomicXor( gimage2DMSArray image,
-                                                          ivec3 P,
-                                                                               int sample,
-                                                                                                    uint data);
+                                                          ivec3 P,
+                                                                               int sample,
+                                                                                                    uint data);
 
 
 
 int imageAtomicXor( gimage1D image,
-                                                 int P,
-                                                                     int data);
+                                                 int P,
+                                                                     int data);
 
 
 
 int imageAtomicXor( gimage2D image,
-                                                 ivec2 P,
-                                                                     int data);
+                                                 ivec2 P,
+                                                                     int data);
 
 
 
 int imageAtomicXor( gimage3D image,
-                                                 ivec3 P,
-                                                                     int data);
+                                                 ivec3 P,
+                                                                     int data);
 
 
 
 int imageAtomicXor( gimage2DRect image,
-                                                     ivec2 P,
-                                                                         int data);
+                                                     ivec2 P,
+                                                                         int data);
 
 
 
 int imageAtomicXor( gimageCube image,
-                                                   ivec3 P,
-                                                                       int data);
+                                                   ivec3 P,
+                                                                       int data);
 
 
 
 int imageAtomicXor( gbufferImage image,
-                                                     int P,
-                                                                         int data);
+                                                     int P,
+                                                                         int data);
 
 
 
 int imageAtomicXor( gimage1DArray image,
-                                                      ivec2 P,
-                                                                          int data);
+                                                      ivec2 P,
+                                                                          int data);
 
 
 
 int imageAtomicXor( gimage2DArray image,
-                                                      ivec3 P,
-                                                                          int data);
+                                                      ivec3 P,
+                                                                          int data);
 
 
 
 int imageAtomicXor( gimageCubeArray image,
-                                                        ivec3 P,
-                                                                            int data);
+                                                        ivec3 P,
+                                                                            int data);
 
 
 
 int imageAtomicXor( gimage2DMS image,
-                                                   ivec2 P,
-                                                                       int sample,
-                                                                                           int data);
+                                                   ivec2 P,
+                                                                       int sample,
+                                                                                           int data);
 
 
 
 int imageAtomicXor( gimage2DMSArray image,
-                                                        ivec3 P,
-                                                                            int sample,
-                                                                                                int data);
+                                                        ivec3 P,
+                                                                            int sample,
+                                                                                                int data);
 
 
 
@@ -4373,59 +4373,59 @@ imageLoad — load a single texel from an image
 Declaration
 
 gvec4 imageLoad( gimage1D image,
-                                           int P);
+                                           int P);
 
 
 
 gvec4 imageLoad( gimage2D image,
-                                           ivec2 P);
+                                           ivec2 P);
 
 
 
 gvec4 imageLoad( gimage3D image,
-                                           ivec3 P);
+                                           ivec3 P);
 
 
 
 gvec4 imageLoad( gimage2DRect image,
-                                               ivec2 P);
+                                               ivec2 P);
 
 
 
 gvec4 imageLoad( gimageCube image,
-                                             ivec3 P);
+                                             ivec3 P);
 
 
 
 gvec4 imageLoad( gbufferImage image,
-                                               int P);
+                                               int P);
 
 
 
 gvec4 imageLoad( gimage1DArray image,
-                                                ivec2 P);
+                                                ivec2 P);
 
 
 
 gvec4 imageLoad( gimage2DArray image,
-                                                ivec3 P);
+                                                ivec3 P);
 
 
 
 gvec4 imageLoad( gimageCubeArray image,
-                                                  ivec3 P);
+                                                  ivec3 P);
 
 
 
 gvec4 imageLoad( gimage2DMS image,
-                                             ivec2 P,
-                                                              int sample);
+                                             ivec2 P,
+                                                              int sample);
 
 
 
 gvec4 imageLoad( gimage2DMSArray image,
-                                                  ivec3 P,
-                                                                   int sample);
+                                                  ivec3 P,
+                                                                   int sample);
 
 
 
@@ -4605,70 +4605,70 @@ imageStore — write a single texel into an image
 Declaration
 
 void imageStore( gimage1D image,
-                                           int P,
-                                                            gvec4 data);
+                                           int P,
+                                                            gvec4 data);
 
 
 
 void imageStore( gimage2D image,
-                                           ivec2 P,
-                                                            gvec4 data);
+                                           ivec2 P,
+                                                            gvec4 data);
 
 
 
 void imageStore( gimage3D image,
-                                           ivec3 P,
-                                                            gvec4 data);
+                                           ivec3 P,
+                                                            gvec4 data);
 
 
 
 void imageStore( gimage2DRect image,
-                                               ivec2 P,
-                                                                gvec4 data);
+                                               ivec2 P,
+                                                                gvec4 data);
 
 
 
 void imageStore( gimageCube image,
-                                             ivec3 P,
-                                                              gvec4 data);
+                                             ivec3 P,
+                                                              gvec4 data);
 
 
 
 void imageStore( gbufferImage image,
-                                               int P,
-                                                                gvec4 data);
+                                               int P,
+                                                                gvec4 data);
 
 
 
 void imageStore( gimage1DArray image,
-                                                ivec2 P,
-                                                                 gvec4 data);
+                                                ivec2 P,
+                                                                 gvec4 data);
 
 
 
 void imageStore( gimage2DArray image,
-                                                ivec3 P,
-                                                                 gvec4 data);
+                                                ivec3 P,
+                                                                 gvec4 data);
 
 
 
 void imageStore( gimageCubeArray image,
-                                                  ivec3 P,
-                                                                   gvec4 data);
+                                                  ivec3 P,
+                                                                   gvec4 data);
 
 
 
 void imageStore( gimage2DMS image,
-                                             ivec2 P,
-                                                              int sample,
-                                                                               gvec4 data);
+                                             ivec2 P,
+                                                              int sample,
+                                                                               gvec4 data);
 
 
 
 void imageStore( gimage2DMSArray image,
-                                                  ivec3 P,
-                                                                   int sample,
-                                                                                    gvec4 data);
+                                                  ivec3 P,
+                                                                   int sample,
+                                                                                    gvec4 data);
 
 
 
@@ -4828,22 +4828,22 @@ pixel
 Declaration
 
 float interpolateAtOffset( float interpolant,
-                                                            vec2 offset);
+                                                            vec2 offset);
 
 
 
 vec2 interpolateAtOffset( vec2 interpolant,
-                                                         vec2 offset);
+                                                         vec2 offset);
 
 
 
 vec3 interpolateAtOffset( vec3 interpolant,
-                                                         vec2 offset);
+                                                         vec2 offset);
 
 
 
 vec4 interpolateAtOffset( vec4 interpolant,
-                                                         vec2 offset);
+                                                         vec2 offset);
 
 
 
@@ -4893,22 +4893,22 @@ interpolateAtSample — sample a varying at the location of a specified sample
 Declaration
 
 float interpolateAtSample( float interpolant,
-                                                            int sample);
+                                                            int sample);
 
 
 
 vec2 interpolateAtSample( vec2 interpolant,
-                                                         int sample);
+                                                         int sample);
 
 
 
 vec3 interpolateAtSample( vec3 interpolant,
-                                                         int sample);
+                                                         int sample);
 
 
 
 vec4 interpolateAtSample( vec4 interpolant,
-                                                         int sample);
+                                                         int sample);
 
 
 
@@ -5154,12 +5154,12 @@ ldexp — assemble a floating point number from a value and exponent
 Declaration
 
 genType ldexp( genType x,
-                                      genIType exp);
+                                      genIType exp);
 
 
 
 genDType ldexp(  genDType x,
-                                           genIType exp);
+                                           genIType exp);
 
 
 
@@ -5254,17 +5254,17 @@ lessThan — perform a component-wise less-than comparison of two vectors
 Declaration
 
 bvec lessThan(  vec x,
-                                    vec y);
+                                    vec y);
 
 
 
 bvec lessThan(  ivec x,
-                                     ivec y);
+                                     ivec y);
 
 
 
 bvec lessThan(  uvec x,
-                                     uvec y);
+                                     uvec y);
 
 
 
@@ -5312,17 +5312,17 @@ vectors
 Declaration
 
 bvec lessThanEqual(  vec x,
-                                              vec y);
+                                              vec y);
 
 
 
 bvec lessThanEqual(  ivec x,
-                                               ivec y);
+                                               ivec y);
 
 
 
 bvec lessThanEqual(  uvec x,
-                                               uvec y);
+                                               uvec y);
 
 
 
@@ -5450,12 +5450,12 @@ matrixCompMult — perform a component-wise multiplication of two matrices
 Declaration
 
 mat matrixCompMult(  mat x,
-                                              mat y);
+                                              mat y);
 
 
 
 dmat matrixCompMult(  dmat x,
-                                                 dmat y);
+                                                 dmat y);
 
 
 
@@ -5504,42 +5504,42 @@ max — return the greater of two values
 Declaration
 
 genType max(  genType x,
-                                    genType y);
+                                    genType y);
 
 
 
 genType max(  genType x,
-                                    float y);
+                                    float y);
 
 
 
 genDType max(  genDType x,
-                                       genDType y);
+                                       genDType y);
 
 
 
 genDType max(  genDType x,
-                                       double y);
+                                       double y);
 
 
 
 genIType max(  genIType x,
-                                       genIType y);
+                                       genIType y);
 
 
 
 genIType max(  genIType x,
-                                       int y);
+                                       int y);
 
 
 
 genUType max(  genUType x,
-                                       genUType y);
+                                       genUType y);
 
 
 
 genUType max(  genUType x,
-                                       uint y);
+                                       uint y);
 
 
 
@@ -5803,42 +5803,42 @@ min — return the lesser of two values
 Declaration
 
 genType min(  genType x,
-                                    genType y);
+                                    genType y);
 
 
 
 genType min(  genType x,
-                                    float y);
+                                    float y);
 
 
 
 genDType min(  genDType x,
-                                       genDType y);
+                                       genDType y);
 
 
 
 genDType min(  genDType x,
-                                       double y);
+                                       double y);
 
 
 
 genIType min(  genIType x,
-                                       genIType y);
+                                       genIType y);
 
 
 
 genIType min(  genIType x,
-                                       int y);
+                                       int y);
 
 
 
 genUType min(  genUType x,
-                                       genUType y);
+                                       genUType y);
 
 
 
 genUType min(  genUType x,
-                                       uint y);
+                                       uint y);
 
 
 
@@ -5886,56 +5886,56 @@ mix — linearly interpolate between two values
 Declaration
 
 genType mix(  genType x,
-                                    genType y,
-                                                  genType a);
+                                    genType y,
+                                                  genType a);
 
 
 
 genType mix(  genType x,
-                                    genType y,
-                                                  float a);
+                                    genType y,
+                                                  float a);
 
 
 
 genDType mix(  genDType x,
-                                       genDType y,
-                                                      genDType a);
+                                       genDType y,
+                                                      genDType a);
 
 
 
 genDType mix(  genDType x,
-                                       genDType y,
-                                                      double a);
+                                       genDType y,
+                                                      double a);
 
 
 
 genType mix( genType x,
-                                  genType y,
-                                               genBType a);
+                                  genType y,
+                                               genBType a);
 
 
 
 genDType mix(  genDType x,
-                                       genDType y,
-                                                      genBType a);
+                                       genDType y,
+                                                      genBType a);
 
 
 
 genIType mix(  genIType x,
-                                       genIType y,
-                                                      genBType a);
+                                       genIType y,
+                                                      genBType a);
 
 
 
 genUType mix(  genUType x,
-                                       genUType y,
-                                                      genBType a);
+                                       genUType y,
+                                                      genBType a);
 
 
 
 genBType mix(  genBType x,
-                                       genBType y,
-                                                      genBType a);
+                                       genBType y,
+                                                      genBType a);
 
 
 
@@ -5995,22 +5995,22 @@ mod — compute value of one parameter modulo another
 Declaration
 
 genType mod(  genType x,
-                                    float y);
+                                    float y);
 
 
 
 genType mod(  genType x,
-                                    genType y);
+                                    genType y);
 
 
 
 genDType mod(  genDType x,
-                                       double y);
+                                       double y);
 
 
 
 genDType mod(  genDType x,
-                                       genDType y);
+                                       genDType y);
 
 
 
@@ -6051,12 +6051,12 @@ modf — separate a value into its integer and fractional components
 Declaration
 
 genType modf( genType x,
-                                    out genType i);
+                                    out genType i);
 
 
 
 genDType modf( genDType x,
-                                       out genDType i);
+                                       out genDType i);
 
 
 
@@ -6189,17 +6189,17 @@ notEqual — perform a component-wise not-equal-to comparison of two vectors
 Declaration
 
 bvec notEqual(  vec x,
-                                    vec y);
+                                    vec y);
 
 
 
 bvec notEqual(  ivec x,
-                                     ivec y);
+                                     ivec y);
 
 
 
 bvec notEqual(  uvec x,
-                                     uvec y);
+                                     uvec y);
 
 
 
@@ -6246,92 +6246,92 @@ outerProduct — calculate the outer product of a pair of vectors
 Declaration
 
 mat2 outerProduct(  vec2 c,
-                                             vec2 r);
+                                             vec2 r);
 
 
 
 mat3 outerProduct(  vec3 c,
-                                             vec3 r);
+                                             vec3 r);
 
 
 
 mat4 outerProduct(  vec4 c,
-                                             vec4 r);
+                                             vec4 r);
 
 
 
 mat2x3 outerProduct(  vec3 c,
-                                                 vec2 r);
+                                                 vec2 r);
 
 
 
 mat3x2 outerProduct(  vec2 c,
-                                                 vec3 r);
+                                                 vec3 r);
 
 
 
 mat2x4 outerProduct(  vec4 c,
-                                                 vec2 r);
+                                                 vec2 r);
 
 
 
 mat4x2 outerProduct(  vec2 c,
-                                                 vec4 r);
+                                                 vec4 r);
 
 
 
 mat3x4 outerProduct(  vec4 c,
-                                                 vec3 r);
+                                                 vec3 r);
 
 
 
 mat4x3 outerProduct(  vec3 c,
-                                                 vec4 r);
+                                                 vec4 r);
 
 
 
 dmat2 outerProduct(  dvec2 c,
-                                                dvec2 r);
+                                                dvec2 r);
 
 
 
 dmat3 outerProduct(  dvec3 c,
-                                                dvec3 r);
+                                                dvec3 r);
 
 
 
 dmat4 outerProduct(  dvec4 c,
-                                                dvec4 r);
+                                                dvec4 r);
 
 
 
 dmat2x3 outerProduct( dvec3 c,
-                                                  dvec2 r);
+                                                  dvec2 r);
 
 
 
 dmat3x2 outerProduct( dvec2 c,
-                                                  dvec3 r);
+                                                  dvec3 r);
 
 
 
 dmat2x4 outerProduct( dvec4 c,
-                                                  dvec2 r);
+                                                  dvec2 r);
 
 
 
 dmat4x2 outerProduct( dvec2 c,
-                                                  dvec4 r);
+                                                  dvec4 r);
 
 
 
 dmat3x4 outerProduct( dvec4 c,
-                                                  dvec3 r);
+                                                  dvec3 r);
 
 
 
 dmat4x3 outerProduct( dvec3 c,
-                                                  dvec4 r);
+                                                  dvec4 r);
 
 
 
@@ -6473,7 +6473,7 @@ pow — return the value of the first parameter raised to the power of the secon
 Declaration
 
 genType pow(  genType x,
-                                    genType y);
+                                    genType y);
 
 
 
@@ -6558,12 +6558,12 @@ reflect — calculate the reflection direction for an incident vector
 Declaration
 
 genType reflect(  genType I,
-                                            genType N);
+                                            genType N);
 
 
 
 genDType reflect(  genDType I,
-                                               genDType N);
+                                               genDType N);
 
 
 
@@ -6611,14 +6611,14 @@ refract — calculate the refraction direction for an incident vector
 Declaration
 
 genType refract(  genType I,
-                                            genType N,
-                                                              float eta);
+                                            genType N,
+                                                              float eta);
 
 
 
 genDType refract(  genDType I,
-                                               genDType N,
-                                                                  float eta);
+                                               genDType N,
+                                                                  float eta);
 
 
 
@@ -6902,26 +6902,26 @@ smoothstep — perform Hermite interpolation between two values
 Declaration
 
 genType smoothstep( genType edge0,
-                                                genType edge1,
-                                                                    genType x);
+                                                genType edge1,
+                                                                    genType x);
 
 
 
 genType smoothstep( float edge0,
-                                              float edge1,
-                                                                  genType x);
+                                              float edge1,
+                                                                  genType x);
 
 
 
 genDType smoothstep( genDType edge0,
-                                                   genDType edge1,
-                                                                        genDType x);
+                                                   genDType edge1,
+                                                                        genDType x);
 
 
 
 genDType smoothstep( double edge0,
-                                                 double edge1,
-                                                                      genDType x);
+                                                 double edge1,
+                                                                      genDType x);
 
 
 
@@ -7024,22 +7024,22 @@ step — generate a step function by comparing two values
 Declaration
 
 genType step( genType edge,
-                                    genType x);
+                                    genType x);
 
 
 
 genType step(  float edge,
-                                    genType x);
+                                    genType x);
 
 
 
 genDType step( genDType edge,
-                                       genDType x);
+                                       genDType x);
 
 
 
 genDType step(  double edge,
-                                       genDType x);
+                                       genDType x);
 
 
 
@@ -7166,54 +7166,54 @@ texelFetch — perform a lookup of a single texel within a texture
 Declaration
 
 gvec4 texelFetch( gsampler1D sampler,
-                                               int P,
-                                                                 int lod);
+                                               int P,
+                                                                 int lod);
 
 
 
 gvec4 texelFetch( gsampler2D sampler,
-                                               ivec2 P,
-                                                                 int lod);
+                                               ivec2 P,
+                                                                 int lod);
 
 
 
 gvec4 texelFetch( gsampler3D sampler,
-                                               ivec3 P,
-                                                                 int lod);
+                                               ivec3 P,
+                                                                 int lod);
 
 
 
 gvec4 texelFetch( gsampler2DRect sampler,
-                                                   ivec2 P);
+                                                   ivec2 P);
 
 
 
 gvec4 texelFetch( gsampler1DArray sampler,
-                                                    ivec2 P,
-                                                                      int lod);
+                                                    ivec2 P,
+                                                                      int lod);
 
 
 
 gvec4 texelFetch( gsampler2DArray sampler,
-                                                    ivec3 P,
-                                                                      int lod);
+                                                    ivec3 P,
+                                                                      int lod);
 
 
 
 gvec4 texelFetch( gsamplerBuffer sampler,
-                                                   int P);
+                                                   int P);
 
 
 
 gvec4 texelFetch( gsampler2DMS sampler,
-                                                 ivec2 P,
-                                                                   sample sample);
+                                                 ivec2 P,
+                                                                   sample sample);
 
 
 
 gvec4 texelFetch( gsampler2DMSArray sampler,
-                                                      ivec3 P,
-                                                                        sample sample);
+                                                      ivec3 P,
+                                                                        sample sample);
 
 
 
@@ -7282,43 +7282,43 @@ offset
 Declaration
 
 gvec4 texelFetchOffset( gsampler1D sampler,
-                                                           int P,
-                                                                                   int lod,
-                                                                                                           int offset);
+                                                           int P,
+                                                                                   int lod,
+                                                                                                           int offset);
 
 
 
 gvec4 texelFetchOffset( gsampler2D sampler,
-                                                           ivec2 P,
-                                                                                   int lod,
-                                                                                                           int offset);
+                                                           ivec2 P,
+                                                                                   int lod,
+                                                                                                           int offset);
 
 
 
 gvec4 texelFetchOffset( gsampler3D sampler,
-                                                           ivec3 P,
-                                                                                   int lod,
-                                                                                                           int offset);
+                                                           ivec3 P,
+                                                                                   int lod,
+                                                                                                           int offset);
 
 
 
 gvec4 texelFetchOffset( gsampler2DRect sampler,
-                                                               ivec2 P,
-                                                                                       int offset);
+                                                               ivec2 P,
+                                                                                       int offset);
 
 
 
 gvec4 texelFetchOffset( gsampler1DArray sampler,
-                                                                ivec2 P,
-                                                                                        int lod,
-                                                                                                                int offset);
+                                                                ivec2 P,
+                                                                                        int lod,
+                                                                                                                int offset);
 
 
 
 gvec4 texelFetchOffset( gsampler2DArray sampler,
-                                                                ivec3 P,
-                                                                                        int lod,
-                                                                                                                int offset);
+                                                                ivec3 P,
+                                                                                        int lod,
+                                                                                                                int offset);
 
 
 
@@ -7387,90 +7387,90 @@ texture — retrieves texels from a texture
 Declaration
 
 gvec4 texture( gsampler1D sampler,
-                                         float P,
-                                                        [float bias]);
+                                         float P,
+                                                        [float bias]);
 
 
 
 gvec4 texture( gsampler2D sampler,
-                                         vec2 P,
-                                                        [float bias]);
+                                         vec2 P,
+                                                        [float bias]);
 
 
 
 gvec4 texture( gsampler3D sampler,
-                                         vec3 P,
-                                                        [float bias]);
+                                         vec3 P,
+                                                        [float bias]);
 
 
 
 gvec4 texture( gsamplerCube sampler,
-                                           vec3 P,
-                                                          [float bias]);
+                                           vec3 P,
+                                                          [float bias]);
 
 
 
 float texture( sampler1DShadow sampler,
-                                              vec3 P,
-                                                             [float bias]);
+                                              vec3 P,
+                                                             [float bias]);
 
 
 
 float texture( sampler2DShadow sampler,
-                                              vec3 P,
-                                                             [float bias]);
+                                              vec3 P,
+                                                             [float bias]);
 
 
 
 float texture( samplerCubeShadow sampler,
-                                                vec3 P,
-                                                               [float bias]);
+                                                vec3 P,
+                                                               [float bias]);
 
 
 
 gvec4 texture( gsampler1DArray sampler,
-                                              vec2 P,
-                                                             [float bias]);
+                                              vec2 P,
+                                                             [float bias]);
 
 
 
 gvec4 texture( gsampler2DArray sampler,
-                                              vec3 P,
-                                                             [float bias]);
+                                              vec3 P,
+                                                             [float bias]);
 
 
 
 gvec4 texture( gsamplerCubeArray sampler,
-                                                vec4 P,
-                                                               [float bias]);
+                                                vec4 P,
+                                                               [float bias]);
 
 
 
 float texture( sampler1DArrayShadow sampler,
-                                                   vec3 P,
-                                                                  [float bias]);
+                                                   vec3 P,
+                                                                  [float bias]);
 
 
 
 float texture( gsampler2DArrayShadow sampler,
-                                                    vec4 P,
-                                                                   [float bias]);
+                                                    vec4 P,
+                                                                   [float bias]);
 
 
 
 gvec4 texture( gsampler2DRect sampler,
-                                             vec2 P);
+                                             vec2 P);
 
 
 
 float texture( sampler2DRectShadow sampler,
-                                                  vec3 P);
+                                                  vec3 P);
 
 
 
 float texture( gsamplerCubeArrayShadow sampler,
-                                                      vec4 P,
-                                                                     float compare);
+                                                      vec4 P,
+                                                                     float compare);
 
 
 
@@ -7547,62 +7547,62 @@ textureGather — gathers four texels from a texture
 Declaration
 
 gvec4 textureGather( gsampler2D sampler,
-                                                     vec2 P,
-                                                                          [int comp]);
+                                                     vec2 P,
+                                                                          [int comp]);
 
 
 
 gvec4 textureGather( gsampler2DArray sampler,
-                                                          vec3 P,
-                                                                               [int comp]);
+                                                          vec3 P,
+                                                                               [int comp]);
 
 
 
 gvec4 textureGather( gsamplerCube sampler,
-                                                       vec3 P,
-                                                                            [int comp]);
+                                                       vec3 P,
+                                                                            [int comp]);
 
 
 
 gvec4 textureGather( gsamplerCubeArray sampler,
-                                                            vec4 P,
-                                                                                 [int comp]);
+                                                            vec4 P,
+                                                                                 [int comp]);
 
 
 
 gvec4 textureGather( gsampler2DRect sampler,
-                                                         vec3 P,
-                                                                              [int comp]);
+                                                         vec3 P,
+                                                                              [int comp]);
 
 
 
 vec4 textureGather( gsampler2DShadow sampler,
-                                                         vec2 P,
-                                                                             float refZ);
+                                                         vec2 P,
+                                                                             float refZ);
 
 
 
 vec4 textureGather( gsampler2DArrayShadow sampler,
-                                                              vec3 P,
-                                                                                  float refZ);
+                                                              vec3 P,
+                                                                                  float refZ);
 
 
 
 vec4 textureGather( gsamplerCubeShadow sampler,
-                                                           vec3 P,
-                                                                               float refZ);
+                                                           vec3 P,
+                                                                               float refZ);
 
 
 
 vec4 textureGather( gsamplerCubeArrayShadow sampler,
-                                                                vec4 P,
-                                                                                    float refZ);
+                                                                vec4 P,
+                                                                                    float refZ);
 
 
 
 vec4 textureGather( gsampler2DRectShadow sampler,
-                                                             vec3 P,
-                                                                                 float refZ);
+                                                             vec3 P,
+                                                                                 float refZ);
 
 
 
@@ -7671,44 +7671,44 @@ textureGatherOffset — gathers four texels from a texture with offset
 Declaration
 
 gvec4 textureGatherOffset( gsampler2D sampler,
-                                                                 vec2 P,
-                                                                                            ivec2 offset,
-                                                                                                                       [int comp]);
+                                                                 vec2 P,
+                                                                                            ivec2 offset,
+                                                                                                                       [int comp]);
 
 
 
 gvec4 textureGatherOffset( gsampler2DArray sampler,
-                                                                      vec3 P,
-                                                                                                 ivec2 offset,
-                                                                                                                            [int comp]);
+                                                                      vec3 P,
+                                                                                                 ivec2 offset,
+                                                                                                                            [int comp]);
 
 
 
 gvec4 textureGatherOffset( gsampler2DRect sampler,
-                                                                     vec3 P,
-                                                                                                ivec2 offset,
-                                                                                                                           [int comp]);
+                                                                     vec3 P,
+                                                                                                ivec2 offset,
+                                                                                                                           [int comp]);
 
 
 
 vec4 textureGatherOffset( gsampler2DShadow sampler,
-                                                                     vec2 P,
-                                                                                               float refZ,
-                                                                                                                         ivec2 offset);
+                                                                     vec2 P,
+                                                                                               float refZ,
+                                                                                                                         ivec2 offset);
 
 
 
 vec4 textureGatherOffset( gsampler2DArrayShadow sampler,
-                                                                          vec3 P,
-                                                                                                    float refZ,
-                                                                                                                              ivec2 offset);
+                                                                          vec3 P,
+                                                                                                    float refZ,
+                                                                                                                              ivec2 offset);
 
 
 
 vec4 textureGatherOffset( gsampler2DRectShadow sampler,
-                                                                         vec3 P,
-                                                                                                   float refZ,
-                                                                                                                             ivec2 offset);
+                                                                         vec3 P,
+                                                                                                   float refZ,
+                                                                                                                             ivec2 offset);
 
 
 
@@ -7787,44 +7787,44 @@ offsets
 Declaration
 
 gvec4 textureGatherOffsets( gsampler2D sampler,
-                                                                   vec2 P,
-                                                                                               ivec2 offsets[4],
-                                                                                                                           [int comp]);
+                                                                   vec2 P,
+                                                                                               ivec2 offsets[4],
+                                                                                                                           [int comp]);
 
 
 
 gvec4 textureGatherOffsets( gsampler2DArray sampler,
-                                                                        vec3 P,
-                                                                                                    ivec2 offsets[4],
-                                                                                                                                [int comp]);
+                                                                        vec3 P,
+                                                                                                    ivec2 offsets[4],
+                                                                                                                                [int comp]);
 
 
 
 gvec4 textureGatherOffsets( gsampler2DRect sampler,
-                                                                       vec3 P,
-                                                                                                   ivec2 offsets[4],
-                                                                                                                               [int comp]);
+                                                                       vec3 P,
+                                                                                                   ivec2 offsets[4],
+                                                                                                                               [int comp]);
 
 
 
 vec4 textureGatherOffsets( gsampler2DShadow sampler,
-                                                                       vec2 P,
-                                                                                                  float refZ,
-                                                                                                                             ivec2 offsets[4]);
+                                                                       vec2 P,
+                                                                                                  float refZ,
+                                                                                                                             ivec2 offsets[4]);
 
 
 
 vec4 textureGatherOffsets( gsampler2DArrayShadow sampler,
-                                                                            vec3 P,
-                                                                                                       float refZ,
-                                                                                                                                  ivec2 offsets[4]);
+                                                                            vec3 P,
+                                                                                                       float refZ,
+                                                                                                                                  ivec2 offsets[4]);
 
 
 
 vec4 textureGatherOffsets( gsampler2DRectShadow sampler,
-                                                                           vec3 P,
-                                                                                                      float refZ,
-                                                                                                                                 ivec2 offsets[4]);
+                                                                           vec3 P,
+                                                                                                      float refZ,
+                                                                                                                                 ivec2 offsets[4]);
 
 
 
@@ -7891,86 +7891,86 @@ textureGrad — perform a texture lookup with explicit gradients
 Declaration
 
 gvec4 textureGrad( gsampler1D sampler,
-                                                 float P,
-                                                                    float dPdx,
-                                                                                       float dPdy);
+                                                 float P,
+                                                                    float dPdx,
+                                                                                       float dPdy);
 
 
 
 gvec4 textureGrad( gsampler2D sampler,
-                                                 vec2 P,
-                                                                    vec2 dPdx,
-                                                                                       vec2 dPdy);
+                                                 vec2 P,
+                                                                    vec2 dPdx,
+                                                                                       vec2 dPdy);
 
 
 
 gvec4 textureGrad( gsampler3D sampler,
-                                                 vec3 P,
-                                                                    vec3 dPdx,
-                                                                                       vec3 dPdy);
+                                                 vec3 P,
+                                                                    vec3 dPdx,
+                                                                                       vec3 dPdy);
 
 
 
 gvec4 textureGrad( gsamplerCube sampler,
-                                                   vec3 P,
-                                                                      vec3 dPdx,
-                                                                                         vec3 dPdy);
+                                                   vec3 P,
+                                                                      vec3 dPdx,
+                                                                                         vec3 dPdy);
 
 
 
 gvec4 textureGrad( gsampler2DRect sampler,
-                                                     vec2 P,
-                                                                        vec2 dPdx,
-                                                                                           vec2 dPdy);
+                                                     vec2 P,
+                                                                        vec2 dPdx,
+                                                                                           vec2 dPdy);
 
 
 
 float textureGrad( gsampler2DRectShadow sampler,
-                                                           vec2 P,
-                                                                              vec2 dPdx,
-                                                                                                 vec2 dPdy);
+                                                           vec2 P,
+                                                                              vec2 dPdx,
+                                                                                                 vec2 dPdy);
 
 
 
 float textureGrad( sampler1DShadow sampler,
-                                                      vec3 P,
-                                                                         float dPdx,
-                                                                                            float dPdy);
+                                                      vec3 P,
+                                                                         float dPdx,
+                                                                                            float dPdy);
 
 
 
 float textureGrad( sampler2DShadow sampler,
-                                                      vec3 P,
-                                                                         vec2 dPdx,
-                                                                                            vec2 dPdy);
+                                                      vec3 P,
+                                                                         vec2 dPdx,
+                                                                                            vec2 dPdy);
 
 
 
 gvec4 textureGrad( gsampler1DArray sampler,
-                                                      vec2 P,
-                                                                         float dPdx,
-                                                                                            float dPdy);
+                                                      vec2 P,
+                                                                         float dPdx,
+                                                                                            float dPdy);
 
 
 
 gvec4 textureGrad( gsampler2DArray sampler,
-                                                      vec3 P,
-                                                                         vec2 dPdx,
-                                                                                            vec2 dPdy);
+                                                      vec3 P,
+                                                                         vec2 dPdx,
+                                                                                            vec2 dPdy);
 
 
 
 float textureGrad( sampler1DArrayShadow sampler,
-                                                           vec3 P,
-                                                                              float dPdx,
-                                                                                                 float dPdy);
+                                                           vec3 P,
+                                                                              float dPdx,
+                                                                                                 float dPdy);
 
 
 
 gvec4 textureGrad( gsamplerCubeArray sampler,
-                                                        vec4 P,
-                                                                           vec3 dPdx,
-                                                                                              vec3 dPdy);
+                                                        vec4 P,
+                                                                           vec3 dPdx,
+                                                                                              vec3 dPdy);
 
 
 
@@ -7999,17 +7999,17 @@ textureGrad performs a texture lookup at coordinate P from the texture bound to
 sampler with explicit texture coordinate gradiends as specified in dPdx and
 dPdy. Set:
 
-δs δx = δP δx   for a 1D texture,  δP.s δx   otherwise
+δs δx = δP δx   for a 1D texture,  δP.s δx   otherwise
 
-δs δy = δP δy   for a 1D texture,  δP.s δy   otherwise
+δs δy = δP δy   for a 1D texture,  δP.s δy   otherwise
 
-δt δx = 0.0   for a 1D texture,  δP.t δx otherwise
+δt δx = 0.0   for a 1D texture,  δP.t δx otherwise
 
-δt δy = 0.0   for a 1D texture,  δP.t δy   otherwise
+δt δy = 0.0   for a 1D texture,  δP.t δy   otherwise
 
-δr δx = 0.0   for a 1D or 2D texture,  δP.p δx   otherwise
+δr δx = 0.0   for a 1D or 2D texture,  δP.p δx   otherwise
 
-δr δy = 0.0   for a 1D or 2D texture,  δP.p δy   otherwise
+δr δy = 0.0   for a 1D or 2D texture,  δP.p δy   otherwise
 
 For the cube version, the partial derivatives of P are assumed to be in the
 coordinate system used before texture coordinates are projected onto the
@@ -8050,90 +8050,90 @@ textureGradOffset — perform a texture lookup with explicit gradients and offse
 Declaration
 
 gvec4 textureGradOffset( gsampler1D sampler,
-                                                             float P,
-                                                                                      float dPdx,
-                                                                                                               float dPdy,
-                                                                                                                                        int offset);
+                                                             float P,
+                                                                                      float dPdx,
+                                                                                                               float dPdy,
+                                                                                                                                        int offset);
 
 
 
 gvec4 textureGradOffset( gsampler2D sampler,
-                                                             vec2 P,
-                                                                                      vec2 dPdx,
-                                                                                                               vec2 dPdy,
-                                                                                                                                        ivec2 offset);
+                                                             vec2 P,
+                                                                                      vec2 dPdx,
+                                                                                                               vec2 dPdy,
+                                                                                                                                        ivec2 offset);
 
 
 
 gvec4 textureGradOffset( gsampler3D sampler,
-                                                             vec3 P,
-                                                                                      vec3 dPdx,
-                                                                                                               vec3 dPdy,
-                                                                                                                                        ivec3 offset);
+                                                             vec3 P,
+                                                                                      vec3 dPdx,
+                                                                                                               vec3 dPdy,
+                                                                                                                                        ivec3 offset);
 
 
 
 gvec4 textureGradOffset( gsampler2DRect sampler,
-                                                                 vec2 P,
-                                                                                          vec2 dPdx,
-                                                                                                                   vec2 dPdy,
-                                                                                                                                            ivec2 offset);
+                                                                 vec2 P,
+                                                                                          vec2 dPdx,
+                                                                                                                   vec2 dPdy,
+                                                                                                                                            ivec2 offset);
 
 
 
 float textureGradOffset( gsampler2DRectShadow sampler,
-                                                                       vec3 P,
-                                                                                                vec2 dPdx,
-                                                                                                                         vec2 dPdy,
-                                                                                                                                                  ivec2 offset);
+                                                                       vec3 P,
+                                                                                                vec2 dPdx,
+                                                                                                                         vec2 dPdy,
+                                                                                                                                                  ivec2 offset);
 
 
 
 float textureGradOffset( sampler1DShadow sampler,
-                                                                  vec3 P,
-                                                                                           float dPdx,
-                                                                                                                    float dPdy,
-                                                                                                                                             int offset);
+                                                                  vec3 P,
+                                                                                           float dPdx,
+                                                                                                                    float dPdy,
+                                                                                                                                             int offset);
 
 
 
 float textureGradOffset( sampler2DShadow sampler,
-                                                                  vec3 P,
-                                                                                           vec2 dPdx,
-                                                                                                                    vec2 dPdy,
-                                                                                                                                             ivec2 offset);
+                                                                  vec3 P,
+                                                                                           vec2 dPdx,
+                                                                                                                    vec2 dPdy,
+                                                                                                                                             ivec2 offset);
 
 
 
 gvec4 textureGradOffset( gsampler1DArray sampler,
-                                                                  vec2 P,
-                                                                                           float dPdx,
-                                                                                                                    float dPdy,
-                                                                                                                                             int offset);
+                                                                  vec2 P,
+                                                                                           float dPdx,
+                                                                                                                    float dPdy,
+                                                                                                                                             int offset);
 
 
 
 gvec4 textureGradOffset( gsampler2DArray sampler,
-                                                                  vec3 P,
-                                                                                           vec2 dPdx,
-                                                                                                                    vec2 dPdy,
-                                                                                                                                             ivec2 offset);
+                                                                  vec3 P,
+                                                                                           vec2 dPdx,
+                                                                                                                    vec2 dPdy,
+                                                                                                                                             ivec2 offset);
 
 
 
 float textureGradOffset( sampler1DArrayShadow sampler,
-                                                                       vec3 P,
-                                                                                                float dPdx,
-                                                                                                                         float dPdy,
-                                                                                                                                                  int offset);
+                                                                       vec3 P,
+                                                                                                float dPdx,
+                                                                                                                         float dPdy,
+                                                                                                                                                  int offset);
 
 
 
 float textureGradOffset( sampler2DArrayShadow sampler,
-                                                                       vec3 P,
-                                                                                                vec2 dPdx,
-                                                                                                                         vec2 dPdy,
-                                                                                                                                                  ivec2 offset);
+                                                                       vec3 P,
+                                                                                                vec2 dPdx,
+                                                                                                                         vec2 dPdy,
+                                                                                                                                                  ivec2 offset);
 
 
 
@@ -8200,62 +8200,62 @@ textureLod — perform a texture lookup with explicit level-of-detail
 Declaration
 
 gvec4 textureLod( gsampler1D sampler,
-                                               float P,
-                                                                 float lod);
+                                               float P,
+                                                                 float lod);
 
 
 
 gvec4 textureLod( gsampler2D sampler,
-                                               vec2 P,
-                                                                 float lod);
+                                               vec2 P,
+                                                                 float lod);
 
 
 
 gvec4 textureLod( gsampler3D sampler,
-                                               vec3 P,
-                                                                 float lod);
+                                               vec3 P,
+                                                                 float lod);
 
 
 
 gvec4 textureLod( gsamplerCube sampler,
-                                                 vec3 P,
-                                                                   float lod);
+                                                 vec3 P,
+                                                                   float lod);
 
 
 
 float textureLod( sampler1DShadow sampler,
-                                                    vec3 P,
-                                                                      float lod);
+                                                    vec3 P,
+                                                                      float lod);
 
 
 
 float textureLod( sampler2DShadow sampler,
-                                                    vec4 P,
-                                                                      float lod);
+                                                    vec4 P,
+                                                                      float lod);
 
 
 
 gvec4 textureLod( gsampler1DArray sampler,
-                                                    vec2 P,
-                                                                      float lod);
+                                                    vec2 P,
+                                                                      float lod);
 
 
 
 gvec4 textureLod( gsampler2DArray sampler,
-                                                    vec3 P,
-                                                                      float lod);
+                                                    vec3 P,
+                                                                      float lod);
 
 
 
 float textureLod( sampler1DArrayShadow sampler,
-                                                         vec3 P,
-                                                                           float lod);
+                                                         vec3 P,
+                                                                           float lod);
 
 
 
 gvec4 textureLod( gsamplerCubeArray sampler,
-                                                      vec4 P,
-                                                                        float lod);
+                                                      vec4 P,
+                                                                        float lod);
 
 
 
@@ -8318,58 +8318,58 @@ offset
 Declaration
 
 gvec4 textureLodOffset( gsampler1D sampler,
-                                                           float P,
-                                                                                   float lod,
-                                                                                                           int offset);
+                                                           float P,
+                                                                                   float lod,
+                                                                                                           int offset);
 
 
 
 gvec4 textureLodOffset( gsampler2D sampler,
-                                                           vec2 P,
-                                                                                   float lod,
-                                                                                                           ivec2 offset);
+                                                           vec2 P,
+                                                                                   float lod,
+                                                                                                           ivec2 offset);
 
 
 
 gvec4 textureLodOffset( gsampler3D sampler,
-                                                           vec3 P,
-                                                                                   float lod,
-                                                                                                           ivec3 offset);
+                                                           vec3 P,
+                                                                                   float lod,
+                                                                                                           ivec3 offset);
 
 
 
 float textureLodOffset( sampler1DShadow sampler,
-                                                                vec3 P,
-                                                                                        float lod,
-                                                                                                                int offset);
+                                                                vec3 P,
+                                                                                        float lod,
+                                                                                                                int offset);
 
 
 
 float textureLodOffset( sampler2DShadow sampler,
-                                                                vec4 P,
-                                                                                        float lod,
-                                                                                                                ivec2 offset);
+                                                                vec4 P,
+                                                                                        float lod,
+                                                                                                                ivec2 offset);
 
 
 
 gvec4 textureLodOffset( gsampler1DArray sampler,
-                                                                vec2 P,
-                                                                                        float lod,
-                                                                                                                int offset);
+                                                                vec2 P,
+                                                                                        float lod,
+                                                                                                                int offset);
 
 
 
 gvec4 textureLodOffset( gsampler2DArray sampler,
-                                                                vec3 P,
-                                                                                        float lod,
-                                                                                                                ivec2 offset);
+                                                                vec3 P,
+                                                                                        float lod,
+                                                                                                                ivec2 offset);
 
 
 
 float textureLodOffset( sampler1DArrayShadow sampler,
-                                                                     vec3 P,
-                                                                                             float lod,
-                                                                                                                     int offset);
+                                                                     vec3 P,
+                                                                                             float lod,
+                                                                                                                     int offset);
 
 
 
@@ -8432,75 +8432,75 @@ textureOffset — perform a texture lookup with offset
 Declaration
 
 gvec4 textureOffset( gsampler1D sampler,
-                                                     float P,
-                                                                          int offset,
-                                                                                               [float bias]);
+                                                     float P,
+                                                                          int offset,
+                                                                                               [float bias]);
 
 
 
 gvec4 textureOffset( gsampler2D sampler,
-                                                     vec2 P,
-                                                                          ivec2 offset,
-                                                                                               [float bias]);
+                                                     vec2 P,
+                                                                          ivec2 offset,
+                                                                                               [float bias]);
 
 
 
 gvec4 textureOffset( gsampler3D sampler,
-                                                     vec3 P,
-                                                                          ivec3 offset,
-                                                                                               [float bias]);
+                                                     vec3 P,
+                                                                          ivec3 offset,
+                                                                                               [float bias]);
 
 
 
 gvec4 textureOffset( gsampler2DRect sampler,
-                                                         vec2 P,
-                                                                              ivec2 offset);
+                                                         vec2 P,
+                                                                              ivec2 offset);
 
 
 
 float textureOffset( sampler2DRectShadow sampler,
-                                                              vec3 P,
-                                                                                   ivec2 offset);
+                                                              vec3 P,
+                                                                                   ivec2 offset);
 
 
 
 float textureOffset( sampler1DShadow sampler,
-                                                          vec3 P,
-                                                                               int offset,
-                                                                                                    [float bias]);
+                                                          vec3 P,
+                                                                               int offset,
+                                                                                                    [float bias]);
 
 
 
 float textureOffset( sampler2DShadow sampler,
-                                                          vec4 P,
-                                                                               ivec2 offset,
-                                                                                                    [float bias]);
+                                                          vec4 P,
+                                                                               ivec2 offset,
+                                                                                                    [float bias]);
 
 
 
 gvec4 textureOffset( gsampler1DArray sampler,
-                                                          vec2 P,
-                                                                               int offset,
-                                                                                                    [float bias]);
+                                                          vec2 P,
+                                                                               int offset,
+                                                                                                    [float bias]);
 
 
 
 gvec4 textureOffset( gsampler2DArray sampler,
-                                                          vec3 P,
-                                                                               ivec2 offset,
-                                                                                                    [float bias]);
+                                                          vec3 P,
+                                                                               ivec2 offset,
+                                                                                                    [float bias]);
 
 
 
 float textureOffset( sampler1DArrayShadow sampler,
-                                                               vec3 P,
-                                                                                    int offset);
+                                                               vec3 P,
+                                                                                    int offset);
 
 
 
 float textureOffset( sampler2DArrayShadow sampler,
-                                                               vec4 P,
-                                                                                    vec2 offset);
+                                                               vec4 P,
+                                                                                    vec2 offset);
 
 
 
@@ -8566,59 +8566,59 @@ textureProj — perform a texture lookup with projection
 Declaration
 
 gvec4 textureProj( gsampler1D sampler,
-                                                 vec2 P,
-                                                                    [float bias]);
+                                                 vec2 P,
+                                                                    [float bias]);
 
 
 
 gvec4 textureProj( gsampler1D sampler,
-                                                 vec4 P,
-                                                                    [float bias]);
+                                                 vec4 P,
+                                                                    [float bias]);
 
 
 
 gvec4 textureProj( gsampler2D sampler,
-                                                 vec3 P,
-                                                                    [float bias]);
+                                                 vec3 P,
+                                                                    [float bias]);
 
 
 
 gvec4 textureProj( gsampler2D sampler,
-                                                 vec4 P,
-                                                                    [float bias]);
+                                                 vec4 P,
+                                                                    [float bias]);
 
 
 
 gvec4 textureProj( gsampler3D sampler,
-                                                 vec4 P,
-                                                                    [float bias]);
+                                                 vec4 P,
+                                                                    [float bias]);
 
 
 
 float textureProj( sampler1DShadow sampler,
-                                                      vec4 P,
-                                                                         [float bias]);
+                                                      vec4 P,
+                                                                         [float bias]);
 
 
 
 float textureProj( sampler2DShadow sampler,
-                                                      vec4 P,
-                                                                         [float bias]);
+                                                      vec4 P,
+                                                                         [float bias]);
 
 
 
 gvec4 textureProj( gsampler2DRect sampler,
-                                                     vec3 P);
+                                                     vec3 P);
 
 
 
 gvec4 textureProj( gsampler2DRect sampler,
-                                                     vec4 P);
+                                                     vec4 P);
 
 
 
 float textureProj( gsampler2DRectShadow sampler,
-                                                           vec4 P);
+                                                           vec4 P);
 
 
 
@@ -8680,72 +8680,72 @@ gradients
 Declaration
 
 gvec4 textureProjGrad( gsampler1D sampler,
-                                                         vec2 P,
-                                                                                float pDx,
-                                                                                                       float pDy);
+                                                         vec2 P,
+                                                                                float pDx,
+                                                                                                       float pDy);
 
 
 
 gvec4 textureProjGrad( gsampler1D sampler,
-                                                         vec4 P,
-                                                                                float pDx,
-                                                                                                       float pDy);
+                                                         vec4 P,
+                                                                                float pDx,
+                                                                                                       float pDy);
 
 
 
 gvec4 textureProjGrad( gsampler2D sampler,
-                                                         vec3 P,
-                                                                                vec2 pDx,
-                                                                                                       vec2 pDy);
+                                                         vec3 P,
+                                                                                vec2 pDx,
+                                                                                                       vec2 pDy);
 
 
 
 gvec4 textureProjGrad( gsampler2D sampler,
-                                                         vec4 P,
-                                                                                vec2 pDx,
-                                                                                                       vec2 pDy);
+                                                         vec4 P,
+                                                                                vec2 pDx,
+                                                                                                       vec2 pDy);
 
 
 
 gvec4 textureProjGrad( gsampler3D sampler,
-                                                         vec4 P,
-                                                                                vec3 pDx,
-                                                                                                       vec3 pDy);
+                                                         vec4 P,
+                                                                                vec3 pDx,
+                                                                                                       vec3 pDy);
 
 
 
 float textureProjGrad( sampler1DShadow sampler,
-                                                              vec4 P,
-                                                                                     float pDx,
-                                                                                                            float pDy);
+                                                              vec4 P,
+                                                                                     float pDx,
+                                                                                                            float pDy);
 
 
 
 float textureProjGrad( sampler2DShadow sampler,
-                                                              vec4 P,
-                                                                                     vec2 pDx,
-                                                                                                            vec2 pDy);
+                                                              vec4 P,
+                                                                                     vec2 pDx,
+                                                                                                            vec2 pDy);
 
 
 
 gvec4 textureProjGrad( gsampler2DRect sampler,
-                                                             vec3 P,
-                                                                                    vec2 pDx,
-                                                                                                           vec2 pDy);
+                                                             vec3 P,
+                                                                                    vec2 pDx,
+                                                                                                           vec2 pDy);
 
 
 
 gvec4 textureProjGrad( gsampler2DRect sampler,
-                                                             vec4 P,
-                                                                                    vec2 pDx,
-                                                                                                           vec2 pDy);
+                                                             vec4 P,
+                                                                                    vec2 pDx,
+                                                                                                           vec2 pDy);
 
 
 
 float textureProjGrad( gsampler2DRectShadow sampler,
-                                                                   vec4 P,
-                                                                                          vec2 pDx,
-                                                                                                                 vec2 pDy);
+                                                                   vec4 P,
+                                                                                          vec2 pDx,
+                                                                                                                 vec2 pDy);
 
 
 
@@ -8811,82 +8811,82 @@ gradients and offset
 Declaration
 
 gvec4 textureProjGradOffset( gsampler1D sampler,
-                                                                     vec2 P,
-                                                                                                  float dPdx,
-                                                                                                                               float dPdy,
-                                                                                                                                                            int offset);
+                                                                     vec2 P,
+                                                                                                  float dPdx,
+                                                                                                                               float dPdy,
+                                                                                                                                                            int offset);
 
 
 
 gvec4 textureProjGradOffset( gsampler1D sampler,
-                                                                     vec4 P,
-                                                                                                  float dPdx,
-                                                                                                                               float dPdy,
-                                                                                                                                                            int offset);
+                                                                     vec4 P,
+                                                                                                  float dPdx,
+                                                                                                                               float dPdy,
+                                                                                                                                                            int offset);
 
 
 
 gvec4 textureProjGradOffset( gsampler2D sampler,
-                                                                     vec3 P,
-                                                                                                  vec2 dPdx,
-                                                                                                                               vec2 dPdy,
-                                                                                                                                                            ivec2 offset);
+                                                                     vec3 P,
+                                                                                                  vec2 dPdx,
+                                                                                                                               vec2 dPdy,
+                                                                                                                                                            ivec2 offset);
 
 
 
 gvec4 textureProjGradOffset( gsampler2D sampler,
-                                                                     vec4 P,
-                                                                                                  vec2 dPdx,
-                                                                                                                               vec2 dPdy,
-                                                                                                                                                            ivec2 offset);
+                                                                     vec4 P,
+                                                                                                  vec2 dPdx,
+                                                                                                                               vec2 dPdy,
+                                                                                                                                                            ivec2 offset);
 
 
 
 gvec4 textureProjGradOffset( gsampler3D sampler,
-                                                                     vec4 P,
-                                                                                                  vec3 dPdx,
-                                                                                                                               vec3 dPdy,
-                                                                                                                                                            ivec3 offset);
+                                                                     vec4 P,
+                                                                                                  vec3 dPdx,
+                                                                                                                               vec3 dPdy,
+                                                                                                                                                            ivec3 offset);
 
 
 
 float textureProjGradOffset( sampler1DShadow sampler,
-                                                                          vec4 P,
-                                                                                                       float dPdx,
-                                                                                                                                    float dPdy,
-                                                                                                                                                                 int offset);
+                                                                          vec4 P,
+                                                                                                       float dPdx,
+                                                                                                                                    float dPdy,
+                                                                                                                                                                 int offset);
 
 
 
 float textureProjGradOffset( sampler2DShadow sampler,
-                                                                          vec4 P,
-                                                                                                       vec2 dPdx,
-                                                                                                                                    vec2 dPdy,
-                                                                                                                                                                 ivec2 offset);
+                                                                          vec4 P,
+                                                                                                       vec2 dPdx,
+                                                                                                                                    vec2 dPdy,
+                                                                                                                                                                 ivec2 offset);
 
 
 
 gvec4 textureProjGradOffset( gsampler2DRect sampler,
-                                                                         vec3 P,
-                                                                                                      vec2 dPdx,
-                                                                                                                                   vec2 dPdy,
-                                                                                                                                                                ivec2 offset);
+                                                                         vec3 P,
+                                                                                                      vec2 dPdx,
+                                                                                                                                   vec2 dPdy,
+                                                                                                                                                                ivec2 offset);
 
 
 
 gvec4 textureProjGradOffset( gsampler2DRect sampler,
-                                                                         vec4 P,
-                                                                                                      vec2 dPdx,
-                                                                                                                                   vec2 dPdy,
-                                                                                                                                                                ivec2 offset);
+                                                                         vec4 P,
+                                                                                                      vec2 dPdx,
+                                                                                                                                   vec2 dPdy,
+                                                                                                                                                                ivec2 offset);
 
 
 
 float textureProjGradOffset( gsampler2DRectShadow sampler,
-                                                                               vec4 P,
-                                                                                                            vec2 dPdx,
-                                                                                                                                         vec2 dPdy,
-                                                                                                                                                                      ivec2 offset);
+                                                                               vec4 P,
+                                                                                                            vec2 dPdx,
+                                                                                                                                         vec2 dPdy,
+                                                                                                                                                                      ivec2 offset);
 
 
 
@@ -8956,44 +8956,44 @@ level-of-detail
 Declaration
 
 gvec4 textureProjLod( gsampler1D sampler,
-                                                       vec2 P,
-                                                                             float lod);
+                                                       vec2 P,
+                                                                             float lod);
 
 
 
 gvec4 textureProjLod( gsampler1D sampler,
-                                                       vec4 P,
-                                                                             float lod);
+                                                       vec4 P,
+                                                                             float lod);
 
 
 
 gvec4 textureProjLod( gsampler2D sampler,
-                                                       vec3 P,
-                                                                             float lod);
+                                                       vec3 P,
+                                                                             float lod);
 
 
 
 gvec4 textureProjLod( gsampler2D sampler,
-                                                       vec4 P,
-                                                                             float lod);
+                                                       vec4 P,
+                                                                             float lod);
 
 
 
 gvec4 textureProjLod( gsampler3D sampler,
-                                                       vec4 P,
-                                                                             float lod);
+                                                       vec4 P,
+                                                                             float lod);
 
 
 
 float textureProjLod( sampler1DShadow sampler,
-                                                            vec4 P,
-                                                                                  float lod);
+                                                            vec4 P,
+                                                                                  float lod);
 
 
 
 float textureProjLod( sampler2DShadow sampler,
-                                                            vec4 P,
-                                                                                  float lod);
+                                                            vec4 P,
+                                                                                  float lod);
 
 
 
@@ -9052,51 +9052,51 @@ level-of-detail and offset
 Declaration
 
 gvec4 textureProjLodOffset( gsampler1D sampler,
-                                                                   vec2 P,
-                                                                                               float lod,
-                                                                                                                           int offset);
+                                                                   vec2 P,
+                                                                                               float lod,
+                                                                                                                           int offset);
 
 
 
 gvec4 textureProjLodOffset( gsampler1D sampler,
-                                                                   vec4 P,
-                                                                                               float lod,
-                                                                                                                           int offset);
+                                                                   vec4 P,
+                                                                                               float lod,
+                                                                                                                           int offset);
 
 
 
 gvec4 textureProjLodOffset( gsampler2D sampler,
-                                                                   vec3 P,
-                                                                                               float lod,
-                                                                                                                           ivec2 offset);
+                                                                   vec3 P,
+                                                                                               float lod,
+                                                                                                                           ivec2 offset);
 
 
 
 gvec4 textureProjLodOffset( gsampler2D sampler,
-                                                                   vec4 P,
-                                                                                               float lod,
-                                                                                                                           ivec2 offset);
+                                                                   vec4 P,
+                                                                                               float lod,
+                                                                                                                           ivec2 offset);
 
 
 
 gvec4 textureProjLodOffset( gsampler3D sampler,
-                                                                   vec4 P,
-                                                                                               float lod,
-                                                                                                                           ivec3 offset);
+                                                                   vec4 P,
+                                                                                               float lod,
+                                                                                                                           ivec3 offset);
 
 
 
 float textureProjLodOffset( sampler1DShadow sampler,
-                                                                        vec4 P,
-                                                                                                    float lod,
-                                                                                                                                int offset);
+                                                                        vec4 P,
+                                                                                                    float lod,
+                                                                                                                                int offset);
 
 
 
 float textureProjLodOffset( sampler2DShadow sampler,
-                                                                        vec4 P,
-                                                                                                    float lod,
-                                                                                                                                ivec2 offset);
+                                                                        vec4 P,
+                                                                                                    float lod,
+                                                                                                                                ivec2 offset);
 
 
 
@@ -9161,69 +9161,69 @@ textureProjOffset — perform a texture lookup with projection and offset
 Declaration
 
 gvec4 textureProjOffset( gsampler1D sampler,
-                                                             vec2 P,
-                                                                                      int offset,
-                                                                                                               [float bias]);
+                                                             vec2 P,
+                                                                                      int offset,
+                                                                                                               [float bias]);
 
 
 
 gvec4 textureProjOffset( gsampler1D sampler,
-                                                             vec4 P,
-                                                                                      int offset,
-                                                                                                               [float bias]);
+                                                             vec4 P,
+                                                                                      int offset,
+                                                                                                               [float bias]);
 
 
 
 gvec4 textureProjOffset( gsampler2D sampler,
-                                                             vec3 P,
-                                                                                      ivec2 offset,
-                                                                                                               [float bias]);
+                                                             vec3 P,
+                                                                                      ivec2 offset,
+                                                                                                               [float bias]);
 
 
 
 gvec4 textureProjOffset( gsampler2D sampler,
-                                                             vec4 P,
-                                                                                      ivec2 offset,
-                                                                                                               [float bias]);
+                                                             vec4 P,
+                                                                                      ivec2 offset,
+                                                                                                               [float bias]);
 
 
 
 gvec4 textureProjOffset( gsampler3D sampler,
-                                                             vec4 P,
-                                                                                      ivec3 offset,
-                                                                                                               [float bias]);
+                                                             vec4 P,
+                                                                                      ivec3 offset,
+                                                                                                               [float bias]);
 
 
 
 float textureProjOffset( sampler1DShadow sampler,
-                                                                  vec4 P,
-                                                                                           int offset,
-                                                                                                                    [float bias]);
+                                                                  vec4 P,
+                                                                                           int offset,
+                                                                                                                    [float bias]);
 
 
 
 float textureProjOffset( sampler2DShadow sampler,
-                                                                  vec4 P,
-                                                                                           ivec2 offset,
-                                                                                                                    [float bias]);
+                                                                  vec4 P,
+                                                                                           ivec2 offset,
+                                                                                                                    [float bias]);
 
 
 
 gvec4 textureProjOffset( gsampler2DRect sampler,
-                                                                 vec3 P,
-                                                                                          ivec2 offset);
+                                                                 vec3 P,
+                                                                                          ivec2 offset);
 
 
 
 gvec4 textureProjOffset( gsampler2DRect sampler,
-                                                                 vec4 P,
-                                                                                          ivec2 offset);
+                                                                 vec4 P,
+                                                                                          ivec2 offset);
 
 
 
 float textureProjOffset( gsampler2DRectShadow sampler,
-                                                                       vec4 P,
-                                                                                                ivec2 offset);
+                                                                       vec4 P,
+                                                                                                ivec2 offset);
 
 
 
@@ -9387,67 +9387,67 @@ a texture
 Declaration
 
 vec2 textureQueryLod( gsampler1D sampler,
-                                                       float P);
+                                                       float P);
 
 
 
 vec2 textureQueryLod( gsampler2D sampler,
-                                                       vec2 P);
+                                                       vec2 P);
 
 
 
 vec2 textureQueryLod( gsampler3D sampler,
-                                                       vec3 P);
+                                                       vec3 P);
 
 
 
 vec2 textureQueryLod( gsamplerCube sampler,
-                                                         vec3 P);
+                                                         vec3 P);
 
 
 
 vec2 textureQueryLod( gsampler1DArray sampler,
-                                                            float P);
+                                                            float P);
 
 
 
 vec2 textureQueryLod( gsampler2DDArray sampler,
-                                                             vec2 P);
+                                                             vec2 P);
 
 
 
 vec2 textureQueryLod( gsamplerCubeArray sampler,
-                                                              vec3 P);
+                                                              vec3 P);
 
 
 
 vec2 textureQueryLod( gsampler1DShadow sampler,
-                                                             float P);
+                                                             float P);
 
 
 
 vec2 textureQueryLod( gsampler2DShadow sampler,
-                                                             vec2 P);
+                                                             vec2 P);
 
 
 
 vec2 textureQueryLod( gsamplerCubeShadow sampler,
-                                                               vec3 P);
+                                                               vec3 P);
 
 
 
 vec2 textureQueryLod( gsampler1DArrayShadow sampler,
-                                                                  float P);
+                                                                  float P);
 
 
 
 vec2 textureQueryLod( gsampler2DArrayShadow sampler,
-                                                                  vec2 P);
+                                                                  vec2 P);
 
 
 
 vec2 textureQueryLod( gsamplerCubeArrayShadow sampler,
-                                                                    vec3 P);
+                                                                    vec3 P);
 
 
 
@@ -9547,47 +9547,47 @@ textureSize — retrieve the dimensions of a level of a texture
 Declaration
 
 int textureSize( gsampler1D sampler,
-                                             int lod);
+                                             int lod);
 
 
 
 ivec2 textureSize( gsampler2D sampler,
-                                                 int lod);
+                                                 int lod);
 
 
 
 ivec3 textureSize( gsampler3D sampler,
-                                                 int lod);
+                                                 int lod);
 
 
 
 ivec2 textureSize( gsamplerCube sampler,
-                                                   int lod);
+                                                   int lod);
 
 
 
 int textureSize( sampler1DShadow sampler,
-                                                  int lod);
+                                                  int lod);
 
 
 
 ivec2 textureSize( sampler2DShadow sampler,
-                                                      int lod);
+                                                      int lod);
 
 
 
 ivec2 textureSize( samplerCubeShadow sampler,
-                                                        int lod);
+                                                        int lod);
 
 
 
 ivec3 textureSize( samplerCubeArray sampler,
-                                                       int lod);
+                                                       int lod);
 
 
 
 ivec3 textureSize( samplerCubeArrayShadow sampler,
-                                                             int lod);
+                                                             int lod);
 
 
 
@@ -9600,22 +9600,22 @@ ivec2 textureSize( gsamplerRectShadow sampler);
 
 
 ivec2 textureSize( gsampler1DArray sampler,
-                                                      int lod);
+                                                      int lod);
 
 
 
 ivec3 textureSize( gsampler2DArray sampler,
-                                                      int lod);
+                                                      int lod);
 
 
 
 ivec2 textureSize( sampler1DArrayShadow sampler,
-                                                           int lod);
+                                                           int lod);
 
 
 
 ivec3 textureSize( sampler2DArrayShadow sampler,
-                                                           int lod);
+                                                           int lod);
 
 
 
@@ -9838,8 +9838,8 @@ uaddCarry — add unsigned integers and generate carry
 Declaration
 
 genUType uaddCarry( genUType x,
-                                                 genUType y,
-                                                                     out genUType carry);
+                                                 genUType y,
+                                                                     out genUType carry);
 
 
 
@@ -9890,16 +9890,16 @@ umulExtended — perform a 32- by 32-bit multiply to produce a 64-bit result
 Declaration
 
 void umulExtended( genUType x,
-                                               genUType y,
-                                                                  out genUType msb,
-                                                                                     out genUType lsb);
+                                               genUType y,
+                                                                  out genUType msb,
+                                                                                     out genUType lsb);
 
 
 
 void imulExtended( genIType x,
-                                               genIType y,
-                                                                  out genIType msb,
-                                                                                     out genIType lsb);
+                                               genIType y,
+                                                                  out genIType msb,
+                                                                                     out genIType lsb);
 
 
 
@@ -10045,8 +10045,8 @@ usubBorrow — subtract unsigned integers and generate borrow
 Declaration
 
 genUType usubBorrow( genUType x,
-                                                   genUType y,
-                                                                        out genUType borrow);
+                     genUType y,
+                     out genUType borrow);
 
 
 
