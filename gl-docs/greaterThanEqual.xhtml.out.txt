@@ -1,0 +1,60 @@
+Name
+
+greaterThanEqual — perform a component-wise greater-than-or-equal comparison of
+two vectors
+
+Declaration
+
+bvec greaterThanEqual(  vec x,
+                        vec y);
+
+ 
+
+bvec greaterThanEqual( ivec x,
+                       ivec y);
+
+ 
+
+bvec greaterThanEqual( uvec x,
+                       uvec y);
+
+ 
+
+Parameters
+
+x
+
+    Specifies the first vector to be used in the comparison operation.
+
+y
+
+    Specifies the second vector to be used in the comparison operation.
+
+Description
+
+greaterThanEqual returns a boolean vector in which each element i is computed
+as x[i] ≥ y[i].
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                    OpenGL Shading Language Version
+    Function Name     1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+greaterThanEqual      ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+(vec)
+greaterThanEqual      ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+(ivec)
+greaterThanEqual      -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+(uvec)
+
+See Also
+
+lessThan, lessThanEqual, greaterThan, equal, notEqual, any, all, not
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

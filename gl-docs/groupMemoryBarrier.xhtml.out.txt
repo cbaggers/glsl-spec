@@ -1,0 +1,35 @@
+Name
+
+groupMemoryBarrier — controls the ordering of memory transaction issued shader
+invocation relative to a work group
+
+Declaration
+
+void groupMemoryBarrier( void);
+
+ 
+
+Description
+
+groupMemoryBarrier waits on the completion of all memory accesses performed by
+an invocation of a compute shader relative to the same access performed by
+other invocations in the same work group and then returns with no other effect.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                 OpenGL Shading Language Version
+  Function Name    1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+groupMemoryBarrier -    -    -    -    -    -    -    -    -    ✔    ✔    ✔
+
+See Also
+
+memoryBarrier, memoryBarrierImage, memoryBarrierBuffer, memoryBarrierShared
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

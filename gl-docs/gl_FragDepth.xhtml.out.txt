@@ -1,0 +1,38 @@
+Name
+
+gl_FragDepth — establishes a depth value for the current fragment
+
+Declaration
+
+out float gl_FragDepth ;
+
+Description
+
+Available only in the fragment language, gl_FragDepth is an output variable
+that is used to establish the depth value for the current fragment. If depth
+buffering is enabled and no shader writes to gl_FragDepth, then the fixed
+function value for depth will be used (this value is contained in the z
+component of gl_FragCoord) otherwise, the value written to gl_FragDepth is
+used. If a shader statically assigns to gl_FragDepth, then the value of the
+fragment's depth may be undefined for executions of the shader that don't take
+that path. That is, if the set of linked fragment shaders statically contain a
+write to gl_FragDepth, then it is responsible for always writing it.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Variable Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+gl_FragDepth  ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+gl_FragCoord
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

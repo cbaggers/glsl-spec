@@ -1,0 +1,159 @@
+Name
+
+texture — retrieves texels from a texture
+
+Declaration
+
+gvec4 texture( gsampler1D sampler,
+               float P,
+               [float bias]);
+
+ 
+
+gvec4 texture( gsampler2D sampler,
+               vec2 P,
+               [float bias]);
+
+ 
+
+gvec4 texture( gsampler3D sampler,
+               vec3 P,
+               [float bias]);
+
+ 
+
+gvec4 texture( gsamplerCube sampler,
+               vec3 P,
+               [float bias]);
+
+ 
+
+float texture( sampler1DShadow sampler,
+               vec3 P,
+               [float bias]);
+
+ 
+
+float texture( sampler2DShadow sampler,
+               vec3 P,
+               [float bias]);
+
+ 
+
+float texture( samplerCubeShadow sampler,
+               vec3 P,
+               [float bias]);
+
+ 
+
+gvec4 texture( gsampler1DArray sampler,
+               vec2 P,
+               [float bias]);
+
+ 
+
+gvec4 texture( gsampler2DArray sampler,
+               vec3 P,
+               [float bias]);
+
+ 
+
+gvec4 texture( gsamplerCubeArray sampler,
+               vec4 P,
+               [float bias]);
+
+ 
+
+float texture( sampler1DArrayShadow sampler,
+               vec3 P,
+               [float bias]);
+
+ 
+
+float texture( gsampler2DArrayShadow sampler,
+               vec4 P,
+               [float bias]);
+
+ 
+
+gvec4 texture( gsampler2DRect sampler,
+               vec2 P);
+
+ 
+
+float texture( sampler2DRectShadow sampler,
+               vec3 P);
+
+ 
+
+float texture( gsamplerCubeArrayShadow sampler,
+               vec4 P,
+               float compare);
+
+ 
+
+Parameters
+
+sampler
+
+    Specifies the sampler to which the texture from which texels will be
+    retrieved is bound.
+
+P
+
+    Specifies the texture coordinates at which texture will be sampled.
+
+bias
+
+    Specifies an optional bias to be applied during level-of-detail
+    computation.
+
+compare
+
+    Specifies the value to which the fetched texel will be compared when
+    sampling from gsamplerCubeArrayShadow.
+
+Description
+
+texture samples texels from the texture bound to sampler at texture coordinate
+P. An optional bias, specified in bias is included in the level-of-detail
+computation that is used to choose mipmap(s) from which to sample.
+
+For shadow forms, when compare is present, it is used as Dsub and the array
+layer is specified in P.w. When compare is not present, the last component of P
+is used as Dsub and the array layer is specified in the second to last
+component of P. (The second component of P is unused for 1D shadow lookups.)
+
+For non-shadow variants, the array layer comes from the last component of P.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                   OpenGL Shading Language Version
+   Function Name     1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+texture              -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+texture
+(gsampler2DRect      -    -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+{Shadow})
+texture
+(gsampler2DMS,       -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+gsampler2DMSArray)
+texture
+(gsamplerCubeArray   -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+{Shadow})
+
+See Also
+
+texelFetch, texelFetchOffset, textureGather, textureGatherOffset,
+textureGatherOffsets, textureGrad, textureGradOffset, textureLod,
+textureLodOffset, textureOffset, textureProj, textureProjGrad,
+textureProjGradOffset, textureProjLod, textureProjLodOffset, textureProjOffset,
+textureQueryLod, textureSize
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

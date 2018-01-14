@@ -1,0 +1,38 @@
+Name
+
+gl_SamplePosition — contains the location of the current sample within the
+current fragment
+
+Declaration
+
+in vec2 gl_SamplePosition ;
+
+Description
+
+gl_SamplePosition is a fragment language input variable that contains the
+location within a fragment of the sample currently being processed. The x and y
+components of gl_SamplePosition contain the sub-pixel coordinate of the current
+sample and will have values in the range 0.0 to 1.0. The sub-pixel coordinates
+of the center of the pixel are always (0.5, 0.5). Any static use of
+gl_SamplePosition causes the entire fragment shader to be evaluated per-sample
+rather than per-fragment. When rendering to a non-multisample buffer, or if
+multisample rasterization is disabled, gl_SamplePosition will be (0.5, 0.5).
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                OpenGL Shading Language Version
+  Function Name   1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+gl_SamplePosition -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+gl_SampleID, gl_SampleMask, gl_FragCoord
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

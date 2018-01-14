@@ -1,0 +1,60 @@
+Name
+
+inverse — calculate the inverse of a matrix
+
+Declaration
+
+mat2 inverse(  mat2 m);
+
+ 
+
+mat3 inverse(  mat3 m);
+
+ 
+
+mat4 inverse(  mat4 m);
+
+ 
+
+dmat2 inverse(  dmat2 m);
+
+ 
+
+dmat3 inverse(  dmat3 m);
+
+ 
+
+dmat4 inverse(  dmat4 m);
+
+ 
+
+Parameters
+
+m
+
+    Specifies the matrix of which to take the inverse.
+
+Description
+
+inverse returns the inverse of the matrix m. The values in the returned matrix
+are undefined if m is singular or poorly-conditioned (nearly singular).
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                               OpenGL Shading Language Version
+ Function Name   1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+inverse (float)  -    -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+inverse (double) -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+transpose, determinant
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

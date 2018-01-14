@@ -1,0 +1,108 @@
+Name
+
+mix — linearly interpolate between two values
+
+Declaration
+
+genType mix(  genType x,
+              genType y,
+              genType a);
+
+ 
+
+genType mix(  genType x,
+              genType y,
+              float a);
+
+ 
+
+genDType mix(  genDType x,
+               genDType y,
+               genDType a);
+
+ 
+
+genDType mix(  genDType x,
+               genDType y,
+               double a);
+
+ 
+
+genType mix( genType x,
+             genType y,
+             genBType a);
+
+ 
+
+genDType mix(  genDType x,
+               genDType y,
+               genBType a);
+
+ 
+
+genIType mix(  genIType x,
+               genIType y,
+               genBType a);
+
+ 
+
+genUType mix(  genUType x,
+               genUType y,
+               genBType a);
+
+ 
+
+genBType mix(  genBType x,
+               genBType y,
+               genBType a);
+
+ 
+
+Parameters
+
+x
+
+    Specify the start of the range in which to interpolate.
+
+y
+
+    Specify the end of the range in which to interpolate.
+
+a
+
+    Specify the value to use to interpolate between x and y.
+
+Description
+
+mix performs a linear interpolation between x and y using a to weight between
+them. The return value is computed as $x \times (1 - a) + y \times a$.
+
+The variants of mix where a is genBType select which vector each returned
+component comes from. For a component of a that is false, the corresponding
+component of x is returned. For a component of a that is true, the
+corresponding component of y is returned. Components of x and y that are not
+selected are allowed to be invalid floating-point values and will have no
+effect on the results.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                   OpenGL Shading Language Version
+   Function Name     1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+mix(genType)         ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+mix(genDType)        -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+mix(genIType), mix
+(genUType), mix      -    -    -    -    -    -    -    -    -    -    -    ✔
+(genBType)
+
+See Also
+
+min, max
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

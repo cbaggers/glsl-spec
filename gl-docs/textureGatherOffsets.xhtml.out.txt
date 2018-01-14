@@ -1,0 +1,104 @@
+Name
+
+textureGatherOffsets — gathers four texels from a texture with an array of
+offsets
+
+Declaration
+
+gvec4 textureGatherOffsets( gsampler2D sampler,
+                            vec2 P,
+                            ivec2 offsets[4],
+                            [int comp]);
+
+ 
+
+gvec4 textureGatherOffsets( gsampler2DArray sampler,
+                            vec3 P,
+                            ivec2 offsets[4],
+                            [int comp]);
+
+ 
+
+gvec4 textureGatherOffsets( gsampler2DRect sampler,
+                            vec3 P,
+                            ivec2 offsets[4],
+                            [int comp]);
+
+ 
+
+vec4 textureGatherOffsets( gsampler2DShadow sampler,
+                           vec2 P,
+                           float refZ,
+                           ivec2 offsets[4]);
+
+ 
+
+vec4 textureGatherOffsets( gsampler2DArrayShadow sampler,
+                           vec3 P,
+                           float refZ,
+                           ivec2 offsets[4]);
+
+ 
+
+vec4 textureGatherOffsets( gsampler2DRectShadow sampler,
+                           vec3 P,
+                           float refZ,
+                           ivec2 offsets[4]);
+
+ 
+
+Parameters
+
+sampler
+
+    Specifies the sampler to which the texture from which texels will be
+    retrieved is bound.
+
+P
+
+    Specifies the texture coordinates at which texture will be sampled.
+
+comp
+
+    Specifies the component of the source texture that will be used to generate
+    the resulting vector.
+
+refZ
+
+    Specifies the reference Z value used in the comparison for shadow forms.
+
+offsets
+
+    Specifies an array of offsets from the specified texture coordinate P from
+    which the texels will be gathered.
+
+Description
+
+textureGatherOffsets operates identically to textureGatherOffset, except that
+offsets is used to determine the location of the four texels to sample. Each of
+the four texels is obtained by applying the offset in offsets as a (u, v)
+coordinate offset to P, identifying the four-texel GL_LINEAR footprint, and
+then selecting the texel i0i0 of that footprint. The specified values in
+offsets must be set with constant integral expressions.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                   OpenGL Shading Language Version
+   Function Name     1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+textureGatherOffsets -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+texelFetch, texelFetchOffset, texture, textureGather, textureGatherOffset,
+textureGrad, textureGradOffset, textureLod, textureLodOffset, textureOffset,
+textureProj, textureProjGrad, textureProjGradOffset, textureProjLod,
+textureProjLodOffset, textureProjOffset, textureQueryLod, textureSize
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

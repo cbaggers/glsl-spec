@@ -1,0 +1,257 @@
+Name
+
+imageAtomicExchange — atomically store supplied data into memory and return the
+original value from memory
+
+Declaration
+
+uint imageAtomicExchange( gimage1D image,
+                          int P,
+                          uint data);
+
+ 
+
+uint imageAtomicExchange( gimage2D image,
+                          ivec2 P,
+                          uint data);
+
+ 
+
+uint imageAtomicExchange( gimage3D image,
+                          ivec3 P,
+                          uint data);
+
+ 
+
+uint imageAtomicExchange( gimage2DRect image,
+                          ivec2 P,
+                          uint data);
+
+ 
+
+uint imageAtomicExchange( gimageCube image,
+                          ivec3 P,
+                          uint data);
+
+ 
+
+uint imageAtomicExchange( gbufferImage image,
+                          int P,
+                          uint data);
+
+ 
+
+uint imageAtomicExchange( gimage1DArray image,
+                          ivec2 P,
+                          uint data);
+
+ 
+
+uint imageAtomicExchange( gimage2DArray image,
+                          ivec3 P,
+                          uint data);
+
+ 
+
+uint imageAtomicExchange( gimageCubeArray image,
+                          ivec3 P,
+                          uint data);
+
+ 
+
+uint imageAtomicExchange( gimage2DMS image,
+                          ivec2 P,
+                          int sample,
+                          uint data);
+
+ 
+
+uint imageAtomicExchange( gimage2DMSArray image,
+                          ivec3 P,
+                          int sample,
+                          uint data);
+
+ 
+
+int imageAtomicExchange( gimage1D image,
+                         int P,
+                         int data);
+
+ 
+
+int imageAtomicExchange( gimage2D image,
+                         ivec2 P,
+                         int data);
+
+ 
+
+int imageAtomicExchange( gimage3D image,
+                         ivec3 P,
+                         int data);
+
+ 
+
+int imageAtomicExchange( gimage2DRect image,
+                         ivec2 P,
+                         int data);
+
+ 
+
+int imageAtomicExchange( gimageCube image,
+                         ivec3 P,
+                         int data);
+
+ 
+
+int imageAtomicExchange( gbufferImage image,
+                         int P,
+                         int data);
+
+ 
+
+int imageAtomicExchange( gimage1DArray image,
+                         ivec2 P,
+                         int data);
+
+ 
+
+int imageAtomicExchange( gimage2DArray image,
+                         ivec3 P,
+                         int data);
+
+ 
+
+int imageAtomicExchange( gimageCubeArray image,
+                         ivec3 P,
+                         int data);
+
+ 
+
+int imageAtomicExchange( gimage2DMS image,
+                         ivec2 P,
+                         int sample,
+                         int data);
+
+ 
+
+int imageAtomicExchange( gimage2DMSArray image,
+                         ivec3 P,
+                         int sample,
+                         int data);
+
+ 
+
+int imageAtomicExchange( gimage1D image,
+                         int P,
+                         float data);
+
+ 
+
+int imageAtomicExchange( gimage2D image,
+                         ivec2 P,
+                         float data);
+
+ 
+
+int imageAtomicExchange( gimage3D image,
+                         ivec3 P,
+                         float data);
+
+ 
+
+int imageAtomicExchange( gimage2DRect image,
+                         ivec2 P,
+                         float data);
+
+ 
+
+int imageAtomicExchange( gimageCube image,
+                         ivec3 P,
+                         float data);
+
+ 
+
+int imageAtomicExchange( gbufferImage image,
+                         int P,
+                         float data);
+
+ 
+
+int imageAtomicExchange( gimage1DArray image,
+                         ivec2 P,
+                         float data);
+
+ 
+
+int imageAtomicExchange( gimage2DArray image,
+                         ivec3 P,
+                         float data);
+
+ 
+
+int imageAtomicExchange( gimageCubeArray image,
+                         ivec3 P,
+                         float data);
+
+ 
+
+int imageAtomicExchange( gimage2DMS image,
+                         ivec2 P,
+                         int sample,
+                         float data);
+
+ 
+
+int imageAtomicExchange( gimage2DMSArray image,
+                         ivec3 P,
+                         int sample,
+                         float data);
+
+ 
+
+Parameters
+
+image
+
+    Specify the image unit into which to store data.
+
+P
+
+    Specify the coordinate at which to store the data.
+
+sample
+
+    When present, specifies the sample within the image to store into.
+
+data
+
+    Specifies the data to exchange with that stored in the image.
+
+Description
+
+imageAtomicExchange atomically stores the value of data into the texel at
+coordinate P and sample in the image bound to unit image, and returns the
+original value of the texel.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                   OpenGL Shading Language Version
+   Function Name     1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+imageAtomicExchange  -    -    -    -    -    -    -    -    ✔    ✔    ✔    ✔
+(uint and int data)
+imageAtomicExchange  -    -    -    -    -    -    -    -    -    -    -    ✔
+(float data)
+
+See Also
+
+imageLoad, imageStore, imageAtomicAdd, imageAtomicMin, imageAtomicMax,
+imageAtomicXor, imageAtomicOr, imageAtomicAnd, imageAtomicCompSwap
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

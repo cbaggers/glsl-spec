@@ -1,0 +1,44 @@
+Name
+
+pow — return the value of the first parameter raised to the power of the second
+
+Declaration
+
+genType pow(  genType x,
+              genType y);
+
+ 
+
+Parameters
+
+x
+
+    Specify the value to raise to the power y.
+
+y
+
+    Specify the power to which to raise x.
+
+Description
+
+pow returns the value of x raised to the y power. i.e., xy. Results are
+undefined if x< or if x=0 and y=0.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Function Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+pow           ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+sin, cos, sinh, cosh
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

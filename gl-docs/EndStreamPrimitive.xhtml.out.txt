@@ -1,0 +1,41 @@
+Name
+
+EndStreamPrimitive — complete the current output primitive on a specified
+stream
+
+Declaration
+
+void EndStreamPrimitive( int stream);
+
+ 
+
+Parameters
+
+stream
+
+    Specifies the stream upon which the current primitive will be ended.
+
+Description
+
+Available only in the Geometry Shader, EndStreamPrimitive completes the current
+output primitive on stream stream and starts a new one. The argument to stream
+must be a constant integral expression. No vertex is emitted.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                 OpenGL Shading Language Version
+  Function Name    1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+EndStreamPrimitive -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+EmitVertex, EmitStreamVertex, EndPrimitive
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

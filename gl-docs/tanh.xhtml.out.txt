@@ -1,0 +1,39 @@
+Name
+
+tanh — return the hyperbolic tangent of the parameter
+
+Declaration
+
+genType tanh(  genType x);
+
+ 
+
+Parameters
+
+x
+
+    Specify the value whose hyperbolic tangent to return.
+
+Description
+
+tanh returns the hyperbolic tangent of x. The hyperbolic tangent of x is
+computed as sinh ⁡ x cosh ⁡ x .
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Function Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+tanh          -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+sin, cos, sinh, cosh
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

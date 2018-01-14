@@ -1,0 +1,51 @@
+Name
+
+uaddCarry — add unsigned integers and generate carry
+
+Declaration
+
+genUType uaddCarry( genUType x,
+                    genUType y,
+                    out genUType carry);
+
+ 
+
+Parameters
+
+x
+
+    Specifies the first vector to be used in the summation operation.
+
+y
+
+    Specifies the second vector to be used in the summation operation.
+
+carry
+
+    Specifies the variable to receive the carry output of the sum.
+
+Description
+
+uaddCarry adds two 32-bit unsigned integer variables (scalars or vectors) and
+generates a 32-bit unsigned integer result, along with a carry output. The
+result is the sum of x and y modulo 232. The value carry is set to 0 if the sum
+is less than 232 and to 1 otherwise.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Function Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+uaddCarry     -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+usubBorrow
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

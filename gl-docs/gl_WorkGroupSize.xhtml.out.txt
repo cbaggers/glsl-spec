@@ -1,0 +1,37 @@
+Name
+
+gl_WorkGroupSize — contains the size of the workgroup operated on by a compute
+shader
+
+Declaration
+
+const uvec3 gl_WorkGroupSize ;
+
+Description
+
+In the compute language, gl_WorkGroupSize contains the size of a workgroup
+declared by a compute shader. The size of the work group in the X, Y, and Z
+dimensions is stored in the x, y, and z components of gl_WorkGroupSize. The
+values stored in gl_WorkGroupSize match those specified in the required
+local_size_x, local_size_y, and local_size_z layout qualifiers for the current
+shader. This value is constant so that it can be used to size arrays of memory
+that can be shared within the local work group.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                               OpenGL Shading Language Version
+ Variable Name   1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+gl_WorkGroupSize -    -    -    -    -    -    -    -    -    ✔    ✔    ✔
+
+See Also
+
+gl_NumWorkGroups, gl_WorkGroupID, gl_LocalInvocationID
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

@@ -1,0 +1,45 @@
+Name
+
+unpackHalf2x16 — convert two 16-bit floating-point values packed into a single
+32-bit integer into a vector of two 32-bit floating-point quantities
+
+Declaration
+
+vec2 unpackHalf2x16(  uint v);
+
+ 
+
+Parameters
+
+v
+
+    Specify a single 32-bit unsigned integer values that contains two 16-bit
+    floating point values to be unpacked.
+
+Description
+
+unpackHalf2x16 returns a two-component floating-point vector with components
+obtained by unpacking a 32-bit unsigned integer into a pair of 16-bit values,
+interpreting those values as 16-bit floating-point numbers according to the
+OpenGL Specification, and converting them to 32-bit floating-point values. The
+first component of the vector is obtained from the 16 least-significant bits of
+v; the second component is obtained from the 16 most-significant bits of v.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                             OpenGL Shading Language Version
+Function Name  1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+unpackHalf2x16 -    -    -    -    -    -    -    -    ✔    ✔    ✔    ✔
+
+See Also
+
+packDouble2x32, unpackDouble2x32, packHalf2x16
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

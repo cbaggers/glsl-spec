@@ -1,0 +1,58 @@
+Name
+
+frexp — split a floating point number
+
+Declaration
+
+genType frexp( genType x,
+               out genIType exp);
+
+ 
+
+genDType frexp( genDType x,
+                out genIType exp);
+
+ 
+
+Parameters
+
+x
+
+    Specifies the value from which significand and exponent are to be
+    extracted.
+
+out exp
+
+    Specifies the variable into which to place the exponent
+
+Description
+
+frexp extracts x into a floating-point significand in the range [0.5, 1.0) and
+in integral exponent of two, such that:
+
+x = significand ⋅ 2 exponent
+
+The significand is returned by the function and the exponent is returned in the
+output parameter exp. For a floating-point value of zero, the significand and
+exponent are both zero. For a floating-point value that is an infinity or a
+floating-point NaN, the results are undefined.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                               OpenGL Shading Language Version
+ Function Name   1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+frexp (genType)  -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+frexp (genDType) -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+ldexp
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

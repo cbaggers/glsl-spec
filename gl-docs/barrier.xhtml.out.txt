@@ -1,0 +1,44 @@
+Name
+
+barrier — synchronize execution of multiple shader invocations
+
+Declaration
+
+void barrier(  void);
+
+ 
+
+Description
+
+Available only in the Tessellation Control and Compute Shaders, barrier
+provides a partially defined order of execution between shader invocations. For
+any given static instance of barrier, in a tessellation control shader, all
+invocations for a single input patch must enter it before any will be allowed
+to continue beyond it. For any given static instance of barrier in a compute
+shader, all invocations within a single work group must enter it before any are
+allowed to continue beyond it. This ensures that values written by one
+invocation prior to a given static instance of barrier can be safely read by
+other invocations after their call to the same static instance of barrier.
+Because invocations may execute in undefined order between these barrier calls,
+the values of a per-vertex or per-patch output variable, or any shared variable
+will be undefined in a number of cases.
+
+barrier may only be placed inside the function main() of the tessellation
+control shader, but may be placed anywhere in a compute shader. Calls to
+barrier may not be placed within any control flow. Barriers are also disallowed
+after a return statement in the function main().
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Function Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+barrier       -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

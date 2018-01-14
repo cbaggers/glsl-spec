@@ -1,0 +1,50 @@
+Name
+
+all — check whether all elements of a boolean vector are true
+
+Declaration
+
+bool all(  bvec x);
+
+ 
+
+Parameters
+
+x
+
+    Specifies the vector to be tested for truth.
+
+Description
+
+all returns true if all elements of x are true and false otherwise. It is
+functionally equivalent to:
+
+    bool all(bvec x)       // bvec can be bvec2, bvec3 or bvec4
+    {
+        bool result = true;
+        int i;
+        for (i = 0; i < x.length(); ++i)
+        {
+            result &= x[i];
+        }
+        return result;
+    }
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Function Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+all           ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+any, not
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

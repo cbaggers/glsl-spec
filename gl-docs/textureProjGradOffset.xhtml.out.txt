@@ -1,0 +1,144 @@
+Name
+
+textureProjGradOffset — perform a texture lookup with projection, explicit
+gradients and offset
+
+Declaration
+
+gvec4 textureProjGradOffset( gsampler1D sampler,
+                             vec2 P,
+                             float dPdx,
+                             float dPdy,
+                             int offset);
+
+ 
+
+gvec4 textureProjGradOffset( gsampler1D sampler,
+                             vec4 P,
+                             float dPdx,
+                             float dPdy,
+                             int offset);
+
+ 
+
+gvec4 textureProjGradOffset( gsampler2D sampler,
+                             vec3 P,
+                             vec2 dPdx,
+                             vec2 dPdy,
+                             ivec2 offset);
+
+ 
+
+gvec4 textureProjGradOffset( gsampler2D sampler,
+                             vec4 P,
+                             vec2 dPdx,
+                             vec2 dPdy,
+                             ivec2 offset);
+
+ 
+
+gvec4 textureProjGradOffset( gsampler3D sampler,
+                             vec4 P,
+                             vec3 dPdx,
+                             vec3 dPdy,
+                             ivec3 offset);
+
+ 
+
+float textureProjGradOffset( sampler1DShadow sampler,
+                             vec4 P,
+                             float dPdx,
+                             float dPdy,
+                             int offset);
+
+ 
+
+float textureProjGradOffset( sampler2DShadow sampler,
+                             vec4 P,
+                             vec2 dPdx,
+                             vec2 dPdy,
+                             ivec2 offset);
+
+ 
+
+gvec4 textureProjGradOffset( gsampler2DRect sampler,
+                             vec3 P,
+                             vec2 dPdx,
+                             vec2 dPdy,
+                             ivec2 offset);
+
+ 
+
+gvec4 textureProjGradOffset( gsampler2DRect sampler,
+                             vec4 P,
+                             vec2 dPdx,
+                             vec2 dPdy,
+                             ivec2 offset);
+
+ 
+
+float textureProjGradOffset( gsampler2DRectShadow sampler,
+                             vec4 P,
+                             vec2 dPdx,
+                             vec2 dPdy,
+                             ivec2 offset);
+
+ 
+
+Parameters
+
+sampler
+
+    Specifies the sampler to which the texture from which texels will be
+    retrieved is bound.
+
+P
+
+    Specifies the texture coordinates at which texture will be sampled.
+
+dPdx
+
+    Specifies the partial derivative of P with respect to window x.
+
+dPdy
+
+    Specifies the partial derivative of P with respect to window y.
+
+offset
+
+    Specifies the offsets, in texels at which the texture will be sampled
+    relative to the projection of P.
+
+Description
+
+textureProjGradOffset performs a texture lookup with projection and explicit
+gradients and offsets. The texture coordinates consumed from P, not including
+the last component of P, are divided by the last component of P. The resulting
+3rd component of P in the shadow forms is used as Dref. After these values are
+computed, the texture lookup proceeds as in textureGradOffset, passing dPdx and
+dPdy as gradients, and offset as the offset.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                     OpenGL Shading Language Version
+    Function Name      1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+textureProjGradOffset  -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+textureProjGradOffset
+(gsampler2DRect        -    -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+{Shadow})
+
+See Also
+
+texelFetch, texelFetchOffset, texture, textureGather, textureGatherOffset,
+textureGatherOffsets, textureGrad, textureGradOffset, textureLod,
+textureLodOffset, textureOffset, textureProj, textureProjGrad, textureProjLod,
+textureProjLodOffset, textureProjOffset, textureQueryLod, textureSize
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

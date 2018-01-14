@@ -1,0 +1,82 @@
+Name
+
+imageSize — retrieve the dimensions of an image
+
+Declaration
+
+int imageSize( gimage1D image);
+
+ 
+
+ivec2 imageSize( gimage2D image);
+
+ 
+
+ivec3 imageSize( gimage3D image);
+
+ 
+
+ivec2 imageSize( gimageCube image);
+
+ 
+
+ivec3 imageSize( gimageCubeArray image);
+
+ 
+
+ivec2 imageSize( gimageRect image);
+
+ 
+
+ivec2 imageSize( gimage1DArray image);
+
+ 
+
+ivec3 imageSize( gimage2DArray image);
+
+ 
+
+int imageSize( gimageBuffer image);
+
+ 
+
+ivec2 imageSize( gimage2DMS image);
+
+ 
+
+ivec3 imageSize( gimage2DMSArray image);
+
+ 
+
+Parameters
+
+image
+
+    Specifies the image to which the texture whose dimensions to retrieve is
+    bound.
+
+Description
+
+imageSize returns the dimensions of the image bound to image. The components in
+the return value are filled in, in order, with the width, height and depth of
+the image. For the array forms, the last component of the return value is the
+number of layers in the texture array.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Function Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+imageSize     -    -    -    -    -    -    -    -    -    ✔    ✔    ✔
+
+See Also
+
+textureSize, imageLoad, imageStore
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

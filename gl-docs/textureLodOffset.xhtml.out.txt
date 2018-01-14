@@ -1,0 +1,114 @@
+Name
+
+textureLodOffset — perform a texture lookup with explicit level-of-detail and
+offset
+
+Declaration
+
+gvec4 textureLodOffset( gsampler1D sampler,
+                        float P,
+                        float lod,
+                        int offset);
+
+ 
+
+gvec4 textureLodOffset( gsampler2D sampler,
+                        vec2 P,
+                        float lod,
+                        ivec2 offset);
+
+ 
+
+gvec4 textureLodOffset( gsampler3D sampler,
+                        vec3 P,
+                        float lod,
+                        ivec3 offset);
+
+ 
+
+float textureLodOffset( sampler1DShadow sampler,
+                        vec3 P,
+                        float lod,
+                        int offset);
+
+ 
+
+float textureLodOffset( sampler2DShadow sampler,
+                        vec4 P,
+                        float lod,
+                        ivec2 offset);
+
+ 
+
+gvec4 textureLodOffset( gsampler1DArray sampler,
+                        vec2 P,
+                        float lod,
+                        int offset);
+
+ 
+
+gvec4 textureLodOffset( gsampler2DArray sampler,
+                        vec3 P,
+                        float lod,
+                        ivec2 offset);
+
+ 
+
+float textureLodOffset( sampler1DArrayShadow sampler,
+                        vec3 P,
+                        float lod,
+                        int offset);
+
+ 
+
+Parameters
+
+sampler
+
+    Specifies the sampler to which the texture from which texels will be
+    retrieved is bound.
+
+P
+
+    Specifies the texture coordinates at which the texture will be sampled.
+
+lod
+
+    Specifies the explicit level-of-detail from which texels will be fetched.
+
+offset
+
+    Specifies the offset that will be applied to P before texels are fetched.
+
+Description
+
+textureLodOffset performs a texture lookup at coordinate P from the texture
+bound to sampler with an explicit level-of-detail as specified in lod. Behavior
+is the same as in textureLod except that before sampling, offset is added to P.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                   OpenGL Shading Language Version
+   Function Name     1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+textureLodOffset     -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+textureLodOffset
+(gsampler2DRect      -    -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+{Shadow})
+textureLodOffset     -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+(gsamplerCubeArray)
+
+See Also
+
+texelFetch, texelFetchOffset, texture, textureGather, textureGatherOffset,
+textureGatherOffsets, textureGrad, textureGradOffset, textureLod, textureOffset
+, textureProj, textureProjGrad, textureProjGradOffset, textureProjLod,
+textureProjLodOffset, textureProjOffset, textureQueryLod, textureSize
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

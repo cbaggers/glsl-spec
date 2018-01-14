@@ -1,0 +1,48 @@
+Name
+
+abs — return the absolute value of the parameter
+
+Declaration
+
+genType abs(  genType x);
+
+ 
+
+genIType abs(  genIType x);
+
+ 
+
+genDType abs(  genDType x);
+
+ 
+
+Parameters
+
+x
+
+    Specify the value of which to return the absolute.
+
+Description
+
+abs returns the absolute value of x.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                             OpenGL Shading Language Version
+Function Name  1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+abs (genType)  ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+abs (genIType) -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+abs (genDType) -    -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+sign
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

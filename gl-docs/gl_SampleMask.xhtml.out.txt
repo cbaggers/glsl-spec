@@ -1,0 +1,47 @@
+Name
+
+gl_SampleMask — specifies the sample coverage mask for the current fragment
+
+Declaration
+
+out int gl_SampleMask[] ;
+
+Description
+
+gl_SampleMask is a fragment language output array that may be used to set the
+sample mask for the fragment being processed. Coverage for the current fragment
+will become the logical AND of the coverage mask and the output gl_SampleMask.
+That is, setting a bit in gl_SampleMask to zero will cause the corresponding
+sample to be considered uncovered for the purposes of multisample fragment
+operations. However, setting sample mask bits back to one will never enable
+samples not covered by the original primitive. Bit B of mask gl_SampleMask[M]
+corresponds to sample 32 * M + B. This array must be sized in the fragment
+shader either implicitly or explicitly to be the same size as the
+implementation-dependent maximum sample-mask (as an array of 32-bit elements),
+determined by the maximum number of samples. If the fragment shader statically
+assigns a value to gl_SampleMask, the sample mask will be undefined for any
+array elements of any fragment shader invocation that fails to assign a value.
+If a shader does not statically assign a value to gl_SampleMask, the sample
+mask has no effect on the processing of a fragment. If the fragment shader is
+being evaluated at any frequency other than per-fragment, bits within the
+sample mask not corresponding to the current fragment shader invocation are
+ignored.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Variable Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+gl_SampleMask -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+gl_SampleMaskIn, gl_SampleID, gl_SamplePosition, gl_FragCoord
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

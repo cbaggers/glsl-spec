@@ -1,0 +1,51 @@
+Name
+
+modf — separate a value into its integer and fractional components
+
+Declaration
+
+genType modf( genType x,
+              out genType i);
+
+ 
+
+genDType modf( genDType x,
+               out genDType i);
+
+ 
+
+Parameters
+
+x
+
+    Specify the value to separate.
+
+out i
+
+    A variable that receives the integer part of the argument.
+
+Description
+
+modf separates a floating point value x into its integer and fractional parts.
+The fractional part of the number is returned from the function and the integer
+part (as a floating point quantity) is returned in the output parameter i.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                              OpenGL Shading Language Version
+ Function Name  1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+modf (genType)  -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+modf (genDType) -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+fract, floor
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

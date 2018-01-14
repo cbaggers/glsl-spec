@@ -1,0 +1,43 @@
+Name
+
+gl_FrontFacing — indicates whether a primitive is front or back facing
+
+Declaration
+
+in bool gl_FrontFacing ;
+
+Description
+
+Available only in the fragment language, gl_FrontFacing is an input variable
+whose value is true if the fragment belongs to a front-facing primitive and
+false otherwise. The determination of whether a triangle primitive is
+front-facing is made by examining the sign of the area of the triangle,
+including a possible reversal of this sign as controlled by glFrontFace. One
+way to compute this area is:
+
+a=12 ∑ j=0 n-1 x w i y w i+1 - x w i+1 y w i
+
+where x w i and y w i are the x and y window coordinates of the ith vertex of
+the n-vertex polygon.
+
+The sign of this computation is negated when the value of GL_CLIP_ORIGIN (the
+clip volume origin, set with glClipControl) is GL_UPPER_LEFT.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                             OpenGL Shading Language Version
+Variable Name  1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+gl_FrontFacing ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+gl_FragCoord, glClipControl
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

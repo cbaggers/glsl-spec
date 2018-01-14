@@ -1,0 +1,64 @@
+Name
+
+gl_Position — contains the position of the current vertex
+
+Declaration
+
+gl_Position is a member of the gl_PerVertex named block:
+
+    out gl_PerVertex {
+        vec4 gl_Position;
+        float gl_PointSize;
+        float gl_ClipDistance[];
+    };
+
+Description
+
+In the vertex, tessellation evaluation and geometry languages, a single global
+instance of the gl_PerVertex named block is available and its gl_Position
+member is an output that receives the homogeneous vertex position. It may be
+written at any time during shader execution. The value written to gl_Position
+will be used by primitive assembly, clipping, culling and other fixed
+functionality operations, if present, that operate on primitives after vertex
+processing has occurred.
+
+In the tessellation control language, the gl_PerVertex named block is used to
+construct an array, gl_out[], whose gl_Position members hold the homogeneous
+control point position, which become available as inputs to the subsequent
+tessellation evaluation shader.
+
+The value of gl_Position (or the gl_Position member of the gl_out[] array, in
+the case of the tessellation control shader) is undefined after the vertex,
+tessellation control, and tessellation evaluation shading stages if the
+corresponding shader executable does not write to gl_Position. It is also
+undefined after the geometry processing stage if the geometry shader executable
+calls EmitVertex without having written gl_Position since the last call to
+EmitVertex (or hasn't written it at all).
+
+In the tessellation control, tessellation evaluation and geometry languages,
+the gl_PerVertex named block is used to construct an array, gl_in[] of
+per-vertex or per-control point inputs whose content represents the
+corresponding outputs written by the previous stage.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Function Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+gl_Position   ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+
+Versions 1.10 to 1.40 - vertex shader only.
+
+Versions 1.50 to 3.30 - vertex and geometry shaders only.
+
+See Also
+
+gl_PointSize, gl_ClipDistance
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

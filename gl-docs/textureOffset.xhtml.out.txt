@@ -1,0 +1,133 @@
+Name
+
+textureOffset — perform a texture lookup with offset
+
+Declaration
+
+gvec4 textureOffset( gsampler1D sampler,
+                     float P,
+                     int offset,
+                     [float bias]);
+
+ 
+
+gvec4 textureOffset( gsampler2D sampler,
+                     vec2 P,
+                     ivec2 offset,
+                     [float bias]);
+
+ 
+
+gvec4 textureOffset( gsampler3D sampler,
+                     vec3 P,
+                     ivec3 offset,
+                     [float bias]);
+
+ 
+
+gvec4 textureOffset( gsampler2DRect sampler,
+                     vec2 P,
+                     ivec2 offset);
+
+ 
+
+float textureOffset( sampler2DRectShadow sampler,
+                     vec3 P,
+                     ivec2 offset);
+
+ 
+
+float textureOffset( sampler1DShadow sampler,
+                     vec3 P,
+                     int offset,
+                     [float bias]);
+
+ 
+
+float textureOffset( sampler2DShadow sampler,
+                     vec4 P,
+                     ivec2 offset,
+                     [float bias]);
+
+ 
+
+gvec4 textureOffset( gsampler1DArray sampler,
+                     vec2 P,
+                     int offset,
+                     [float bias]);
+
+ 
+
+gvec4 textureOffset( gsampler2DArray sampler,
+                     vec3 P,
+                     ivec2 offset,
+                     [float bias]);
+
+ 
+
+float textureOffset( sampler1DArrayShadow sampler,
+                     vec3 P,
+                     int offset);
+
+ 
+
+float textureOffset( sampler2DArrayShadow sampler,
+                     vec4 P,
+                     vec2 offset);
+
+ 
+
+Parameters
+
+sampler
+
+    Specifies the sampler to which the texture from which texels will be
+    retrieved is bound.
+
+P
+
+    Specifies the texture coordinates at which texture will be sampled.
+
+offset
+
+    Specifies offset, in texels that will be applied to P before looking up the
+    texel.
+
+Description
+
+textureOffset performs a texture lookup at coordinate P from the texture bound
+to sampler with an an additional offset, specified in texels in offset that
+will be applied to the (u, v, w) texture coordinates before looking up each
+texel. The offset value must be a constant expression. A limited range of
+offset values are supported; the minimum and maximum offset values are
+implementation-dependent and may be determined by querying
+GL_MIN_PROGRAM_TEXEL_OFFSET and GL_MAX_PROGRAM_TEXEL_OFFSET, respectively.
+
+Note that offset does not apply to the layer coordinate for texture arrays.
+Also note that offsets are not supported for cube maps.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                   OpenGL Shading Language Version
+   Function Name     1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+textureOffset        -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+textureOffset
+(gsampler2DRect      -    -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+{Shadow})
+
+See Also
+
+texelFetch, texelFetchOffset, texture, textureGather, textureGatherOffset,
+textureGatherOffsets, textureGrad, textureGradOffset, textureLod,
+textureLodOffset, textureProj, textureProjGrad, textureProjGradOffset,
+textureProjLod, textureProjLodOffset, textureProjOffset, textureQueryLod,
+textureSize
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

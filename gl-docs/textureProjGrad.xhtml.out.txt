@@ -1,0 +1,130 @@
+Name
+
+textureProjGrad — perform a texture lookup with projection and explicit
+gradients
+
+Declaration
+
+gvec4 textureProjGrad( gsampler1D sampler,
+                       vec2 P,
+                       float pDx,
+                       float pDy);
+
+ 
+
+gvec4 textureProjGrad( gsampler1D sampler,
+                       vec4 P,
+                       float pDx,
+                       float pDy);
+
+ 
+
+gvec4 textureProjGrad( gsampler2D sampler,
+                       vec3 P,
+                       vec2 pDx,
+                       vec2 pDy);
+
+ 
+
+gvec4 textureProjGrad( gsampler2D sampler,
+                       vec4 P,
+                       vec2 pDx,
+                       vec2 pDy);
+
+ 
+
+gvec4 textureProjGrad( gsampler3D sampler,
+                       vec4 P,
+                       vec3 pDx,
+                       vec3 pDy);
+
+ 
+
+float textureProjGrad( sampler1DShadow sampler,
+                       vec4 P,
+                       float pDx,
+                       float pDy);
+
+ 
+
+float textureProjGrad( sampler2DShadow sampler,
+                       vec4 P,
+                       vec2 pDx,
+                       vec2 pDy);
+
+ 
+
+gvec4 textureProjGrad( gsampler2DRect sampler,
+                       vec3 P,
+                       vec2 pDx,
+                       vec2 pDy);
+
+ 
+
+gvec4 textureProjGrad( gsampler2DRect sampler,
+                       vec4 P,
+                       vec2 pDx,
+                       vec2 pDy);
+
+ 
+
+float textureProjGrad( gsampler2DRectShadow sampler,
+                       vec4 P,
+                       vec2 pDx,
+                       vec2 pDy);
+
+ 
+
+Parameters
+
+sampler
+
+    Specifies the sampler to which the texture from which texels will be
+    retrieved is bound.
+
+P
+
+    Specifies the texture coordinates at which texture will be sampled.
+
+dPdx
+
+    Specifies the partial derivative of P with respect to window x.
+
+dPdy
+
+    Specifies the partial derivative of P with respect to window y.
+
+Description
+
+textureProjGrad performs a texture lookup with projection and explicit
+gradients. The texture coordinates consumed from P, not including the last
+component of P, are divided by the last component of P. The resulting 3rd
+component of P in the shadow forms is used as Dref. After these values are
+computed, the texture lookup proceeds as in textureGrad, passing dPdx and dPdy
+as gradients.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                   OpenGL Shading Language Version
+   Function Name     1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+textureProjGrad      -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+textureProjGrad
+(gsampler2DRect      -    -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+{Shadow})
+
+See Also
+
+texelFetch, texelFetchOffset, texture, textureGather, textureGatherOffset,
+textureGatherOffsets, textureGrad, textureGradOffset, textureLod,
+textureLodOffset, textureOffset, textureProj, textureProjGradOffset,
+textureProjLod, textureProjLodOffset, textureProjOffset, textureQueryLod,
+textureSize
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

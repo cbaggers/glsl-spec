@@ -1,0 +1,186 @@
+Name
+
+imageAtomicOr — atomically compute the logical OR of a value with an existing
+value in memory, store that value and return the original value
+
+Declaration
+
+uint imageAtomicOr( gimage1D image,
+                    int P,
+                    uint data);
+
+ 
+
+uint imageAtomicOr( gimage2D image,
+                    ivec2 P,
+                    uint data);
+
+ 
+
+uint imageAtomicOr( gimage3D image,
+                    ivec3 P,
+                    uint data);
+
+ 
+
+uint imageAtomicOr( gimage2DRect image,
+                    ivec2 P,
+                    uint data);
+
+ 
+
+uint imageAtomicOr( gimageCube image,
+                    ivec3 P,
+                    uint data);
+
+ 
+
+uint imageAtomicOr( gbufferImage image,
+                    int P,
+                    uint data);
+
+ 
+
+uint imageAtomicOr( gimage1DArray image,
+                    ivec2 P,
+                    uint data);
+
+ 
+
+uint imageAtomicOr( gimage2DArray image,
+                    ivec3 P,
+                    uint data);
+
+ 
+
+uint imageAtomicOr( gimageCubeArray image,
+                    ivec3 P,
+                    uint data);
+
+ 
+
+uint imageAtomicOr( gimage2DMS image,
+                    ivec2 P,
+                    int sample,
+                    uint data);
+
+ 
+
+uint imageAtomicOr( gimage2DMSArray image,
+                    ivec3 P,
+                    int sample,
+                    uint data);
+
+ 
+
+int imageAtomicOr( gimage1D image,
+                   int P,
+                   int data);
+
+ 
+
+int imageAtomicOr( gimage2D image,
+                   ivec2 P,
+                   int data);
+
+ 
+
+int imageAtomicOr( gimage3D image,
+                   ivec3 P,
+                   int data);
+
+ 
+
+int imageAtomicOr( gimage2DRect image,
+                   ivec2 P,
+                   int data);
+
+ 
+
+int imageAtomicOr( gimageCube image,
+                   ivec3 P,
+                   int data);
+
+ 
+
+int imageAtomicOr( gbufferImage image,
+                   int P,
+                   int data);
+
+ 
+
+int imageAtomicOr( gimage1DArray image,
+                   ivec2 P,
+                   int data);
+
+ 
+
+int imageAtomicOr( gimage2DArray image,
+                   ivec3 P,
+                   int data);
+
+ 
+
+int imageAtomicOr( gimageCubeArray image,
+                   ivec3 P,
+                   int data);
+
+ 
+
+int imageAtomicOr( gimage2DMS image,
+                   ivec2 P,
+                   int sample,
+                   int data);
+
+ 
+
+int imageAtomicOr( gimage2DMSArray image,
+                   ivec3 P,
+                   int sample,
+                   int data);
+
+ 
+
+Parameters
+
+image
+
+    Specify the image unit into which to store data.
+
+P
+
+    Specify the coordinate at which to store the data.
+
+sample
+
+    When present, specifies the sample within the image to store into.
+
+data
+
+    Specifies the data to logically OR into the image.
+
+Description
+
+imageAtomicOr atomically computes a new value by logically ORing the value of
+data to the contents of the texel at coordinate P and sample in the image bound
+to uint image, stores that value into the image and returns the original value.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Function Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+imageAtomicOr -    -    -    -    -    -    -    -    ✔    ✔    ✔    ✔
+
+See Also
+
+imageLoad, imageStore, imageAtomicAdd, imageAtomicMin, imageAtomicMax,
+imageAtomicAnd, imageAtomicXor, imageAtomicExchange, imageAtomicCompSwap
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

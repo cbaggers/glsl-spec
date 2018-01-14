@@ -1,0 +1,112 @@
+Name
+
+textureProj — perform a texture lookup with projection
+
+Declaration
+
+gvec4 textureProj( gsampler1D sampler,
+                   vec2 P,
+                   [float bias]);
+
+ 
+
+gvec4 textureProj( gsampler1D sampler,
+                   vec4 P,
+                   [float bias]);
+
+ 
+
+gvec4 textureProj( gsampler2D sampler,
+                   vec3 P,
+                   [float bias]);
+
+ 
+
+gvec4 textureProj( gsampler2D sampler,
+                   vec4 P,
+                   [float bias]);
+
+ 
+
+gvec4 textureProj( gsampler3D sampler,
+                   vec4 P,
+                   [float bias]);
+
+ 
+
+float textureProj( sampler1DShadow sampler,
+                   vec4 P,
+                   [float bias]);
+
+ 
+
+float textureProj( sampler2DShadow sampler,
+                   vec4 P,
+                   [float bias]);
+
+ 
+
+gvec4 textureProj( gsampler2DRect sampler,
+                   vec3 P);
+
+ 
+
+gvec4 textureProj( gsampler2DRect sampler,
+                   vec4 P);
+
+ 
+
+float textureProj( gsampler2DRectShadow sampler,
+                   vec4 P);
+
+ 
+
+Parameters
+
+sampler
+
+    Specifies the sampler to which the texture from which texels will be
+    retrieved is bound.
+
+P
+
+    Specifies the texture coordinates at which texture will be sampled.
+
+bias
+
+    Specifies an optional bias to be applied during level-of-detail
+    computation.
+
+Description
+
+textureProj performs a texture lookup with projection. The texture coordinates
+consumed from P, not including the last component of P, are divided by the last
+component of P. The resulting 3rd component of P in the shadow forms is used as
+Dref. After these values are computed, the texture lookup proceeds as in
+texture.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                  OpenGL Shading Language Version
+   Function Name    1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+textureProj         -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+textureProj
+(gsampler2DRect     -    -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+{Shadow})
+
+See Also
+
+texelFetch, texelFetchOffset, texture, textureGather, textureGatherOffset,
+textureGatherOffsets, textureGrad, textureGradOffset, textureLod,
+textureLodOffset, textureOffset, textureProjGrad, textureProjGradOffset,
+textureProjLod, textureProjLodOffset, textureProjOffset, textureQueryLod,
+textureSize
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

@@ -1,0 +1,75 @@
+Name
+
+gl_Layer — contains the selected layer of a multi-layer framebuffer attachment
+
+Declaration
+
+// Geometry stage
+
+out int gl_Layer ;
+
+// Fragment stage
+
+in int gl_Layer ;
+
+Description
+
+In the geometry language, gl_Layer is used to select a specific layer (or face
+and layer of cube map) in a multi-layer framebuffer attachment. The actual
+layer used will come from one of the vertices in the primitive being shaded.
+Which vertex the layer comes from is undefined and as such it is recommended to
+write the same value to gl_Layer for all vertices in the primitive. If a shader
+statically assigns a value to gl_Layer, layered rendering mode is enabled. If a
+shader statically assigns a value to gl_Layer, and there is an execution path
+through the shader that does not set gl_Layer, then the value of gl_Layer is
+undefined for invocations of the shader that take that path.
+
+When used with an array of cube map textures, the gl_Layer output variable
+takes on a special value. Instead of referring to only the layer, it is used to
+select a cube map face and a layer. Setting gl_Layer to the value layer*6+face
+will render to face of the cube defined in layer. The face values are as
+follows:
+
+Face Value       Resulting Target
+0          GL_TEXTURE_CUBEMAP_POSITIVE_X
+1          GL_TEXTURE_CUBEMAP_NEGATIVE_X
+2          GL_TEXTURE_CUBEMAP_POSITIVE_Y
+3          GL_TEXTURE_CUBEMAP_NEGATIVE_Y
+4          GL_TEXTURE_CUBEMAP_POSITIVE_Z
+5          GL_TEXTURE_CUBEMAP_NEGATIVE_Z
+
+For example, to render to the positive y cube map face located in the 5^th
+layer of the cube map array, gl_Layer should be set to 5*6+2.
+
+The input variable gl_Layer in the fragment language will have the same value
+that was written to the output variable gl_Layer in the geometry language. If
+the geometry stage does not dynamically assign a value to gl_Layer, the value
+of gl_Layer in the fragment stage will be undefined. If the geometry stage
+makes no static assignment to gl_Layer, the input gl_Layer in the fragment
+stage will be zero. Otherwise, the fragment stage will read the same value
+written by the geometry stage, even if that value is out of range. If a
+fragment shader contains a static access to gl_Layer, it will count against the
+implementation defined limit for the maximum number of inputs to the fragment
+stage.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                      OpenGL Shading Language Version
+     Function Name      1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+gl_Layer (geometry      -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+stage)
+gl_Layer (fragment      -    -    -    -    -    -    -    -    -    ✔    ✔    ✔
+stage)
+
+See Also
+
+gl_ViewportIndex
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

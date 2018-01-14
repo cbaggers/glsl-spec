@@ -1,0 +1,149 @@
+Name
+
+textureGradOffset — perform a texture lookup with explicit gradients and offset
+
+Declaration
+
+gvec4 textureGradOffset( gsampler1D sampler,
+                         float P,
+                         float dPdx,
+                         float dPdy,
+                         int offset);
+
+ 
+
+gvec4 textureGradOffset( gsampler2D sampler,
+                         vec2 P,
+                         vec2 dPdx,
+                         vec2 dPdy,
+                         ivec2 offset);
+
+ 
+
+gvec4 textureGradOffset( gsampler3D sampler,
+                         vec3 P,
+                         vec3 dPdx,
+                         vec3 dPdy,
+                         ivec3 offset);
+
+ 
+
+gvec4 textureGradOffset( gsampler2DRect sampler,
+                         vec2 P,
+                         vec2 dPdx,
+                         vec2 dPdy,
+                         ivec2 offset);
+
+ 
+
+float textureGradOffset( gsampler2DRectShadow sampler,
+                         vec3 P,
+                         vec2 dPdx,
+                         vec2 dPdy,
+                         ivec2 offset);
+
+ 
+
+float textureGradOffset( sampler1DShadow sampler,
+                         vec3 P,
+                         float dPdx,
+                         float dPdy,
+                         int offset);
+
+ 
+
+float textureGradOffset( sampler2DShadow sampler,
+                         vec3 P,
+                         vec2 dPdx,
+                         vec2 dPdy,
+                         ivec2 offset);
+
+ 
+
+gvec4 textureGradOffset( gsampler1DArray sampler,
+                         vec2 P,
+                         float dPdx,
+                         float dPdy,
+                         int offset);
+
+ 
+
+gvec4 textureGradOffset( gsampler2DArray sampler,
+                         vec3 P,
+                         vec2 dPdx,
+                         vec2 dPdy,
+                         ivec2 offset);
+
+ 
+
+float textureGradOffset( sampler1DArrayShadow sampler,
+                         vec3 P,
+                         float dPdx,
+                         float dPdy,
+                         int offset);
+
+ 
+
+float textureGradOffset( sampler2DArrayShadow sampler,
+                         vec3 P,
+                         vec2 dPdx,
+                         vec2 dPdy,
+                         ivec2 offset);
+
+ 
+
+Parameters
+
+sampler
+
+    Specifies the sampler to which the texture from which texels will be
+    retrieved is bound.
+
+P
+
+    Specifies the texture coordinates at which texture will be sampled.
+
+dPdx
+
+    Specifies the partial derivative of P with respect to window x.
+
+dPdy
+
+    Specifies the partial derivative of P with respect to window y.
+
+offset
+
+    Specifies the offset to be applied to the texture coordinates before
+    sampling.
+
+Description
+
+textureGradOffset performs a texture lookup at coordinate P from the texture
+bound to sampler with explicit texture coordinate gradiends as specified in
+dPdx and dPdy. An explicit offset is also supplied in offset. textureGradOffset
+consumes dPdx and dPdy as textureGrad and offset as textureOffset.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                   OpenGL Shading Language Version
+   Function Name     1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+textureGradOffset    -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+textureGradOffset
+(gsampler2DRect      -    -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+{Shadow})
+
+See Also
+
+texelFetch, texelFetchOffset, texture, textureGather, textureGatherOffset,
+textureGatherOffsets, textureGrad, textureLod, textureLodOffset, textureOffset,
+textureProj, textureProjGrad, textureProjGradOffset, textureProjLod,
+textureProjLodOffset, textureProjOffset, textureQueryLod, textureSize
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

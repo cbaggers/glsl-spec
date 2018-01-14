@@ -1,0 +1,63 @@
+Name
+
+gl_CullDistance — provides a mechanism for controlling user culling
+
+Declaration
+
+gl_CullDistance is a member of the gl_PerVertex named block:
+
+    out gl_PerVertex {
+        vec4 gl_Position;
+        float gl_PointSize;
+        float gl_ClipDistance[];
+        float gl_CullDistance[];
+    };
+
+In fragment shaders, it is intrinsically declared as: in float gl_CullDistance
+[] ;
+
+Description
+
+The gl_CullDistance variable provides a mechanism for controlling user culling.
+The element gl_CullDistance[i] specifies a cull distance for each plane i. A
+distance of 0.0 means that the vertex is on the plane, a positive distance
+means that the vertex is insider the cull volume, and a negative distance means
+that the point is outside the cull volume. Primitives whose vertices all have a
+negative clip distance for plane i will be discarded.
+
+The gl_CullDistance array is predeclared as unsized and must be sized by the
+shader either by redeclaring it with an size or by indexing it only with
+integral constant expressions. The size determines the number and set of
+enabled cull distances and can be at most gl_MaxCullDistances. The number of
+varying components consumed by gl_CullDistance will match the size of the
+array. Shaders writing gl_CullDistance must write all enabled distances, or
+culling results are undefined.
+
+As an output variable, gl_CullDistance provides the place for the shader to
+write these distances. As an input in all but the fragment language, it reads
+the values written in the previous shader stage. In the fragment language, the
+gl_CullDistance array contains linearly interpolated values for the vertex
+values written by a shader to the gl_CullDistance vertex output variable.
+
+It is a compile-time or link-time error for the set of shaders forming a
+program to have the sum of the sizes of the gl_ClipDistance and gl_CullDistance
+arrays to be larger than gl_MaxCombinedClipAndCullDistances.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                              OpenGL Shading Language Version
+ Variable Name  1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+gl_CullDistance -    -    -    -    -    -    -    -    -    -    -    ✔
+
+See Also
+
+gl_ClipDistance, gl_PointSize
+
+Copyright
+
+Copyright © 2014 Khronos Group. This material may be distributed subject to the
+terms and conditions set forth in the Open Publication License, v 1.0, 8 June
+1999. http://opencontent.org/openpub/.
+

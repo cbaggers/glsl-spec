@@ -1,0 +1,107 @@
+Name
+
+transpose — calculate the transpose of a matrix
+
+Declaration
+
+mat2 transpose(  mat2 m);
+
+ 
+
+mat3 transpose(  mat3 m);
+
+ 
+
+mat4 transpose(  mat4 m);
+
+ 
+
+mat2x3 transpose(  mat3x2 m);
+
+ 
+
+mat2x4 transpose(  mat4x2 m);
+
+ 
+
+mat3x2 transpose(  mat2x3 m);
+
+ 
+
+mat3x4 transpose(  mat4x3 m);
+
+ 
+
+mat4x2 transpose(  mat2x4 m);
+
+ 
+
+mat4x3 transpose(  mat3x4 m);
+
+ 
+
+dmat2 transpose(  dmat2 m);
+
+ 
+
+dmat3 transpose(  dmat3 m);
+
+ 
+
+dmat4 transpose(  dmat4 m);
+
+ 
+
+dmat2x3 transpose(  dmat3x2 m);
+
+ 
+
+dmat2x4 transpose(  dmat4x2 m);
+
+ 
+
+dmat3x2 transpose(  dmat2x3 m);
+
+ 
+
+dmat3x4 transpose(  dmat4x3 m);
+
+ 
+
+dmat4x2 transpose(  dmat2x4 m);
+
+ 
+
+dmat4x3 transpose(  dmat3x4 m);
+
+ 
+
+Parameters
+
+m
+
+    Specifies the matrix of which to take the transpose.
+
+Description
+
+transpose returns the transpose of the matrix m.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                 OpenGL Shading Language Version
+  Function Name    1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+transpose (float)  -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+transpose (double) -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+determinant, inverse
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

@@ -1,0 +1,94 @@
+Name
+
+clamp — constrain a value to lie between two further values
+
+Declaration
+
+genType clamp( genType x,
+               genType minVal,
+               genType maxVal);
+
+ 
+
+genType clamp( genType x,
+               float minVal,
+               float maxVal);
+
+ 
+
+genDType clamp( genDType x,
+                genDType minVal,
+                genDType maxVal);
+
+ 
+
+genDType clamp( genDType x,
+                double minVal,
+                double maxVal);
+
+ 
+
+genIType clamp( genIType x,
+                genIType minVal,
+                genIType maxVal);
+
+ 
+
+genIType clamp(  genIType x,
+                 int minVal,
+                 int maxVal);
+
+ 
+
+genUType clamp( genUType x,
+                genUType minVal,
+                genUType maxVal);
+
+ 
+
+genUType clamp(  genUType x,
+                 uint minVal,
+                 uint maxVal);
+
+ 
+
+Parameters
+
+x
+
+    Specify the value to constrain.
+
+minVal
+
+    Specify the lower end of the range into which to constrain x.
+
+maxVal
+
+    Specify the upper end of the range into which to constrain x.
+
+Description
+
+clamp returns the value of x constrained to the range minVal to maxVal. The
+returned value is computed as min(max(x, minVal), maxVal).
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                               OpenGL Shading Language Version
+ Function Name   1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+clamp (genType)  ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+clamp (genIType) -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+clamp (genUType) -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+clamp (genDType) -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+min, max
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

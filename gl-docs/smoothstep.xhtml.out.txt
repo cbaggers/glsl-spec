@@ -1,0 +1,76 @@
+Name
+
+smoothstep — perform Hermite interpolation between two values
+
+Declaration
+
+genType smoothstep( genType edge0,
+                    genType edge1,
+                    genType x);
+
+ 
+
+genType smoothstep( float edge0,
+                    float edge1,
+                    genType x);
+
+ 
+
+genDType smoothstep( genDType edge0,
+                     genDType edge1,
+                     genDType x);
+
+ 
+
+genDType smoothstep( double edge0,
+                     double edge1,
+                     genDType x);
+
+ 
+
+Parameters
+
+edge0
+
+    Specifies the value of the lower edge of the Hermite function.
+
+edge1
+
+    Specifies the value of the upper edge of the Hermite function.
+
+x
+
+    Specifies the source value for interpolation.
+
+Description
+
+smoothstep performs smooth Hermite interpolation between 0 and 1 when edge0 < x
+< edge1. This is useful in cases where a threshold function with a smooth
+transition is desired. smoothstep is equivalent to:
+
+    genType t;  /* Or genDType t; */
+    t = clamp((x - edge0) / (edge1 - edge0), 0.0, 1.0);
+    return t * t * (3.0 - 2.0 * t);
+
+Results are undefined if edge0 ≥ edge1.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                   OpenGL Shading Language Version
+   Function Name     1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+smoothstep (genType) -    -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+smoothstep           -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+(genDType)
+
+See Also
+
+mix, step
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

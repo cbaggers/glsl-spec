@@ -1,0 +1,41 @@
+Name
+
+EmitStreamVertex — emit a vertex to a specified stream
+
+Declaration
+
+void EmitStreamVertex( int stream);
+
+ 
+
+Parameters
+
+stream
+
+    Specifies the stream upon which the vertex will be emitted.
+
+Description
+
+Available only in the Geometry Shader, EmitStreamVertex emits the current
+values of output variables to the current output primitive on stream stream.
+The argument stream must be a constant integral expression. On return from this
+call, the value of all output variables for all streams are undefined.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                               OpenGL Shading Language Version
+ Function Name   1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+EmitStreamVertex -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+EmitVertex, EndStreamPrimitive, EndPrimitive
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

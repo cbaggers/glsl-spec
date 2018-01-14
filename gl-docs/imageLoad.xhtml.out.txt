@@ -1,0 +1,104 @@
+Name
+
+imageLoad — load a single texel from an image
+
+Declaration
+
+gvec4 imageLoad( gimage1D image,
+                 int P);
+
+ 
+
+gvec4 imageLoad( gimage2D image,
+                 ivec2 P);
+
+ 
+
+gvec4 imageLoad( gimage3D image,
+                 ivec3 P);
+
+ 
+
+gvec4 imageLoad( gimage2DRect image,
+                 ivec2 P);
+
+ 
+
+gvec4 imageLoad( gimageCube image,
+                 ivec3 P);
+
+ 
+
+gvec4 imageLoad( gbufferImage image,
+                 int P);
+
+ 
+
+gvec4 imageLoad( gimage1DArray image,
+                 ivec2 P);
+
+ 
+
+gvec4 imageLoad( gimage2DArray image,
+                 ivec3 P);
+
+ 
+
+gvec4 imageLoad( gimageCubeArray image,
+                 ivec3 P);
+
+ 
+
+gvec4 imageLoad( gimage2DMS image,
+                 ivec2 P,
+                 int sample);
+
+ 
+
+gvec4 imageLoad( gimage2DMSArray image,
+                 ivec3 P,
+                 int sample);
+
+ 
+
+Parameters
+
+image
+
+    Specify the image unit from which to load a texel.
+
+P
+
+    Specify the coordinate from which to load the texel.
+
+sample
+
+    When present, specifies the sample within the image to load
+
+Description
+
+imageLoad loads the texel at the coordinate P from the image unit image. For
+multi-sample loads, the sample number is given by sample. When image, P, sample
+identify a valid texel, the bits used to represent the selected texel in memory
+are converted to a vec4, ivec4, or uvec4 in the manner described in the OpenGL
+Specification and returned.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Function Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+imageLoad     -    -    -    -    -    -    -    -    ✔    ✔    ✔    ✔
+
+See Also
+
+imageStore, imageAtomicAdd, imageAtomicMin, imageAtomicMax, imageAtomicAnd,
+imageAtomicOr, imageAtomicXor, imageAtomicExchange, imageAtomicCompSwap
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

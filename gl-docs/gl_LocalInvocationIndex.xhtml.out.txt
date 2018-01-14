@@ -1,0 +1,36 @@
+Name
+
+gl_LocalInvocationIndex — contains the local linear index of work item
+currently being operated on by a compute shader
+
+Declaration
+
+in uint gl_LocalInvocationIndex ;
+
+Description
+
+In the compute language, gl_LocalInvocationIndex is a derived input variable
+containing the 1-dimensional linearized index of the work invocation within the
+work group that the current shader is executing on. The value of
+gl_LocalInvocationIndex is equal to gl_LocalInvocationID.z * gl_WorkGroupSize.x
+* gl_WorkGroupSize.y + gl_LocalInvocationID.y * gl_WorkGroupSize.x +
+gl_LocalInvocationID.x.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                      OpenGL Shading Language Version
+     Variable Name      1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+gl_LocalInvocationIndex -    -    -    -    -    -    -    -    -    ✔    ✔    ✔
+
+See Also
+
+gl_NumWorkGroups, gl_WorkGroupID, gl_WorkGroupSize, gl_LocalInvocationID
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

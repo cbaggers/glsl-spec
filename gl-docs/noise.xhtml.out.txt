@@ -1,0 +1,75 @@
+Name
+
+noise — generate values with a pseudo-random noise function
+
+Declaration
+
+float noise1(  genType x);
+
+ 
+
+vec2 noise2(  genType x);
+
+ 
+
+vec3 noise3(  genType x);
+
+ 
+
+vec4 noise4(  genType x);
+
+ 
+
+Parameters
+
+x
+
+    Specifies the value to be used to seed the noise function.
+
+Description
+
+noise1, noise2, noise3 and noise4 return noise values (vector or scalar) based
+on the input value x. The noise function is a stochastic function that can be
+used to increase visual complexity. Values returned by the noise functions give
+the appearance of randomness, but are not truly random. They are defined to
+have the following characteristics:
+
+  • The return value(s) are always in the range [-1.0,1.0], and cover at least
+    the range [-0.6, 0.6], with a Gaussian-like distribution.
+
+  • The return value(s) have an overall average of 0.0.
+
+  • They are repeatable, in that a particular input value will always produce
+    the same return value.
+
+  • They are statistically invariant under rotation (i.e., no matter how the
+    domain is rotated, it has the same statistical character).
+
+  • They have a statistical invariance under translation (i.e., no matter how
+    the domain is translated, it has the same statistical character).
+
+  • They typically give different results under translation.
+
+  • The spatial frequency is narrowly concentrated, centered somewhere between
+    0.5 to 1.0.
+
+  • They are C1 continuous everywhere (i.e., the first derivative is
+    continuous).
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Function Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+noise1        ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+noise2        ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+noise3        ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+noise4        ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

@@ -1,0 +1,43 @@
+Name
+
+imageSamples — return the number of samples of an image
+
+Declaration
+
+int imageSamples( gimage2DMS image);
+
+ 
+
+int imageSamples( gimage2DMSArray image);
+
+ 
+
+Parameters
+
+image
+
+    Specifies the image to which the texture is bound.
+
+Description
+
+imageSamples returns the number of samples per texel of the image bound to
+image.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                            OpenGL Shading Language Version
+Function Name 1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+imageSamples  -    -    -    -    -    -    -    -    -    -    -    ✔
+
+See Also
+
+imageLoad, imageStore, textureSamples
+
+Copyright
+
+Copyright © 2014 Khronos Group. This material may be distributed subject to the
+terms and conditions set forth in the Open Publication License, v 1.0, 8 June
+1999. http://opencontent.org/openpub/.
+

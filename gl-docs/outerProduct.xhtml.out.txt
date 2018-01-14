@@ -1,0 +1,134 @@
+Name
+
+outerProduct — calculate the outer product of a pair of vectors
+
+Declaration
+
+mat2 outerProduct(  vec2 c,
+                    vec2 r);
+
+ 
+
+mat3 outerProduct(  vec3 c,
+                    vec3 r);
+
+ 
+
+mat4 outerProduct(  vec4 c,
+                    vec4 r);
+
+ 
+
+mat2x3 outerProduct(  vec3 c,
+                      vec2 r);
+
+ 
+
+mat3x2 outerProduct(  vec2 c,
+                      vec3 r);
+
+ 
+
+mat2x4 outerProduct(  vec4 c,
+                      vec2 r);
+
+ 
+
+mat4x2 outerProduct(  vec2 c,
+                      vec4 r);
+
+ 
+
+mat3x4 outerProduct(  vec4 c,
+                      vec3 r);
+
+ 
+
+mat4x3 outerProduct(  vec3 c,
+                      vec4 r);
+
+ 
+
+dmat2 outerProduct(  dvec2 c,
+                     dvec2 r);
+
+ 
+
+dmat3 outerProduct(  dvec3 c,
+                     dvec3 r);
+
+ 
+
+dmat4 outerProduct(  dvec4 c,
+                     dvec4 r);
+
+ 
+
+dmat2x3 outerProduct( dvec3 c,
+                      dvec2 r);
+
+ 
+
+dmat3x2 outerProduct( dvec2 c,
+                      dvec3 r);
+
+ 
+
+dmat2x4 outerProduct( dvec4 c,
+                      dvec2 r);
+
+ 
+
+dmat4x2 outerProduct( dvec2 c,
+                      dvec4 r);
+
+ 
+
+dmat3x4 outerProduct( dvec4 c,
+                      dvec3 r);
+
+ 
+
+dmat4x3 outerProduct( dvec3 c,
+                      dvec4 r);
+
+ 
+
+Parameters
+
+c
+
+    Specifies the parameter to be treated as a column vector.
+
+r
+
+    Specifies the parameter to be treated as a row vector.
+
+Description
+
+outerProduct treats the first parameter c as a column vector (matrix with one
+column) and the second parameter r as a row vector (matrix with one row) and
+does a linear algebraic matrix multiply c * r, yielding a matrix whose number
+of rows is the number of components in c and whose number of columns is the
+number of components in r.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                   OpenGL Shading Language Version
+   Function Name     1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+outerProduct (float) -    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔    ✔
+outerProduct         -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+(double)
+
+See Also
+
+dot
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+

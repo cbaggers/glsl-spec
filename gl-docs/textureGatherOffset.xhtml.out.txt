@@ -1,0 +1,114 @@
+Name
+
+textureGatherOffset — gathers four texels from a texture with offset
+
+Declaration
+
+gvec4 textureGatherOffset( gsampler2D sampler,
+                           vec2 P,
+                           ivec2 offset,
+                           [int comp]);
+
+ 
+
+gvec4 textureGatherOffset( gsampler2DArray sampler,
+                           vec3 P,
+                           ivec2 offset,
+                           [int comp]);
+
+ 
+
+gvec4 textureGatherOffset( gsampler2DRect sampler,
+                           vec3 P,
+                           ivec2 offset,
+                           [int comp]);
+
+ 
+
+vec4 textureGatherOffset( gsampler2DShadow sampler,
+                          vec2 P,
+                          float refZ,
+                          ivec2 offset);
+
+ 
+
+vec4 textureGatherOffset( gsampler2DArrayShadow sampler,
+                          vec3 P,
+                          float refZ,
+                          ivec2 offset);
+
+ 
+
+vec4 textureGatherOffset( gsampler2DRectShadow sampler,
+                          vec3 P,
+                          float refZ,
+                          ivec2 offset);
+
+ 
+
+Parameters
+
+sampler
+
+    Specifies the sampler to which the texture from which texels will be
+    retrieved is bound.
+
+P
+
+    Specifies the texture coordinates at which texture will be sampled.
+
+comp
+
+    Specifies the component of the source texture that will be used to generate
+    the resulting vector.
+
+refZ
+
+    Specifies the reference Z value used in the comparison for shadow forms.
+
+offset
+
+    Specifies the offset from the specified texture coordinate P from which the
+    texels will be gathered.
+
+Description
+
+textureGatherOffset returns the value:
+
+    vec4(Sample_i0_j1(P + offset, base).comp,
+         Sample_i1_j1(P + offset, base).comp,
+         Sample_i1_j0(P + offset, base).comp,
+         Sample_i0_j1(P + offset, base).comp);
+
+It perfoms as textureGather but with offset applied as described in
+textureOffset, except that the implementation-dependent minimum and maximum
+offset values are given by GL_MIN_PROGRRAM_TEXTURE_GATHER_OFFSET and
+GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET, respectively.
+
+If specified, the value of comp must ba constant integer expression with a
+value of 0, 1, 2, or 3, identifying the x, y, z or w component of the
+four-component vector lookup result for each texel, respectively. If comp is
+not specified, it is treated as 0, selecting the x component of each texel to
+generate the result.
+
+{$pipelinestall}{$examples}
+
+Version Support
+
+                                  OpenGL Shading Language Version
+   Function Name    1.10 1.20 1.30 1.40 1.50 3.30 4.00 4.10 4.20 4.30 4.40 4.50
+textureGatherOffset -    -    -    -    -    -    ✔    ✔    ✔    ✔    ✔    ✔
+
+See Also
+
+texelFetch, texelFetchOffset, texture, textureGather, textureGatherOffsets,
+textureGrad, textureGradOffset, textureLod, textureLodOffset, textureOffset,
+textureProj, textureProjGrad, textureProjGradOffset, textureProjLod,
+textureProjLodOffset, textureProjOffset, textureQueryLod, textureSize
+
+Copyright
+
+Copyright © 2011-2014 Khronos Group. This material may be distributed subject
+to the terms and conditions set forth in the Open Publication License, v 1.0, 8
+June 1999. http://opencontent.org/openpub/.
+
