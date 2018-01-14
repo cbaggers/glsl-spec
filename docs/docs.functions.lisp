@@ -26,8 +26,6 @@ values of output variables to the current output primitive on stream stream.
 The argument stream must be a constant integral expression. On return from this
 call, the value of all output variables for all streams are undefined.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                OpenGL Shading Language Version
@@ -62,8 +60,6 @@ output variables to the current output primitive on the first (and possibly
 only) primitive stream. It is equivalent to calling EmitStreamVertex with
 stream set to 0.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -97,8 +93,6 @@ Available only in the Geometry Shader, EndPrimitive completes the current
 output primitive on the first (and possibly only) vertex stream and starts a
 new one.No vertex is emitted. Calling EndPrimitive is equivalent to calling
 EmitStreamVertex with stream set to 0.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -139,8 +133,6 @@ Description
 Available only in the Geometry Shader, EndStreamPrimitive completes the current
 output primitive on stream stream and starts a new one. The argument to stream
 must be a constant integral expression. No vertex is emitted.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -187,8 +179,6 @@ Description
 
 abs returns the absolute value of x.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                              OpenGL Shading Language Version
@@ -229,8 +219,6 @@ Description
 atan returns the angle whose trigonometric cosine is x. The range of values
 returned by acos is 0 π . The result is undefined if |x|>1.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -268,8 +256,6 @@ Description
 
 acosh returns the arc hyperbolic cosine of x; the non-negative inverse of cosh.
 Results are undefined if x<1.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -320,8 +306,6 @@ functionally equivalent to:
         return result;
     }
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -369,8 +353,6 @@ functionally equivalent to:
         return result;
     }
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -409,8 +391,6 @@ Description
 atan returns the angle whose trigonometric sine is x. The range of values
 returned by asin is − π 2 π 2 . The result is undefined if |x|>1.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -447,8 +427,6 @@ x
 Description
 
 asinh returns the arc hyperbolic sine of x; the inverse of sinh.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -507,8 +485,6 @@ x is zero.
 For the second overload, atan returns the angle whose tangent is y_over_x.
 Values returned in this case are in the range − π 2 π 2 .
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -546,8 +522,6 @@ Description
 
 atanh returns the arc hyperbolic tangent of x; the inverse of tanh. Results are
 undefined if |x|>1.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -608,8 +582,6 @@ is acceptable to pass an element of an array or a single component of a vector
 to the mem argument of an atomic memory function, as long as the underlying
 array or vector is a buffer or shared variable.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -669,8 +641,6 @@ atomic memory function does not correspond to a buffer or shared variable. It
 is acceptable to pass an element of an array or a single component of a vector
 to the mem argument of an atomic memory function, as long as the underlying
 array or vector is a buffer or shared variable.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -736,8 +706,6 @@ is acceptable to pass an element of an array or a single component of a vector
 to the mem argument of an atomic memory function, as long as the underlying
 array or vector is a buffer or shared variable.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                              OpenGL Shading Language Version
@@ -774,8 +742,6 @@ c
 Description
 
 atomicCounter returns the current value of of the atomic counter c.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -816,8 +782,6 @@ Description
 atomicCounterDecrement atomically decrements the value of the atomic counter c
 and returns its new value.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                      OpenGL Shading Language Version
@@ -856,8 +820,6 @@ Description
 
 atomicCounterIncrement atomically increments the value of the atomic counter c
 and returns its prior value.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -918,8 +880,6 @@ is acceptable to pass an element of an array or a single component of a vector
 to the mem argument of an atomic memory function, as long as the underlying
 array or vector is a buffer or shared variable.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                              OpenGL Shading Language Version
@@ -978,8 +938,6 @@ atomic memory function does not correspond to a buffer or shared variable. It
 is acceptable to pass an element of an array or a single component of a vector
 to the mem argument of an atomic memory function, as long as the underlying
 array or vector is a buffer or shared variable.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1041,8 +999,6 @@ is acceptable to pass an element of an array or a single component of a vector
 to the mem argument of an atomic memory function, as long as the underlying
 array or vector is a buffer or shared variable.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -1102,8 +1058,6 @@ atomic memory function does not correspond to a buffer or shared variable. It
 is acceptable to pass an element of an array or a single component of a vector
 to the mem argument of an atomic memory function, as long as the underlying
 array or vector is a buffer or shared variable.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1165,8 +1119,6 @@ is acceptable to pass an element of an array or a single component of a vector
 to the mem argument of an atomic memory function, as long as the underlying
 array or vector is a buffer or shared variable.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -1215,8 +1167,6 @@ control shader, but may be placed anywhere in a compute shader. Calls to
 barrier may not be placed within any control flow. Barriers are also disallowed
 after a return statement in the function main().
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -1254,8 +1204,6 @@ Description
 
 bitCount returns the number of bits that are set to 1 in the binary
 representation of value.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1320,8 +1268,6 @@ type).
 If bits is zero, the result will be zero. The result will be undefined if
 offset or bits is negative, or if the sum of offset and bits is greater than
 the number of bits used to store the operand.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1388,8 +1334,6 @@ original value of base. The result will be undefined if offset or bits is
 negative, or if the sum of offset and bits is greater than the number of bits
 used to store the operand.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                              OpenGL Shading Language Version
@@ -1433,8 +1377,6 @@ bitfieldReverse returns the reversal of the bits of value. The bit numbered n
 will be taken from bit (bits - 1) - n of value, where bits is the total number
 of bits used to represent value.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                               OpenGL Shading Language Version
@@ -1476,8 +1418,6 @@ Description
 
 ceil returns a value equal to the nearest integer that is greater than or equal
 to x.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1570,8 +1510,6 @@ Description
 clamp returns the value of x constrained to the range minVal to maxVal. The
 returned value is computed as min(max(x, minVal), maxVal).
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                OpenGL Shading Language Version
@@ -1612,8 +1550,6 @@ Description
 
 cos returns the trigonometric cosine of angle.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -1651,8 +1587,6 @@ Description
 
 cosh returns the hyperbolic cosine of x. The hyperbolic cosine of x is computed
 as e x + e − x 2 .
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1703,8 +1637,6 @@ cross returns the cross product of two vectors, x and y. i.e.,
 
 ( x [ 1 ] ⋅ y [ 2 ] − y [ 1 ] ⋅ x [ 2 ] x [ 2 ] ⋅ y [ 0 ] − y [ 2 ] ⋅ x [ 0 ] x
     [ 0 ] ⋅ y [ 1 ] − y [ 1 ] ⋅ x [ 1 ] )
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1787,8 +1719,6 @@ undefined results, as do mixed-order derivatives such as dFdx(dFdy(n)). It is
 assumed that the expression p is continuous and therefore, expressions
 evaluated via non-uniform control flow may be undefined.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -1832,8 +1762,6 @@ Description
 
 degrees converts a quantity, specified in radians into degrees. That is, the
 return value is 180⋅ radians π .
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1892,8 +1820,6 @@ Description
 
 determinant returns the determinant of the matrix m.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -1944,8 +1870,6 @@ Description
 distance returns the distance between the two points p0 and p1. i.e., length(p0
                                                                              , p1);
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -1994,8 +1918,6 @@ Description
 
 dot returns the dot product of two vectors, x and y. i.e., x [ 0 ] ⋅ y [ 0 ] +
 x [ 1 ] ⋅ y [ 1 ] + ...
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -2051,8 +1973,6 @@ Description
 equal returns a boolean vector in which each element i is computed as x[i] == y
 [i].
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -2090,8 +2010,6 @@ Description
 
 pow returns the natural exponentiation of x. i.e., ex.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -2128,8 +2046,6 @@ Specify the value of the power to which 2 will be raised.
 Description
 
 exp2 returns 2 raised to the power of x. i.e., 2x.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -2185,8 +2101,6 @@ Description
 faceforward orients a vector to point away from a surface as defined by its
 normal. If dot(Nref, I) < 0 faceforward returns N, otherwise it returns -N.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -2230,8 +2144,6 @@ Description
 
 findLSB returns the bit number of the least significant bit that is set to 1 in
 the binary representation of value. If value is zero, -1 will be returned.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -2278,8 +2190,6 @@ the bit number of the most significant bit that is set to 1. For negative
 integers, the result will be the bit number of the most significant bit set to
 0. For a value of zero or negative 1, -1 will be returned.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -2323,8 +2233,6 @@ floatBitsToInt and floatBitsToUint return the encoding of their floating-point
 parameters as int or uint, respectively. The floating-point bit-level
 representation is preserved.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -2367,8 +2275,6 @@ Description
 
 floor returns a value equal to the nearest integer that is less than or equal
 to x.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -2440,8 +2346,6 @@ Otherwise, in the absense of precise consumption, there are no special
 constraints on the number of operations or difference in precision between fma
 () and the expression a * b + c.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -2479,8 +2383,6 @@ Specify the value to evaluate.
 Description
 
 fract returns the fractional part of x. This is calculated as x - floor(x).
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -2539,8 +2441,6 @@ output parameter exp. For a floating-point value of zero, the significand and
 exponent are both zero. For a floating-point value that is an infinity or a
 floating-point NaN, the results are undefined.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -2590,8 +2490,6 @@ absolute derivatives in $x$ and $y$ using local differencing for the input
 argument p. fwidth is equivalent to abs(dFdx(p)) + abs(dFdy(p)) . fwidthCoarse
 is equivalent to abs(dFdxCoarse(p)) + abs(dFdyCoarse(p)) . fwidthFine is
 equivalent to abs(dFdxFine(p)) + abs(dFdyFine(p)) .
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -2647,8 +2545,6 @@ Description
 
 greaterThan returns a boolean vector in which each element i is computed as x[i
 ] > y[i].
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -2706,8 +2602,6 @@ Description
 greaterThanEqual returns a boolean vector in which each element i is computed
 as x[i] ≥ y[i].
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -2746,8 +2640,6 @@ Description
 groupMemoryBarrier waits on the completion of all memory accesses performed by
 an invocation of a compute shader relative to the same access performed by
 other invocations in the same work group and then returns with no other effect.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -2933,8 +2825,6 @@ imageAtomicAdd atomically computes a new value by adding the value of data to
 the contents of the texel at coordinate P and sample in the image bound to uint
 image, stores that value into the image and returns the original value.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -3119,8 +3009,6 @@ Description
 imageAtomicAnd atomically computes a new value by logically ANDing the value of
 data to the contents of the texel at coordinate P and sample in the image bound
 to uint image, stores that value into the image and returns the original value.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -3337,8 +3225,6 @@ texel at coordinate P and sample (for multisampled forms) in the image bound to
 uint image. If the values are equal, data is stored into the texel, otherwise
 it is discarded. It returns the original value of the texel regardless of the
 result of the comparison operation.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -3593,8 +3479,6 @@ imageAtomicExchange atomically stores the value of data into the texel at
 coordinate P and sample in the image bound to unit image, and returns the
 original value of the texel.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -3785,8 +3669,6 @@ value of data and the contents of the texel at coordinate P and sample in the
 image bound to uint image, stores that value into the image and returns the
 original value.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -3974,8 +3856,6 @@ value of data and the contents of the texel at coordinate P and sample in the
 image bound to uint image, stores that value into the image and returns the
 original value.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -4160,8 +4040,6 @@ Description
 imageAtomicOr atomically computes a new value by logically ORing the value of
 data to the contents of the texel at coordinate P and sample in the image bound
 to uint image, stores that value into the image and returns the original value.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -4348,8 +4226,6 @@ imageAtomicXor atomically computes a new value by logically XORing the value of
 data to the contents of the texel at coordinate P and sample in the image bound
 to uint image, stores that value into the image and returns the original value.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -4453,8 +4329,6 @@ identify a valid texel, the bits used to represent the selected texel in memory
 are converted to a vec4, ivec4, or uvec4 in the manner described in the OpenGL
 Specification and returned.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -4497,8 +4371,6 @@ Description
 
 imageSamples returns the number of samples per texel of the image bound to
 image.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -4580,8 +4452,6 @@ imageSize returns the dimensions of the image bound to image. The components in
 the return value are filled in, in order, with the width, height and depth of
 the image. For the array forms, the last component of the return value is the
 number of layers in the texture array.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -4700,8 +4570,6 @@ sample. When image, P, and sample identify a valid texel, the bits used to
 represent data are converted to the format of the image unit in the manner
 described in of the OpenGL Specification and stored to the specified texel.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -4748,8 +4616,6 @@ a floating-point value. If the encoding of a NaN is passed in x, it will not
 signal and the resulting value will be undefined. If the encoding of a floating
 point infinity is passed in parameter x, the resulting floating-point value is
 the corresponding (positive or negative) floating point infinity.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -4802,8 +4668,6 @@ interpolateAtCentroid returns the value of the input varying interpolant
 sampled at a location inside both the pixel and the primitive being processed.
 The value obtained would be the value assigned to the input variable if
 declared with the centroid qualifier.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -4869,8 +4733,6 @@ directions from the center of the pixel, respectively. An offset of (0, 0)
 identifies the center of the pixel. The range and granularity of offsets
 supported by this function is implementation-dependent.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -4933,8 +4795,6 @@ available, the input varying will be evaluated at the center of the pixel. If
 sample sample does not exist, the position used to interpolate the input
 varying is undefined.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -4993,8 +4853,6 @@ Description
 inverse returns the inverse of the matrix m. The values in the returned matrix
 are undefined if m is singular or poorly-conditioned (nearly singular).
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -5037,8 +4895,6 @@ Description
 
 inversesqrt returns the inverse of the square root of x. i.e., the value 1x.
 Results are undefined if x≤0.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -5084,8 +4940,6 @@ Description
 For each element element i of the result, isinf returns true if x[i] is
 posititve or negative floating point infinity and false otherwise.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -5128,8 +4982,6 @@ Description
 
 For each element element i of the result, isinf returns true if x[i] is
 posititve or negative floating point NaN (Not a Number) and false otherwise.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -5185,8 +5037,6 @@ significand ⋅ 2 exponent
 If this product is too large to be represented in the floating point type, the
 result is undefined.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -5228,8 +5078,6 @@ Specifies a vector of which to calculate the length.
 Description
 
 length returns the length of the vector. i.e., x[0] 2 + x[1] 2 + …
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -5284,8 +5132,6 @@ Description
 
 lessThan returns a boolean vector in which each element i is computed as x[i] <
 y[i].
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -5343,8 +5189,6 @@ Description
 lessThanEqual returns a boolean vector in which each element i is computed as x
 [i] ≤ y[i].
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -5386,8 +5230,6 @@ Description
 
 log returns the natural logarithm of x. i.e., the value y which satisfies x=ey.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -5425,8 +5267,6 @@ Description
 
 log2 returns the base 2 logarithm of x. i.e., the value y which satisfies x=2y.
 Results are undefined if x≤0.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -5476,8 +5316,6 @@ Description
 matrixCompMult performs a component-wise multiplication of two matrices,
 yielding a result matrix where each component, result[i][j] is computed as the
 scalar product of x[i][j] and y[i][j].
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -5560,8 +5398,6 @@ Description
 max returns the maximum of the two parameters. It returns y if y is greater
 than x, otherwise it returns x.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -5606,8 +5442,6 @@ invocations in subsequent stages when those invocations were triggered by the
 execution of the original shader invocation (e.g., fragment shader invocations
                                                    for a primitive resulting from a particular geometry shader invocation).
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -5651,8 +5485,6 @@ subsequent stages when those invocations were triggered by the execution of the
 original shader invocation (e.g., fragment shader invocations for a primitive
                                   resulting from a particular geometry shader invocation).
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -5693,8 +5525,6 @@ subsequent stages when those invocations were triggered by the execution of the
 original shader invocation (e.g., fragment shader invocations for a primitive
                                   resulting from a particular geometry shader invocation).
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -5734,8 +5564,6 @@ guaranteed to be visible to accesses performed by shader invocations in
 subsequent stages when those invocations were triggered by the execution of the
 original shader invocation (e.g., fragment shader invocations for a primitive
                                   resulting from a particular geometry shader invocation).
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -5778,8 +5606,6 @@ original shader invocation (e.g., fragment shader invocations for a primitive
                                   resulting from a particular geometry shader invocation).
 
 memoryBarrierShared is available only in the compute language.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -5858,8 +5684,6 @@ Description
 
 min returns the minimum of the two parameters. It returns y if y is less than x
 , otherwise it returns x.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -5967,8 +5791,6 @@ corresponding component of y is returned. Components of x and y that are not
 selected are allowed to be invalid floating-point values and will have no
 effect on the results.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6026,8 +5848,6 @@ Description
 
 mod returns the value of x modulo y. This is computed as x - y * floor(x/y).
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6078,8 +5898,6 @@ modf separates a floating point value x into its integer and fractional parts.
 The fractional part of the number is returned from the function and the integer
 part (as a floating point quantity) is returned in the output parameter i.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6123,8 +5941,6 @@ Description
 normalize returns a vector with the same direction as its parameter, v, but
 with length 1.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6164,8 +5980,6 @@ Description
 
 not logically inverts the boolean vector x. It returns a new boolean vector for
 which each element i is computed as !x[i].
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -6219,8 +6033,6 @@ Description
 
 notEqual returns a boolean vector in which each element i is computed as x[i] !
 = y[i].
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -6355,8 +6167,6 @@ does a linear algebraic matrix multiply c * r, yielding a matrix whose number
 of rows is the number of components in c and whose number of columns is the
 number of components in r.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6403,8 +6213,6 @@ is preserved. The first vector component (v[0]) specifies the 32 least
 significant bits of the result; the second component (v[1]) specifies the 32
 most significant bits.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6449,8 +6257,6 @@ representation found in the OpenGL Specification, and then packing these two
 specifies the 16 least-significant bits of the result; the second component
 specifies the 16 most-significant bits.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6494,8 +6300,6 @@ Description
 pow returns the value of x raised to the y power. i.e., xy. Results are
 undefined if x< or if x=0 and y=0.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6533,8 +6337,6 @@ Description
 
 radians converts a quantity, specified in degrees into radians. That is, the
 return value is π⋅degrees 180 .
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -6585,8 +6387,6 @@ For a given incident vector I and surface normal N reflect returns the
 reflection direction calculated as I - 2.0 * dot(N, I) * N.
 
 N should be normalized in order to achieve the desired result.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -6654,8 +6454,6 @@ R = eta * I - (eta * dot(N, I) + sqrt(k)) * N;
 The input parameters I and N should be normalized in order to achieve the
 desired result.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6701,8 +6499,6 @@ round in a direction chosen by the implementation, presumably the direction
 that is fastest. This includes the possibility that round(x) returns the same
 value as roundEven(x) for all values of x.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6746,8 +6542,6 @@ Description
 roundEven returns a value equal to the nearest integer to x. The fractional
 part of 0.5 will round toward the nearest even integer. For example, both 3.5
 and 4.5 will round to 4.0.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -6797,8 +6591,6 @@ Description
 sign returns -1.0 if x is less than 0.0, 0.0 if x is equal to 0.0, and +1.0 if
 x is greater than 0.0.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6838,8 +6630,6 @@ Description
 
 sin returns the trigonometric sine of angle.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6877,8 +6667,6 @@ Description
 
 sinh returns the hyperbolic sine of x. The hyperbolic sine of x is computed as
 e x − e − x 2 .
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -6953,8 +6741,6 @@ return t * t * (3.0 - 2.0 * t);
 
 Results are undefined if edge0 ≥ edge1.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -6998,8 +6784,6 @@ Description
 
 sqrt returns the square root of x. i.e., the value x. Results are undefined if
 x<0.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -7062,8 +6846,6 @@ step generates a step function by comparing x to edge.
 For element i of the return value, 0.0 is returned if x[i] < edge[i], and 1.0
 is returned otherwise.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -7102,8 +6884,6 @@ Description
 
 tan returns the trigonometric tangent of angle.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -7141,8 +6921,6 @@ Description
 
 tanh returns the hyperbolic tangent of x. The hyperbolic tangent of x is
 computed as sinh ⁡ x cosh ⁡ x .
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -7248,8 +7026,6 @@ P for array forms. The lod parameter (if present) specifies the level-of-detail
 from which the texel will be fetched. The sample specifies which sample within
 the texel will be returned when reading from a multi-sample texure.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -7354,8 +7130,6 @@ array layer is specified in the last component of P for array forms. The lod
 parameter (if present) specifies the level-of-detail from which the texel will
 be fetched. The sample parameter specifies which sample within the texel will
 be returned when reading from a multi-sample texure.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -7510,8 +7284,6 @@ component of P. (The second component of P is unused for 1D shadow lookups.)
 
 For non-shadow variants, the array layer comes from the last component of P.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -7643,8 +7415,6 @@ four-component vector lookup result for each texel, respectively. If comp is
 not specified, it is treated as 0, selecting the x component of each texel to
 generate the result.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -7759,8 +7529,6 @@ four-component vector lookup result for each texel, respectively. If comp is
 not specified, it is treated as 0, selecting the x component of each texel to
 generate the result.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -7863,8 +7631,6 @@ the four texels is obtained by applying the offset in offsets as a (u, v)
 coordinate offset to P, identifying the four-texel GL_LINEAR footprint, and
 then selecting the texel i0i0 of that footprint. The specified values in
 offsets must be set with constant integral expressions.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -8017,8 +7783,6 @@ For the cube version, the partial derivatives of P are assumed to be in the
 coordinate system used before texture coordinates are projected onto the
 appropriate cube face.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -8170,8 +7934,6 @@ bound to sampler with explicit texture coordinate gradiends as specified in
 dPdx and dPdy. An explicit offset is also supplied in offset. textureGradOffset
 consumes dPdx and dPdy as textureGrad and offset as textureOffset.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -8283,8 +8045,6 @@ sampler with an explicit level-of-detail as specified in lod. lod specifies
 λbase and sets the partial derivatives as follows:
 
 δ u δ x = 0 , δ v δ x = 0 , δ w δ x = 0 δ u δ y = 0 , δ v δ y = 0 , δ w δ y = 0
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -8399,8 +8159,6 @@ Description
 textureLodOffset performs a texture lookup at coordinate P from the texture
 bound to sampler with an explicit level-of-detail as specified in lod. Behavior
 is the same as in textureLod except that before sampling, offset is added to P.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -8535,8 +8293,6 @@ GL_MIN_PROGRAM_TEXEL_OFFSET and GL_MAX_PROGRAM_TEXEL_OFFSET, respectively.
 Note that offset does not apply to the layer coordinate for texture arrays.
 Also note that offsets are not supported for cube maps.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -8647,8 +8403,6 @@ consumed from P, not including the last component of P, are divided by the last
 component of P. The resulting 3rd component of P in the shadow forms is used as
 Dref. After these values are computed, the texture lookup proceeds as in
 texture.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -8778,8 +8532,6 @@ component of P, are divided by the last component of P. The resulting 3rd
 component of P in the shadow forms is used as Dref. After these values are
 computed, the texture lookup proceeds as in textureGrad, passing dPdx and dPdy
 as gradients.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -8925,8 +8677,6 @@ the last component of P, are divided by the last component of P. The resulting
 computed, the texture lookup proceeds as in textureGradOffset, passing dPdx and
 dPdy as gradients, and offset as the offset.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -9022,8 +8772,6 @@ including the last component of P, are divided by the last component of P. The
 resulting 3rd component of P in the shadow forms is used as Dref. After these
 values are computed, the texture lookup proceeds as in textureLod, with lod
 used to specify the level-of-detail from which the texture will be sampled.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -9132,8 +8880,6 @@ values are computed, the texture lookup proceeds as in textureLodOffset, with
 lod used to specify the level-of-detail from which the texture will be sampled
 and offset used to specifiy the offset, in texels, to be applied to the texture
 coordinates before sampling.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -9258,8 +9004,6 @@ forms is used as Dref. After these values are computed, the texture lookup
 proceeds as in textureOffset, with the offset used to offset the computed
 texture coordinates.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -9357,8 +9101,6 @@ texture associated with sampler.
 
 If called on an incomplete texture, or if no texture is associated with sampler
 , zero is returned.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -9475,8 +9217,6 @@ component of the return value.
 
 If called on an incomplete texture, the result of the operation is undefined.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -9522,8 +9262,6 @@ Description
 
 textureSamples returns the number of samples per texel of the texture bound to
 sampler.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -9651,8 +9389,6 @@ bound to sampler. The components in the return value are filled in, in order,
 with the width, height and depth of the texture. For the array forms, the last
 component of the return value is the number of layers in the texture array.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -9768,8 +9504,6 @@ Description
 
 transpose returns the transpose of the matrix m.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -9812,8 +9546,6 @@ Description
 
 trunc returns a a value equal to the nearest integer to x whose absolute value
 is not larger than the absolute value of x.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -9865,8 +9597,6 @@ uaddCarry adds two 32-bit unsigned integer variables (scalars or vectors) and
 generates a 32-bit unsigned integer result, along with a carry output. The
 result is the sum of x and y modulo 232. The value carry is set to 0 if the sum
 is less than 232 and to 1 otherwise.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -9932,8 +9662,6 @@ bits of this product are returned in lsb and the 32 most significant bits are
 returned in msb. umulExtended and imulExtended perform unsigned and signed
 multiplication, respectively.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -9974,8 +9702,6 @@ unpackDouble2x32 returns a two-component unsigned integer vector representation
 of d. The bit-level representation of d is preserved. The first component of
 the returned vector contains the 32 least significant bits of the double; the
 second component consists the 32 most significant bits.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -10020,8 +9746,6 @@ interpreting those values as 16-bit floating-point numbers according to the
 OpenGL Specification, and converting them to 32-bit floating-point values. The
 first component of the vector is obtained from the 16 least-significant bits of
 v; the second component is obtained from the 16 most-significant bits of v.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -10072,8 +9796,6 @@ usubBorrow subtracts two 32-bit unsigned integer variables (scalars or vectors)
 and generates a 32-bit unsigned integer result, along with a borrow output. The
 result is the difference of x and y if non-negative, or 232 plus that
 difference otherwise. The value borrow is set to 0 if x ≥ y and to 1 otherwise.
-
-{$pipelinestall}{$examples}
 
 Version Support
 

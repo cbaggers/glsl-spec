@@ -70,8 +70,6 @@ corresponding outputs written by the previous stage. Only elements of the
 gl_ClipDistance array that correspond to enabled clip planes have defined
 values.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                               OpenGL Shading Language Version
@@ -128,8 +126,6 @@ gl_FragCoord. Redeclaring gl_FragCoord with any accepted qualifier affects only
 gl_FragCoord.x and gl_FragCoord.y. It has no affect on rasterization,
 transformation or any other part of the OpenGL pipline or language features.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -166,8 +162,6 @@ used. If a shader statically assigns to gl_FragDepth, then the value of the
 fragment's depth may be undefined for executions of the shader that don't take
 that path. That is, if the set of linked fragment shaders statically contain a
 write to gl_FragDepth, then it is responsible for always writing it.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -211,8 +205,6 @@ the n-vertex polygon.
 The sign of this computation is negated when the value of GL_CLIP_ORIGIN (the
 clip volume origin, set with glClipControl) is GL_UPPER_LEFT.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                              OpenGL Shading Language Version
@@ -246,8 +238,6 @@ containing the n-dimensional index of the work invocation within the global
 work group that the current shader is executing on. The value of
 gl_GlobalInvocationID is equal to gl_WorkGroupID * gl_WorkGroupSize +
 gl_LocalInvocationID.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -313,8 +303,6 @@ assisting in computing derivatives for other fragment shader invocations.
 The set of helper invocations generated when processing any set of primitives
 is implementation dependent.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
 OpenGL Shading Language Version
@@ -347,8 +335,6 @@ gl_InstanceID is a vertex language input variable that holds the integer index
 of the current primitive in an instanced draw command such as
 glDrawArraysInstanced. If the current primitive does not originate from an
 instanced draw command, the value of gl_InstanceID is zero.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -386,8 +372,6 @@ In the geometry language, gl_InvocationID identifies the invocation number
 assigned to the geometry shader invocation. It is assigned an integer value in
 the range [0, N-1] where N is the number of geometry shader invocations per
 primitive.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -462,8 +446,6 @@ fragment shader contains a static access to gl_Layer, it will count against the
 implementation defined limit for the maximum number of inputs to the fragment
 stage.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                       OpenGL Shading Language Version
@@ -501,8 +483,6 @@ the current shader is executing in. The possible values for this variable range
 across the local work group size, i.e., (0,0,0) to (gl_WorkGroupSize.x - 1,
 gl_WorkGroupSize.y - 1, gl_WorkGroupSize.z - 1).
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                    OpenGL Shading Language Version
@@ -538,8 +518,6 @@ gl_LocalInvocationIndex is equal to gl_LocalInvocationID.z * gl_WorkGroupSize.x
 * gl_WorkGroupSize.y + gl_LocalInvocationID.y * gl_WorkGroupSize.x +
 gl_LocalInvocationID.x.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                       OpenGL Shading Language Version
@@ -571,8 +549,6 @@ gl_NumSamples is a fragment language input variable that contains the number of
 samples in the framebuffer, or 1 if rendering to a non-multisample framebuffer.
 gl_NumSamples is the sample count of the framebuffer regardless of whether
 multisample rasterization is enabled or not.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -607,8 +583,6 @@ groups that will execute the compute shader. The components of gl_NumWorkGroups
 are equal to the num_groups_x, num_groups_y, and num_groups_z parameters passed
 to the glDispatchCompute command.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                OpenGL Shading Language Version
@@ -641,8 +615,6 @@ gl_PatchVerticesIn contains the number of vertices in the input being processed
 by the shader. A single tessellation control or evaluation shader can read
 patches of differing sizes, and so th value of gl_PatchVertexIn may differ
 between patches.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -682,8 +654,6 @@ varies from 0.0 to 1.0 vertically from bottom to top. Otherwise, if
 GL_POINT_SPRITE_COORD_ORIGIN is GL_UPPER_LEFT then gl_PointCoord.t varies from
 0.0 to 1.0 vertically from top to bottom. The default value of
 GL_POINT_SPRITE_COORD_ORIGIN is GL_UPPER_LEFT.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -741,8 +711,6 @@ In the tessellation control, tessellation evaluation and geometry languages,
 the gl_PerVertex named block is used to construct an array, gl_in[] of
 per-vertex or per-control point inputs whose content represents the
 corresponding outputs written by the previous stage.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -809,8 +777,6 @@ the gl_PerVertex named block is used to construct an array, gl_in[] of
 per-vertex or per-control point inputs whose content represents the
 corresponding outputs written by the previous stage.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -868,8 +834,6 @@ languages. If a geometry shader is present but does not write to
 gl_PrimitiveID, the value of gl_PrimitiveID in the fragment shader is
 undefined.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                    OpenGL Shading Language Version
@@ -914,8 +878,6 @@ through multiple points or lines may actually be drawn. Restarting a primitive
 topology using the primitive restart index has no effect on the primitive ID
 counter.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                OpenGL Shading Language Version
@@ -954,8 +916,6 @@ When rendering to a non-multisample buffer, or if multisample rasterization is
 disabled, gl_SampleID will always be zero. gl_NumSamples is the sample count of
 the framebuffer regardless of whether multisample rasterization is enabled or
 not.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1003,8 +963,6 @@ being evaluated at any frequency other than per-fragment, bits within the
 sample mask not corresponding to the current fragment shader invocation are
 ignored.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                             OpenGL Shading Language Version
@@ -1039,8 +997,6 @@ rasterization. It has a sample bit set if and only if the sample is considered
 covered for this fragment shader invocation. Bit B of mask gl_SampleMask[M]
 corresponds to sample 32 * M + B. The array has ceil(s / 32) elements where s
 is the maximum number of color samples supported by the implementation.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1079,8 +1035,6 @@ gl_SamplePosition causes the entire fragment shader to be evaluated per-sample
 rather than per-fragment. When rendering to a non-multisample buffer, or if
 multisample rasterization is disabled, gl_SamplePosition will be (0.5, 0.5).
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                 OpenGL Shading Language Version
@@ -1111,8 +1065,6 @@ Description
 Available only in the tessellation cevaluation language, gl_TessCoord specifies
 the three component (u, v, w) vector identifying the position of the vertex
 being processed by the shader relative to the primitive being tessellated.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1160,8 +1112,6 @@ values written by the tessellation control shader, if present. If no
 tessellation control shader is present, it contains the default tessellation
 level.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                 OpenGL Shading Language Version
@@ -1208,8 +1158,6 @@ values written by the tessellation control shader, if present. If no
 tessellation control shader is present, it contains the default tessellation
 level.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                 OpenGL Shading Language Version
@@ -1242,8 +1190,6 @@ the vertex. The index is impliclty generated by glDrawArrays and other commands
 that do not reference the content of the GL_ELEMENT_ARRAY_BUFFER, or explicitly
 generated from the content of the GL_ELEMENT_ARRAY_BUFFER by commands such as
 glDrawElements.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
@@ -1304,8 +1250,6 @@ contains a static access to gl_ViewportIndex, it will count against the
 implementation defined limit for the maximum number of inputs to the fragment
 stage.
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                                   OpenGL Shading Language Version
@@ -1343,8 +1287,6 @@ within. The possible values range across the parameters passed into
 glDispatchCompute, i.e., from (0, 0, 0) to (gl_NumWorkGroups.x - 1,
 gl_NumWorkGroups.y - 1, gl_NumWorkGroups.z - 1).
 
-{$pipelinestall}{$examples}
-
 Version Support
 
                              OpenGL Shading Language Version
@@ -1380,8 +1322,6 @@ values stored in gl_WorkGroupSize match those specified in the required
 local_size_x, local_size_y, and local_size_z layout qualifiers for the current
 shader. This value is constant so that it can be used to size arrays of memory
 that can be shared within the local work group.
-
-{$pipelinestall}{$examples}
 
 Version Support
 
