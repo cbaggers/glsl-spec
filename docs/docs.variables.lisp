@@ -1,6 +1,8 @@
-(in-package :glsl-symbols.variables)
+(in-package :glsl-docs)
 
-(setf (documentation 'gl-clip-distance 'variable)
+(defvar *variables* (make-hash-table))
+
+(setf (gethash 'gl-clip-distance *variables*)
 "Name
 
 gl_ClipDistance — provides a forward-compatible mechanism for vertex clipping
@@ -90,7 +92,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-frag-coord 'variable)
+(setf (gethash 'gl-frag-coord *variables*)
 "Name
 
 gl_FragCoord — contains the window-relative coordinates of the current fragment
@@ -144,7 +146,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-frag-depth 'variable)
+(setf (gethash 'gl-frag-depth *variables*)
 "Name
 
 gl_FragDepth — establishes a depth value for the current fragment
@@ -183,7 +185,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-front-facing 'variable)
+(setf (gethash 'gl-front-facing *variables*)
 "Name
 
 gl_FrontFacing — indicates whether a primitive is front or back facing
@@ -227,7 +229,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-global-invocation-id 'variable)
+(setf (gethash 'gl-global-invocation-id *variables*)
 "Name
 
 gl_GlobalInvocationID — contains the global index of work item currently being
@@ -263,7 +265,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-helper-invocation 'variable)
+(setf (gethash 'gl-helper-invocation *variables*)
 "Name
 
 gl_HelperInvocation — indicates whether a fragment shader invocation is a
@@ -329,7 +331,7 @@ Copyright © 2014 Khronos Group. This material may be distributed subject to the
 terms and conditions set forth in the Open Publication License, v 1.0, 8 June
 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-instance-id 'variable)
+(setf (gethash 'gl-instance-id *variables*)
 "Name
 
 gl_InstanceID — contains the index of the current primitive in an instanced
@@ -364,7 +366,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-invocation-id 'variable)
+(setf (gethash 'gl-invocation-id *variables*)
 "Name
 
 gl_InvocationID — contains the invocation index of the current shader
@@ -405,7 +407,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-layer 'variable)
+(setf (gethash 'gl-layer *variables*)
 "Name
 
 gl_Layer — contains the selected layer of a multi-layer framebuffer attachment
@@ -481,7 +483,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-local-invocation-id 'variable)
+(setf (gethash 'gl-local-invocation-id *variables*)
 "Name
 
 gl_LocalInvocationID — contains the index of work item currently being operated
@@ -517,7 +519,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-local-invocation-index 'variable)
+(setf (gethash 'gl-local-invocation-index *variables*)
 "Name
 
 gl_LocalInvocationIndex — contains the local linear index of work item
@@ -554,7 +556,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-num-samples 'variable)
+(setf (gethash 'gl-num-samples *variables*)
 "Name
 
 gl_NumSamples — contains the total number of samples in the framebuffer
@@ -588,7 +590,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-num-work-groups 'variable)
+(setf (gethash 'gl-num-work-groups *variables*)
 "Name
 
 gl_NumWorkGroups — contains the number of workgroups that have been dispatched
@@ -623,7 +625,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-patch-vertices-in 'variable)
+(setf (gethash 'gl-patch-vertices-in *variables*)
 "Name
 
 gl_PatchVerticesIn — contains the number of vertices in the current patch
@@ -658,7 +660,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-point-coord 'variable)
+(setf (gethash 'gl-point-coord *variables*)
 "Name
 
 gl_PointCoord — contains the coordinate of a fragment within a point
@@ -699,7 +701,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-point-size 'variable)
+(setf (gethash 'gl-point-size *variables*)
 "Name
 
 gl_PointSize — contains size of rasterized points, in pixels
@@ -764,7 +766,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-position 'variable)
+(setf (gethash 'gl-position *variables*)
 "Name
 
 gl_Position — contains the position of the current vertex
@@ -829,7 +831,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-primitive-id 'variable)
+(setf (gethash 'gl-primitive-id *variables*)
 "Name
 
 gl_PrimitiveID — contains the index of the current primitive
@@ -891,7 +893,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-primitive-idin 'variable)
+(setf (gethash 'gl-primitive-idin *variables*)
 "Name
 
 gl_PrimitiveIDIn — contains the index of the current primitive
@@ -930,7 +932,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-sample-id 'variable)
+(setf (gethash 'gl-sample-id *variables*)
 "Name
 
 gl_SampleID — contains the index of the sample currently being processed
@@ -971,7 +973,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-sample-mask 'variable)
+(setf (gethash 'gl-sample-mask *variables*)
 "Name
 
 gl_SampleMask — specifies the sample coverage mask for the current fragment
@@ -1019,7 +1021,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-sample-mask-in 'variable)
+(setf (gethash 'gl-sample-mask-in *variables*)
 "Name
 
 gl_SampleMaskIn — contains the computed sample coverage mask for the current
@@ -1056,7 +1058,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-sample-position 'variable)
+(setf (gethash 'gl-sample-position *variables*)
 "Name
 
 gl_SamplePosition — contains the location of the current sample within the
@@ -1095,7 +1097,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-tess-coord 'variable)
+(setf (gethash 'gl-tess-coord *variables*)
 "Name
 
 gl_TessCoord — contains the coordinate of the vertex within the current patch
@@ -1128,7 +1130,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-tess-level-inner 'variable)
+(setf (gethash 'gl-tess-level-inner *variables*)
 "Name
 
 gl_TessLevelInner — contains the inner tessellation levels for the current
@@ -1176,7 +1178,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-tess-level-outer 'variable)
+(setf (gethash 'gl-tess-level-outer *variables*)
 "Name
 
 gl_TessLevelOuter — contains the outer tessellation levels for the current
@@ -1224,7 +1226,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-vertex-id 'variable)
+(setf (gethash 'gl-vertex-id *variables*)
 "Name
 
 gl_VertexID — contains the index of the current vertex
@@ -1259,7 +1261,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-viewport-index 'variable)
+(setf (gethash 'gl-viewport-index *variables*)
 "Name
 
 gl_ViewportIndex — contains the index of the viewport to be used in viewport
@@ -1323,7 +1325,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-work-group-id 'variable)
+(setf (gethash 'gl-work-group-id *variables*)
 "Name
 
 gl_WorkGroupID — contains the index of the workgroup currently being operated
@@ -1359,7 +1361,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'gl-work-group-size 'variable)
+(setf (gethash 'gl-work-group-size *variables*)
 "Name
 
 gl_WorkGroupSize — contains the size of the workgroup operated on by a compute

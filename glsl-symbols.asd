@@ -5,6 +5,4 @@
   :author "Chris Bagley <techsnuffle@gmail.com>"
   :license "The Unlicense"
   :serial t
-  :components ((:file "symbols/package")
-               (:file "symbols/docs.functions")
-               (:file "symbols/docs.variables")))
+  :components ((:file "symbols/package")))

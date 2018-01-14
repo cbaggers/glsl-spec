@@ -1,6 +1,8 @@
-(in-package :glsl-symbols.functions)
+(in-package :glsl-docs)
 
-(setf (documentation 'emit-stream-vertex 'function)
+(defvar *functions* (make-hash-table))
+
+(setf (gethash 'emit-stream-vertex *functions*)
       "Name
 
 EmitStreamVertex — emit a vertex to a specified stream
@@ -42,7 +44,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'emit-vertex 'function)
+(setf (gethash 'emit-vertex *functions*)
       "Name
 
 EmitVertex — emit a vertex to the first vertex stream
@@ -78,7 +80,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'end-primitive 'function)
+(setf (gethash 'end-primitive *functions*)
       "Name
 
 EndPrimitive — complete the current output primitive on the first vertex stream
@@ -114,7 +116,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'end-stream-primitive 'function)
+(setf (gethash 'end-stream-primitive *functions*)
       "Name
 
 EndStreamPrimitive — complete the current output primitive on a specified
@@ -156,7 +158,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'abs 'function)
+(setf (gethash 'abs *functions*)
       "Name
 
 abs — return the absolute value of the parameter
@@ -205,7 +207,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'acos 'function)
+(setf (gethash 'acos *functions*)
       "Name
 
 acos — return the arccosine of the parameter
@@ -245,7 +247,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'acosh 'function)
+(setf (gethash 'acosh *functions*)
       "Name
 
 acosh — return the arc hyperbolic cosine of the parameter
@@ -285,7 +287,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'all 'function)
+(setf (gethash 'all *functions*)
       "Name
 
 all — check whether all elements of a boolean vector are true
@@ -336,7 +338,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'any 'function)
+(setf (gethash 'any *functions*)
       "Name
 
 any — check whether any element of a boolean vector is true
@@ -385,7 +387,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'asin 'function)
+(setf (gethash 'asin *functions*)
       "Name
 
 asin — return the arcsine of the parameter
@@ -425,7 +427,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'asinh 'function)
+(setf (gethash 'asinh *functions*)
       "Name
 
 asinh — return the arc hyperbolic sine of the parameter
@@ -464,7 +466,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atan 'function)
+(setf (gethash 'atan *functions*)
       "Name
 
 atan — return the arc-tangent of the parameters
@@ -523,7 +525,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atanh 'function)
+(setf (gethash 'atanh *functions*)
       "Name
 
 atanh — return the arc hyperbolic tangent of the parameter
@@ -563,7 +565,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atomic-add 'function)
+(setf (gethash 'atomic-add *functions*)
       "Name
 
 atomicAdd — perform an atomic addition to a variable
@@ -625,7 +627,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atomic-and 'function)
+(setf (gethash 'atomic-and *functions*)
       "Name
 
 atomicAnd — perform an atomic logical AND operation to a variable
@@ -687,7 +689,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atomic-comp-swap 'function)
+(setf (gethash 'atomic-comp-swap *functions*)
       "Name
 
 atomicCompSwap — perform an atomic compare-exchange operation to a variable
@@ -752,7 +754,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atomic-counter 'function)
+(setf (gethash 'atomic-counter *functions*)
       "Name
 
 atomicCounter — return the current value of an atomic counter
@@ -791,7 +793,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atomic-counter-decrement 'function)
+(setf (gethash 'atomic-counter-decrement *functions*)
       "Name
 
 atomicCounterDecrement — atomically decrement a counter and return its new
@@ -832,7 +834,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atomic-counter-increment 'function)
+(setf (gethash 'atomic-counter-increment *functions*)
       "Name
 
 atomicCounterIncrement — atomically increment a counter and return the prior
@@ -873,7 +875,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atomic-exchange 'function)
+(setf (gethash 'atomic-exchange *functions*)
       "Name
 
 atomicExchange — perform an atomic exchange operation to a variable
@@ -934,7 +936,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atomic-max 'function)
+(setf (gethash 'atomic-max *functions*)
       "Name
 
 atomicMax — perform an atomic max operation to a variable
@@ -996,7 +998,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atomic-min 'function)
+(setf (gethash 'atomic-min *functions*)
       "Name
 
 atomicMin — perform an atomic min operation to a variable
@@ -1058,7 +1060,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atomic-or 'function)
+(setf (gethash 'atomic-or *functions*)
       "Name
 
 atomicOr — perform an atomic logical OR operation to a variable
@@ -1120,7 +1122,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'atomic-xor 'function)
+(setf (gethash 'atomic-xor *functions*)
       "Name
 
 atomicXor — perform an atomic logical exclusive OR operation to a variable
@@ -1182,7 +1184,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'barrier 'function)
+(setf (gethash 'barrier *functions*)
       "Name
 
 barrier — synchronize execution of multiple shader invocations
@@ -1227,7 +1229,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'bit-count 'function)
+(setf (gethash 'bit-count *functions*)
       "Name
 
 bitCount — counts the number of 1 bits in an integer
@@ -1271,7 +1273,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'bitfield-extract 'function)
+(setf (gethash 'bitfield-extract *functions*)
       "Name
 
 bitfieldExtract — extract a range of bits from an integer
@@ -1337,7 +1339,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'bitfield-insert 'function)
+(setf (gethash 'bitfield-insert *functions*)
       "Name
 
 bitfieldInsert — insert a range of bits into an integer
@@ -1404,7 +1406,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'bitfield-reverse 'function)
+(setf (gethash 'bitfield-reverse *functions*)
       "Name
 
 bitfieldReverse — reverse the order of bits in an integer
@@ -1449,7 +1451,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'ceil 'function)
+(setf (gethash 'ceil *functions*)
       "Name
 
 ceil — find the nearest integer that is greater than or equal to the parameter
@@ -1494,7 +1496,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'clamp 'function)
+(setf (gethash 'clamp *functions*)
       "Name
 
 clamp — constrain a value to lie between two further values
@@ -1589,7 +1591,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'cos 'function)
+(setf (gethash 'cos *functions*)
       "Name
 
 cos — return the cosine of the parameter
@@ -1628,7 +1630,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'cosh 'function)
+(setf (gethash 'cosh *functions*)
       "Name
 
 cosh — return the hyperbolic cosine of the parameter
@@ -1668,7 +1670,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'cross 'function)
+(setf (gethash 'cross *functions*)
       "Name
 
 cross — calculate the cross product of two vectors
@@ -1721,7 +1723,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'd-fdx 'function)
+(setf (gethash 'd-fdx *functions*)
 "Name
 
 dFdx, dFdy — return the partial derivative of an argument with respect to x or
@@ -1807,9 +1809,9 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'd-fdy 'function) "")
+(setf (gethash 'd-fdy *functions*) "")
 
-(setf (documentation 'degrees 'function)
+(setf (gethash 'degrees *functions*)
 "Name
 
 degrees — convert a quantity in radians to degrees
@@ -1849,7 +1851,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'determinant 'function)
+(setf (gethash 'determinant *functions*)
 "Name
 
 determinant — calculate the determinant of a matrix
@@ -1910,7 +1912,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'distance 'function)
+(setf (gethash 'distance *functions*)
 "Name
 
 distance — calculate the distance between two points
@@ -1961,7 +1963,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'dot 'function)
+(setf (gethash 'dot *functions*)
 "Name
 
 dot — calculate the dot product of two vectors
@@ -2012,7 +2014,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'equal 'function)
+(setf (gethash 'equal *functions*)
 "Name
 
 equal — perform a component-wise equal-to comparison of two vectors
@@ -2067,7 +2069,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'exp 'function)
+(setf (gethash 'exp *functions*)
 "Name
 
 exp — return the natural exponentiation of the parameter
@@ -2106,7 +2108,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'exp2 'function)
+(setf (gethash 'exp2 *functions*)
 "Name
 
 exp2 — return 2 raised to the power of the parameter
@@ -2145,7 +2147,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'faceforward 'function)
+(setf (gethash 'faceforward *functions*)
 "Name
 
 faceforward — return a vector pointing in the same direction as another
@@ -2203,7 +2205,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'find-lsb 'function)
+(setf (gethash 'find-lsb *functions*)
 "Name
 
 findLSB — find the index of the least significant bit set to 1 in an integer
@@ -2247,7 +2249,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'find-msb 'function)
+(setf (gethash 'find-msb *functions*)
 "Name
 
 findMSB — find the index of the most significant bit set to 1 in an integer
@@ -2294,7 +2296,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'float-bits-to-int 'function)
+(setf (gethash 'float-bits-to-int *functions*)
 "Name
 
 floatBitsToInt — produce the encoding of a floating point value as an integer
@@ -2340,7 +2342,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'floor 'function)
+(setf (gethash 'floor *functions*)
 "Name
 
 floor — find the nearest integer less than or equal to the parameter
@@ -2385,7 +2387,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'fma 'function)
+(setf (gethash 'fma *functions*)
 "Name
 
 fma — perform a fused multiply-add operation
@@ -2453,7 +2455,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'fract 'function)
+(setf (gethash 'fract *functions*)
 "Name
 
 fract — compute the fractional part of the argument
@@ -2497,7 +2499,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'frexp 'function)
+(setf (gethash 'frexp *functions*)
 "Name
 
 frexp — split a floating point number
@@ -2556,7 +2558,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'fwidth 'function)
+(setf (gethash 'fwidth *functions*)
 "Name
 
 fwidth — return the sum of the absolute value of derivatives in x and y
@@ -2609,7 +2611,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'greater-than 'function)
+(setf (gethash 'greater-than *functions*)
 "Name
 
 greaterThan — perform a component-wise greater-than comparison of two vectors
@@ -2666,7 +2668,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'greater-than-equal 'function)
+(setf (gethash 'greater-than-equal *functions*)
 "Name
 
 greaterThanEqual — perform a component-wise greater-than-or-equal comparison of
@@ -2727,7 +2729,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'group-memory-barrier 'function)
+(setf (gethash 'group-memory-barrier *functions*)
 "Name
 
 groupMemoryBarrier — controls the ordering of memory transaction issued shader
@@ -2763,7 +2765,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-atomic-add 'function)
+(setf (gethash 'image-atomic-add *functions*)
 "Name
 
 imageAtomicAdd — atomically add a value to an existing value in memory and
@@ -2950,7 +2952,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-atomic-and 'function)
+(setf (gethash 'image-atomic-and *functions*)
 "Name
 
 imageAtomicAnd — atomically compute the logical AND of a value with an existing
@@ -3137,7 +3139,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-atomic-comp-swap 'function)
+(setf (gethash 'image-atomic-comp-swap *functions*)
 "Name
 
 imageAtomicCompSwap — atomically compares supplied data with that in memory and
@@ -3355,7 +3357,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-atomic-exchange 'function)
+(setf (gethash 'image-atomic-exchange *functions*)
 "Name
 
 imageAtomicExchange — atomically store supplied data into memory and return the
@@ -3613,7 +3615,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-atomic-max 'function)
+(setf (gethash 'image-atomic-max *functions*)
 "Name
 
 imageAtomicMax — atomically compute the minimum of a value with an existing
@@ -3802,7 +3804,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-atomic-min 'function)
+(setf (gethash 'image-atomic-min *functions*)
 "Name
 
 imageAtomicMin — atomically compute the minimum of a value with an existing
@@ -3991,7 +3993,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-atomic-or 'function)
+(setf (gethash 'image-atomic-or *functions*)
 "Name
 
 imageAtomicOr — atomically compute the logical OR of a value with an existing
@@ -4178,7 +4180,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-atomic-xor 'function)
+(setf (gethash 'image-atomic-xor *functions*)
 "Name
 
 imageAtomicXor — atomically compute the logical exclusive OR of a value with an
@@ -4365,7 +4367,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-load 'function)
+(setf (gethash 'image-load *functions*)
 "Name
 
 imageLoad — load a single texel from an image
@@ -4470,7 +4472,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-samples 'function)
+(setf (gethash 'image-samples *functions*)
 "Name
 
 imageSamples — return the number of samples of an image
@@ -4514,7 +4516,7 @@ Copyright © 2014 Khronos Group. This material may be distributed subject to the
 terms and conditions set forth in the Open Publication License, v 1.0, 8 June
 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-size 'function)
+(setf (gethash 'image-size *functions*)
 "Name
 
 imageSize — retrieve the dimensions of an image
@@ -4597,7 +4599,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'image-store 'function)
+(setf (gethash 'image-store *functions*)
 "Name
 
 imageStore — write a single texel into an image
@@ -4717,7 +4719,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'int-bits-to-float 'function)
+(setf (gethash 'int-bits-to-float *functions*)
 "Name
 
 intBitsToFloat, uintBitsToFloat — produce a floating point using an encoding
@@ -4765,7 +4767,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'interpolate-at-centroid 'function)
+(setf (gethash 'interpolate-at-centroid *functions*)
 "Name
 
 interpolateAtCentroid — sample a varying at the centroid of a pixel
@@ -4819,7 +4821,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'interpolate-at-offset 'function)
+(setf (gethash 'interpolate-at-offset *functions*)
 "Name
 
 interpolateAtOffset — sample a varying at specified offset from the center of a
@@ -4885,7 +4887,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'interpolate-at-sample 'function)
+(setf (gethash 'interpolate-at-sample *functions*)
 "Name
 
 interpolateAtSample — sample a varying at the location of a specified sample
@@ -4949,7 +4951,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'inverse 'function)
+(setf (gethash 'inverse *functions*)
 "Name
 
 inverse — calculate the inverse of a matrix
@@ -5010,7 +5012,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'inversesqrt 'function)
+(setf (gethash 'inversesqrt *functions*)
 "Name
 
 inversesqrt — return the inverse of the square root of the parameter
@@ -5056,7 +5058,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'isinf 'function)
+(setf (gethash 'isinf *functions*)
 "Name
 
 isinf — determine whether the parameter is positive or negative infinity
@@ -5101,7 +5103,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'isnan 'function)
+(setf (gethash 'isnan *functions*)
 "Name
 
 isnan — determine whether the parameter is a number
@@ -5146,7 +5148,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'ldexp 'function)
+(setf (gethash 'ldexp *functions*)
 "Name
 
 ldexp — assemble a floating point number from a value and exponent
@@ -5202,7 +5204,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'length 'function)
+(setf (gethash 'length *functions*)
 "Name
 
 length — calculate the length of a vector
@@ -5246,7 +5248,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'less-than 'function)
+(setf (gethash 'less-than *functions*)
 "Name
 
 lessThan — perform a component-wise less-than comparison of two vectors
@@ -5303,7 +5305,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'less-than-equal 'function)
+(setf (gethash 'less-than-equal *functions*)
 "Name
 
 lessThanEqual — perform a component-wise less-than-or-equal comparison of two
@@ -5363,7 +5365,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'log 'function)
+(setf (gethash 'log *functions*)
 "Name
 
 log — return the natural logarithm of the parameter
@@ -5402,7 +5404,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'log2 'function)
+(setf (gethash 'log2 *functions*)
 "Name
 
 log2 — return the base 2 logarithm of the parameter
@@ -5442,7 +5444,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'matrix-comp-mult 'function)
+(setf (gethash 'matrix-comp-mult *functions*)
 "Name
 
 matrixCompMult — perform a component-wise multiplication of two matrices
@@ -5496,7 +5498,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'max 'function)
+(setf (gethash 'max *functions*)
 "Name
 
 max — return the greater of two values
@@ -5579,7 +5581,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'memory-barrier 'function)
+(setf (gethash 'memory-barrier *functions*)
 "Name
 
 memoryBarrier — controls the ordering of memory transactions issued by a single
@@ -5625,7 +5627,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'memory-barrier-atomic-counter 'function)
+(setf (gethash 'memory-barrier-atomic-counter *functions*)
 "Name
 
 memoryBarrierAtomicCounter — controls the ordering of operations on atomic
@@ -5667,7 +5669,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'memory-barrier-buffer 'function)
+(setf (gethash 'memory-barrier-buffer *functions*)
 "Name
 
 memoryBarrierBuffer — controls the ordering of operations on buffer variables
@@ -5709,7 +5711,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'memory-barrier-image 'function)
+(setf (gethash 'memory-barrier-image *functions*)
 "Name
 
 memoryBarrierImage — controls the ordering of operations on image variables
@@ -5751,7 +5753,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'memory-barrier-shared 'function)
+(setf (gethash 'memory-barrier-shared *functions*)
 "Name
 
 memoryBarrierShared — controls the ordering of operations on shared variables
@@ -5795,7 +5797,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'min 'function)
+(setf (gethash 'min *functions*)
 "Name
 
 min — return the lesser of two values
@@ -5878,7 +5880,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'mix 'function)
+(setf (gethash 'mix *functions*)
 "Name
 
 mix — linearly interpolate between two values
@@ -5987,7 +5989,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'mod 'function)
+(setf (gethash 'mod *functions*)
 "Name
 
 mod — compute value of one parameter modulo another
@@ -6043,7 +6045,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'modf 'function)
+(setf (gethash 'modf *functions*)
 "Name
 
 modf — separate a value into its integer and fractional components
@@ -6095,7 +6097,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'normalize 'function)
+(setf (gethash 'normalize *functions*)
 "Name
 
 normalize — calculate the normalize product of two vectors
@@ -6141,7 +6143,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'not 'function)
+(setf (gethash 'not *functions*)
 "Name
 
 not — logically invert a boolean vector
@@ -6181,7 +6183,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'not-equal 'function)
+(setf (gethash 'not-equal *functions*)
 "Name
 
 notEqual — perform a component-wise not-equal-to comparison of two vectors
@@ -6238,7 +6240,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'outer-product 'function)
+(setf (gethash 'outer-product *functions*)
 "Name
 
 outerProduct — calculate the outer product of a pair of vectors
@@ -6373,7 +6375,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'pack-double2x32 'function)
+(setf (gethash 'pack-double2x32 *functions*)
 "Name
 
 packDouble2x32 — create a double-precision value from a pair of unsigned
@@ -6419,7 +6421,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'pack-half2x16 'function)
+(setf (gethash 'pack-half2x16 *functions*)
 "Name
 
 packHalf2x16 — convert two 32-bit floating-point quantities to 16-bit
@@ -6465,7 +6467,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'pow 'function)
+(setf (gethash 'pow *functions*)
 "Name
 
 pow — return the value of the first parameter raised to the power of the second
@@ -6510,7 +6512,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'radians 'function)
+(setf (gethash 'radians *functions*)
 "Name
 
 radians — convert a quantity in degrees to radians
@@ -6550,7 +6552,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'reflect 'function)
+(setf (gethash 'reflect *functions*)
 "Name
 
 reflect — calculate the reflection direction for an incident vector
@@ -6603,7 +6605,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'refract 'function)
+(setf (gethash 'refract *functions*)
 "Name
 
 refract — calculate the refraction direction for an incident vector
@@ -6671,7 +6673,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'round 'function)
+(setf (gethash 'round *functions*)
 "Name
 
 round — find the nearest integer less than or equal to the parameter
@@ -6718,7 +6720,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'round-even 'function)
+(setf (gethash 'round-even *functions*)
 "Name
 
 roundEven — find the nearest even integer to the parameter
@@ -6765,7 +6767,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'sign 'function)
+(setf (gethash 'sign *functions*)
 "Name
 
 sign — extract the sign of the parameter
@@ -6815,7 +6817,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'sin 'function)
+(setf (gethash 'sin *functions*)
 "Name
 
 sin — return the sine of the parameter
@@ -6854,7 +6856,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'sinh 'function)
+(setf (gethash 'sinh *functions*)
 "Name
 
 sinh — return the hyperbolic sine of the parameter
@@ -6894,7 +6896,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'smoothstep 'function)
+(setf (gethash 'smoothstep *functions*)
 "Name
 
 smoothstep — perform Hermite interpolation between two values
@@ -6971,7 +6973,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'sqrt 'function)
+(setf (gethash 'sqrt *functions*)
 "Name
 
 sqrt — return the square root of the parameter
@@ -7016,7 +7018,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'step 'function)
+(setf (gethash 'step *functions*)
 "Name
 
 step — generate a step function by comparing two values
@@ -7079,7 +7081,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'tan 'function)
+(setf (gethash 'tan *functions*)
 "Name
 
 tan — return the tangent of the parameter
@@ -7118,7 +7120,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'tanh 'function)
+(setf (gethash 'tanh *functions*)
 "Name
 
 tanh — return the hyperbolic tangent of the parameter
@@ -7158,7 +7160,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texel-fetch 'function)
+(setf (gethash 'texel-fetch *functions*)
 "Name
 
 texelFetch — perform a lookup of a single texel within a texture
@@ -7273,7 +7275,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texel-fetch-offset 'function)
+(setf (gethash 'texel-fetch-offset *functions*)
 "Name
 
 texelFetchOffset — perform a lookup of a single texel within a texture with an
@@ -7379,7 +7381,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture 'function)
+(setf (gethash 'texture *functions*)
 "Name
 
 texture — retrieves texels from a texture
@@ -7539,7 +7541,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-gather 'function)
+(setf (gethash 'texture-gather *functions*)
 "Name
 
 textureGather — gathers four texels from a texture
@@ -7663,7 +7665,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-gather-offset 'function)
+(setf (gethash 'texture-gather-offset *functions*)
 "Name
 
 textureGatherOffset — gathers four texels from a texture with offset
@@ -7778,7 +7780,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-gather-offsets 'function)
+(setf (gethash 'texture-gather-offsets *functions*)
 "Name
 
 textureGatherOffsets — gathers four texels from a texture with an array of
@@ -7883,7 +7885,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-grad 'function)
+(setf (gethash 'texture-grad *functions*)
 "Name
 
 textureGrad — perform a texture lookup with explicit gradients
@@ -8042,7 +8044,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-grad-offset 'function)
+(setf (gethash 'texture-grad-offset *functions*)
 "Name
 
 textureGradOffset — perform a texture lookup with explicit gradients and offset
@@ -8192,7 +8194,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-lod 'function)
+(setf (gethash 'texture-lod *functions*)
 "Name
 
 textureLod — perform a texture lookup with explicit level-of-detail
@@ -8309,7 +8311,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-lod-offset 'function)
+(setf (gethash 'texture-lod-offset *functions*)
 "Name
 
 textureLodOffset — perform a texture lookup with explicit level-of-detail and
@@ -8424,7 +8426,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-offset 'function)
+(setf (gethash 'texture-offset *functions*)
 "Name
 
 textureOffset — perform a texture lookup with offset
@@ -8558,7 +8560,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-proj 'function)
+(setf (gethash 'texture-proj *functions*)
 "Name
 
 textureProj — perform a texture lookup with projection
@@ -8671,7 +8673,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-proj-grad 'function)
+(setf (gethash 'texture-proj-grad *functions*)
 "Name
 
 textureProjGrad — perform a texture lookup with projection and explicit
@@ -8802,7 +8804,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-proj-grad-offset 'function)
+(setf (gethash 'texture-proj-grad-offset *functions*)
 "Name
 
 textureProjGradOffset — perform a texture lookup with projection, explicit
@@ -8947,7 +8949,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-proj-lod 'function)
+(setf (gethash 'texture-proj-lod *functions*)
 "Name
 
 textureProjLod — perform a texture lookup with projection and explicit
@@ -9043,7 +9045,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-proj-lod-offset 'function)
+(setf (gethash 'texture-proj-lod-offset *functions*)
 "Name
 
 textureProjLodOffset — perform a texture lookup with projection and explicit
@@ -9153,7 +9155,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-proj-offset 'function)
+(setf (gethash 'texture-proj-offset *functions*)
 "Name
 
 textureProjOffset — perform a texture lookup with projection and offset
@@ -9281,7 +9283,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-query-levels 'function)
+(setf (gethash 'texture-query-levels *functions*)
 "Name
 
 textureQueryLevels — compute the number of accessible mipmap levels of a
@@ -9378,7 +9380,7 @@ Copyright © 2012-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-query-lod 'function)
+(setf (gethash 'texture-query-lod *functions*)
 "Name
 
 textureQueryLod — compute the level-of-detail that would be used to sample from
@@ -9495,7 +9497,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-samples 'function)
+(setf (gethash 'texture-samples *functions*)
 "Name
 
 textureSamples — return the number of samples of a texture
@@ -9539,7 +9541,7 @@ Copyright © 2014 Khronos Group. This material may be distributed subject to the
 terms and conditions set forth in the Open Publication License, v 1.0, 8 June
 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'texture-size 'function)
+(setf (gethash 'texture-size *functions*)
 "Name
 
 textureSize — retrieve the dimensions of a level of a texture
@@ -9677,7 +9679,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'transpose 'function)
+(setf (gethash 'transpose *functions*)
 "Name
 
 transpose — calculate the transpose of a matrix
@@ -9785,7 +9787,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'trunc 'function)
+(setf (gethash 'trunc *functions*)
 "Name
 
 trunc — find the nearest integer less than or equal to the parameter
@@ -9830,7 +9832,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'uadd-carry 'function)
+(setf (gethash 'uadd-carry *functions*)
 "Name
 
 uaddCarry — add unsigned integers and generate carry
@@ -9882,7 +9884,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'umul-extended 'function)
+(setf (gethash 'umul-extended *functions*)
 "Name
 
 umulExtended — perform a 32- by 32-bit multiply to produce a 64-bit result
@@ -9948,7 +9950,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'unpack-double2x32 'function)
+(setf (gethash 'unpack-double2x32 *functions*)
 "Name
 
 unpackDouble2x32 — produce two unsigned integers containing the bit encoding of
@@ -9991,7 +9993,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'unpack-half2x16 'function)
+(setf (gethash 'unpack-half2x16 *functions*)
 "Name
 
 unpackHalf2x16 — convert two 16-bit floating-point values packed into a single
@@ -10037,7 +10039,7 @@ Copyright © 2011-2014 Khronos Group. This material may be distributed subject
 to the terms and conditions set forth in the Open Publication License, v 1.0, 8
 June 1999. http://opencontent.org/openpub/.")
 
-(setf (documentation 'usub-borrow 'function)
+(setf (gethash 'usub-borrow *functions*)
 "Name
 
 usubBorrow — subtract unsigned integers and generate borrow
