@@ -1,9 +1,12 @@
 Deprecations & Removals
 
+glsl-spec was based on the gl docs and a bunch of old things are missing
+from there which means a bunch of these symbols are not in glsl-spec (or
+the initial versions are wrong. It would be nice to fix this some day)
+
 # 130
 
 ## Deprecated
-• ftransform(..)
 • gl_BackColor
 • gl_BackLightModelProduct
 • gl_BackLightProduct[gl_MaxLights]
@@ -67,6 +70,7 @@ Deprecations & Removals
 • gl_TextureMatrixTranspose[gl_MaxTextureCoords]
 • gl_TextureMatrix[gl_MaxTextureCoords]
 • gl_Vertex
+• ftransform(..)
 • texture1D(..)
 • texture1DLod(..)
 • texture1DProj(..)
