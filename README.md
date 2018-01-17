@@ -37,3 +37,7 @@ If you would like to contribute, please do so to the s-expression versions. Don'
 That's it folks, thanks for checking this out and I truly hope this helps you somehow.
 
 Happy Coding!
+
+## CHANGELOG
+
+- 2018-17-01: Version are now keywords in lisp & strings in json. 430 is compatibility profile & 430-CORE is core profile

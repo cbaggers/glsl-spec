@@ -49,13 +49,13 @@
                          glsl-spec:*functions*)))
          (pkgs `((uiop:define-package #:glsl-symbols.types
                      (:use #:cl)
-                   (:export ,@types))
+                   (:export ,@(sort types #'string<)))
                  (uiop:define-package #:glsl-symbols.variables
                      (:use #:cl)
-                   (:export ,@vars))
+                   (:export ,@(sort vars #'string<)))
                  (uiop:define-package #:glsl-symbols.functions
                      (:use #:cl)
-                   (:export ,@funcs))
+                   (:export ,@(sort funcs #'string<)))
                  (uiop:define-package #:glsl-symbols
                      (:use #:cl
                            #:glsl-symbols.types
