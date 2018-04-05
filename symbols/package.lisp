@@ -141,8 +141,8 @@
                               :UNPACK-UNORM4X8 :USUB-BORROW))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.OPERATORS (:USE #:CL)
-                             (:EXPORT :! :% :& :&& :* :+ :- :/ :/= :< :<< :<=
-                              := :> :>= :>> :^ :^^ :|\|| :|\|\|| :~))
+                             (:EXPORT :! :% :& :&& :* :+ :++ :- :-- :/ :/= :<
+                              :<< :<= := :> :>= :>> :^ :^^ :|\|| :|\|\|| :~))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS
                              (:USE #:CL #:GLSL-SYMBOLS.TYPES
