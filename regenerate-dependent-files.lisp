@@ -19,6 +19,7 @@
 
 (defun regen-json-files ()
   (export-data-to-json glsl-spec:*functions* "functions.json")
+  (export-data-to-json glsl-spec:*operators* "operators.json")
   (export-data-to-json glsl-spec:*variables* "variables.json"))
 
 ;;------------------------------
@@ -47,6 +48,13 @@
                                  (intern lisp-name :keyword)
                                  (error "bummer"))))
                          glsl-spec:*functions*)))
+         (ops (remove-duplicates
+               (mapcar (lambda (x)
+                         (destructuring-bind (&key lisp-name &allow-other-keys) x
+                           (if lisp-name
+                               (intern lisp-name :keyword)
+                               (error "bummer"))))
+                       glsl-spec:*operators*)))
          (pkgs `((uiop:define-package #:glsl-symbols.types
                      (:use #:cl)
                    (:export ,@(sort types #'string<)))
@@ -54,6 +62,9 @@
                      (:use #:cl)
                    (:export ,@(sort vars #'string<)))
                  (uiop:define-package #:glsl-symbols.functions
+                     (:use #:cl)
+                   (:export ,@(sort funcs #'string<)))
+                 (uiop:define-package #:glsl-symbols.operators
                      (:use #:cl)
                    (:export ,@(sort funcs #'string<)))
                  (uiop:define-package #:glsl-symbols
