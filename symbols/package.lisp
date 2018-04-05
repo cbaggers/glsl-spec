@@ -82,6 +82,10 @@
                               :GL-WORK-GROUP-ID :GL-WORK-GROUP-SIZE))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.FUNCTIONS (:USE #:CL)
+                             (:EXPORT :% :& :&& :* :+ :- :/ :/= :< :<< :<= :=
+                              :> :>= :>> :^ :^^ :|\|| :|\|\||))
+
+(UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.OPERATORS (:USE #:CL)
                              (:EXPORT :ABS :ACOS :ACOSH :ALL :ALL-INVOCATION
                               :ANY :ANY-INVOCATION :ANY-INVOCATIONS-EQUAL :ASIN
                               :ASINH :ATAN :ATANH :ATOMIC-ADD :ATOMIC-AND
@@ -100,48 +104,6 @@
                               :D-FDX :D-FDX-COARSE :D-FDX-FINE :D-FDY
                               :D-FDY-COARSE :D-FDY-FINE :DEGREES :DETERMINANT
                               :DISTANCE :DOT :EMIT-STREAM-VERTEX :EMIT-VERTEX
-                              :END-PRIMITIVE :END-STREAM-PRIMITIVE :EQUAL :EXP
-                              :EXP2 :FACEFORWARD :FIND-LSB :FIND-MSB
-                              :FLOAT-BITS-TO-INT :FLOAT-BITS-TO-UINT :FLOOR
-                              :FMA :FRACT :FREXP :FWIDTH :FWIDTH-COARSE
-                              :FWIDTH-FINE :GREATER-THAN :GREATER-THAN-EQUAL
-                              :GROUP-MEMORY-BARRIER :IMAGE-ATOMIC-ADD
-                              :IMAGE-ATOMIC-AND :IMAGE-ATOMIC-COMP-SWAP
-                              :IMAGE-ATOMIC-EXCHANGE :IMAGE-ATOMIC-MAX
-                              :IMAGE-ATOMIC-MIN :IMAGE-ATOMIC-OR
-                              :IMAGE-ATOMIC-XOR :IMAGE-LOAD :IMAGE-SAMPLES
-                              :IMAGE-SIZE :IMAGE-STORE :IMUL-EXTENDED
-                              :INT-BITS-TO-FLOAT :INTERPOLATE-AT-CENTROID
-                              :INTERPOLATE-AT-OFFSET :INTERPOLATE-AT-SAMPLE
-                              :INVERSE :INVERSESQRT :ISINF :ISNAN :LDEXP
-                              :LENGTH :LESS-THAN :LESS-THAN-EQUAL :LOG :LOG2
-                              :MATRIX-COMP-MULT :MAX :MEMORY-BARRIER
-                              :MEMORY-BARRIER-ATOMIC-COUNTER
-                              :MEMORY-BARRIER-BUFFER :MEMORY-BARRIER-IMAGE
-                              :MEMORY-BARRIER-SHARED :MIN :MIX :MOD :MODF
-                              :NOISE1 :NOISE2 :NOISE3 :NOISE4 :NORMALIZE :NOT
-                              :NOT-EQUAL :OUTER-PRODUCT :PACK-DOUBLE2X32
-                              :PACK-HALF2X16 :PACK-SNORM2X16 :PACK-SNORM4X8
-                              :PACK-UNORM2X16 :PACK-UNORM4X8 :POW :RADIANS
-                              :REFLECT :REFRACT :ROUND :ROUND-EVEN :SIGN :SIN
-                              :SINH :SMOOTHSTEP :SQRT :STEP :TAN :TANH
-                              :TEXEL-FETCH :TEXEL-FETCH-OFFSET :TEXTURE
-                              :TEXTURE-GATHER :TEXTURE-GATHER-OFFSET
-                              :TEXTURE-GATHER-OFFSETS :TEXTURE-GRAD
-                              :TEXTURE-GRAD-OFFSET :TEXTURE-LOD
-                              :TEXTURE-LOD-OFFSET :TEXTURE-OFFSET :TEXTURE-PROJ
-                              :TEXTURE-PROJ-GRAD :TEXTURE-PROJ-GRAD-OFFSET
-                              :TEXTURE-PROJ-LOD :TEXTURE-PROJ-LOD-OFFSET
-                              :TEXTURE-PROJ-OFFSET :TEXTURE-QUERY-LEVELS
-                              :TEXTURE-QUERY-LOD :TEXTURE-SAMPLES :TEXTURE-SIZE
-                              :TRANSPOSE :TRUNC :UADD-CARRY :UINT-BITS-TO-FLOAT
-                              :UMUL-EXTENDED :UNPACK-DOUBLE2X32
-                              :UNPACK-HALF2X16 :UNPACK-SNORM2X16
-                              :UNPACK-SNORM4X8 :UNPACK-UNORM2X16
-                              :UNPACK-UNORM4X8 :USUB-BORROW))
-
-(UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.OPERATORS (:USE #:CL)
-                             (:EXPORT :EMIT-STREAM-VERTEX :EMIT-VERTEX
                               :END-PRIMITIVE :END-STREAM-PRIMITIVE :EQUAL :EXP
                               :EXP2 :FACEFORWARD :FIND-LSB :FIND-MSB
                               :FLOAT-BITS-TO-INT :FLOAT-BITS-TO-UINT :FLOOR
