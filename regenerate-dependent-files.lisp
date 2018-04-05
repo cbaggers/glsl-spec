@@ -71,10 +71,12 @@
                      (:use #:cl
                            #:glsl-symbols.types
                            #:glsl-symbols.variables
-                           #:glsl-symbols.functions)
+                           #:glsl-symbols.functions
+                           #:glsl-symbols.operators)
                    (:reexport #:glsl-symbols.types
                               #:glsl-symbols.variables
-                              #:glsl-symbols.functions)))))
+                              #:glsl-symbols.functions
+                              #:glsl-symbols.operators)))))
     (with-open-file (x (asdf:system-relative-pathname
                         :glsl-spec "./symbols/package.lisp")
                        :direction :output :if-exists :supersede)

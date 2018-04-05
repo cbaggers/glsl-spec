@@ -141,13 +141,13 @@
                               :UNPACK-UNORM4X8 :USUB-BORROW))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.OPERATORS (:USE #:CL)
-                             (:EXPORT :% :& :&& :* :+ :- :/ :/= :< :<< :<= :=
-                              :> :>= :>> :^ :^^ :|\|| :|\|\||))
+                             (:EXPORT :! :% :& :&& :* :+ :- :/ :/= :< :<< :<=
+                              := :> :>= :>> :^ :^^ :|\|| :|\|\|| :~))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS
                              (:USE #:CL #:GLSL-SYMBOLS.TYPES
-                              #:GLSL-SYMBOLS.VARIABLES
-                              #:GLSL-SYMBOLS.FUNCTIONS)
+                              #:GLSL-SYMBOLS.VARIABLES #:GLSL-SYMBOLS.FUNCTIONS
+                              #:GLSL-SYMBOLS.OPERATORS)
                              (:REEXPORT #:GLSL-SYMBOLS.TYPES
-                              #:GLSL-SYMBOLS.VARIABLES
-                              #:GLSL-SYMBOLS.FUNCTIONS))
+                              #:GLSL-SYMBOLS.VARIABLES #:GLSL-SYMBOLS.FUNCTIONS
+                              #:GLSL-SYMBOLS.OPERATORS))
