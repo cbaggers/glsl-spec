@@ -63,10 +63,10 @@
                    (:export ,@(sort vars #'string<)))
                  (uiop:define-package #:glsl-symbols.functions
                      (:use #:cl)
-                   (:export ,@(sort ops #'string<)))
+                   (:export ,@(sort funcs #'string<)))
                  (uiop:define-package #:glsl-symbols.operators
                      (:use #:cl)
-                   (:export ,@(sort funcs #'string<)))
+                   (:export ,@(sort ops #'string<)))
                  (uiop:define-package #:glsl-symbols
                      (:use #:cl
                            #:glsl-symbols.types

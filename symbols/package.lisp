@@ -82,10 +82,6 @@
                               :GL-WORK-GROUP-ID :GL-WORK-GROUP-SIZE))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.FUNCTIONS (:USE #:CL)
-                             (:EXPORT :% :& :&& :* :+ :- :/ :/= :< :<< :<= :=
-                              :> :>= :>> :^ :^^ :|\|| :|\|\||))
-
-(UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.OPERATORS (:USE #:CL)
                              (:EXPORT :ABS :ACOS :ACOSH :ALL :ALL-INVOCATION
                               :ANY :ANY-INVOCATION :ANY-INVOCATIONS-EQUAL :ASIN
                               :ASINH :ATAN :ATANH :ATOMIC-ADD :ATOMIC-AND
@@ -143,6 +139,10 @@
                               :UNPACK-HALF2X16 :UNPACK-SNORM2X16
                               :UNPACK-SNORM4X8 :UNPACK-UNORM2X16
                               :UNPACK-UNORM4X8 :USUB-BORROW))
+
+(UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.OPERATORS (:USE #:CL)
+                             (:EXPORT :% :& :&& :* :+ :- :/ :/= :< :<< :<= :=
+                              :> :>= :>> :^ :^^ :|\|| :|\|\||))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS
                              (:USE #:CL #:GLSL-SYMBOLS.TYPES
