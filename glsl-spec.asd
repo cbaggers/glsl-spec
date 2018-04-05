@@ -7,4 +7,5 @@
   :serial t
   :components ((:file "package")
                (:file "functions")
-               (:file "variables")))
+               (:file "variables")
+               (:file "operators")))
