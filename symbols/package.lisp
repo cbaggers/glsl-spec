@@ -3,9 +3,10 @@
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.TYPES (:USE #:CL)
                              (:EXPORT :ATOMIC-UINT :BOOL :BUFFER-IMAGE :BVEC2
                               :BVEC3 :BVEC4 :DEPTH-RANGE-PARAMETERS :DMAT2
-                              :DMAT2X3 :DMAT2X4 :DMAT3 :DMAT3X2 :DMAT3X4 :DMAT4
-                              :DMAT4X2 :DMAT4X3 :DOUBLE :DVEC2 :DVEC3 :DVEC4
-                              :FLOAT :IBUFFER-IMAGE :IIMAGE-1D :IIMAGE-1D-ARRAY
+                              :DMAT2X2 :DMAT2X3 :DMAT2X4 :DMAT3 :DMAT3X2
+                              :DMAT3X3 :DMAT3X4 :DMAT4 :DMAT4X2 :DMAT4X3
+                              :DMAT4X4 :DOUBLE :DVEC2 :DVEC3 :DVEC4 :FLOAT
+                              :IBUFFER-IMAGE :IIMAGE-1D :IIMAGE-1D-ARRAY
                               :IIMAGE-2D :IIMAGE-2D-ARRAY :IIMAGE-2D-MS
                               :IIMAGE-2D-MS-ARRAY :IIMAGE-2D-RECT :IIMAGE-3D
                               :IIMAGE-BUFFER :IIMAGE-CUBE :IIMAGE-CUBE-ARRAY
