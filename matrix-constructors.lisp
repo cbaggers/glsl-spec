@@ -1,0 +1,226 @@
+(in-package :glsl-spec)
+
+;; Currently we only have fully specified and single scalar versions of the
+;; constructors. There are just too many permutations for it to be sensible
+;; to put the rest here right now.
+
+(defparameter *matrix-constructors*
+  '(;; Standard
+
+    (:LISP-NAME "MAT2" :NAME "mat2" :RETURN "mat2"
+     :ARGS (("a" "float") ("b" "float")
+            ("c" "float") ("d" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "MAT2X2" :NAME "mat2x2" :RETURN "mat2x2"
+     :ARGS (("a" "float") ("b" "float")
+            ("c" "float") ("d" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "MAT3" :NAME "mat3" :RETURN "mat3"
+     :ARGS (("a" "float") ("b" "float") ("c" "float")
+            ("d" "float") ("e" "float") ("f" "float")
+            ("g" "float") ("h" "float") ("i" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "MAT3X3" :NAME "mat3x3" :RETURN "mat3x3"
+     :ARGS (("a" "float") ("b" "float") ("c" "float")
+            ("d" "float") ("e" "float") ("f" "float")
+            ("g" "float") ("h" "float") ("i" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "MAT4" :NAME "mat4" :RETURN "mat4"
+     :ARGS (("a" "float") ("b" "float") ("c" "float") ("d" "float")
+            ("e" "float") ("f" "float") ("g" "float") ("h" "float")
+            ("i" "float") ("j" "float") ("k" "float") ("l" "float")
+            ("m" "float") ("n" "float") ("o" "float") ("p" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "MAT4X4" :NAME "mat4x4" :RETURN "mat4x4"
+     :ARGS (("a" "float") ("b" "float") ("c" "float") ("d" "float")
+            ("e" "float") ("f" "float") ("g" "float") ("h" "float")
+            ("i" "float") ("j" "float") ("k" "float") ("l" "float")
+            ("m" "float") ("n" "float") ("o" "float") ("p" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT2" :NAME "dmat2" :RETURN "dmat2"
+     :ARGS (("a" "float") ("b" "float")
+            ("c" "float") ("d" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT2X2" :NAME "dmat2x2" :RETURN "dmat2x2"
+     :ARGS (("a" "float") ("b" "float")
+            ("c" "float") ("d" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT3" :NAME "dmat3" :RETURN "dmat3"
+     :ARGS (("a" "float") ("b" "float") ("c" "float")
+            ("d" "float") ("e" "float") ("f" "float")
+            ("g" "float") ("h" "float") ("i" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT3X3" :NAME "dmat3x3" :RETURN "dmat3x3"
+     :ARGS (("a" "float") ("b" "float") ("c" "float")
+            ("d" "float") ("e" "float") ("f" "float")
+            ("g" "float") ("h" "float") ("i" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT4" :NAME "dmat4" :RETURN "dmat4"
+     :ARGS (("a" "float") ("b" "float") ("c" "float") ("d" "float")
+            ("e" "float") ("f" "float") ("g" "float") ("h" "float")
+            ("i" "float") ("j" "float") ("k" "float") ("l" "float")
+            ("m" "float") ("n" "float") ("o" "float") ("p" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT4X4" :NAME "dmat4x4" :RETURN "dmat4x4"
+     :ARGS (("a" "float") ("b" "float") ("c" "float") ("d" "float")
+            ("e" "float") ("f" "float") ("g" "float") ("h" "float")
+            ("i" "float") ("j" "float") ("k" "float") ("l" "float")
+            ("m" "float") ("n" "float") ("o" "float") ("p" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    ;; Single scalar
+
+    (:LISP-NAME "MAT2" :NAME "mat2" :RETURN "mat2"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "MAT2X2" :NAME "mat2x2" :RETURN "mat2x2"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "MAT3" :NAME "mat3" :RETURN "mat3"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "MAT3X3" :NAME "mat3x3" :RETURN "mat3x3"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "MAT4" :NAME "mat4" :RETURN "mat4"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "MAT4X4" :NAME "mat4x4" :RETURN "mat4x4"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT2" :NAME "dmat2" :RETURN "dmat2"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT2X2" :NAME "dmat2x2" :RETURN "dmat2x2"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT3" :NAME "dmat3" :RETURN "dmat3"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT3X3" :NAME "dmat3x3" :RETURN "dmat3x3"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT4" :NAME "dmat4" :RETURN "dmat4"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+
+    (:LISP-NAME "DMAT4X4" :NAME "dmat4x4" :RETURN "dmat4x4"
+     :ARGS (("a" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)))

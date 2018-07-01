@@ -8,4 +8,6 @@
   :components ((:file "package")
                (:file "functions")
                (:file "variables")
-               (:file "operators")))
+               (:file "operators")
+               (:file "vector-constructors")
+               (:file "matrix-constructors")))

@@ -4,4 +4,6 @@
   (:use #:cl)
   (:export :*functions*
            :*variables*
-           :*operators*))
+           :*operators*
+           :*vector-constructors*
+           :*matrix-constructors*))

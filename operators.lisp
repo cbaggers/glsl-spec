@@ -1,7 +1,7 @@
 (in-package :glsl-spec)
 
-;; - Pre provide only the operators that wont be handled by implicit casts
-;; - we dont provide array equality functions as these need to take explicitly sized arrays, which will have to be checked by the compiler
+;; - We provide only the operators that wont be handled by implicit casts
+;; - We dont provide array equality functions as these need to take explicitly sized arrays, which will have to be checked by the compiler
 
 (defparameter *operators*
   '((:LISP-NAME "+" :NAME "+" :RETURN "int" :ARGS (("a" "int") ("b" "int")) :VERSIONS (:110 :120 :130 :140 :150 :330 :400 :410 :420 :430 :440 :450 :460 :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE) :PURE T)

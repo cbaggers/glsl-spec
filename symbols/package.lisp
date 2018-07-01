@@ -144,6 +144,16 @@
                              (:EXPORT :! :% :& :&& :* :+ :++ :- :-- :/ :/= :<
                               :<< :<= := :> :>= :>> :^ :^^ :|\|| :|\|\|| :~))
 
+(UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.VECTOR-CONSTRUCTORS (:USE #:CL)
+                             (:EXPORT :BVEC2 :BVEC3 :BVEC4 :DVEC2 :DVEC3 :DVEC4
+                              :IVEC2 :IVEC3 :IVEC4 :UVEC2 :UVEC3 :UVEC4 :VEC2
+                              :VEC3 :VEC4))
+
+(UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.MATRIX-CONSTRUCTORS (:USE #:CL)
+                             (:EXPORT :DMAT2 :DMAT2X2 :DMAT3 :DMAT3X3 :DMAT4
+                              :DMAT4X4 :MAT2 :MAT2X2 :MAT3 :MAT3X3 :MAT4
+                              :MAT4X4))
+
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS
                              (:USE #:CL #:GLSL-SYMBOLS.TYPES
                               #:GLSL-SYMBOLS.VARIABLES #:GLSL-SYMBOLS.FUNCTIONS
