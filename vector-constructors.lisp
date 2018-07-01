@@ -317,6 +317,20 @@
                 :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
                 :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
      :PURE T)
+    (:LISP-NAME "VEC4" :NAME "vec4" :RETURN "vec4"
+     :ARGS (("a" "vec3") ("b" "float"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+    (:LISP-NAME "VEC4" :NAME "vec4" :RETURN "vec4"
+     :ARGS (("a" "float") ("b" "vec3"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
 
     (:LISP-NAME "IVEC4" :NAME "ivec4" :RETURN "ivec4"
      :ARGS (("x" "int") ("y" "int") ("r" "ivec2"))
@@ -341,6 +355,20 @@
      :PURE T)
     (:LISP-NAME "IVEC4" :NAME "ivec4" :RETURN "ivec4"
      :ARGS (("a" "ivec2") ("b" "ivec2"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+    (:LISP-NAME "IVEC4" :NAME "ivec4" :RETURN "ivec4"
+     :ARGS (("a" "ivec3") ("b" "int"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+    (:LISP-NAME "IVEC4" :NAME "ivec4" :RETURN "ivec4"
+     :ARGS (("a" "int") ("b" "ivec3"))
      :VERSIONS (:110 :120 :130 :140 :150 :330
                 :400 :410 :420 :430 :440 :450 :460
                 :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
@@ -375,6 +403,20 @@
                 :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
                 :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
      :PURE T)
+    (:LISP-NAME "UVEC4" :NAME "uvec4" :RETURN "uvec4"
+     :ARGS (("a" "uvec3") ("b" "uint"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+    (:LISP-NAME "UVEC4" :NAME "uvec4" :RETURN "uvec4"
+     :ARGS (("a" "uint") ("b" "uvec3"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
 
     (:LISP-NAME "BVEC4" :NAME "bvec4" :RETURN "bvec4"
      :ARGS (("x" "bool") ("y" "bool") ("r" "bvec2"))
@@ -404,6 +446,20 @@
                 :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
                 :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
      :PURE T)
+    (:LISP-NAME "BVEC4" :NAME "bvec4" :RETURN "bvec4"
+     :ARGS (("a" "bvec3") ("b" "bool"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+    (:LISP-NAME "BVEC4" :NAME "bvec4" :RETURN "bvec4"
+     :ARGS (("a" "bool") ("b" "bvec3"))
+     :VERSIONS (:110 :120 :130 :140 :150 :330
+                :400 :410 :420 :430 :440 :450 :460
+                :110-CORE :120-CORE :130-CORE :140-CORE :150-CORE :330-CORE
+                :400-CORE :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
 
     (:LISP-NAME "DVEC4" :NAME "dvec4" :RETURN "dvec4"
      :ARGS (("x" "double") ("y" "double") ("r" "dvec2"))
@@ -422,6 +478,16 @@
      :PURE T)
     (:LISP-NAME "DVEC4" :NAME "dvec4" :RETURN "dvec4"
      :ARGS (("a" "dvec2") ("b" "dvec2"))
+     :VERSIONS (:410 :420 :430 :440 :450 :460
+                :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+    (:LISP-NAME "DVEC4" :NAME "dvec4" :RETURN "dvec4"
+     :ARGS (("a" "dvec3") ("b" "double"))
+     :VERSIONS (:410 :420 :430 :440 :450 :460
+                :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
+     :PURE T)
+    (:LISP-NAME "DVEC4" :NAME "dvec4" :RETURN "dvec4"
+     :ARGS (("a" "double") ("b" "dvec3"))
      :VERSIONS (:410 :420 :430 :440 :450 :460
                 :410-CORE :420-CORE :430-CORE :440-CORE :450-CORE :460-CORE)
      :PURE T)))
