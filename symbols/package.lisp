@@ -66,7 +66,8 @@
                               :GL-FRAG-DEPTH :GL-FRONT-COLOR :GL-FRONT-FACING
                               :GL-FRONT-SECONDARY-COLOR
                               :GL-GLOBAL-INVOCATION-ID :GL-HELPER-INVOCATION
-                              :GL-INSTANCE-ID :GL-INVOCATION-ID :GL-LAYER
+                              :GL-INSTANCE-ID :GL-INSTANCE-INDEX
+                              :GL-INVOCATION-ID :GL-LAYER
                               :GL-LOCAL-INVOCATION-ID
                               :GL-LOCAL-INVOCATION-INDEX :GL-MAX-CLIP-DISTANCES
                               :GL-MAX-CLIP-PLANES
@@ -94,8 +95,9 @@
                               :GL-SAMPLE-MASK-IN :GL-SAMPLE-POSITION
                               :GL-SECONDARY-COLOR :GL-TESS-COORD
                               :GL-TESS-LEVEL-INNER :GL-TESS-LEVEL-OUTER
-                              :GL-VERTEX :GL-VERTEX-ID :GL-VIEWPORT-INDEX
-                              :GL-WORK-GROUP-ID :GL-WORK-GROUP-SIZE))
+                              :GL-VERTEX :GL-VERTEX-ID :GL-VERTEX-INDEX
+                              :GL-VIEWPORT-INDEX :GL-WORK-GROUP-ID
+                              :GL-WORK-GROUP-SIZE))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.FUNCTIONS (:USE #:CL)
                              (:EXPORT :ABS :ACOS :ACOSH :ALL :ALL-INVOCATION
