@@ -72,7 +72,7 @@
                                 (intern lisp-name :keyword)
                                 (error "bummer"))))
                         glsl-spec:*matrix-constructors*)))
-         (mcon (remove-duplicates
+         (tcon (remove-duplicates
                 (mapcar (lambda (x)
                           (destructuring-bind (&key lisp-name &allow-other-keys) x
                             (if lisp-name
@@ -99,7 +99,7 @@
                    (:export ,@(sort mcon #'string<)))
                  (uiop:define-package #:glsl-symbols.texture-combined-sampler-constructors
                      (:use #:cl)
-                   (:export ,@(sort mcon #'string<)))
+                   (:export ,@(sort tcon #'string<)))
                  (uiop:define-package #:glsl-symbols
                      ;; we dont have the constructors here as they are
                      ;; covered by glsl-symbols.types

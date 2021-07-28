@@ -168,24 +168,11 @@
                               :VEC3 :VEC4))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.MATRIX-CONSTRUCTORS (:USE #:CL)
-                             (:EXPORT :ISAMPLER-1D :ISAMPLER-1D-ARRAY
-                              :ISAMPLER-2D :ISAMPLER-2D-ARRAY :ISAMPLER-2D-MS
-                              :ISAMPLER-2D-MS-ARRAY :ISAMPLER-2D-RECT
-                              :ISAMPLER-3D :ISAMPLER-BUFFER :ISAMPLER-CUBE
-                              :ISAMPLER-CUBE-ARRAY :SAMPLER-1D
-                              :SAMPLER-1D-ARRAY :SAMPLER-1D-ARRAY-SHADOW
-                              :SAMPLER-1D-SHADOW :SAMPLER-2D :SAMPLER-2D-ARRAY
-                              :SAMPLER-2D-ARRAY-SHADOW :SAMPLER-2D-MS
-                              :SAMPLER-2D-MS-ARRAY :SAMPLER-2D-RECT
-                              :SAMPLER-2D-RECT-SHADOW :SAMPLER-2D-SHADOW
-                              :SAMPLER-3D :SAMPLER-BUFFER :SAMPLER-CUBE
-                              :SAMPLER-CUBE-ARRAY :SAMPLER-CUBE-ARRAY-SHADOW
-                              :SAMPLER-CUBE-SHADOW :USAMPLER-1D
-                              :USAMPLER-1D-ARRAY :USAMPLER-2D
-                              :USAMPLER-2D-ARRAY :USAMPLER-2D-MS
-                              :USAMPLER-2D-MS-ARRAY :USAMPLER-2D-RECT
-                              :USAMPLER-3D :USAMPLER-BUFFER :USAMPLER-CUBE
-                              :USAMPLER-CUBE-ARRAY))
+                             (:EXPORT :DMAT2 :DMAT2X2 :DMAT2X3 :DMAT2X4 :DMAT3
+                              :DMAT3X2 :DMAT3X3 :DMAT3X4 :DMAT4 :DMAT4X2
+                              :DMAT4X3 :DMAT4X4 :MAT2 :MAT2X2 :MAT2X3 :MAT2X4
+                              :MAT3 :MAT3X2 :MAT3X3 :MAT3X4 :MAT4 :MAT4X2
+                              :MAT4X3 :MAT4X4))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE
  #:GLSL-SYMBOLS.TEXTURE-COMBINED-SAMPLER-CONSTRUCTORS (:USE #:CL)
