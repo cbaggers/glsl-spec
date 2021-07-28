@@ -11,4 +11,5 @@
                (:file "variables")
                (:file "operators")
                (:file "vector-constructors")
-               (:file "matrix-constructors")))
+               (:file "matrix-constructors")
+               (:file "texture-combined-sampler-constructors"))
