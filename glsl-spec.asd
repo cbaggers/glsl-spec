@@ -11,4 +11,4 @@
                (:file "operators")
                (:file "vector-constructors")
                (:file "matrix-constructors")
-               (:file "texture-combined-sampler-constructors"))
+               (:file "texture-combined-sampler-constructors")))
