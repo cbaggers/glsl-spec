@@ -6,7 +6,6 @@
   :license "The Unlicense"
   :serial t
   :components ((:file "package")
-               (:file "stages")
                (:file "functions")
                (:file "variables")
                (:file "operators")
