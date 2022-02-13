@@ -91,13 +91,26 @@
                               :GL-NORMAL :GL-NUM-SAMPLES :GL-NUM-WORK-GROUPS
                               :GL-PATCH-VERTICES-IN :GL-POINT-COORD
                               :GL-POINT-SIZE :GL-POSITION :GL-PRIMITIVE-ID
-                              :GL-PRIMITIVE-IDIN :GL-SAMPLE-ID :GL-SAMPLE-MASK
-                              :GL-SAMPLE-MASK-IN :GL-SAMPLE-POSITION
-                              :GL-SECONDARY-COLOR :GL-TESS-COORD
-                              :GL-TESS-LEVEL-INNER :GL-TESS-LEVEL-OUTER
-                              :GL-VERTEX :GL-VERTEX-ID :GL-VERTEX-INDEX
-                              :GL-VIEWPORT-INDEX :GL-WORK-GROUP-ID
-                              :GL-WORK-GROUP-SIZE))
+                              :GL-PRIMITIVE-IDIN
+                              :GL-RAY-FLAGS-CULL-BACK-FACING-TRIANGLES-EXT
+                              :GL-RAY-FLAGS-CULL-FRONT-FACING-TRIANGLES-EXT
+                              :GL-RAY-FLAGS-CULL-NO-OPAQUE-EXT
+                              :GL-RAY-FLAGS-CULL-OPAQUE-EXT
+                              :GL-RAY-FLAGS-NO-OPAQUE-EXT
+                              :GL-RAY-FLAGS-NONE-EXT :GL-RAY-FLAGS-OPAQUE-EXT
+                              :GL-RAY-FLAGS-SKIP-CLOSEST-HIT-SHADER-EXT
+                              :GL-RAY-FLAGS-TERMINATE-ON-FIRST-HIT-EXT
+                              :GL-RAY-QUERY-CANDIDATE-INTERSECTION-AABB-EXT
+                              :GL-RAY-QUERY-CANDIDATE-INTERSECTION-TRIANGLE-EXT
+                              :GL-RAY-QUERY-COMMITTED-INTERSECTION-GENERATED-EXT
+                              :GL-RAY-QUERY-COMMITTED-INTERSECTION-NONE-EXT
+                              :GL-RAY-QUERY-COMMITTED-INTERSECTION-TRIANGLE-EXT
+                              :GL-SAMPLE-ID :GL-SAMPLE-MASK :GL-SAMPLE-MASK-IN
+                              :GL-SAMPLE-POSITION :GL-SECONDARY-COLOR
+                              :GL-TESS-COORD :GL-TESS-LEVEL-INNER
+                              :GL-TESS-LEVEL-OUTER :GL-VERTEX :GL-VERTEX-ID
+                              :GL-VERTEX-INDEX :GL-VIEWPORT-INDEX
+                              :GL-WORK-GROUP-ID :GL-WORK-GROUP-SIZE))
 
 (UIOP/PACKAGE:DEFINE-PACKAGE #:GLSL-SYMBOLS.FUNCTIONS (:USE #:CL)
                              (:EXPORT :ABS :ACOS :ACOSH :ALL :ALL-INVOCATION
@@ -141,12 +154,33 @@
                               :NOT-EQUAL :OUTER-PRODUCT :PACK-DOUBLE2X32
                               :PACK-HALF2X16 :PACK-SNORM2X16 :PACK-SNORM4X8
                               :PACK-UNORM2X16 :PACK-UNORM4X8 :POW :RADIANS
-                              :REFLECT :REFRACT :ROUND :ROUND-EVEN :SIGN :SIN
-                              :SINH :SMOOTHSTEP :SQRT :STEP :SUBPASS-LOAD :TAN
-                              :TANH :TEXEL-FETCH :TEXEL-FETCH-OFFSET :TEXTURE
-                              :TEXTURE-GATHER :TEXTURE-GATHER-OFFSET
-                              :TEXTURE-GATHER-OFFSETS :TEXTURE-GRAD
-                              :TEXTURE-GRAD-OFFSET :TEXTURE-LOD
+                              :RAY-QUERY-CONFIRM-INTERSECTION-EXT
+                              :RAY-QUERY-GENERATE-INTERSECTION-EXT
+                              :RAY-QUERY-GET-INTERSECTION-BARYCENTRICS-EXT
+                              :RAY-QUERY-GET-INTERSECTION-CANDIDATE-AABB-OPAQUE-EXT
+                              :RAY-QUERY-GET-INTERSECTION-FRONT-FACE-EXT
+                              :RAY-QUERY-GET-INTERSECTION-INSTANCE-CUSTOM-INDEX-EXT
+                              :RAY-QUERY-GET-INTERSECTION-INSTANCE-GEOMETRY-INDEX-EXT
+                              :RAY-QUERY-GET-INTERSECTION-INSTANCE-ID-EXT
+                              :RAY-QUERY-GET-INTERSECTION-INSTANCE-PRIMITIVE-INDEX-EXT
+                              :RAY-QUERY-GET-INTERSECTION-INSTANCE-SHADER-BINDING-TABLE-RECORD-OFFSET-EXT
+                              :RAY-QUERY-GET-INTERSECTION-OBJECT-RAY-DIRECTION-EXT
+                              :RAY-QUERY-GET-INTERSECTION-OBJECT-RAY-ORIGIN-EXT
+                              :RAY-QUERY-GET-INTERSECTION-OBJECT-TO-WORLD-EXT
+                              :RAY-QUERY-GET-INTERSECTION-T-EXT
+                              :RAY-QUERY-GET-INTERSECTION-TYPE-EXT
+                              :RAY-QUERY-GET-INTERSECTION-WORLD-TO-OBJECT-EXT
+                              :RAY-QUERY-GET-RAY-FLAGS-EXT
+                              :RAY-QUERY-GET-RAY-T-MIN-EXT
+                              :RAY-QUERY-GET-WORLD-RAY-DIRECTION-EXT
+                              :RAY-QUERY-GET-WORLD-RAY-ORIGIN-EXT
+                              :RAY-QUERY-INITIALIZE-EXT :RAY-QUERY-PROCEED-EXT
+                              :RAY-QUERY-TERMINATE-EXT :REFLECT :REFRACT :ROUND
+                              :ROUND-EVEN :SIGN :SIN :SINH :SMOOTHSTEP :SQRT
+                              :STEP :SUBPASS-LOAD :TAN :TANH :TEXEL-FETCH
+                              :TEXEL-FETCH-OFFSET :TEXTURE :TEXTURE-GATHER
+                              :TEXTURE-GATHER-OFFSET :TEXTURE-GATHER-OFFSETS
+                              :TEXTURE-GRAD :TEXTURE-GRAD-OFFSET :TEXTURE-LOD
                               :TEXTURE-LOD-OFFSET :TEXTURE-OFFSET :TEXTURE-PROJ
                               :TEXTURE-PROJ-GRAD :TEXTURE-PROJ-GRAD-OFFSET
                               :TEXTURE-PROJ-LOD :TEXTURE-PROJ-LOD-OFFSET
