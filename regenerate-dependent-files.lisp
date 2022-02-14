@@ -22,6 +22,7 @@
   (export-data-to-json glsl-spec:*operators* "operators.json")
   (export-data-to-json glsl-spec:*vector-constructors* "vector-constructors.json")
   (export-data-to-json glsl-spec:*matrix-constructors* "matrix-constructors.json")
+  (export-data-to-json glsl-spec:*texture-combined-sampler-constructors* "texture-combined-sampler-constructors.json")
   (export-data-to-json glsl-spec:*variables* "variables.json"))
 
 ;;------------------------------
@@ -71,6 +72,13 @@
                                 (intern lisp-name :keyword)
                                 (error "bummer"))))
                         glsl-spec:*matrix-constructors*)))
+         (tcon (remove-duplicates
+                (mapcar (lambda (x)
+                          (destructuring-bind (&key lisp-name &allow-other-keys) x
+                            (if lisp-name
+                                (intern lisp-name :keyword)
+                                (error "bummer"))))
+                        glsl-spec:*texture-combined-sampler-constructors*)))
          (pkgs `((uiop:define-package #:glsl-symbols.types
                      (:use #:cl)
                    (:export ,@(sort types #'string<)))
@@ -89,6 +97,9 @@
                  (uiop:define-package #:glsl-symbols.matrix-constructors
                      (:use #:cl)
                    (:export ,@(sort mcon #'string<)))
+                 (uiop:define-package #:glsl-symbols.texture-combined-sampler-constructors
+                     (:use #:cl)
+                   (:export ,@(sort tcon #'string<)))
                  (uiop:define-package #:glsl-symbols
                      ;; we dont have the constructors here as they are
                      ;; covered by glsl-symbols.types

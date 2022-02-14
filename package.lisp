@@ -6,4 +6,5 @@
            :*variables*
            :*operators*
            :*vector-constructors*
-           :*matrix-constructors*))
+           :*matrix-constructors*
+           :*texture-combined-sampler-constructors*))
